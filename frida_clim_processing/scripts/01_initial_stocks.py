@@ -1,6 +1,6 @@
 import pandas as pd
 
-start_year = 1850
+start_year = 1750
 
 luh_to_frida = {
     'Land Use.Initial Mature Forest':'forest',

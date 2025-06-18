@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xmile version="1.0" xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" xmlns:isee="http://iseesystems.com/XMILE">
 	<header>
-		<smile version="1.0" namespace="std, isee" uses_arrays="2" uses_submodels=""/>
+		<smile version="1.0" namespace="std, isee" uses_arrays="1" uses_submodels=""/>
 		<name>Climate</name>
 		<uuid>6b3172a7-ef66-4feb-8f28-f439698b1c18</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -15,14 +15,9 @@
 	<dimensions>
 		<dim name="ClimateCase" size="100"/>
 		<dim name="ExtremesExposureImpactCase" size="11"/>
-		<dim name="FossilFuelTypes">
-			<elem name="Gas"/>
-			<elem name="Oil"/>
-			<elem name="Coal"/>
-		</dim>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -233,14 +228,10 @@
 	</model_units>
 	<model name="Climate">
 		<variables>
-			<module name="Sea Level" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Sea Level.itmx">
+			<module name="Sea Level" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA_Modules/Sea Level.itmx">
 				<format scale_by="auto"/>
 				<connect to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
 				<connect2 to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
-				<connect to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
-				<connect2 to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
-				<connect to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
-				<connect2 to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
 				<connect to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
 				<connect2 to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
 				<connect to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
@@ -265,7 +256,7 @@
 				<connect2 to="Sea_Level.total_groundwater_anomaly" from="Freshwater.total_groundwater_anomaly"/>
 			</module>
 			<module name="Ocean" isee:label="Ocean
-Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Ocean.itmx">
+Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA_Modules/Ocean.itmx">
 				<format scale_by="auto"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
@@ -356,8 +347,6 @@ Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modu
 				<connect2 to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
-				<connect2 to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
 				<connect to="Energy_Balance_Model.selected_extremes_exposure_damages_case" from="Climate_Units.selected_extremes_exposure_damages_case"/>
 				<connect2 to="Energy_Balance_Model.selected_extremes_exposure_damages_case" from="Climate_Units.selected_extremes_exposure_damages_case"/>
 				<connect to="Ocean.UNIT_deg_C_to_unitless" from="Climate_Units.UNIT_deg_C_to_unitless"/>
@@ -376,14 +365,14 @@ Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modu
 				<connect2 to="Ocean.UNIT_GtC_to_kmol" from="Climate_Units.UNIT_GtC_to_kmol"/>
 				<connect to="Ocean.UNIT_GtC_to_kmol_1" from="Climate_Units.UNIT_GtC_to_kmol"/>
 				<connect2 to="Ocean.UNIT_GtC_to_kmol_1" from="Climate_Units.UNIT_GtC_to_kmol"/>
+				<connect to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="Ocean.UNIT_Kelvin_at_0_deg_C_unitless" from="Climate_Units.UNIT_Kelvin_at_0_deg_C_unitless"/>
 				<connect2 to="Ocean.UNIT_Kelvin_at_0_deg_C_unitless" from="Climate_Units.UNIT_Kelvin_at_0_deg_C_unitless"/>
 				<connect to="Minor_GHGs_Forcing.UNIT_kt_to_kg" from="Climate_Units.UNIT_kt_to_kg"/>
 				<connect2 to="Minor_GHGs_Forcing.UNIT_kt_to_kg" from="Climate_Units.UNIT_kt_to_kg"/>
-				<connect to="Emissions.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
-				<connect2 to="Emissions.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
-				<connect to="Emissions.UNIT_ktN2O_to_MtN2O_1" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
-				<connect2 to="Emissions.UNIT_ktN2O_to_MtN2O_1" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
 				<connect to="N2O_Forcing.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
 				<connect2 to="N2O_Forcing.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
 				<connect to="BC_on_Snow_Forcing.UNIT_MtCO2_to_GtCO2_1" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
@@ -407,8 +396,6 @@ Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modu
 			</module>
 			<module name="Energy\nBalance\nModel" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Crop.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
-				<connect2 to="Crop.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
@@ -429,12 +416,8 @@ Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modu
 				<connect2 to="N2O_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect2 to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
-				<connect to="Emissions.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Emissions.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
@@ -450,7 +433,7 @@ Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modu
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 			</module>
-			<module name="Emissions" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Emissions.itmx">
+			<module name="Emissions" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA_Modules/Emissions.itmx">
 				<format scale_by="auto"/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
@@ -468,18 +451,8 @@ Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modu
 				<connect2 to="Ozone_Forcing.CO_emissions" from="Emissions.CO_Emissions"/>
 				<connect to="BC_on_Snow_Forcing.CO2_Emissions_from_Food_and_Land_Use" from="Emissions.CO2_Emissions_from_Food_and_Land_Use"/>
 				<connect2 to="BC_on_Snow_Forcing.CO2_Emissions_from_Food_and_Land_Use" from="Emissions.CO2_Emissions_from_Food_and_Land_Use"/>
-				<connect to="CCS.CO2_emissions_from_biofuels" from="Emissions.CO2_emissions_from_biofuels"/>
-				<connect2 to="CCS.CO2_emissions_from_biofuels" from="Emissions.CO2_emissions_from_biofuels"/>
-				<connect to="CCS.CO2_emissions_from_coal" from="Emissions.CO2_emissions_from_coal"/>
-				<connect2 to="CCS.CO2_emissions_from_coal" from="Emissions.CO2_emissions_from_coal"/>
-				<connect to="CCS.CO2_emissions_from_gas" from="Emissions.CO2_emissions_from_gas"/>
-				<connect2 to="CCS.CO2_emissions_from_gas" from="Emissions.CO2_emissions_from_gas"/>
-				<connect to="CCS.CO2_emissions_from_oil" from="Emissions.CO2_emissions_from_oil"/>
-				<connect2 to="CCS.CO2_emissions_from_oil" from="Emissions.CO2_emissions_from_oil"/>
-				<connect to="CCS.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect2 to="CCS.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect to="Minor_GHGs_Forcing.HFC134a_emissions" from="Emissions.HFC134a_eq_Emissions"/>
-				<connect2 to="Minor_GHGs_Forcing.HFC134a_emissions" from="Emissions.HFC134a_eq_Emissions"/>
+				<connect to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
+				<connect2 to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect to="CO2_Forcing.Net_land_carbon_flux" from="Emissions.land_carbon_sink"/>
 				<connect2 to="CO2_Forcing.Net_land_carbon_flux" from="Emissions.land_carbon_sink"/>
 				<connect to="Terrestrial_Carbon_Balance.land_carbon_sink" from="Emissions.land_carbon_sink"/>
@@ -512,56 +485,18 @@ Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modu
 				<connect2 to="Emissions.Annual_realized_CO2_emissions_from_land_use_transitions" from="Terrestrial_Carbon_Balance.Annual_realized_CO2_emissions_from_land_use_transitions"/>
 				<connect to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect2 to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
-				<connect to="Emissions.CO2_emissions_from_concrete" from="Inputs.CO2_emissions_from_concrete"/>
-				<connect2 to="Emissions.CO2_emissions_from_concrete" from="Inputs.CO2_emissions_from_concrete"/>
-				<connect to="Emissions.crops_for_energy" from="Food_Demand.crops_for_energy"/>
-				<connect2 to="Emissions.crops_for_energy" from="Food_Demand.crops_for_energy"/>
 				<connect to="Emissions.deforestation_carbon_loss" from="Terrestrial_Carbon_Balance.deforestation_carbon_loss"/>
 				<connect2 to="Emissions.deforestation_carbon_loss" from="Terrestrial_Carbon_Balance.deforestation_carbon_loss"/>
 				<connect to="Emissions.forest_regrowth_carbon_uptake" from="Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake"/>
 				<connect2 to="Emissions.forest_regrowth_carbon_uptake" from="Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_coal_GtC" from="Inputs.fossil_CO2_emissions_from_coal_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_coal_GtC" from="Inputs.fossil_CO2_emissions_from_coal_GtC"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_gas_GtC" from="Inputs.fossil_CO2_emissions_from_gas_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_gas_GtC" from="Inputs.fossil_CO2_emissions_from_gas_GtC"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_oil_GtC" from="Inputs.fossil_CO2_emissions_from_oil_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_oil_GtC" from="Inputs.fossil_CO2_emissions_from_oil_GtC"/>
-				<connect to="Emissions.Global_population" from="Inputs.Global_population"/>
-				<connect2 to="Emissions.Global_population" from="Inputs.Global_population"/>
-				<connect to="Emissions.Globap_real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
-				<connect2 to="Emissions.Globap_real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
-				<connect to="Emissions.Leakage" from="CCS.CO2_Emissions_from_Leakage"/>
-				<connect2 to="Emissions.Leakage" from="CCS.CO2_Emissions_from_Leakage"/>
-				<connect to="Emissions.livestock_production" from="Animal_Products.animal_products_production"/>
-				<connect2 to="Emissions.livestock_production" from="Animal_Products.animal_products_production"/>
-				<connect to="Emissions.man_made_fertilizer_use" from="Land_Nutrients.man_made_fertilizer_use"/>
-				<connect2 to="Emissions.man_made_fertilizer_use" from="Land_Nutrients.man_made_fertilizer_use"/>
-				<connect to="Emissions.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect2 to="Emissions.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect to="Emissions.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect2 to="Emissions.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect to="Emissions.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect2 to="Emissions.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect to="Emissions.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect2 to="Emissions.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect to="Emissions.start_year" from="Government_Regulations.start_year"/>
-				<connect2 to="Emissions.start_year" from="Government_Regulations.start_year"/>
-				<connect to="Emissions.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Emissions.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Emissions.Terrestrial_carbon_balance" from="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance"/>
 				<connect2 to="Emissions.Terrestrial_carbon_balance" from="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance"/>
-				<connect to="Emissions.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
-				<connect2 to="Emissions.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
-				<connect to="Emissions.UNIT_ktN2O_to_MtN2O_1" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
-				<connect2 to="Emissions.UNIT_ktN2O_to_MtN2O_1" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
+				<connect to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 			</module>
 			<module name="Forcing" isee:label="Radiative
-Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Forcing.itmx">
+Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA_Modules/Forcing.itmx">
 				<format scale_by="auto"/>
-				<connect to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
-				<connect2 to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
-				<connect to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
-				<connect2 to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect to="Aerosol_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -606,12 +541,6 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 				<connect2 to="CH4_Forcing.UNIT_ppm_to_ppb" from="Climate_Units.UNIT_ppm_to_ppb"/>
 				<connect to="CH4_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
 				<connect2 to="CH4_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
-				<connect to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
@@ -644,8 +573,8 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
-				<connect to="Minor_GHGs_Forcing.HFC134a_emissions" from="Emissions.HFC134a_eq_Emissions"/>
-				<connect2 to="Minor_GHGs_Forcing.HFC134a_emissions" from="Emissions.HFC134a_eq_Emissions"/>
+				<connect to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
+				<connect2 to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect to="Minor_GHGs_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
 				<connect2 to="Minor_GHGs_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
 				<connect to="Minor_GHGs_Forcing.Molecular_Weight_of_Air" from="Climate_Units.Molecular_Weight_of_Air"/>
@@ -711,10 +640,6 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 				<connect2 to="Emissions.forest_regrowth_carbon_uptake" from="Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake"/>
 				<connect to="Emissions.Terrestrial_carbon_balance" from="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance"/>
 				<connect2 to="Emissions.Terrestrial_carbon_balance" from="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance"/>
-				<connect to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
-				<connect2 to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
-				<connect to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
-				<connect2 to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
@@ -747,8 +672,8 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass" from="Forest.forest_aboveground_biomass"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_Land" from="Land_Use.Forest_Land"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land" from="Land_Use.Forest_Land"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
@@ -763,10 +688,10 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
-				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss" from="Land_Use.gross_forest_land_use_loss"/>
-				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss" from="Land_Use.gross_forest_land_use_loss"/>
-				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss" from="Land_Use.gross_grassland_land_use_loss"/>
-				<connect2 to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss" from="Land_Use.gross_grassland_land_use_loss"/>
+				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
+				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
+				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
+				<connect2 to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
 				<connect to="Terrestrial_Carbon_Balance.land_carbon_sink" from="Emissions.land_carbon_sink"/>
 				<connect2 to="Terrestrial_Carbon_Balance.land_carbon_sink" from="Emissions.land_carbon_sink"/>
 				<connect to="Terrestrial_Carbon_Balance.litter_emissions_GtC" from="soil_carbon_emissions.litter_emissions_GtC"/>
@@ -777,10 +702,6 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 				<connect2 to="Terrestrial_Carbon_Balance.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
-				<connect to="Terrestrial_Carbon_Balance.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.slow_soil_carbon_emissions_young_forest" from="forest_soil_carbon.slow_soil_carbon_emissions_young_forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.slow_soil_carbon_emissions_young_forest" from="forest_soil_carbon.slow_soil_carbon_emissions_young_forest"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_balance_cropland" from="cropland_soil_carbon.soil_carbon_balance_cropland"/>
@@ -947,148 +868,7 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
-				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
-				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
-					<isee:series_styles>
-						<isee:series_style color="blue" thickness="1"/>
-						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF7F00" thickness="1"/>
-						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF007F" thickness="1"/>
-						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#C8C8C8" thickness="1"/>
-					</isee:series_styles>
-				</graph>
-				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
-				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:sim_speed_slider color="black" background="white"/>
-				<isee:time_slider color="#E95F74" background="silver"/>
-				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
-				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
-				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
-				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
-				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
-				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
-				<lamp color="black" background="white" font_size="9pt"/>
-				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
-				<isee:spatial_map color="black" background="white" font_size="12pt"/>
-				<isee:animation_object color="black" background="white" font_size="12pt"/>
-				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
-				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
-				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-			</style>
-			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
-				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
-				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
-					<isee:series_styles>
-						<isee:series_style color="blue" thickness="1"/>
-						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF7F00" thickness="1"/>
-						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF007F" thickness="1"/>
-						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#C8C8C8" thickness="1"/>
-					</isee:series_styles>
-				</graph>
-				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
-				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:sim_speed_slider color="black" background="white"/>
-				<isee:time_slider color="#E95F74" background="silver"/>
-				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
-				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
-				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
-				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
-				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
-				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
-				<lamp color="black" background="white" font_size="9pt"/>
-				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
-				<isee:spatial_map color="black" background="white" font_size="12pt"/>
-				<isee:animation_object color="black" background="white" font_size="12pt"/>
-				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
-				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
-				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-			</style>
-			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
-				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
-				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
-					<isee:series_styles>
-						<isee:series_style color="blue" thickness="1"/>
-						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF7F00" thickness="1"/>
-						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF007F" thickness="1"/>
-						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#C8C8C8" thickness="1"/>
-					</isee:series_styles>
-				</graph>
-				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
-				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:sim_speed_slider color="black" background="white"/>
-				<isee:time_slider color="#E95F74" background="silver"/>
-				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
-				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
-				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
-				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
-				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
-				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
-				<lamp color="black" background="white" font_size="9pt"/>
-				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
-				<isee:spatial_map color="black" background="white" font_size="12pt"/>
-				<isee:animation_object color="black" background="white" font_size="12pt"/>
-				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
-				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
-				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="3" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="3" isee:scroll_x="70" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1141,10 +921,6 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 				<module label_side="center" x="550" y="316.919" name="Energy\nBalance\nModel"/>
 				<module label_side="center" x="273.5" y="314.833" name="Emissions"/>
 				<module label_side="center" x="371.332" y="313.586" name="Forcing"/>
-				<connector uid="18" isee:thickness="2" angle="356.836" isee:autocreated="true">
-					<from>Emissions</from>
-					<to>Forcing</to>
-				</connector>
 				<connector uid="19" isee:thickness="2" angle="157.142">
 					<from>Energy_Balance_Model</from>
 					<to>Forcing</to>
@@ -1165,10 +941,6 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 					<from>Climate_Units</from>
 					<to>Energy_Balance_Model</to>
 				</connector>
-				<connector uid="42" color="#F0F3F3" font_color="#F0F3F3" isee:thickness="1" angle="231.154" isee:autocreated="true">
-					<from>Climate_Units</from>
-					<to>Emissions</to>
-				</connector>
 				<connector uid="43" color="#F0F3F3" font_color="#F0F3F3" isee:thickness="1" angle="247.504" isee:autocreated="true">
 					<from>Climate_Units</from>
 					<to>Forcing</to>
@@ -1182,6 +954,10 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 					<to>Forcing</to>
 				</connector>
 				<module label_side="center" x="136" y="313.586" name="Terrestrial\nCarbon\nBalance"/>
+				<connector uid="18" isee:thickness="2" angle="356.836" isee:autocreated="true">
+					<from>Emissions</from>
+					<to>Forcing</to>
+				</connector>
 				<connector uid="54" isee:thickness="2" angle="24.4802" isee:autocreated="true">
 					<from>Terrestrial_Carbon_Balance</from>
 					<to>Emissions</to>
@@ -1190,8 +966,8 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Mod
 					<from>Emissions</from>
 					<to>Terrestrial_Carbon_Balance</to>
 				</connector>
-				<connector uid="56" isee:thickness="2" angle="204.568" isee:autocreated="true">
-					<from>Energy_Balance_Model</from>
+				<connector uid="57" isee:thickness="2" angle="256.153" isee:autocreated="true">
+					<from>Climate_Units</from>
 					<to>Emissions</to>
 				</connector>
 			</view>
@@ -1379,6 +1155,10 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				</element>
 				<units>dmnl</units>
 			</aux>
+			<aux name="UNIT GtC to MtCO2" access="output" isee:autocreated="true">
+				<eqn>3670</eqn>
+				<units>MtCO2/GtC</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -1405,7 +1185,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -1428,7 +1208,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:scroll_y="52" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1493,6 +1273,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<aux x="998" y="99" name="selected hot\nmortality impact case"/>
 				<aux x="620" y="177" name="selected extremes exposure\ndamages case"/>
 				<aux x="772" y="177" name="selected crops\ndamages case"/>
+				<aux x="264" y="414" name="UNIT GtC to MtCO2"/>
 			</view>
 		</views>
 	</model>
@@ -1523,7 +1304,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Deep_Ocean_Temperature[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<outflow>Change_in_Deep_Ocean_Temperature</outflow>
 				<units>K</units>
 			</stock>
@@ -1531,626 +1312,10 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Thermocline_Ocean_Temperature[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<outflow>Change_in_Thermocline_Ocean_Temperature</outflow>
 				<units>K</units>
 			</stock>
-			<aux name="Initial Deep Ocean Temperature">
-				<doc>${External Parameter}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.0863105043162</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.0301258983959</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.0369151196639</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.0565429161292</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.0892658959789</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.206142209748</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.0625907585026</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.0567866928624</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.0558171519049</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.0774516918769</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.12121745195</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.00274615616052</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.0369465254305</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.0910288209892</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.0484861491778</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.136083003044</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.0794024302336</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.0382177150539</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.0768378788099</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.12831976628</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.0431963602102</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.0164468467402</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.067884525085</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.151043891434</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.0110219844881</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.0631720223386</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.108736988502</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.0215564542746</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.0352923864855</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.0558591261299</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.0226078775266</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.0161675426239</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.0861358178541</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.102665612443</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.00535291529877</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.0682360103427</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.120711035015</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.0389495547529</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.0803860511754</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.0578338836085</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.0692593269497</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.0363591006708</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.0665114368878</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.0692450125628</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.0113432261015</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.0893201500733</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.020713808877</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.128478695078</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.061933864483</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.0059127297602</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.0856886378295</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.0516891891427</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.118286302279</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.0609000987614</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.00872415691097</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.0584592876673</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.0671148402656</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.02904215585</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.0309438699692</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.0342156465001</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.0450567206035</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.0321931029282</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.0408528079553</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.0430834005991</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.0613442031691</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.0158120903223</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.018616471208</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.0656669188502</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.0705453792363</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.0110494931289</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.0670127480666</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.0114171070016</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.0623919393947</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.0601086490277</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.055240746299</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.0336781666943</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.0895691090237</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.0536748125417</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.0181338018015</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.0100666777231</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.0411372875837</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.069935675801</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.0102551234788</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.0191261931244</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.0902569496374</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.111198628477</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.0976953771422</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.037643367944</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.0564412862802</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.0759375142683</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.0437655592559</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.117028448355</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.0791215076514</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.0666018728378</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.0437214679211</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>-0.00192419838089</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.0776934447065</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.0521011612976</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.110117191269</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.0474876741154</eqn>
-				</element>
-				<units>K</units>
-			</aux>
-			<aux name="Initial Land &amp; Ocean\nSurface Temperature">
-				<doc>${External Parameter}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.359389790867</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.445262050259</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.252054262597</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.687144686598</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.362421375093</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.414892927885</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.251839522882</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.304191077896</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.521258157404</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.233682740433</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.727563153162</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.30012312459</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.30835438323</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.387486316445</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.384815930984</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.456499980803</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.36867898609</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.248669305234</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.510213539126</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.406828100528</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.420573991526</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.531620457504</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.457540728383</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.534407405926</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.332013299203</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.536219420028</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.384382351516</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.284644527801</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.342068386689</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.285289088949</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.387623053946</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.305130533495</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.33904414315</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.42437800224</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.281207036993</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.239437155085</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.360718651398</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.459864872729</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.288843500043</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.297106908604</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.410509655779</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.56357393451</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.347394391976</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.401902825765</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.520657001197</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.349138498441</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.364528436676</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.45613551744</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.560170624521</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.317743811167</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.418231257864</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.397881415554</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.531605769338</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.277953521191</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.344551287111</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.316510292249</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.389416044681</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.322698234655</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.588435580338</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.365135623137</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.308218620857</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.346787849483</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.401509508491</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.456253634415</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.355431135983</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.512490459969</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.307723915852</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.353078356523</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.422636628917</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.375037324161</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.475015713931</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.338722460226</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.349898267929</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.2373759296</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.41676150567</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.280855108077</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.231662324112</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.258434885761</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.404976586562</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.274133255829</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.304388133482</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.403296051977</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.578379708015</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.312980165193</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.415224618719</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.412200084381</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.51350826759</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.53344338784</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.454120291068</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.419522954266</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.394187618445</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.559436073467</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.408396015039</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.387690792267</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.36603527931</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.292789169278</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.232554829272</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.547048418619</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.5260562515</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.260693659308</eqn>
-				</element>
-				<units>K</units>
-			</aux>
 			<aux name="Surface Temperature 1850 to\n1900 offset relative to 1750">
 				<dimensions>
 					<dim name="ClimateCase"/>
@@ -2454,314 +1619,6 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				</element>
 				<element subscript="100">
 					<eqn>0.0689910387054539</eqn>
-				</element>
-				<units>K</units>
-			</aux>
-			<aux name="Initial Thermocline\nOcean Temperature">
-				<doc>${External Parameter}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.194722418197</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.267246611548</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.204795648293</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.607582948176</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.248756223672</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.313051626082</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.162609312974</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.222608863865</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.22727742666</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.157910898083</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.33510285942</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.200834728626</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.218951802598</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.228172360298</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.193355725193</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.259043181946</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.291168033513</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.112428464759</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.359722834309</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.32470392166</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.240903202541</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.228932601993</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.354870641344</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.389510807158</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.142776004096</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.441710968793</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.211315198784</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.165042798724</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.18938605891</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.181706283204</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.206663250999</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.0934204388761</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.23242303016</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.337475856337</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.154525449317</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.147539513518</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.252390687582</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.241631246482</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.174354388122</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.179806532193</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.233296788708</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.268891130563</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.249585234249</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.247832783172</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.311333441257</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.181889797433</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.173113218282</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.346009067403</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.270269578954</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.170823190794</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.24547361359</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.290820565724</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.277882197329</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.191467859062</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.256207222774</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.200672646332</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.268604891227</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.119322148169</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.390816007478</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.183113720064</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.211063536295</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.206516067097</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.217638613662</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.33541745917</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.224135864749</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.323160833419</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.146138182464</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.198740358807</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.300309018248</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.164696653961</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.342799801072</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.177294150968</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.172484454929</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.151427874245</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.224639577181</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.141030023559</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.137196246302</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.177859084739</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.189563262977</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.208533851492</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.202552562889</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.222272329171</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.252241706872</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.148900833536</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.352108971853</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.248428077702</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.319890584912</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.314810105999</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.300571580812</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.214931345443</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.175680221555</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.299047255925</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.32328052005</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.263953972711</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.257831743875</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.147473623157</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.117932295101</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.342708949951</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.325120813312</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.175918410886</eqn>
 				</element>
 				<units>K</units>
 			</aux>
@@ -4943,7 +3800,7 @@ kappa3 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;Initial_Land_&amp;_Ocean_Surface_Temperature&quot;[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<outflow>&quot;Change_in_Land_&amp;_Ocean_Surface_Temperature&quot;</outflow>
 				<units>K</units>
 			</stock>
@@ -5476,7 +4333,7 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -5499,7 +4356,7 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="284" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="404" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5558,10 +4415,7 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				</flow>
 				<stock x="583" y="645.503" name="Deep Ocean Temperature"/>
 				<stock x="589.667" y="415.503" name="Thermocline Ocean Temperature"/>
-				<aux x="583" y="693.333" name="Initial Deep Ocean Temperature"/>
-				<aux x="602.166" y="238.833" name="Initial Land &amp; Ocean\nSurface Temperature"/>
 				<aux x="748" y="140.583" name="Surface Temperature 1850 to\n1900 offset relative to 1750"/>
-				<aux x="589.667" y="460.003" name="Initial Thermocline\nOcean Temperature"/>
 				<aux x="759.833" y="245.333" name="UNIT Celcius to Kelvin"/>
 				<aux x="881.833" y="191.503" name="Surface Temperature Anomaly"/>
 				<aux x="201.5" y="364.503" name="Heat Capacity of Thermocline Ocean"/>
@@ -6132,27 +4986,6 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mha</units>
 			</stock>
-			<aux name="Forest Land" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha</units>
-			</aux>
-			<aux name="gross forest land use loss" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha</units>
-			</aux>
-			<aux name="gross grassland land use loss" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha</units>
-			</aux>
 			<aux name="deforestation carbon loss" access="output" isee:autocreated="true">
 				<doc>${Calibrated Output}
 </doc>
@@ -6305,20 +5138,6 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mha/Year</units>
 			</aux>
-			<aux name="reforesting cropland" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha/year</units>
-			</aux>
-			<aux name="reforesting\ngrassland" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha/year</units>
-			</aux>
 			<aux name="fallowing cropland" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -6351,7 +5170,7 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(reforesting_grassland+foresting_grassland)*(Grassland_soil_carbon_per_area-Young_forest_soil_carbon_per_area)
+				<eqn>(foresting_grassland)*(Grassland_soil_carbon_per_area-Young_forest_soil_carbon_per_area)
 +
 clearing_grassland*(Grassland_soil_carbon_per_area-Cropland_soil_carbon_per_area)</eqn>
 				<units>GtC/Year</units>
@@ -6360,7 +5179,7 @@ clearing_grassland*(Grassland_soil_carbon_per_area-Cropland_soil_carbon_per_area
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(reforesting_cropland+forresting_cropland)*(Cropland_soil_carbon_per_area-Young_forest_soil_carbon_per_area)
+				<eqn>(forresting_cropland)*(Cropland_soil_carbon_per_area-Young_forest_soil_carbon_per_area)
 +
 fallowing_cropland*(Cropland_soil_carbon_per_area-Grassland_soil_carbon_per_area)</eqn>
 				<units>GtC/Year</units>
@@ -6499,6 +5318,27 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<eqn>(INIT(Young_forest_soil_carbon_per_area)/Young_forest_soil_carbon_per_area)</eqn>
 				<units>dmnl</units>
 			</aux>
+			<aux name="Forest Land 1" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="gross forest land use loss 1" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="gross grassland land use loss 1" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mha</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -6525,7 +5365,7 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -6548,7 +5388,7 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="5" isee:page_rows="3" isee:scroll_x="2315" isee:scroll_y="323" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="3" isee:scroll_x="21.25" isee:scroll_y="253.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6715,31 +5555,12 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 						<plot color="red" isee:keep_zero_visible="true" pen_width="1" index="1" show_y_axis="true">
 							<entity name="Land_Use.Grassland[*]"/>
 						</plot>
-						<plot color="fuchsia" isee:keep_zero_visible="true" pen_width="1" index="2" show_y_axis="true">
-							<entity name="Land_Use.Forest_Land[*]"/>
-						</plot>
-						<plot color="#FF7F00" isee:keep_zero_visible="true" pen_width="1" index="3" show_y_axis="true">
-							<entity name="Land_Use.gross_forest_land_use_loss[*]"/>
-						</plot>
-						<plot color="#7F00FF" isee:keep_zero_visible="true" pen_width="1" index="4" show_y_axis="true">
-							<entity name="Land_Use.gross_grassland_land_use_loss[*]"/>
-						</plot>
 					</graph>
 				</stacked_container>
 				<stock font_style="italic" font_weight="bold" x="2069.67" y="697.917" name="Grassland"/>
 				<stock font_style="italic" font_weight="bold" x="2074.04" y="852.084" name="Cropland"/>
-				<aux font_style="italic" font_weight="bold" x="1419.66" y="645.5" name="Forest Land"/>
-				<aux font_style="italic" font_weight="bold" x="1573.5" y="635.5" name="gross forest land use loss"/>
-				<aux font_style="italic" font_weight="bold" x="1735.08" y="635.5" name="gross grassland land use loss"/>
 				<stacked_container uid="24" x="1338.66" y="719.167" width="448.75" height="336.25">
-					<graph legend_position="bottom" width="448.75" height="336.25" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="Gross Land loss/change" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
-						<plot color="#FF7F00" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
-							<entity name="Land_Use.gross_forest_land_use_loss[*]"/>
-						</plot>
-						<plot color="#7F00FF" isee:keep_zero_visible="true" pen_width="1" index="1" show_y_axis="true">
-							<entity name="Land_Use.gross_grassland_land_use_loss[*]"/>
-						</plot>
-					</graph>
+					<graph legend_position="bottom" width="448.75" height="336.25" type="time_series" isee:points_only="true" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="Gross Land loss/change" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true"/>
 				</stacked_container>
 				<aux x="2125.3" y="191.667" name="deforestation carbon loss"/>
 				<aux label_side="top" x="2065.05" y="144.524" name="clearing"/>
@@ -6823,8 +5644,6 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="2479.67" y="447.667" name="clearing forest\nfor grassland"/>
 				<aux font_style="italic" font_weight="bold" x="2663.67" y="436.667" name="clearing forests\nfor crops"/>
-				<aux font_style="italic" font_weight="bold" x="2621.67" y="637.417" name="reforesting cropland"/>
-				<aux font_style="italic" font_weight="bold" x="2663.67" y="981.667" name="reforesting\ngrassland"/>
 				<aux font_style="italic" font_weight="bold" x="2720.67" y="709.667" name="fallowing cropland"/>
 				<aux font_style="italic" font_weight="bold" x="2788.67" y="963.67" name="clearing grassland"/>
 				<aux font_style="italic" font_weight="bold" x="2558.67" y="679.542" name="forresting cropland"/>
@@ -6832,10 +5651,6 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<aux x="2617.67" y="886.542" name="Estimated soil carbon loss\nfrom converting grassland"/>
 				<connector uid="41" angle="341.98">
 					<from>Grassland_soil_carbon_per_area</from>
-					<to>Estimated_soil_carbon_loss_from_converting_grassland</to>
-				</connector>
-				<connector uid="42" angle="141.383">
-					<from>reforesting_grassland</from>
 					<to>Estimated_soil_carbon_loss_from_converting_grassland</to>
 				</connector>
 				<connector uid="43" angle="59.1636">
@@ -6855,10 +5670,6 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 					<to>Estimated_soil_carbon_loss_from_converting_grassland</to>
 				</connector>
 				<aux x="2608.67" y="747.542" name="Estimated soil carbon loss\nfrom converting cropland"/>
-				<connector uid="47" angle="288.86">
-					<from>reforesting_cropland</from>
-					<to>Estimated_soil_carbon_loss_from_converting_cropland</to>
-				</connector>
 				<connector uid="48" angle="325.702">
 					<from>forresting_cropland</from>
 					<to>Estimated_soil_carbon_loss_from_converting_cropland</to>
@@ -7008,6 +5819,9 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 					<from>effect_of_young_forest_soil_carbon_per_area_on_forest_regrowth_carbon_uptake</from>
 					<to>forest_regrowth_carbon_uptake</to>
 				</connector>
+				<aux font_style="italic" font_weight="bold" x="1405" y="635.5" name="Forest Land 1"/>
+				<aux font_style="italic" font_weight="bold" x="1563.04" y="624.167" name="gross forest land use loss 1"/>
+				<aux font_style="italic" font_weight="bold" x="1727.92" y="635.5" name="gross grassland land use loss 1"/>
 				<alias font_style="italic" uid="77" x="2410.67" y="308.833" width="18" height="18">
 					<of>Young_forest_soil_carbon_per_area</of>
 				</alias>
@@ -7190,7 +6004,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -7529,7 +6343,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -7852,7 +6666,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>

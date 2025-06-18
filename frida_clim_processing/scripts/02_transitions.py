@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-start_year = 1850
+start_year = 1750
 end_year = 2100
 
 ssps = ['ssp126', 'ssp245', 'ssp370']

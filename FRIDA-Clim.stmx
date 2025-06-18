@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xmile version="1.0" xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" xmlns:isee="http://iseesystems.com/XMILE">
 	<header>
-		<smile version="1.0" namespace="std, isee" uses_arrays="2" uses_submodels=""/>
-		<name>FRIDA</name>
+		<smile version="1.0" namespace="std, isee" uses_arrays="1" uses_submodels=""/>
+		<name>FRIDA-Clim</name>
 		<uuid>3924aef6-b823-4f30-a097-790a6cd89080</uuid>
 		<vendor>isee systems, inc.</vendor>
 		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
-		<start>1980</start>
+		<start>Simulation_Start</start>
 		<stop>Simulation_End</stop>
 		<dt reciprocal="true">8</dt>
 	</sim_specs>
@@ -89,6 +89,7 @@
 		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/inputs/frida_clim_land_stocks.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/inputs/frida_clim_land_transitions_hist_ssp245.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/inputs/frida_clim_land_wood_biomass_ssp245.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-emissions/data/outputs/climate_calibration_data.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
 		<isee:sensi_specs name="Climate Sensitivity" method="grid">
@@ -100,26 +101,6 @@
 			<isee:payoff name="Population Payoff" action="min"/>
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Emissions Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" maxiter="0">
-			<isee:parameter name="Emissions.rate_of_decline_in_MtN2O_emission_per_PCal_animal_products[1]" scaling="100"/>
-			<isee:parameter name="Emissions.MtN2O_emission_per_PCal_animal_products_1980[1]" scaling="100"/>
-			<isee:parameter name="Emissions.baseline_Food_and_Land_use_CH4_emissions[1]"/>
-			<isee:parameter name="Emissions.MtCH4_emission_per_PCal_animal_products_1980[1]" scaling="100"/>
-			<isee:parameter name="Emissions.rate_of_decline_in_MtCH4_emission_per_PCal_animal_products[1]" scaling="1000"/>
-			<isee:parameter name="Emissions.baseline_Food_and_Land_Use_N2O_emissions[1]" scaling="0.01"/>
-			<isee:parameter name="Emissions.tN2O_emission_per_tN_fertilizer_1980[1]" scaling="100"/>
-			<isee:parameter name="Emissions.rate_of_decline_in_tN2O_emission_per_tN_fertilizer[1]" scaling="1000"/>
-			<isee:parameter name="Emissions.baseline_HFC134a_eq_per_person[1]" scaling="1000"/>
-			<isee:parameter name="Emissions.sensitivity_of_HFC134a_eq_per_person_to_relative_CDD[1]" scaling="10"/>
-			<isee:parameter name="Emissions.effective_CDD_logistic_speed[1]" scaling="10"/>
-			<isee:parameter name="Emissions.baseline_non_fossil_CH4_per_person[1]" scaling="1000"/>
-			<isee:parameter name="Emissions.baseline_N2O_per_person[1]" scaling="10000"/>
-			<isee:parameter name="Emissions.sensitivity_of_Other_N2O_per_person_to_GDP_per_capita[1]" scaling="100"/>
-			<isee:parameter name="Emissions.Initial_Fossil_Energy_N2O_Intensity[1, *]"/>
-			<isee:parameter name="Emissions.rate_of_change_in_energy_related_N2O_emissions[1, *]" scaling="1000"/>
-			<isee:parameter name="Emissions.Initial_Fossil_Energy_Sulfur_Intensity[1, *]"/>
-			<isee:parameter name="Emissions.desulphurisation_rate_of_energy_related_emissions[1, *]" scaling="1000"/>
-			<isee:parameter name="Emissions.Initial_Fossil_Energy_CH4_Intensity[1, *]"/>
-			<isee:parameter name="Emissions.rate_of_change_in_energy_related_CH4_emissions[1, *]" scaling="1000"/>
 			<isee:payoff name="Emissions Payoff" action="min"/>
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Literacy calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0">
@@ -132,14 +113,11 @@
 			<isee:payoff name="Energy Demand" action="min"/>
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Carbon Balance Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" maxiter="0">
-			<isee:parameter name="Crop.sensitivity_of_effect_of_crop_yield_on_harvest_index[1]" scaling="100"/>
 			<isee:parameter name="Crop.sensitivity_of_effect_of_crop_residue_production_on_field_fraction[1]" scaling="100"/>
 			<isee:parameter name="Forest.CO2_tree_net_primary_production_parameter[1]" scaling="10000"/>
 			<isee:parameter name="Grass.CO2_grass_net_primary_production_parameter[1]" scaling="10000"/>
-			<isee:parameter name="Land_Use.normal_average_cutting_time[1]" scaling="0.1"/>
 			<isee:parameter name="Land_Use.normal_average_time_cropland_in_use[1]" scaling="0.1"/>
 			<isee:parameter name="Grass.grass_net_primary_production_in_1980[1]" scaling="1000"/>
-			<isee:parameter name="Grass.GtC_per_PCal_of_grazing_multiplier[1]" scaling="1000"/>
 			<isee:parameter name="Grass.STA_grass_net_primary_production_parameter[1]" scaling="1000"/>
 			<isee:parameter name="Grass.STA_squared_grass_net_primary_production_parameter[1]" scaling="1000"/>
 			<isee:parameter name="Forest.STA_tree_net_primary_production_parameter[1]" scaling="1000"/>
@@ -167,9 +145,6 @@
 			<isee:parameter name="Terrestrial_Carbon_Balance.Global_peatland_carbon_uptake_rate[1]" scaling="100"/>
 			<isee:parameter name="Forest.STA_squared_maximum_aboveground_biomass_per_area_parameter[1]" scaling="1000"/>
 			<isee:parameter name="Forest.STA_maximum_aboveground_biomass_per_area_parameter[1]" scaling="1000"/>
-			<isee:parameter name="Crop.harvest_index_for_feed_crops[1]" scaling="100"/>
-			<isee:parameter name="Crop.harvest_index_for_energy_crops[1]" scaling="100"/>
-			<isee:parameter name="Crop.normal_harvest_index_for_food_crops[1]" scaling="1000"/>
 			<isee:parameter name="forest_soil_carbon.Young_forest_soil_carbon_reduction_factor[1]" scaling="100"/>
 			<isee:payoff name="Carbon Balance Payoff" action="min"/>
 			<isee:payoff name="Land Use and Agriculture Payoff" action="min" inactive="true"/>
@@ -180,37 +155,10 @@
 		<isee:optimizer_specs name="Land Use and Agriculture Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" maxiter="0">
 			<isee:parameter name="Sea_Level.initial_sea_level_anomaly_from_LWS[1]" scaling="100"/>
 			<isee:parameter name="Sea_Level.Water_catchment_per_GW_of_hydropower[1]" scaling="0.000001"/>
-			<isee:parameter name="Land_Use.time_to_close_grassland_gap[1]" scaling="100"/>
-			<isee:parameter name="Land_Use.elasticity_of_effect_of_animal_products_yield_on_fraction_of_grassland_degrading[1]" scaling="100"/>
-			<isee:parameter name="Land_Use.elasticity_of_effect_of_crop_yield_on_fraction_cropland_degrading[1]" scaling="100"/>
-			<isee:parameter name="Land_Use.fraction_of_new_cropland_from_forests[1]" scaling="1000"/>
-			<isee:parameter name="Land_Use.fraction_of_depleting_cropland_to_grassland[1]" scaling="1000"/>
-			<isee:parameter name="Land_Use.cropland_expansion_time[1]" scaling="100"/>
-			<isee:parameter name="Land_Use.fraction_of_grassland_for_grazing[1]" scaling="100"/>
-			<isee:parameter name="Land_Use.sensitivity_of_effect_of_crop_balance_on_crop_land_expansion_rate[1]" scaling="100"/>
-			<isee:parameter name="Land_Use.sensitivity_of_effect_of_animal_products_balance_on_grassland_expansion_rate[1]" scaling="100"/>
-			<isee:parameter name="Land_Use.normal_average_cutting_time[1]" scaling="0.1"/>
 			<isee:parameter name="Land_Use.normal_average_time_cropland_in_use[1]" scaling="0.1"/>
-			<isee:parameter name="Crop.desired_crop_reserve_capacity[1]" scaling="100"/>
-			<isee:parameter name="Crop.sensitivity_of_effect_of_crop_yield_on_harvest_index[1]" scaling="100"/>
 			<isee:parameter name="Crop.sensitivity_of_effect_of_crop_residue_production_on_field_fraction[1]" scaling="100"/>
-			<isee:parameter name="Crop.soil_carbon_crop_yield_parameter[1]" scaling="100"/>
-			<isee:parameter name="Crop.irrigation_crop_yield_parameter[1]"/>
-			<isee:parameter name="Crop.fertilizer_use_crop_yield_parameter[1]" scaling="100"/>
-			<isee:parameter name="Food_Demand.crops_used_for_seed_or_lost_per_person_1980[1]" scaling="100"/>
-			<isee:parameter name="Food_Demand.elasticity_of_crops_used_for_seed_or_lost_to_GDP_per_person[1]" scaling="100"/>
-			<isee:parameter name="Food_Demand.elasticity_of_crops_used_for_non_energy_other_to_GDP_per_person[1]" scaling="100"/>
-			<isee:parameter name="Food_Demand.crops_used_for_non_energy_other_per_person[1]" scaling="100"/>
-			<isee:parameter name="Crop.initial_crop_yield[1]" scaling="100"/>
-			<isee:parameter name="Food_Demand.time_to_change_demand_for_feed[1]"/>
 			<isee:parameter name="Land_Use.sensitivity_of_crop_land_use_time_to_cropland_size[1]"/>
-			<isee:parameter name="Food_Demand.initial_crop_demand_for_feed_offset[1]" scaling="100"/>
-			<isee:parameter name="Crop.harvest_index_for_feed_crops[1]" scaling="100"/>
-			<isee:parameter name="Crop.harvest_index_for_energy_crops[1]" scaling="100"/>
-			<isee:parameter name="Crop.normal_harvest_index_for_food_crops[1]" scaling="1000"/>
 			<isee:parameter name="Crop.tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction[1]" scaling="1000"/>
-			<isee:parameter name="Land_Use.sensitivity_of_cutting_time_to_forest_size[1]" scaling="100"/>
-			<isee:parameter name="Food_Demand.time_to_change_crop_demand_components[1]"/>
 			<isee:payoff name="Land Use and Agriculture Payoff" action="min"/>
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Economy Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" tolerance="0.000001" maxiter="0">
@@ -235,9 +183,6 @@
 	<isee:payoff_specs_list>
 		<isee:payoff_specs name="Population Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
 		<isee:payoff_specs name="Land Use and Agriculture Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data">
-			<isee:payoff_element name="Land_Use.Forest_Land[1]" weight="0.0242322933955707">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
 			<isee:payoff_element name="Crop.crop_production[1]" weight="0.00000921212558175261">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
@@ -248,18 +193,6 @@
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 			<isee:payoff_element name="Sea_Level.Land_water_storage_from_water_impoundment[1]" weight="8.52684424347111e-24">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Food_Demand.Crops_used_for_Seed_or_Lost[1]" weight="0.000159707174140562">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Food_Demand.crop_demand_for_food[1]" weight="0.000282547501744053">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Food_Demand.feed_production[1]" weight="0.000232087884459429">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Food_Demand.animal_products_demand[1]" weight="0.00625479802338344">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 			<isee:payoff_element name="Emissions.CO2_Emissions_from_Food_and_Land_Use[1]" weight="0.00000192569914060948">
@@ -285,70 +218,13 @@
 			</isee:payoff_element>
 		</isee:payoff_specs>
 		<isee:payoff_specs name="Emissions Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data">
-			<isee:payoff_element name="Emissions.CO2_emissions_from_Energy[1]" weight="0.00000180784">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
 			<isee:payoff_element name="Emissions.CO2_Emissions_from_Food_and_Land_Use[1]" weight="0.00000100943">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.N2O_Emissions_from_Food_and_Land_Use[1]" weight="0.00008159">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.N2O_Emissions_from_Other[1]" weight="0.00161206">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.N2O_Emissions_from_Energy[1]" weight="0.0000333832">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.CH4_Emissions_from_Energy[1]" weight="0.0339945">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.CH4_Emissions_from_Food_and_Land_Use[1]" weight="0.211448">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.CH4_Emissions_from_Other[1]" weight="0.517745">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.SO2_Emissions_from_Energy[1]" weight="0.0286146">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.SO2_Emissions_from_Food_and_Land_Use[1]" weight="524605000000">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.HFC134a_eq_Emissions[1]" weight="0.00576188">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.Total_CH4_Emissions[1]" weight="0.0366818">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.Total_CO2_Emissions[1]" weight="7.00744e-7">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.Total_SO2_Emissions[1]" weight="0.0286146">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.Total_N2O_Emissions[1]" weight="0.0000305337">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Emissions.Total_NOx_Emissions[1]" weight="0.0163137">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 		</isee:payoff_specs>
 		<isee:payoff_specs name="Literacy Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
 		<isee:payoff_specs name="Behavioral Change Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data">
 			<isee:payoff_element name="Crop.crop_production[1]" weight="0.00000798751726359918">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Food_Demand.vegetal_product_demand_per_person_per_day[1]" weight="0.00100616787513765">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Food_Demand.direct_food_demand_per_person_per_day[1]" weight="0.00134681291055953">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Food_Demand.crop_demand_for_food[1]" weight="0.000217681012706321">
-				<isee:time_range type="terminal_value"/>
-			</isee:payoff_element>
-			<isee:payoff_element name="Food_Demand.animal_products_demand[1]" weight="0.00155771433583948">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 		</isee:payoff_specs>
@@ -581,54 +457,12 @@
 	</model_units>
 	<model>
 		<variables>
-			<module name="Climate" isee:label="" url="r../FRIDA_Modules/Climate.itmx">
+			<module name="Climate" isee:label="" url="r../FRIDA-Clim_Modules/Climate.itmx">
 				<format scale_by="auto"/>
-				<connect to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
-				<connect2 to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
-				<connect to="CCS.CO2_emissions_from_biofuels" from="Emissions.CO2_emissions_from_biofuels"/>
-				<connect2 to="CCS.CO2_emissions_from_biofuels" from="Emissions.CO2_emissions_from_biofuels"/>
-				<connect to="CCS.CO2_emissions_from_coal" from="Emissions.CO2_emissions_from_coal"/>
-				<connect2 to="CCS.CO2_emissions_from_coal" from="Emissions.CO2_emissions_from_coal"/>
-				<connect to="CCS.CO2_emissions_from_gas" from="Emissions.CO2_emissions_from_gas"/>
-				<connect2 to="CCS.CO2_emissions_from_gas" from="Emissions.CO2_emissions_from_gas"/>
-				<connect to="CCS.CO2_emissions_from_oil" from="Emissions.CO2_emissions_from_oil"/>
-				<connect2 to="CCS.CO2_emissions_from_oil" from="Emissions.CO2_emissions_from_oil"/>
-				<connect to="CCS.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect2 to="CCS.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
+				<connect to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect2 to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
-				<connect to="Emissions.CO2_emissions_from_concrete" from="Inputs.CO2_emissions_from_concrete"/>
-				<connect2 to="Emissions.CO2_emissions_from_concrete" from="Inputs.CO2_emissions_from_concrete"/>
-				<connect to="Emissions.crops_for_energy" from="Food_Demand.crops_for_energy"/>
-				<connect2 to="Emissions.crops_for_energy" from="Food_Demand.crops_for_energy"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_coal_GtC" from="Inputs.fossil_CO2_emissions_from_coal_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_coal_GtC" from="Inputs.fossil_CO2_emissions_from_coal_GtC"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_gas_GtC" from="Inputs.fossil_CO2_emissions_from_gas_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_gas_GtC" from="Inputs.fossil_CO2_emissions_from_gas_GtC"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_oil_GtC" from="Inputs.fossil_CO2_emissions_from_oil_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_oil_GtC" from="Inputs.fossil_CO2_emissions_from_oil_GtC"/>
-				<connect to="Emissions.Global_population" from="Inputs.Global_population"/>
-				<connect2 to="Emissions.Global_population" from="Inputs.Global_population"/>
-				<connect to="Emissions.Globap_real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
-				<connect2 to="Emissions.Globap_real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
-				<connect to="Emissions.Leakage" from="CCS.CO2_Emissions_from_Leakage"/>
-				<connect2 to="Emissions.Leakage" from="CCS.CO2_Emissions_from_Leakage"/>
-				<connect to="Emissions.livestock_production" from="Animal_Products.animal_products_production"/>
-				<connect2 to="Emissions.livestock_production" from="Animal_Products.animal_products_production"/>
-				<connect to="Emissions.man_made_fertilizer_use" from="Land_Nutrients.man_made_fertilizer_use"/>
-				<connect2 to="Emissions.man_made_fertilizer_use" from="Land_Nutrients.man_made_fertilizer_use"/>
-				<connect to="Emissions.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect2 to="Emissions.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect to="Emissions.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect2 to="Emissions.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect to="Emissions.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect2 to="Emissions.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect to="Emissions.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect2 to="Emissions.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect to="Emissions.start_year" from="Government_Regulations.start_year"/>
-				<connect2 to="Emissions.start_year" from="Government_Regulations.start_year"/>
-				<connect to="Crop.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
-				<connect2 to="Crop.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
@@ -637,12 +471,6 @@
 				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
-				<connect2 to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
-				<connect to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
@@ -659,8 +487,6 @@
 				<connect2 to="Sea_Level.installation_of_hydropower_capacity_1" from="Inputs.installation_of_hydropower_capacity"/>
 				<connect to="Sea_Level.total_groundwater_anomaly" from="Freshwater.total_groundwater_anomaly"/>
 				<connect2 to="Sea_Level.total_groundwater_anomaly" from="Freshwater.total_groundwater_anomaly"/>
-				<connect to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
-				<connect2 to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
@@ -693,8 +519,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass" from="Forest.forest_aboveground_biomass"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_Land" from="Land_Use.Forest_Land"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land" from="Land_Use.Forest_Land"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
@@ -709,10 +535,10 @@
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
-				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss" from="Land_Use.gross_forest_land_use_loss"/>
-				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss" from="Land_Use.gross_forest_land_use_loss"/>
-				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss" from="Land_Use.gross_grassland_land_use_loss"/>
-				<connect2 to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss" from="Land_Use.gross_grassland_land_use_loss"/>
+				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
+				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
+				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
+				<connect2 to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
 				<connect to="Terrestrial_Carbon_Balance.litter_emissions_GtC" from="soil_carbon_emissions.litter_emissions_GtC"/>
 				<connect2 to="Terrestrial_Carbon_Balance.litter_emissions_GtC" from="soil_carbon_emissions.litter_emissions_GtC"/>
 				<connect to="Terrestrial_Carbon_Balance.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
@@ -721,10 +547,6 @@
 				<connect2 to="Terrestrial_Carbon_Balance.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
-				<connect to="Terrestrial_Carbon_Balance.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.slow_soil_carbon_emissions_young_forest" from="forest_soil_carbon.slow_soil_carbon_emissions_young_forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.slow_soil_carbon_emissions_young_forest" from="forest_soil_carbon.slow_soil_carbon_emissions_young_forest"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_balance_cropland" from="cropland_soil_carbon.soil_carbon_balance_cropland"/>
@@ -842,30 +664,10 @@
 				<connect to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 			</module>
-			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../FRIDA_Modules/Land Use and Agriculture.itmx">
+			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../FRIDA-Clim_Modules/Land Use and Agriculture.itmx">
 				<format scale_by="auto"/>
 				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect to="Emissions.livestock_production" from="Animal_Products.animal_products_production"/>
-				<connect2 to="Emissions.livestock_production" from="Animal_Products.animal_products_production"/>
-				<connect to="Animal_Products.animal_product_efficiency_policy" from="Government_Regulations.animal_product_efficiency_policy"/>
-				<connect2 to="Animal_Products.animal_product_efficiency_policy" from="Government_Regulations.animal_product_efficiency_policy"/>
-				<connect to="Animal_Products.aquatic_animal_products_fraction_policy" from="Behavioral_Choices.aquatic_animal_products_fraction_policy"/>
-				<connect2 to="Animal_Products.aquatic_animal_products_fraction_policy" from="Behavioral_Choices.aquatic_animal_products_fraction_policy"/>
-				<connect to="Animal_Products.start_year" from="Behavioral_Choices.start_year"/>
-				<connect2 to="Animal_Products.start_year" from="Behavioral_Choices.start_year"/>
-				<connect to="Animal_Products.start_year_1" from="Government_Regulations.start_year"/>
-				<connect2 to="Animal_Products.start_year_1" from="Government_Regulations.start_year"/>
-				<connect to="Animal_Products.switch_animal_product_efficiency_policy" from="Government_Regulations.switch_animal_product_efficiency_policy"/>
-				<connect2 to="Animal_Products.switch_animal_product_efficiency_policy" from="Government_Regulations.switch_animal_product_efficiency_policy"/>
-				<connect to="Animal_Products.switch_aquatic_animal_products_fraction_policy" from="Behavioral_Choices.switch_aquatic_animal_products_fraction_policy"/>
-				<connect2 to="Animal_Products.switch_aquatic_animal_products_fraction_policy" from="Behavioral_Choices.switch_aquatic_animal_products_fraction_policy"/>
-				<connect to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
-				<connect2 to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
-				<connect to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
-				<connect2 to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
 				<connect to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect2 to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect to="Terrestrial_Carbon_Balance.crop_production_1" from="Crop.crop_production"/>
@@ -882,38 +684,6 @@
 				<connect2 to="Cropland_Carbon_Balance.UNIT_GtC_per_PCal_1" from="Crop.UNIT_GtC_per_PCal_crop"/>
 				<connect to="Terrestrial_Carbon_Balance.UNIT_GtC_per_PCal" from="Crop.UNIT_GtC_per_PCal_crop"/>
 				<connect2 to="Terrestrial_Carbon_Balance.UNIT_GtC_per_PCal" from="Crop.UNIT_GtC_per_PCal_crop"/>
-				<connect to="Crop.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
-				<connect2 to="Crop.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
-				<connect to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
-				<connect2 to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
-				<connect to="Emissions.crops_for_energy" from="Food_Demand.crops_for_energy"/>
-				<connect2 to="Emissions.crops_for_energy" from="Food_Demand.crops_for_energy"/>
-				<connect to="Food_Demand.animal_products_fraction_policy" from="Behavioral_Choices.animal_products_fraction_policy"/>
-				<connect2 to="Food_Demand.animal_products_fraction_policy" from="Behavioral_Choices.animal_products_fraction_policy"/>
-				<connect to="Food_Demand.average_daily_food_demand_per_capita" from="Inputs.average_daily_food_demand_per_capita"/>
-				<connect2 to="Food_Demand.average_daily_food_demand_per_capita" from="Inputs.average_daily_food_demand_per_capita"/>
-				<connect to="Food_Demand.average_yearly_animal_product_demand_per_capita" from="Inputs.average_yearly_animal_product_demand_per_capita"/>
-				<connect2 to="Food_Demand.average_yearly_animal_product_demand_per_capita" from="Inputs.average_yearly_animal_product_demand_per_capita"/>
-				<connect to="Food_Demand.crops_needed_for_biofuel" from="Inputs.crops_needed_for_biofuel"/>
-				<connect2 to="Food_Demand.crops_needed_for_biofuel" from="Inputs.crops_needed_for_biofuel"/>
-				<connect to="Food_Demand.food_demand_policy" from="Behavioral_Choices.food_demand_policy"/>
-				<connect2 to="Food_Demand.food_demand_policy" from="Behavioral_Choices.food_demand_policy"/>
-				<connect to="Food_Demand.Global_population" from="Inputs.Global_population"/>
-				<connect2 to="Food_Demand.Global_population" from="Inputs.Global_population"/>
-				<connect to="Food_Demand.Global_population_1" from="Inputs.Global_population"/>
-				<connect2 to="Food_Demand.Global_population_1" from="Inputs.Global_population"/>
-				<connect to="Food_Demand.policy_start_year" from="Behavioral_Choices.start_year"/>
-				<connect2 to="Food_Demand.policy_start_year" from="Behavioral_Choices.start_year"/>
-				<connect to="Food_Demand.real_GDP_per_person_1" from="Inputs.real_GDP_per_person"/>
-				<connect2 to="Food_Demand.real_GDP_per_person_1" from="Inputs.real_GDP_per_person"/>
-				<connect to="Food_Demand.start_year" from="Behavioral_Choices.start_year"/>
-				<connect2 to="Food_Demand.start_year" from="Behavioral_Choices.start_year"/>
-				<connect to="Food_Demand.switch_animal_products_fraction_policy" from="Behavioral_Choices.switch_animal_products_fraction_policy"/>
-				<connect2 to="Food_Demand.switch_animal_products_fraction_policy" from="Behavioral_Choices.switch_animal_products_fraction_policy"/>
-				<connect to="Food_Demand.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
-				<connect2 to="Food_Demand.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
 				<connect to="Terrestrial_Carbon_Balance.cutting" from="Forest.cutting"/>
@@ -982,8 +752,6 @@
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Emissions.man_made_fertilizer_use" from="Land_Nutrients.man_made_fertilizer_use"/>
-				<connect2 to="Emissions.man_made_fertilizer_use" from="Land_Nutrients.man_made_fertilizer_use"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing_forests_for_crops" from="Land_Use.clearing_forests_for_crops"/>
@@ -994,30 +762,22 @@
 				<connect2 to="Terrestrial_Carbon_Balance.Cropland" from="Land_Use.Cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.fallowing_cropland" from="Land_Use.fallowing_cropland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.fallowing_cropland" from="Land_Use.fallowing_cropland"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_Land" from="Land_Use.Forest_Land"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land" from="Land_Use.Forest_Land"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss" from="Land_Use.gross_forest_land_use_loss"/>
-				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss" from="Land_Use.gross_forest_land_use_loss"/>
-				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss" from="Land_Use.gross_grassland_land_use_loss"/>
-				<connect2 to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss" from="Land_Use.gross_grassland_land_use_loss"/>
+				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
+				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
+				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
+				<connect2 to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
 				<connect to="Terrestrial_Carbon_Balance.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Mature_Forest" from="Land_Use.Mature_Forest"/>
-				<connect to="Terrestrial_Carbon_Balance.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
-				<connect to="Land_Use.forestation_policy_1" from="Government_Regulations.forestation_policy"/>
-				<connect2 to="Land_Use.forestation_policy_1" from="Government_Regulations.forestation_policy"/>
-				<connect to="Land_Use.Policy_Start_Year" from="Government_Regulations.start_year"/>
-				<connect2 to="Land_Use.Policy_Start_Year" from="Government_Regulations.start_year"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
@@ -1128,41 +888,17 @@
 			<aux name="Simulation End">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
-				<eqn>2150</eqn>
+				<eqn>2022</eqn>
 				<format precision="1"/>
 				<range min="2023" max="2200"/>
 				<units>years</units>
 			</aux>
 			<module name="Inputs" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Food_Demand.average_daily_food_demand_per_capita" from="Inputs.average_daily_food_demand_per_capita"/>
-				<connect2 to="Food_Demand.average_daily_food_demand_per_capita" from="Inputs.average_daily_food_demand_per_capita"/>
-				<connect to="Food_Demand.average_yearly_animal_product_demand_per_capita" from="Inputs.average_yearly_animal_product_demand_per_capita"/>
-				<connect2 to="Food_Demand.average_yearly_animal_product_demand_per_capita" from="Inputs.average_yearly_animal_product_demand_per_capita"/>
-				<connect to="Emissions.CO2_emissions_from_concrete" from="Inputs.CO2_emissions_from_concrete"/>
-				<connect2 to="Emissions.CO2_emissions_from_concrete" from="Inputs.CO2_emissions_from_concrete"/>
-				<connect to="Food_Demand.crops_needed_for_biofuel" from="Inputs.crops_needed_for_biofuel"/>
-				<connect2 to="Food_Demand.crops_needed_for_biofuel" from="Inputs.crops_needed_for_biofuel"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_coal_GtC" from="Inputs.fossil_CO2_emissions_from_coal_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_coal_GtC" from="Inputs.fossil_CO2_emissions_from_coal_GtC"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_gas_GtC" from="Inputs.fossil_CO2_emissions_from_gas_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_gas_GtC" from="Inputs.fossil_CO2_emissions_from_gas_GtC"/>
-				<connect to="Emissions.fossil_CO2_emissions_from_oil_GtC" from="Inputs.fossil_CO2_emissions_from_oil_GtC"/>
-				<connect2 to="Emissions.fossil_CO2_emissions_from_oil_GtC" from="Inputs.fossil_CO2_emissions_from_oil_GtC"/>
-				<connect to="Emissions.Global_population" from="Inputs.Global_population"/>
-				<connect2 to="Emissions.Global_population" from="Inputs.Global_population"/>
-				<connect to="Food_Demand.Global_population" from="Inputs.Global_population"/>
-				<connect2 to="Food_Demand.Global_population" from="Inputs.Global_population"/>
-				<connect to="Food_Demand.Global_population_1" from="Inputs.Global_population"/>
-				<connect2 to="Food_Demand.Global_population_1" from="Inputs.Global_population"/>
 				<connect to="Freshwater.Global_population" from="Inputs.Global_population"/>
 				<connect2 to="Freshwater.Global_population" from="Inputs.Global_population"/>
 				<connect to="Sea_Level.installation_of_hydropower_capacity_1" from="Inputs.installation_of_hydropower_capacity"/>
 				<connect2 to="Sea_Level.installation_of_hydropower_capacity_1" from="Inputs.installation_of_hydropower_capacity"/>
-				<connect to="Emissions.Globap_real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
-				<connect2 to="Emissions.Globap_real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
-				<connect to="Food_Demand.real_GDP_per_person_1" from="Inputs.real_GDP_per_person"/>
-				<connect2 to="Food_Demand.real_GDP_per_person_1" from="Inputs.real_GDP_per_person"/>
 				<connect to="Freshwater.real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
 				<connect2 to="Freshwater.real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
 				<connect to="Freshwater.real_GDP_per_person_1" from="Inputs.real_GDP_per_person"/>
@@ -1170,91 +906,32 @@ This is what determines when the model stops calculating</doc>
 			</module>
 			<module name="CCS" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Emissions.Leakage" from="CCS.CO2_Emissions_from_Leakage"/>
-				<connect2 to="Emissions.Leakage" from="CCS.CO2_Emissions_from_Leakage"/>
-				<connect to="CCS.CO2_emissions_from_biofuels" from="Emissions.CO2_emissions_from_biofuels"/>
-				<connect2 to="CCS.CO2_emissions_from_biofuels" from="Emissions.CO2_emissions_from_biofuels"/>
-				<connect to="CCS.CO2_emissions_from_coal" from="Emissions.CO2_emissions_from_coal"/>
-				<connect2 to="CCS.CO2_emissions_from_coal" from="Emissions.CO2_emissions_from_coal"/>
-				<connect to="CCS.CO2_emissions_from_gas" from="Emissions.CO2_emissions_from_gas"/>
-				<connect2 to="CCS.CO2_emissions_from_gas" from="Emissions.CO2_emissions_from_gas"/>
-				<connect to="CCS.CO2_emissions_from_oil" from="Emissions.CO2_emissions_from_oil"/>
-				<connect2 to="CCS.CO2_emissions_from_oil" from="Emissions.CO2_emissions_from_oil"/>
-				<connect to="CCS.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect2 to="CCS.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect to="CCS.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect2 to="CCS.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect to="CCS.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect2 to="CCS.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect to="CCS.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect2 to="CCS.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect to="CCS.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect2 to="CCS.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
+				<connect to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 			</module>
 			<module name="Government\nRegulations" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Animal_Products.animal_product_efficiency_policy" from="Government_Regulations.animal_product_efficiency_policy"/>
-				<connect2 to="Animal_Products.animal_product_efficiency_policy" from="Government_Regulations.animal_product_efficiency_policy"/>
-				<connect to="Land_Use.forestation_policy_1" from="Government_Regulations.forestation_policy"/>
-				<connect2 to="Land_Use.forestation_policy_1" from="Government_Regulations.forestation_policy"/>
 				<connect to="Freshwater.irrigation_efficiency_multiplier" from="Government_Regulations.irrigation_efficiency_multiplier"/>
 				<connect2 to="Freshwater.irrigation_efficiency_multiplier" from="Government_Regulations.irrigation_efficiency_multiplier"/>
 				<connect to="Freshwater.irrigation_fraction_policy" from="Government_Regulations.irrigation_fraction_policy"/>
 				<connect2 to="Freshwater.irrigation_fraction_policy" from="Government_Regulations.irrigation_fraction_policy"/>
 				<connect to="Freshwater.on_agricultural_water_use_policy" from="Government_Regulations.non_agricultural_water_use_policy"/>
 				<connect2 to="Freshwater.on_agricultural_water_use_policy" from="Government_Regulations.non_agricultural_water_use_policy"/>
-				<connect to="CCS.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect2 to="CCS.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect to="Emissions.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect2 to="Emissions.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
-				<connect to="CCS.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect2 to="CCS.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect to="Emissions.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect2 to="Emissions.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
-				<connect to="CCS.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect2 to="CCS.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect to="Emissions.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect2 to="Emissions.share_of_gas_emissions_stored" from="Government_Regulations.share_of_gas_emissions_stored"/>
-				<connect to="CCS.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect2 to="CCS.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect to="Emissions.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect2 to="Emissions.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
-				<connect to="Animal_Products.start_year_1" from="Government_Regulations.start_year"/>
-				<connect2 to="Animal_Products.start_year_1" from="Government_Regulations.start_year"/>
-				<connect to="Emissions.start_year" from="Government_Regulations.start_year"/>
-				<connect2 to="Emissions.start_year" from="Government_Regulations.start_year"/>
 				<connect to="Freshwater.start_year" from="Government_Regulations.start_year"/>
 				<connect2 to="Freshwater.start_year" from="Government_Regulations.start_year"/>
-				<connect to="Land_Use.Policy_Start_Year" from="Government_Regulations.start_year"/>
-				<connect2 to="Land_Use.Policy_Start_Year" from="Government_Regulations.start_year"/>
-				<connect to="Animal_Products.switch_animal_product_efficiency_policy" from="Government_Regulations.switch_animal_product_efficiency_policy"/>
-				<connect2 to="Animal_Products.switch_animal_product_efficiency_policy" from="Government_Regulations.switch_animal_product_efficiency_policy"/>
 				<connect to="Freshwater.switch_irrigation_fraction_policy" from="Government_Regulations.switch_irrigation_fraction_policy"/>
 				<connect2 to="Freshwater.switch_irrigation_fraction_policy" from="Government_Regulations.switch_irrigation_fraction_policy"/>
 				<connect to="Freshwater.switch_non_agricultural_water_use_policy" from="Government_Regulations.switch_non_agricultural_water_use_policy"/>
 				<connect2 to="Freshwater.switch_non_agricultural_water_use_policy" from="Government_Regulations.switch_non_agricultural_water_use_policy"/>
 			</module>
-			<module name="Behavioral\nChoices" isee:label="">
-				<format scale_by="auto"/>
-				<connect to="Food_Demand.animal_products_fraction_policy" from="Behavioral_Choices.animal_products_fraction_policy"/>
-				<connect2 to="Food_Demand.animal_products_fraction_policy" from="Behavioral_Choices.animal_products_fraction_policy"/>
-				<connect to="Animal_Products.aquatic_animal_products_fraction_policy" from="Behavioral_Choices.aquatic_animal_products_fraction_policy"/>
-				<connect2 to="Animal_Products.aquatic_animal_products_fraction_policy" from="Behavioral_Choices.aquatic_animal_products_fraction_policy"/>
-				<connect to="Food_Demand.food_demand_policy" from="Behavioral_Choices.food_demand_policy"/>
-				<connect2 to="Food_Demand.food_demand_policy" from="Behavioral_Choices.food_demand_policy"/>
-				<connect to="Animal_Products.start_year" from="Behavioral_Choices.start_year"/>
-				<connect2 to="Animal_Products.start_year" from="Behavioral_Choices.start_year"/>
-				<connect to="Food_Demand.policy_start_year" from="Behavioral_Choices.start_year"/>
-				<connect2 to="Food_Demand.policy_start_year" from="Behavioral_Choices.start_year"/>
-				<connect to="Food_Demand.start_year" from="Behavioral_Choices.start_year"/>
-				<connect2 to="Food_Demand.start_year" from="Behavioral_Choices.start_year"/>
-				<connect to="Food_Demand.switch_animal_products_fraction_policy" from="Behavioral_Choices.switch_animal_products_fraction_policy"/>
-				<connect2 to="Food_Demand.switch_animal_products_fraction_policy" from="Behavioral_Choices.switch_animal_products_fraction_policy"/>
-				<connect to="Animal_Products.switch_aquatic_animal_products_fraction_policy" from="Behavioral_Choices.switch_aquatic_animal_products_fraction_policy"/>
-				<connect2 to="Animal_Products.switch_aquatic_animal_products_fraction_policy" from="Behavioral_Choices.switch_aquatic_animal_products_fraction_policy"/>
-				<connect to="Food_Demand.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
-				<connect2 to="Food_Demand.switch_food_demand_policy" from="Behavioral_Choices.switch_food_demand_policy"/>
-			</module>
+			<aux name="Simulation Start">
+				<doc>${No Sensi}
+This is what determines when the model stops calculating</doc>
+				<eqn>1750</eqn>
+				<format precision="1"/>
+				<range min="2023" max="2200"/>
+				<units>years</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -1304,7 +981,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="21" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1359,36 +1036,20 @@ This is what determines when the model stops calculating</doc>
 					<to>Climate</to>
 				</connector>
 				<module label_side="center" x="401.667" y="335.167" name="CCS"/>
-				<connector uid="167" isee:thickness="2" angle="107.13" isee:autocreated="true">
-					<from>CCS</from>
-					<to>Climate</to>
-				</connector>
-				<connector uid="168" isee:thickness="2" angle="293.287" isee:autocreated="true">
-					<from>Climate</from>
-					<to>CCS</to>
-				</connector>
 				<module label_side="center" x="642.833" y="197.167" name="Government\nRegulations"/>
 				<connector uid="169" color="#FF007F" isee:thickness="2" angle="149.516" isee:autocreated="true">
 					<from>Government_Regulations</from>
 					<to>Land_Use_and_Agriculture</to>
 				</connector>
-				<connector uid="170" color="#FF007F" isee:thickness="2" angle="217.855" isee:autocreated="true">
-					<from>Government_Regulations</from>
-					<to>CCS</to>
-				</connector>
-				<connector uid="171" color="#FF007F" isee:thickness="2" angle="182.526" isee:autocreated="true">
-					<from>Government_Regulations</from>
-					<to>Climate</to>
-				</connector>
 				<connector uid="172" isee:thickness="2" angle="36.4653" isee:autocreated="true">
 					<from>Inputs</from>
 					<to>Land_Use_and_Agriculture</to>
 				</connector>
-				<module label_side="center" x="575.833" y="63.75" name="Behavioral\nChoices"/>
-				<connector uid="173" isee:thickness="2" angle="177.977" isee:autocreated="true">
-					<from>Behavioral_Choices</from>
-					<to>Land_Use_and_Agriculture</to>
+				<connector uid="175" isee:thickness="2" angle="293.287" isee:autocreated="true">
+					<from>Climate</from>
+					<to>CCS</to>
 				</connector>
+				<aux x="663.167" y="38.6667" name="Simulation Start"/>
 			</view>
 			<view isee:template_view="template:1" isee:name="Landing Page without image" isee:original_design="Deluxe Prev-Next Blue Green Pastel" background="white" page_width="1066" page_height="600" home_view="true" type="interface">
 				<style>
@@ -1419,170 +1080,6 @@ Lorem ipsum dolor sit amet</text_box>
 			<isee:stories/>
 		</views>
 	</model>
-	<model name="Behavioral_Choices">
-		<variables>
-			<aux name="food demand policy" access="output">
-				<doc>${Policy}
-</doc>
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="2020" max="2100"/>
-					<yscale min="0" max="5000"/>
-					<ypts>2833,2833,2833,2833,2833,2833,2833,2833,2833</ypts>
-				</gf>
-				<units>kCal/Person/Day</units>
-			</aux>
-			<aux name="switch food demand\npolicy" access="output">
-				<doc>${Policy}
-</doc>
-				<eqn>0</eqn>
-				<format precision="1" scale_by="auto"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch animal products\nfraction policy" access="output">
-				<doc>${Policy}
-</doc>
-				<eqn>0</eqn>
-				<format precision="1" scale_by="auto"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="animal products fraction policy" access="output">
-				<doc>${Policy}
-</doc>
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="2020" max="2100"/>
-					<yscale min="0.05" max="0.3"/>
-					<ypts>0.19,0.19,0.19,0.19,0.19,0.19,0.19,0.19,0.19</ypts>
-				</gf>
-				<units>dmnl</units>
-			</aux>
-			<aux name="start year" access="output">
-				<doc>${Policy}
-</doc>
-				<eqn>2025</eqn>
-				<format precision="full"/>
-				<units>Year</units>
-			</aux>
-			<aux name="switch aquatic animal products\nfraction policy" access="output">
-				<doc>${Policy}
-</doc>
-				<eqn>0</eqn>
-				<format precision="1" scale_by="auto"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="aquatic animal products\nfraction policy" access="output">
-				<doc>${Policy}
-</doc>
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="2020" max="2100"/>
-					<yscale min="0" max="0.2"/>
-					<ypts>0.078,0.078,0.078,0.078,0.078,0.078,0.078,0.078,0.078</ypts>
-				</gf>
-				<units>dmnl</units>
-			</aux>
-		</variables>
-		<views>
-			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
-				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
-				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
-					<isee:series_styles>
-						<isee:series_style color="blue" thickness="1"/>
-						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF7F00" thickness="1"/>
-						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF007F" thickness="1"/>
-						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#C8C8C8" thickness="1"/>
-					</isee:series_styles>
-				</graph>
-				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
-				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:sim_speed_slider color="black" background="white"/>
-				<isee:time_slider color="#E95F74" background="silver"/>
-				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
-				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
-				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
-				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
-				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
-				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
-				<lamp color="black" background="white" font_size="9pt"/>
-				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
-				<isee:spatial_map color="black" background="white" font_size="12pt"/>
-				<isee:animation_object color="black" background="white" font_size="12pt"/>
-				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
-				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
-				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:scroll_x="8.75" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
-				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
-					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
-						<shape type="rectangle" width="45" height="35"/>
-					</stock>
-					<flow color="blue" background="white" font_color="blue" font_size="11pt" label_side="bottom">
-						<shape type="circle" radius="18"/>
-					</flow>
-					<isee:placeholder color="#228B22" background="white" font_color="#228B22" font_size="11pt" label_side="bottom"/>
-					<module color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
-						<shape type="rectangle" width="67" height="55"/>
-					</module>
-					<aux color="blue" background="white" font_color="blue" font_size="11pt" label_side="bottom">
-						<shape type="circle" radius="18"/>
-					</aux>
-					<group color="red" background="white" font_color="red" font_size="11pt"/>
-					<connector color="#FF007F" background="white" font_color="#FF007F" font_size="9pt" isee:thickness="1"/>
-					<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-					<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-					<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
-					<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
-						<isee:series_styles>
-							<isee:series_style color="blue" thickness="1"/>
-							<isee:series_style color="red" thickness="1"/>
-							<isee:series_style color="fuchsia" thickness="1"/>
-							<isee:series_style color="#008F44" thickness="1"/>
-							<isee:series_style color="#FF7F00" thickness="1"/>
-							<isee:series_style color="#7F00FF" thickness="1"/>
-							<isee:series_style color="#0CA0FF" thickness="1"/>
-							<isee:series_style color="lime" thickness="1"/>
-							<isee:series_style color="#FF007F" thickness="1"/>
-							<isee:series_style color="aqua" thickness="1"/>
-							<isee:series_style color="#F586FF" thickness="1"/>
-							<isee:series_style color="black" thickness="1"/>
-							<isee:series_style color="#C8C8C8" thickness="1"/>
-						</isee:series_styles>
-					</graph>
-					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-				</style>
-				<aux label_side="bottom" x="155.875" y="67.685" name="food demand policy"/>
-				<aux x="293.87" y="67.685" name="switch food demand\npolicy"/>
-				<aux label_side="bottom" x="301.5" y="182.435" name="switch animal products\nfraction policy"/>
-				<aux label_side="bottom" x="148.375" y="182.435" name="animal products fraction policy"/>
-				<aux x="444.5" y="67.685" name="start year"/>
-				<aux x="297.75" y="272.435" name="switch aquatic animal products\nfraction policy"/>
-				<aux label_side="bottom" x="144.625" y="272.435" name="aquatic animal products\nfraction policy"/>
-			</view>
-		</views>
-	</model>
 	<model name="CCS">
 		<variables>
 			<stock name="stored CO2">
@@ -1599,102 +1096,10 @@ Lorem ipsum dolor sit amet</text_box>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>storing_carbon_from_coal_emissions + storing_carbon_from_oil_emissions + storing_carbon_from_gas_emissions + storing_carbon_from_biofuel_emissions</eqn>
+				<eqn>0</eqn>
 				<non_negative/>
 				<units>MtCO2/Year</units>
 			</flow>
-			<aux name="cost of storing carbon per unit" access="output" isee:autocreated="true">
-				<doc>${External Parameter,No Sensi}
-https://www.iea.org/commentaries/is-carbon-capture-too-expensive
-middle of power generation storing cost</doc>
-				<eqn>75</eqn>
-				<units>c$/(tC/year)</units>
-			</aux>
-			<aux name="share of coal emissions stored" access="input">
-				<eqn>0</eqn>
-				<gf>
-					<xscale min="0" max="2"/>
-					<yscale min="0" max="2"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>dmnl</units>
-			</aux>
-			<aux name="share of oil\nemissions stored" access="input">
-				<eqn>0</eqn>
-				<gf>
-					<xscale min="0" max="2"/>
-					<yscale min="0" max="2"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>dmnl</units>
-			</aux>
-			<aux name="share of gas\nemissions stored" access="input">
-				<eqn>0</eqn>
-				<gf>
-					<xscale min="0" max="2"/>
-					<yscale min="0" max="2"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>dmnl</units>
-			</aux>
-			<aux name="share of biofuel\nemissions stored" access="input">
-				<eqn>0</eqn>
-				<gf>
-					<xscale min="0" max="2"/>
-					<yscale min="0" max="2"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>dmnl</units>
-			</aux>
-			<aux name="CO2 emissions from biofuels" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
-			<aux name="CO2 emissions from oil" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
-			<aux name="CO2 emissions from gas" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
-			<aux name="CO2 emissions from coal" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
-			<aux name="storing carbon from coal\nemissions">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>share_of_coal_emissions_stored*CO2_emissions_from_coal</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
-			<aux name="storing carbon from gas\nemissions">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>share_of_gas_emissions_stored*CO2_emissions_from_gas</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
-			<aux name="storing carbon from biofuel\nemissions">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>share_of_biofuel_emissions_stored*CO2_emissions_from_biofuels</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
 			<flow name="CO2 Emissions from Leakage" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
@@ -1709,40 +1114,16 @@ middle of power generation storing cost</doc>
 				<eqn>0</eqn>
 				<units>dmnl/year</units>
 			</aux>
-			<aux name="cost of storing CO2" access="output" isee:autocreated="true">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Storing_CO2 * cost_of_storing_CO2_per_unit</eqn>
-				<units>c$</units>
-			</aux>
-			<aux name="UNIT GtC to tC">
-				<doc>${Unit}
-</doc>
-				<eqn>1000000000</eqn>
-				<units>tC/GtC</units>
-			</aux>
-			<aux name="storing carbon from oil\nemissions">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>share_of_oil_emissions_stored*CO2_emissions_from_oil</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
-			<aux name="GtC to MtCO2" access="input">
-				<eqn>3670</eqn>
-				<units>MtCO2/GTC</units>
-			</aux>
 			<aux name="stored Carbon">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>stored_CO2 / GtC_to_MtCO2</eqn>
+				<eqn>stored_CO2 / UNIT_GtC_to_MtCO2</eqn>
 				<units>GtC</units>
 			</aux>
-			<aux name="cost of storing CO2 per unit" access="output" isee:autocreated="true">
-				<eqn>UNIT_GtC_to_tC / GtC_to_MtCO2 * cost_of_storing_carbon_per_unit</eqn>
-				<units>c$/(MtCO2/year)</units>
+			<aux name="UNIT GtC to MtCO2" access="input">
+				<eqn>3670</eqn>
+				<units>MtCO2/GtC</units>
 			</aux>
 		</variables>
 		<views>
@@ -1793,7 +1174,7 @@ middle of power generation storing cost</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:scroll_x="511.25" isee:scroll_y="82.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1839,54 +1220,6 @@ middle of power generation storing cost</doc>
 						<pt x="1019.17" y="240"/>
 					</pts>
 				</flow>
-				<aux x="940" y="506.667" name="cost of storing carbon per unit"/>
-				<aux font_style="italic" font_weight="bold" x="233.333" y="121.667" name="share of coal emissions stored"/>
-				<aux font_style="italic" font_weight="bold" x="368.333" y="121.667" name="share of oil\nemissions stored"/>
-				<aux font_style="italic" font_weight="bold" x="527.5" y="121.667" name="share of gas\nemissions stored"/>
-				<aux font_style="italic" font_weight="bold" x="688.333" y="121.667" name="share of biofuel\nemissions stored"/>
-				<aux font_style="italic" font_weight="bold" x="688.333" y="321.667" name="CO2 emissions from biofuels"/>
-				<aux font_style="italic" font_weight="bold" x="368.333" y="321.667" name="CO2 emissions from oil"/>
-				<aux font_style="italic" font_weight="bold" x="527.5" y="321.667" name="CO2 emissions from gas"/>
-				<aux font_style="italic" font_weight="bold" x="233.333" y="321.667" name="CO2 emissions from coal"/>
-				<aux x="233.333" y="238.667" name="storing carbon from coal\nemissions"/>
-				<connector uid="1" angle="96.6325">
-					<from>CO2_emissions_from_coal</from>
-					<to>storing_carbon_from_coal_emissions</to>
-				</connector>
-				<connector uid="2" angle="270">
-					<from>share_of_coal_emissions_stored</from>
-					<to>storing_carbon_from_coal_emissions</to>
-				</connector>
-				<aux x="527.5" y="238.667" name="storing carbon from gas\nemissions"/>
-				<connector uid="3" angle="271.364">
-					<from>share_of_gas_emissions_stored</from>
-					<to>storing_carbon_from_gas_emissions</to>
-				</connector>
-				<connector uid="4" angle="95.3145">
-					<from>CO2_emissions_from_gas</from>
-					<to>storing_carbon_from_gas_emissions</to>
-				</connector>
-				<aux x="688.333" y="238.667" name="storing carbon from biofuel\nemissions"/>
-				<connector uid="5" angle="275.711">
-					<from>share_of_biofuel_emissions_stored</from>
-					<to>storing_carbon_from_biofuel_emissions</to>
-				</connector>
-				<connector uid="6" angle="90">
-					<from>CO2_emissions_from_biofuels</from>
-					<to>storing_carbon_from_biofuel_emissions</to>
-				</connector>
-				<connector uid="7" angle="359.892">
-					<from>storing_carbon_from_coal_emissions</from>
-					<to>Storing_CO2</to>
-				</connector>
-				<connector uid="8" angle="359.815">
-					<from>storing_carbon_from_gas_emissions</from>
-					<to>Storing_CO2</to>
-				</connector>
-				<connector uid="9" angle="359.698">
-					<from>storing_carbon_from_biofuel_emissions</from>
-					<to>Storing_CO2</to>
-				</connector>
 				<flow x="1154.67" y="240" name="CO2 Emissions from Leakage">
 					<pts>
 						<pt x="1064.17" y="240"/>
@@ -1902,51 +1235,15 @@ middle of power generation storing cost</doc>
 					<from>stored_CO2</from>
 					<to>CO2_Emissions_from_Leakage</to>
 				</connector>
-				<aux x="941.25" y="321.667" name="cost of storing CO2"/>
-				<connector uid="12" angle="269.999">
-					<from>Storing_CO2</from>
-					<to>cost_of_storing_CO2</to>
-				</connector>
-				<aux x="800" y="444.167" name="UNIT GtC to tC"/>
-				<aux x="368.333" y="238.667" name="storing carbon from oil\nemissions"/>
-				<connector uid="13" angle="359.867">
-					<from>storing_carbon_from_oil_emissions</from>
-					<to>Storing_CO2</to>
-				</connector>
-				<connector uid="14" angle="86.0091">
-					<from>CO2_emissions_from_oil</from>
-					<to>storing_carbon_from_oil_emissions</to>
-				</connector>
-				<connector uid="15" angle="274.289">
-					<from>share_of_oil_emissions_stored</from>
-					<to>storing_carbon_from_oil_emissions</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="1042.5" y="442.5" name="GtC to MtCO2"/>
 				<aux x="1041.67" y="314.167" name="stored Carbon"/>
 				<connector uid="16" angle="275.389">
 					<from>stored_CO2</from>
 					<to>stored_Carbon</to>
 				</connector>
-				<connector uid="17" angle="90.372">
-					<from>GtC_to_MtCO2</from>
+				<aux font_style="italic" font_weight="bold" x="1041.67" y="404.167" name="UNIT GtC to MtCO2"/>
+				<connector uid="22" angle="66.6645">
+					<from>UNIT_GtC_to_MtCO2</from>
 					<to>stored_Carbon</to>
-				</connector>
-				<aux label_side="top" x="940" y="444.167" name="cost of storing CO2 per unit"/>
-				<connector uid="18" angle="90">
-					<from>cost_of_storing_carbon_per_unit</from>
-					<to>cost_of_storing_CO2_per_unit</to>
-				</connector>
-				<connector uid="19" angle="0">
-					<from>UNIT_GtC_to_tC</from>
-					<to>cost_of_storing_CO2_per_unit</to>
-				</connector>
-				<connector uid="20" angle="180.932">
-					<from>GtC_to_MtCO2</from>
-					<to>cost_of_storing_CO2_per_unit</to>
-				</connector>
-				<connector uid="21" angle="89.4155">
-					<from>cost_of_storing_CO2_per_unit</from>
-					<to>cost_of_storing_CO2</to>
 				</connector>
 			</view>
 		</views>

@@ -5,7 +5,7 @@
 		<name>Forcing</name>
 		<uuid>3cef55e9-2351-4644-9b0e-7122365fd40e</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8" isee:build_number="3578" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="100" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -363,8 +363,8 @@
 				<format scale_by="auto"/>
 				<connect to="Forcing.Minor_GHGs_Effective_Radiative_Forcing" from="Minor_GHGs_Forcing.Minor_GHGs_Effective_Radiative_Forcing"/>
 				<connect2 to="Minor_GHGs_Effective_Radiative_Forcing" from="Minor_GHGs_Forcing.Minor_GHGs_Effective_Radiative_Forcing"/>
-				<connect to="Minor_GHGs_Forcing.HFC134a_emissions" from="Emissions.HFC134a_eq_Emissions"/>
-				<connect2 to="Minor_GHGs_Forcing.HFC134a_emissions" from="Emissions.HFC134a_eq_Emissions"/>
+				<connect to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
+				<connect2 to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect to="Minor_GHGs_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
 				<connect2 to="Minor_GHGs_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
 				<connect to="Minor_GHGs_Forcing.Molecular_Weight_of_Air" from="Climate_Units.Molecular_Weight_of_Air"/>
@@ -424,16 +424,12 @@
 			</module>
 			<module name="CO2 Forcing" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Planetary_Boundaries.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Planetary_Boundaries.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Forcing.CO2_Effective_Radiative_Forcing" from="CO2_Forcing.CO2_Effective_Radiative_Forcing"/>
 				<connect2 to="CO2_Effective_Radiative_Forcing" from="CO2_Forcing.CO2_Effective_Radiative_Forcing"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
@@ -577,7 +573,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="80" isee:scroll_y="222" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="196" isee:scroll_y="390" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1693,9 +1689,6 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<units>dmnl</units>
 			</aux>
 			<aux name="Total SO2 Emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>MtSO2/Year</units>
 			</aux>
@@ -1736,7 +1729,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -1759,7 +1752,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:scroll_x="23" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2184,9 +2177,6 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<units>MtCO2/yr</units>
 			</aux>
 			<aux name="Total SO2 Emissions 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>MtSO2/Year</units>
 			</aux>
@@ -2238,7 +2228,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -3020,11 +3010,8 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<units>MtCH4</units>
 			</aux>
 			<aux name="Total CH4 Emissions 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>MtCH4/Year</units>
+				<units>MtCH4/yr</units>
 			</aux>
 			<aux name="CH4 Baseline Emissions" access="input">
 				<eqn>19.0197831178</eqn>
@@ -3113,9 +3100,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<units>K</units>
 			</aux>
 			<aux name="VOC emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mt VOC/yr</units>
 			</aux>
@@ -3157,9 +3141,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<units>dmnl</units>
 			</aux>
 			<aux name="Total NOx emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mt NOx/yr</units>
 			</aux>
@@ -3216,7 +3197,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -4190,7 +4171,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Atmospheric_CO2_mass_anomaly_since_1750[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<inflow>Annual_change_of_atmospheric_CO2</inflow>
 				<units>MtCO2</units>
 			</stock>
@@ -4218,314 +4199,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 			<aux name="UNIT weight ratio of CO2 over C" access="input">
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>GtCO2/GtC</units>
-			</aux>
-			<aux name="Initial Atmospheric CO2 mass anomaly since 1750">
-				<doc>${External Parameter}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>469460.307533</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>473762.642567</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>449999.071168</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>484795.76875</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>468776.640299</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>476312.580572</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>449998.988343</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>455844.616592</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>467881.256319</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>455054.159295</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>472071.527034</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>460943.037396</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>478031.280119</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>477251.814655</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>468485.194716</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>480905.316239</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>471742.578939</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>483284.709384</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>480970.340294</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>465265.665396</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>481087.070051</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>471056.685479</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>481152.580114</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>467261.797229</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>461898.373234</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>475900.66476</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>463327.117084</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>466973.385751</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>460830.2605</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>464835.697736</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>470808.402971</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>458983.321979</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>463729.507431</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>467022.673996</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>458471.806014</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>463914.768368</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>468114.472582</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>485330.399625</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>474200.744469</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>462467.925488</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>478318.252244</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>472878.201657</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>466891.165478</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>463374.625148</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>477678.820364</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>451757.395287</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>458386.58182</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>478383.730211</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>480737.550465</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>483716.341783</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>467930.209638</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>472143.165649</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>487268.545617</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>448093.99879</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>472930.43754</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>467873.582379</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>467991.30321</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>465959.869324</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>486734.148166</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>468504.961047</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>481436.974414</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>469710.515403</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>471573.729416</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>468390.676219</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>463379.099992</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>488956.734005</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>469215.626277</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>464389.225275</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>495207.462492</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>477066.457226</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>470944.714308</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>478858.950278</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>469125.972248</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>455603.893259</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>484549.51036</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>463318.90251</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>455159.360628</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>458851.667207</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>462502.602048</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>451710.700476</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>454608.582557</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>470311.60014</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>476729.130807</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>453459.39736</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>457746.25226</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>478387.524863</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>473130.796461</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>473502.179586</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>478743.640556</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>474365.628131</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>465873.487896</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>480350.587809</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>481389.722663</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>480659.257208</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>467987.616219</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>463282.864739</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>458790.532348</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>469748.060887</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>467194.174562</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>460213.782678</eqn>
-				</element>
-				<units>MtCO2</units>
 			</aux>
 			<aux name="selected climate case" access="input">
 				<dimensions>
@@ -4578,7 +4251,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -4601,7 +4274,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="227" isee:scroll_y="100" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="356.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4738,7 +4411,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>UNIT_weight_ratio_of_CO2_over_C</from>
 					<to>Annual_change_of_atmospheric_CO2</to>
 				</connector>
-				<aux x="808.75" y="251.25" name="Initial Atmospheric CO2 mass anomaly since 1750"/>
 				<aux font_style="italic" font_weight="bold" x="826.75" y="333.917" name="selected climate case"/>
 				<aux font_style="italic" font_weight="bold" x="1128.75" y="397.94" name="UNIT MtCO2 to GtCO2"/>
 				<connector uid="60" angle="293.427">
@@ -5107,7 +4779,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Irrigation_Forcing_1980_relative_to_1750 + (Irrigation_Emissions - INIT(Irrigation_Emissions) )*Irrigation_Forcing_per_Irrigation_H2O_Emissions</eqn>
+				<eqn>(Irrigation_Emissions - INIT(Irrigation_Emissions) )*Irrigation_Forcing_per_Irrigation_H2O_Emissions</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="Irrigation Emissions">
@@ -5139,7 +4811,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Land_Use_Forcing_1980_relative_to_1750 + (Albedo - INIT(Albedo))*Land_Use_Forcing_per_change_in_Land_Use_albedo</eqn>
+				<eqn>(Albedo - INIT(Albedo))*Land_Use_Forcing_per_change_in_Land_Use_albedo</eqn>
 				<units>(W/(metre^2))</units>
 			</aux>
 			<aux name="Albedo" access="input">
@@ -5148,14 +4820,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
-			</aux>
-			<aux name="Land Use Forcing 1980\nrelative to 1750">
-				<eqn>-0.13704706</eqn>
-				<units>W/(metre^2)</units>
-			</aux>
-			<aux name="Irrigation Forcing 1980\nrelative to 1750">
-				<eqn>-0.040305263</eqn>
-				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="Calibration scaling\nof Irrigation forcing">
 				<doc>${External Parameter}
@@ -5491,7 +5155,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -5514,7 +5178,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5588,23 +5252,13 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<to>Land_Use_Forcing_from_Albedo_Change</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="672" y="159.166" name="Albedo"/>
-				<aux x="593" y="221.75" name="Land Use Forcing 1980\nrelative to 1750"/>
 				<connector uid="7" angle="281.939">
 					<from>Albedo</from>
-					<to>Land_Use_Forcing_from_Albedo_Change</to>
-				</connector>
-				<connector uid="8" angle="298.393">
-					<from>Land_Use_Forcing_1980_relative_to_1750</from>
 					<to>Land_Use_Forcing_from_Albedo_Change</to>
 				</connector>
 				<connector uid="9" angle="195.68">
 					<from>Land_Use_Forcing_from_Albedo_Change</from>
 					<to>Total_Land_use_forcing</to>
-				</connector>
-				<aux x="159" y="286" name="Irrigation Forcing 1980\nrelative to 1750"/>
-				<connector uid="10" angle="8.36589">
-					<from>Irrigation_Forcing_1980_relative_to_1750</from>
-					<to>Irrigation_Forcing</to>
 				</connector>
 				<connector uid="11" angle="200.856">
 					<from>Calibration_scaling_of_Albedo_forcing</from>
@@ -5627,13 +5281,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 			<aux name="Montreal Gases Effective\nRadiative Forcing">
 				<eqn>NAN</eqn>
 				<units>W/(metre^2)</units>
-			</aux>
-			<aux name="HFC134a emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>kt/year</units>
 			</aux>
 			<aux name="Forcing per unit\nHFC134a eq concentrations">
 				<eqn>0.16714</eqn>
@@ -6026,7 +5673,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>HFC134a_emissions</eqn>
+				<eqn>HFC134a_eq_Emissions</eqn>
 				<units>kt/Year</units>
 			</flow>
 			<flow name="HFC134a eq out of atmosphere">
@@ -6039,6 +5686,10 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 			<aux name="Atmospheric HFC134a eq\nConcentration 1750">
 				<eqn>20.08507646</eqn>
 				<units>ppt</units>
+			</aux>
+			<aux name="HFC134a eq Emissions" access="input">
+				<eqn>NAN</eqn>
+				<units>kt/year</units>
 			</aux>
 		</variables>
 		<views>
@@ -6066,7 +5717,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -6089,7 +5740,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="101.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6129,7 +5780,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
 				<aux x="118.583" y="572.23" name="Montreal Gases Effective\nRadiative Forcing"/>
-				<aux font_style="italic" font_weight="bold" x="424.163" y="59.0833" name="HFC134a emissions"/>
 				<aux x="259.667" y="481.98" name="Forcing per unit\nHFC134a eq concentrations"/>
 				<aux x="365.667" y="200.188" name="Baseline HFC134a eq Lifetime"/>
 				<aux x="611.503" y="214.708" name="Initial HFC134a eq in atmosphere"/>
@@ -6214,10 +5864,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>HFC134a_eq_in_atmosphere</from>
 					<to>HFC134a_eq_out_of_atmosphere</to>
 				</connector>
-				<connector uid="15" angle="324.372">
-					<from>HFC134a_emissions</from>
-					<to>HFC134a_eq_into_atmosphere</to>
-				</connector>
 				<connector uid="16" angle="328.769">
 					<from>Baseline_HFC134a_eq_Lifetime</from>
 					<to>HFC134a_eq_out_of_atmosphere</to>
@@ -6234,6 +5880,11 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<connector uid="19" angle="197.912">
 					<from>Atmospheric_HFC134a_eq_Concentration_1750</from>
 					<to>HFC134a_eq_Effective_Radiative_Forcing</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="365.667" y="99.1667" name="HFC134a eq Emissions"/>
+				<connector uid="20" angle="13.1659">
+					<from>HFC134a_eq_Emissions</from>
+					<to>HFC134a_eq_into_atmosphere</to>
 				</connector>
 			</view>
 		</views>
@@ -6664,9 +6315,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<units>K</units>
 			</aux>
 			<aux name="Total N2O Emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>ktN2O/yr</units>
 			</aux>
@@ -6766,7 +6414,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -8027,7 +7675,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -8818,16 +8466,10 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<units>W/metre^2</units>
 			</aux>
 			<aux name="VOC emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mt VOC/yr</units>
 			</aux>
 			<aux name="CO emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mt CO/yr</units>
 			</aux>
@@ -9761,7 +9403,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Ozone_forcing_per_unit_VOC_emissions_change[selected_climate_case_1[Run]]*(DELAY(VOC_emissions[Run] - Baseline_VOC_emissions,  0.5)) + Ozone_forcing_per_unit_NOx_emissions_change[selected_climate_case_1[Run]]*(DELAY(Total_NOx_emissions - Baseline_NOx_Emissions_1,  0.5)) + Ozone_forcing_per_unit_CO_emissions_change[selected_climate_case_1[Run]]*(DELAY(CO_emissions[Run] - Baseline_CO_emissions,  0.5))</eqn>
+				<eqn>Ozone_forcing_per_unit_VOC_emissions_change[selected_climate_case_1[Run]]*(DELAY(VOC_emissions - Baseline_VOC_emissions,  0.5)) + Ozone_forcing_per_unit_NOx_emissions_change[selected_climate_case_1[Run]]*(DELAY(Total_NOx_emissions - Baseline_NOx_Emissions_1,  0.5)) + Ozone_forcing_per_unit_CO_emissions_change[selected_climate_case_1[Run]]*(DELAY(CO_emissions - Baseline_CO_emissions,  0.5))</eqn>
 				<units>W/metre^2</units>
 			</aux>
 			<aux name="Ozone Effective Radiative Forcing\nwithout Temperature effect">
@@ -10096,9 +9738,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<units>CFC11eq</units>
 			</aux>
 			<aux name="Total NOx emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mt NOx/yr</units>
 			</aux>
@@ -10132,7 +9771,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>
@@ -10155,7 +9794,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="198" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="42.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -10691,7 +10330,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
 				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
 				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
 				<isee:sim_speed_slider color="black" background="white"/>

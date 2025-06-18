@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-start_year = 1850
+start_year = 1750
 end_year = 2100
 
 ssps = ['ssp126', 'ssp245', 'ssp370']
@@ -24,6 +24,6 @@ for scen in ssps:
                                                   & (df_wood_biomass_scen.index <= end_year)]
     df_wood_biomass_full = pd.concat((df_wood_biomass_hist, df_wood_biomass_scen), axis=0)
     
-    df_wood_biomass['Forest.cutting'] = df_wood_biomass_full['wood_harvest_biomass']
+    df_wood_biomass['Forest.cutting exogenous'] = df_wood_biomass_full['wood_harvest_biomass']
     df_wood_biomass.to_csv(f'../data/inputs/frida_clim_land_wood_biomass_{scen}.csv')
     
