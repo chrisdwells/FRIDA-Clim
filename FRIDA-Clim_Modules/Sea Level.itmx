@@ -5,7 +5,7 @@
 		<name>Sea Level</name>
 		<uuid>656dacef-005e-41a3-aedc-d19f6fd6e9f6</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -1169,96 +1169,15 @@ rho_GrIS_SID[Run] * (GrIS_outlet_max-Sea_level_anomaly_from_GrIS_DIS) * EXP(epsi
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Sea_level_anomaly_from_groundwater_withdrawal + Sea_level_anomaly_from_water_impoundment + initial_sea_level_anomaly_from_LWS</eqn>
-				<units>metre</units>
-			</aux>
-			<aux name="Sea level anomaly from\ngroundwater withdrawal">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>- total_groundwater_anomaly * Cubic_metre_to_SLR</eqn>
-				<units>metre</units>
-			</aux>
-			<stock name="Land water storage from\nwater impoundment" access="output" isee:autocreated="true">
-				<doc>${Calibrated Output}
-There is approximately a linear relationship between installation of hydropower capacity and the volume of the storage. Data from
-
-&quot;Dams for hydropower and irrigation: Trends, challenges, and alternatives&quot; Schmitt and Rosa (2024), Renewable and Sustainable Energy Reviews, Vol. 199, 
-
-https://doi.org/10.1016/j.rser.2024.114439</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Initial_water_storage_from_water_impoundment</eqn>
-				<inflow>Water_catchment_in_global_dams</inflow>
-				<units>m^3</units>
-			</stock>
-			<aux name="Cubic metre to SLR">
-				<doc>${External Parameter}
-361e12 m^2 is the ocean surface area </doc>
-				<eqn>2.77e-15</eqn>
-				<units>metre/m^3</units>
-			</aux>
-			<flow name="Water catchment in\nglobal dams">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>installation_of_hydropower_capacity_1 * Water_catchment_per_GW_of_hydropower</eqn>
-				<units>m^3/year</units>
-			</flow>
-			<aux name="Initial water storage from water impoundment">
-				<doc>${External Parameter,Internal Calibration Parameter,No Sensi}
-</doc>
-				<eqn>3950000000000</eqn>
-				<range min="2500000000000" max="5500000000000"/>
-				<units>m^3</units>
-			</aux>
-			<aux name="initial sea level anomaly from LWS">
-				<doc>${External Parameter,Internal Calibration Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>-0.00532349732035439</eqn>
-				<range min="-0.1" max="0.1"/>
-				<units>metre</units>
-			</aux>
-			<aux name="Sea level anomaly from water impoundment">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>(INIT(Land_water_storage_from_water_impoundment) - Land_water_storage_from_water_impoundment) * Cubic_metre_to_SLR</eqn>
-				<units>metre</units>
-			</aux>
-			<aux name="Water catchment per\nGW of hydropower">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>3000967487.44708</eqn>
-				</element>
-				<range min="2000000000" max="5000000000"/>
-				<units>m^3/GW</units>
-			</aux>
-			<stock name="total groundwater anomaly" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>0</eqn>
-				<units>m^3</units>
-			</stock>
+				<units>metre</units>
+			</aux>
 			<aux name="Surface Temperature Anomaly" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>deg C</units>
-			</aux>
-			<aux name="installation of hydropower capacity 1" access="input">
-				<eqn>32</eqn>
-				<units>GW/Year</units>
 			</aux>
 		</variables>
 		<views>
@@ -1307,7 +1226,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="7" isee:page_rows="4" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="7" isee:page_rows="4" isee:scroll_y="940.833" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2383,52 +2302,6 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				</connector>
 				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="550" x="62.536" y="1109.92" width="250.39" height="20">Sea-level rise from land water storage</text_box>
 				<aux label_side="right" x="205.398" y="1224.29" name="Sea level anomaly from LWS"/>
-				<aux x="138.338" y="1315.67" name="Sea level anomaly from\ngroundwater withdrawal"/>
-				<stock label_side="top" x="309.056" y="1432.34" name="Land water storage from\nwater impoundment"/>
-				<connector uid="551" angle="87.0186">
-					<from>Sea_level_anomaly_from_groundwater_withdrawal</from>
-					<to>Sea_level_anomaly_from_LWS</to>
-				</connector>
-				<aux x="213.5" y="1297.67" name="Cubic metre to SLR"/>
-				<connector uid="552" angle="155.614">
-					<from>Cubic_metre_to_SLR</from>
-					<to>Sea_level_anomaly_from_groundwater_withdrawal</to>
-				</connector>
-				<flow x="379.306" y="1433.34" name="Water catchment in\nglobal dams">
-					<pts>
-						<pt x="439.056" y="1433.34"/>
-						<pt x="331.556" y="1433.34"/>
-					</pts>
-				</flow>
-				<aux x="259.556" y="1459.78" name="Initial water storage from water impoundment"/>
-				<aux x="106.361" y="1211.83" name="initial sea level anomaly from LWS"/>
-				<connector uid="553" angle="2.80865">
-					<from>initial_sea_level_anomaly_from_LWS</from>
-					<to>Sea_level_anomaly_from_LWS</to>
-				</connector>
-				<aux x="277.556" y="1338.96" name="Sea level anomaly from water impoundment"/>
-				<connector uid="555" angle="114.823">
-					<from>Sea_level_anomaly_from_water_impoundment</from>
-					<to>Sea_level_anomaly_from_LWS</to>
-				</connector>
-				<connector uid="556" angle="104.455">
-					<from>Land_water_storage_from_water_impoundment</from>
-					<to>Sea_level_anomaly_from_water_impoundment</to>
-				</connector>
-				<connector uid="557" angle="352.093">
-					<from>Cubic_metre_to_SLR</from>
-					<to>Sea_level_anomaly_from_water_impoundment</to>
-				</connector>
-				<aux x="340.556" y="1513.5" name="Water catchment per\nGW of hydropower"/>
-				<connector uid="558" angle="51.0708">
-					<from>Water_catchment_per_GW_of_hydropower</from>
-					<to>Water_catchment_in_global_dams</to>
-				</connector>
-				<stock x="66.6667" y="1415" name="total groundwater anomaly"/>
-				<connector uid="559" angle="65.7256">
-					<from>total_groundwater_anomaly</from>
-					<to>Sea_level_anomaly_from_groundwater_withdrawal</to>
-				</connector>
 				<connector uid="561" angle="34.1952">
 					<from>Sea_level_anomaly_from_LWS</from>
 					<to>Total_global_sea_level_anomaly</to>
@@ -2437,11 +2310,6 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<connector uid="582" angle="298.74">
 					<from>Surface_Temperature_Anomaly</from>
 					<to>T_anomaly_for_SLR</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="460.625" y="1513.5" name="installation of hydropower capacity 1"/>
-				<connector uid="583" angle="135.411">
-					<from>installation_of_hydropower_capacity_1</from>
-					<to>Water_catchment_in_global_dams</to>
 				</connector>
 				<alias font_style="italic" label_side="top" uid="151" x="227.286" y="857.611" width="18" height="18">
 					<of>T_anomaly_for_SLR</of>

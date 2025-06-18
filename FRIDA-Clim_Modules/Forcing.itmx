@@ -384,8 +384,6 @@
 				<format scale_by="auto"/>
 				<connect to="Forcing.Total_Land_use_forcing" from="Land_Use_Forcing.Total_Land_use_forcing"/>
 				<connect2 to="Total_Land_use_forcing" from="Land_Use_Forcing.Total_Land_use_forcing"/>
-				<connect to="Land_Use_Forcing.agricultural_water_withdrawal" from="Freshwater.agricultural_water_withdrawal"/>
-				<connect2 to="Land_Use_Forcing.agricultural_water_withdrawal" from="Freshwater.agricultural_water_withdrawal"/>
 				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
@@ -573,7 +571,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="196" isee:scroll_y="390" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="210" isee:scroll_y="352" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4783,9 +4781,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="Irrigation Emissions">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>agricultural_water_withdrawal*Fraction_of_Irrigation_water_which_is_emitted</eqn>
 				<units>m^3/year</units>
 			</aux>
@@ -4795,13 +4790,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				</dimensions>
 				<eqn>Irrigation_Forcing*Calibration_scaling_of_Irrigation_forcing[selected_climate_case_1[Run]] + Land_Use_Forcing_from_Albedo_Change*Calibration_scaling_of_Albedo_forcing[selected_climate_case_1[Run]]</eqn>
 				<units>W/(metre^2)</units>
-			</aux>
-			<aux name="agricultural water\nwithdrawal" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>m^3/year</units>
 			</aux>
 			<aux name="Land Use Forcing per\nchange in Land Use albedo">
 				<eqn>-13.9646322</eqn>
@@ -5129,6 +5117,10 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				</element>
 				<units>Dimensionless</units>
 			</aux>
+			<aux name="agricultural water\nwithdrawal">
+				<eqn>0</eqn>
+				<units>m^3/year</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -5240,11 +5232,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Irrigation_Forcing</from>
 					<to>Total_Land_use_forcing</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="274" y="87" name="agricultural water\nwithdrawal"/>
-				<connector uid="5" angle="268.315">
-					<from>agricultural_water_withdrawal</from>
-					<to>Irrigation_Emissions</to>
-				</connector>
 				<aux x="737" y="274" name="Land Use Forcing per\nchange in Land Use albedo"/>
 				<aux x="618" y="304" name="Land Use Forcing from\nAlbedo Change"/>
 				<connector uid="6" angle="194.149">
@@ -5272,6 +5259,11 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<connector uid="13" angle="22.0439">
 					<from>Calibration_scaling_of_Irrigation_forcing</from>
 					<to>Total_Land_use_forcing</to>
+				</connector>
+				<aux x="278" y="107.333" name="agricultural water\nwithdrawal"/>
+				<connector uid="14" angle="276.066">
+					<from>agricultural_water_withdrawal</from>
+					<to>Irrigation_Emissions</to>
 				</connector>
 			</view>
 		</views>

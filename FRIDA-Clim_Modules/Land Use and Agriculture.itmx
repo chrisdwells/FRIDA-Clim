@@ -627,39 +627,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect2 to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
 			</module>
-			<module name="Freshwater" isee:label="">
-				<format scale_by="auto"/>
-				<connect to="Land_Use_Forcing.agricultural_water_withdrawal" from="Freshwater.agricultural_water_withdrawal"/>
-				<connect2 to="Land_Use_Forcing.agricultural_water_withdrawal" from="Freshwater.agricultural_water_withdrawal"/>
-				<connect to="Sea_Level.total_groundwater_anomaly" from="Freshwater.total_groundwater_anomaly"/>
-				<connect2 to="Sea_Level.total_groundwater_anomaly" from="Freshwater.total_groundwater_anomaly"/>
-				<connect to="Freshwater.Cropland" from="Land_Use.Cropland"/>
-				<connect2 to="Freshwater.Cropland" from="Land_Use.Cropland"/>
-				<connect to="Freshwater.Global_population" from="Inputs.Global_population"/>
-				<connect2 to="Freshwater.Global_population" from="Inputs.Global_population"/>
-				<connect to="Freshwater.irrigation_efficiency_multiplier" from="Government_Regulations.irrigation_efficiency_multiplier"/>
-				<connect2 to="Freshwater.irrigation_efficiency_multiplier" from="Government_Regulations.irrigation_efficiency_multiplier"/>
-				<connect to="Freshwater.irrigation_fraction_policy" from="Government_Regulations.irrigation_fraction_policy"/>
-				<connect2 to="Freshwater.irrigation_fraction_policy" from="Government_Regulations.irrigation_fraction_policy"/>
-				<connect to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
-				<connect2 to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
-				<connect to="Freshwater.on_agricultural_water_use_policy" from="Government_Regulations.non_agricultural_water_use_policy"/>
-				<connect2 to="Freshwater.on_agricultural_water_use_policy" from="Government_Regulations.non_agricultural_water_use_policy"/>
-				<connect to="Freshwater.real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
-				<connect2 to="Freshwater.real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
-				<connect to="Freshwater.real_GDP_per_person_1" from="Inputs.real_GDP_per_person"/>
-				<connect2 to="Freshwater.real_GDP_per_person_1" from="Inputs.real_GDP_per_person"/>
-				<connect to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
-				<connect2 to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
-				<connect to="Freshwater.start_year" from="Government_Regulations.start_year"/>
-				<connect2 to="Freshwater.start_year" from="Government_Regulations.start_year"/>
-				<connect to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Freshwater.switch_irrigation_fraction_policy" from="Government_Regulations.switch_irrigation_fraction_policy"/>
-				<connect2 to="Freshwater.switch_irrigation_fraction_policy" from="Government_Regulations.switch_irrigation_fraction_policy"/>
-				<connect to="Freshwater.switch_non_agricultural_water_use_policy" from="Government_Regulations.switch_non_agricultural_water_use_policy"/>
-				<connect2 to="Freshwater.switch_non_agricultural_water_use_policy" from="Government_Regulations.switch_non_agricultural_water_use_policy"/>
-			</module>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -709,7 +676,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_y="8.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_x="35" isee:scroll_y="8.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -748,10 +715,10 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<aux x="1177.25" y="410.917" name="Albedo forest land"/>
-				<aux x="925.75" y="410.917" name="Albedo cropland"/>
-				<aux x="1057.25" y="443.75" name="Albedo grassland"/>
-				<aux x="1039.25" y="328.75" name="Albedo"/>
+				<aux x="1013.92" y="360.917" name="Albedo forest land"/>
+				<aux x="762.417" y="360.917" name="Albedo cropland"/>
+				<aux x="893.917" y="393.75" name="Albedo grassland"/>
+				<aux x="875.917" y="278.75" name="Albedo"/>
 				<connector uid="1" angle="149.23">
 					<from>Albedo_forest_land</from>
 					<to>Albedo</to>
@@ -776,7 +743,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 					<from>Recovering_Forest</from>
 					<to>Albedo</to>
 				</connector>
-				<aux x="1189.25" y="307.25" name="albedo recovering forest"/>
+				<aux x="1025.92" y="257.25" name="albedo recovering forest"/>
 				<connector uid="7" angle="45.9602">
 					<from>Albedo_grassland</from>
 					<to>albedo_recovering_forest</to>
@@ -789,45 +756,44 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 					<from>albedo_recovering_forest</from>
 					<to>Albedo</to>
 				</connector>
-				<stock font_style="italic" font_weight="bold" x="1013.5" y="183.913" name="Mature Forest"/>
-				<stock font_style="italic" font_weight="bold" x="851.75" y="307.25" name="Recovering Forest"/>
-				<module x="176.17" y="208.917" name="Land Use"/>
-				<stock font_style="italic" font_weight="bold" x="905.92" y="197.663" name="Grassland"/>
+				<stock font_style="italic" font_weight="bold" x="850.167" y="133.913" name="Mature Forest"/>
+				<stock font_style="italic" font_weight="bold" x="688.417" y="257.25" name="Recovering Forest"/>
+				<module x="247.837" y="234.75" name="Land Use"/>
+				<stock font_style="italic" font_weight="bold" x="742.587" y="147.663" name="Grassland"/>
 				<connector uid="12" angle="352.209">
 					<from>Grassland</from>
 					<to>Albedo</to>
 				</connector>
-				<stock font_style="italic" font_weight="bold" x="1139.75" y="213.5" name="Cropland"/>
+				<stock font_style="italic" font_weight="bold" x="976.417" y="163.5" name="Cropland"/>
 				<module x="369.92" y="365.917" name="Crop"/>
-				<connector uid="30" isee:thickness="2" angle="300.97" isee:autocreated="true">
+				<connector uid="30" isee:thickness="2" angle="292.934" isee:autocreated="true">
 					<from>Land_Use</from>
 					<to>Crop</to>
 				</connector>
-				<module label_side="top" x="524.75" y="268.917" name="Soil"/>
-				<module label_side="top" x="535.75" y="454" name="Grass"/>
+				<module label_side="top" x="484.75" y="274.75" name="Soil"/>
+				<module label_side="top" x="501.583" y="404" name="Grass"/>
 				<module label_side="top" x="409.75" y="127" name="Forest"/>
-				<connector uid="74" isee:thickness="2" angle="332.971" isee:autocreated="true">
+				<connector uid="74" isee:thickness="2" angle="320.865" isee:autocreated="true">
 					<from>Forest</from>
 					<to>Soil</to>
 				</connector>
-				<connector uid="76" isee:thickness="2" angle="57.0669" isee:autocreated="true">
+				<connector uid="76" isee:thickness="2" angle="63.447" isee:autocreated="true">
 					<from>Crop</from>
 					<to>Soil</to>
 				</connector>
-				<connector uid="77" isee:thickness="2" angle="25.0893" isee:autocreated="true">
+				<connector uid="77" isee:thickness="2" angle="25.2724" isee:autocreated="true">
 					<from>Land_Use</from>
 					<to>Soil</to>
 				</connector>
-				<connector uid="80" isee:thickness="2" angle="44.3259" isee:autocreated="true">
+				<connector uid="80" isee:thickness="2" angle="58.6431" isee:autocreated="true">
 					<from>Land_Use</from>
 					<to>Forest</to>
 				</connector>
-				<module label_side="top" x="365.17" y="260.917" name="Freshwater"/>
-				<connector uid="101" isee:thickness="2" angle="224.326" isee:autocreated="true">
+				<connector uid="101" isee:thickness="2" angle="238.643" isee:autocreated="true">
 					<from>Forest</from>
 					<to>Land_Use</to>
 				</connector>
-				<connector uid="73" isee:thickness="2" angle="67.0773" isee:autocreated="true">
+				<connector uid="73" isee:thickness="2" angle="71.0964" isee:autocreated="true">
 					<from>Grass</from>
 					<to>Soil</to>
 				</connector>
@@ -1009,7 +975,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1291.25" isee:scroll_y="683.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1398.75" isee:scroll_y="768.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1627,7 +1593,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="515" isee:scroll_y="246.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="700" isee:scroll_y="88.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2039,933 +2005,6 @@ Limits for extreme conditions in no feedback cases</doc>
 			</view>
 		</views>
 	</model>
-	<model name="Freshwater">
-		<variables>
-			<stock name="available\nwater supply">
-				<doc>${Calibrated Output}
-From Billy and Lan:
-This is water that can be used by humans for ag (irrigation), domestic, industry
-
-This is after water has been reserved for ecological systems.  If we want to modify that amount, we would add an outflow, and control that as a policy.
-
-Water is withdrawn by people (for drinking and industry) using GDP per person to model the per person consumption for those purposes then multiplying by Population
-
-Water is withdrawn for irrigation based on a fraction of cropland irrigated (which itself is driven off of relative water availability.  Water withdrawn (i.e. lost) on a per unit of crop production basis is driven by technology (down), climate (up).  
-
-Irrigation effects crop yield, but does not set it to 0 when the available water supply runs out, because of rain.  
-
-The available water supply is recharged at a natural constant rate (safe assumption re: Lan).  It can also be supplemented by humans who &quot;drill deeper&quot; via technological water discovery, and the pressure to increase that, as water supplies dwindle.</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>initial_available_water_supply</eqn>
-				<inflow>natural_water_recharge_flow</inflow>
-				<inflow>technological_water_discovery</inflow>
-				<outflow>total_water_withdrawal</outflow>
-				<units>m^3</units>
-			</stock>
-			<flow name="total\nwater\nwithdrawal" access="output">
-				<doc>${Calibrated Output}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>non_agricultural_water_withdrawl+agricultural_water_withdrawal</eqn>
-				<non_negative/>
-				<units>m^3/year</units>
-			</flow>
-			<aux name="elasticity of\nnon agricultural water withdrawal\nper capita to GDP per person">
-				<doc>${Internal Calibration Parameter}
-Calibration Parameter: fertilizer use &amp; crop production</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.0108421901817229</eqn>
-				</element>
-				<range min="0.01" max="0.5"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="non agricultural water\nwithdrawal 1980">
-				<doc>${Internal Calibration Parameter}
-Calibration Parameter: fertilizer use &amp; crop production</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>170884178.399796</eqn>
-				</element>
-				<range min="50000000" max="400000000"/>
-				<units>m^3/Mp/year</units>
-			</aux>
-			<aux name="non agricultural\nwater withdrawal\nper million person">
-				<doc>Calibration Parameter: fertilizer use &amp; crop production</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>IF switch_non_agricultural_water_use_policy AND TIME &gt; start_year THEN on_agricultural_water_use_policy
-ELSE
-((real_GDP_per_person/INIT(real_GDP_per_person))^elasticity_of_non_agricultural_water_withdrawal_per_capita_to_GDP_per_person)*non_agricultural_water_withdrawal_1980</eqn>
-				<units>m^3/Mp/year</units>
-			</aux>
-			<aux name="non agricultural\nwater withdrawl">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Global_population*non_agricultural_water_withdrawal_per_million_person</eqn>
-				<units>m^3/year</units>
-			</aux>
-			<flow name="natural water\nrecharge flow">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>natural_water_recharge</eqn>
-				<non_negative/>
-				<units>m^3/year</units>
-			</flow>
-			<aux name="agricultural water\nwithdrawal" access="output" isee:autocreated="true">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>water_withdrawal_per_MHa_irrigated*irrigated_cropland</eqn>
-				<units>m^3/year</units>
-			</aux>
-			<aux name="fraction of water\nwithdrawal for agriculture" access="output">
-				<doc>${Calibrated Output}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>agricultural_water_withdrawal/total_water_withdrawal</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="rate of change\nin irrigation efficiency">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.00372796642741939</eqn>
-				</element>
-				<range min="0" max="0.01"/>
-				<units>1/year</units>
-			</aux>
-			<aux name="effect of technology\non irrigation efficiency" access="output" isee:autocreated="true">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>EXP(-(rate_of_change_in_irrigation_efficiency)*(TIME-1980))*policy_multiplier</eqn>
-				<units>1</units>
-			</aux>
-			<aux name="sensitivity of surface temperature\nanomaly on water used per\nMtcrop">
-				<doc>${Climate Impact Parameter,Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.064352435</eqn>
-				</element>
-				<range min="0.02" max="0.1"/>
-				<units>1/deg C</units>
-			</aux>
-			<aux name="effect of surface\ntemperature anomaly\non water lost to\nevapotranspiration">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>1 + sensitivity_of_surface_temperature_anomaly_on_water_used_per_Mtcrop* Surface_Temperature_Anomaly</eqn>
-				<units>1</units>
-			</aux>
-			<aux name="water withdrawal per\nMHa irrigated 1980" access="output" isee:autocreated="true">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>9447671449.83665</eqn>
-				</element>
-				<range min="1000000000" max="100000000000"/>
-				<units>m^3/MHa/year</units>
-			</aux>
-			<aux name="water withdrawal per\nMHa irrigated">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>water_withdrawal_per_MHa_irrigated_1980*effect_of_technology_on_irrigation_efficiency*effect_of_surface_temperature_anomaly_on_water_lost_to_evapotranspiration</eqn>
-				<units>m^3/MHa/year</units>
-			</aux>
-			<aux name="fraction of cropland\nirrigated" access="output" isee:autocreated="true">
-				<doc>Dieter data differ, but a current estimate says 20% of cropland are irrigated, accounting for 70% of withdrawals: https://www.nature.com/articles/s43017-023-00438-5</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>IF switch_irrigation_fraction_policy AND TIME &gt; start_year THEN irrigation_fraction_policy
-ELSE
-fraction_of_cropland_irrigated_indicated_by_GDP_per_person*effect_of_available_water_supply_on_land_irrigated</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="effect of available\nwater supply on land\nirrigated">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>MAX(0, (available_water_supply/INIT(available_water_supply)))^sensitivity_of_effect_of_available_water_supply_on_land_irrigated</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="sensitivity of effect of available\nwater supply on land\nirrigated">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>1.03717417070288</eqn>
-				</element>
-				<range min="0.5" max="1.5"/>
-				<units>dmnl</units>
-			</aux>
-			<flow name="technological\nwater discovery" access="output" isee:autocreated="true">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>MAX(0,  technological_water_discovery_1980*effect_of_technology_on_available_water_supply*pressure_to_expand_available_water_supply)</eqn>
-				<non_negative/>
-				<units>m^3/year</units>
-			</flow>
-			<aux name="technological water\ndiscovery 1980">
-				<doc>${Internal Calibration Parameter}
-Old value from calibration: 164600402563.243</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>30519841631.7115</eqn>
-				</element>
-				<range min="10000000000" max="1000000000000"/>
-				<units>m^3/year</units>
-			</aux>
-			<aux name="rate of change\nin technological\nwater discovery">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>-0.0162923325605105</eqn>
-				</element>
-				<range min="-0.02" max="0"/>
-				<units>1/year</units>
-			</aux>
-			<aux name="effect of technology\non available water supply">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>EXP(-(rate_of_change_in_technological_water_discovery)*(TIME-1980))</eqn>
-				<units>1</units>
-			</aux>
-			<aux name="pressure to expand\navailable water supply">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>1+(sensitivity_of_pressure_to_expand_water_supply_to_available_water_supply*(available_water_supply/INIT(available_water_supply) - 1))</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="sensitivity\nof pressure to expand\nwater supply to available\nwater supply">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>-2.94827673721631</eqn>
-				</element>
-				<range min="-3" max="0"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="initial available water supply">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>48246098907318.8</eqn>
-				</element>
-				<range min="30000000000000" max="120000000000000"/>
-				<units>m^3</units>
-			</aux>
-			<stock name="Cropland" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha</units>
-			</stock>
-			<aux name="irrigated cropland">
-				<doc>${Calibrated Output}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Cropland*fraction_of_cropland_irrigated</eqn>
-				<units>Mha</units>
-			</aux>
-			<aux name="fraction of cropland irrigated\nindicated by GDP per person">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>LN(average_relative_real_GDP_per_person) * sensitivity_of_fraction_of_cropland_irrigated_indicated_to_GDP_per_person + base_fraction_of_cropland_irrigated</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="sensitivity of fraction of cropland irrigated\nindicated to GDP per person">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.139661067358513</eqn>
-				</element>
-				<range min="0.01" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="base fraction of cropland irrigated">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.185580542606732</eqn>
-				</element>
-				<range min="0" max="0.3"/>
-				<units>dmnl</units>
-			</aux>
-			<stock name="total groundwater anomaly" access="output" isee:autocreated="true">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0</eqn>
-				<inflow>deep_groundwater_refill</inflow>
-				<outflow>unsustainable_groundwater_withdrawal</outflow>
-				<units>m^3</units>
-			</stock>
-			<flow name="unsustainable\ngroundwater withdrawal">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>MAX(0,total_water_withdrawal) * unsustainable_fraction_of_water_withdrawal</eqn>
-				<units>m^3/year</units>
-			</flow>
-			<flow name="deep groundwater refill">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>-total_groundwater_anomaly/average_deep_groundwater_infiltration_time</eqn>
-				<units>m^3/year</units>
-			</flow>
-			<aux name="average deep groundwater\ninfiltration time">
-				<doc>${Internal Calibration Parameter}
-The range is amply wide to account for reasonable possibilities</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>100</eqn>
-				</element>
-				<range min="20" max="200"/>
-				<units>year</units>
-			</aux>
-			<aux name="natural water recharge">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>deep_groundwater_refill + (total_water_withdrawal - unsustainable_groundwater_withdrawal)</eqn>
-				<units>m^3/year</units>
-			</aux>
-			<aux name="unsustainable fraction of\nwater withdrawal">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>technological_water_discovery/total_water_withdrawal + initial_fraction_of_unsustainable_water_withdrawal</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="initial fraction of\nunsustainable water withdrawal">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.0505261471847029</eqn>
-				</element>
-				<range min="0" max="0.3"/>
-				<units>dmnl</units>
-			</aux>
-			<stock name="Land water storage from\nwater impoundment" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>m^3</units>
-			</stock>
-			<aux name="SLR from LWS" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>metre</units>
-			</aux>
-			<aux name="Surface Temperature Anomaly" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>deg C</units>
-			</aux>
-			<aux name="switch irrigation fraction policy" access="input">
-				<eqn>0</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="irrigation fraction policy" access="input">
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="1980" max="2100"/>
-					<yscale min="0" max="100"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>dmnl</units>
-			</aux>
-			<aux name="start year" access="input">
-				<eqn>2024</eqn>
-				<units>Year</units>
-			</aux>
-			<aux name="on agricultural water use policy" access="input">
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="1980" max="2100"/>
-					<yscale min="0" max="100"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>m^3/Mp/year</units>
-			</aux>
-			<aux name="switch non agricultural water use policy" access="input">
-				<eqn>0</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="irrigation efficiency multiplier" access="input">
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="1980" max="2100"/>
-					<yscale min="0" max="100"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>dmnl</units>
-			</aux>
-			<aux name="policy multiplier">
-				<eqn>IF TIME &gt; start_year THEN 1/irrigation_efficiency_multiplier
-ELSE
-1</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="technological water per unit of water used">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>technological_water_discovery/total_water_withdrawal</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="relative technological water\nper unit of water used">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>technological_water_per_unit_of_water_used/INIT(technological_water_per_unit_of_water_used)</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="average relative real\nGDP per person">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>SMTH1(real_GDP_per_person_1/INIT(real_GDP_per_person_1), time_for_GDP_to_impact_irrigation, initial_average_relative_real_gdp_per_person)</eqn>
-				<isee:delay_aux/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="time for GDP to impact irrigation">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>7.01821871951311</eqn>
-				<range min="3" max="15"/>
-				<units>years</units>
-			</aux>
-			<aux name="initial average relative real\ngdp per person">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0.833626372509192</eqn>
-				<range min="0.5" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="real GDP per person 1" access="input">
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>bc$/Mp/year</units>
-			</aux>
-			<aux name="Global population" access="input">
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="1980" max="2150"/>
-					<yscale min="0" max="100"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ypts>
-				</gf>
-				<units>Mp</units>
-			</aux>
-			<aux name="real GDP per person" access="input">
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>bc$/Mp/year</units>
-			</aux>
-		</variables>
-		<views>
-			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
-				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
-				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
-					<isee:series_styles>
-						<isee:series_style color="blue" thickness="1"/>
-						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF7F00" thickness="1"/>
-						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#FF007F" thickness="1"/>
-						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
-						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
-						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
-						<isee:series_style color="#C8C8C8" thickness="1"/>
-					</isee:series_styles>
-				</graph>
-				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
-				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
-				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
-				<isee:sim_speed_slider color="black" background="white"/>
-				<isee:time_slider color="#E95F74" background="silver"/>
-				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
-				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
-				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
-				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
-				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
-				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
-				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
-				<lamp color="black" background="white" font_size="9pt"/>
-				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
-				<isee:spatial_map color="black" background="white" font_size="12pt"/>
-				<isee:animation_object color="black" background="white" font_size="12pt"/>
-				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
-				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
-				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
-				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="3" isee:scroll_y="416.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
-				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
-					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
-						<shape type="rectangle" width="45" height="35"/>
-					</stock>
-					<flow color="blue" background="white" font_color="blue" font_size="11pt" label_side="bottom">
-						<shape type="circle" radius="18"/>
-					</flow>
-					<isee:placeholder color="#228B22" background="white" font_color="#228B22" font_size="11pt" label_side="bottom"/>
-					<module color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
-						<shape type="rectangle" width="67" height="55"/>
-					</module>
-					<aux color="blue" background="white" font_color="blue" font_size="11pt" label_side="bottom">
-						<shape type="circle" radius="18"/>
-					</aux>
-					<group color="red" background="white" font_color="red" font_size="11pt"/>
-					<connector color="#FF007F" background="white" font_color="#FF007F" font_size="9pt" isee:thickness="1"/>
-					<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-					<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
-					<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
-					<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
-						<isee:series_styles>
-							<isee:series_style color="blue" thickness="1"/>
-							<isee:series_style color="red" thickness="1"/>
-							<isee:series_style color="fuchsia" thickness="1"/>
-							<isee:series_style color="#008F44" thickness="1"/>
-							<isee:series_style color="#FF7F00" thickness="1"/>
-							<isee:series_style color="#7F00FF" thickness="1"/>
-							<isee:series_style color="#0CA0FF" thickness="1"/>
-							<isee:series_style color="lime" thickness="1"/>
-							<isee:series_style color="#FF007F" thickness="1"/>
-							<isee:series_style color="aqua" thickness="1"/>
-							<isee:series_style color="#F586FF" thickness="1"/>
-							<isee:series_style color="black" thickness="1"/>
-							<isee:series_style color="#C8C8C8" thickness="1"/>
-						</isee:series_styles>
-					</graph>
-					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
-				</style>
-				<stock x="537.917" y="651.25" name="available\nwater supply"/>
-				<flow x="638.459" y="650" name="total\nwater\nwithdrawal">
-					<pts>
-						<pt x="560.417" y="650"/>
-						<pt x="740.5" y="650"/>
-					</pts>
-				</flow>
-				<aux label_side="bottom" x="740.083" y="1203.17" name="elasticity of\nnon agricultural water withdrawal\nper capita to GDP per person"/>
-				<aux label_side="bottom" x="943.209" y="1116" name="non agricultural water\nwithdrawal 1980"/>
-				<aux label_side="right" label_angle="45" x="719" y="961.42" name="non agricultural\nwater withdrawal\nper million person"/>
-				<connector uid="1" angle="94.9842">
-					<from>elasticity_of_non_agricultural_water_withdrawal_per_capita_to_GDP_per_person</from>
-					<to>non_agricultural_water_withdrawal_per_million_person</to>
-				</connector>
-				<connector uid="2" angle="145.416">
-					<from>non_agricultural_water_withdrawal_1980</from>
-					<to>non_agricultural_water_withdrawal_per_million_person</to>
-				</connector>
-				<aux label_side="left" label_angle="225" x="680.25" y="836.5" name="non agricultural\nwater withdrawl"/>
-				<connector uid="3" angle="107.234">
-					<from>non_agricultural_water_withdrawal_per_million_person</from>
-					<to>non_agricultural_water_withdrawl</to>
-				</connector>
-				<connector uid="4" angle="102.63">
-					<from>non_agricultural_water_withdrawl</from>
-					<to>total_water_withdrawal</to>
-				</connector>
-				<flow label_side="bottom" x="429.834" y="653" name="natural water\nrecharge flow">
-					<pts>
-						<pt x="344.25" y="653"/>
-						<pt x="515.417" y="653"/>
-					</pts>
-				</flow>
-				<aux x="712" y="499.67" name="agricultural water\nwithdrawal"/>
-				<connector uid="5" angle="243.932">
-					<from>agricultural_water_withdrawal</from>
-					<to>total_water_withdrawal</to>
-				</connector>
-				<aux x="846.361" y="722.53" name="fraction of water\nwithdrawal for agriculture"/>
-				<connector uid="6" angle="301.086">
-					<from>agricultural_water_withdrawal</from>
-					<to>fraction_of_water_withdrawal_for_agriculture</to>
-				</connector>
-				<connector uid="7" angle="340.768">
-					<from>total_water_withdrawal</from>
-					<to>fraction_of_water_withdrawal_for_agriculture</to>
-				</connector>
-				<aux background="white" label_side="bottom" x="1200.08" y="292.47" name="rate of change\nin irrigation efficiency"/>
-				<aux label_side="bottom" x="1038.42" y="292.47" name="effect of technology\non irrigation efficiency"/>
-				<connector uid="8" angle="180">
-					<from>rate_of_change_in_irrigation_efficiency</from>
-					<to>effect_of_technology_on_irrigation_efficiency</to>
-				</connector>
-				<aux x="967.75" y="499.67" name="sensitivity of surface temperature\nanomaly on water used per\nMtcrop"/>
-				<aux x="990.25" y="405.25" name="effect of surface\ntemperature anomaly\non water lost to\nevapotranspiration"/>
-				<connector uid="9" angle="76.5966">
-					<from>sensitivity_of_surface_temperature_anomaly_on_water_used_per_Mtcrop</from>
-					<to>effect_of_surface_temperature_anomaly_on_water_lost_to_evapotranspiration</to>
-				</connector>
-				<aux x="868.707" y="220.541" name="water withdrawal per\nMHa irrigated 1980"/>
-				<aux x="828.361" y="406.5" name="water withdrawal per\nMHa irrigated"/>
-				<connector uid="10" angle="180.442">
-					<from>effect_of_surface_temperature_anomaly_on_water_lost_to_evapotranspiration</from>
-					<to>water_withdrawal_per_MHa_irrigated</to>
-				</connector>
-				<connector uid="11" angle="257.759">
-					<from>water_withdrawal_per_MHa_irrigated_1980</from>
-					<to>water_withdrawal_per_MHa_irrigated</to>
-				</connector>
-				<connector uid="12" angle="208.496">
-					<from>effect_of_technology_on_irrigation_efficiency</from>
-					<to>water_withdrawal_per_MHa_irrigated</to>
-				</connector>
-				<connector uid="13" angle="218.684">
-					<from>water_withdrawal_per_MHa_irrigated</from>
-					<to>agricultural_water_withdrawal</to>
-				</connector>
-				<aux x="517.417" y="374" name="fraction of cropland\nirrigated"/>
-				<aux x="458.833" y="492.25" name="effect of available\nwater supply on land\nirrigated"/>
-				<aux x="363" y="344" name="sensitivity of effect of available\nwater supply on land\nirrigated"/>
-				<connector uid="14" angle="82.9817">
-					<from>effect_of_available_water_supply_on_land_irrigated</from>
-					<to>fraction_of_cropland_irrigated</to>
-				</connector>
-				<connector uid="15" angle="303.31">
-					<from>sensitivity_of_effect_of_available_water_supply_on_land_irrigated</from>
-					<to>effect_of_available_water_supply_on_land_irrigated</to>
-				</connector>
-				<flow x="537.444" y="733.93" name="technological\nwater discovery">
-					<pts>
-						<pt x="537.444" y="799.11"/>
-						<pt x="537.444" y="668.75"/>
-					</pts>
-				</flow>
-				<aux x="296.5" y="891.5" name="technological water\ndiscovery 1980"/>
-				<aux background="white" label_side="bottom" x="345" y="1000.75" name="rate of change\nin technological\nwater discovery"/>
-				<aux label_side="bottom" x="400.583" y="922.679" name="effect of technology\non available water supply"/>
-				<connector uid="16" angle="54.5509">
-					<from>rate_of_change_in_technological_water_discovery</from>
-					<to>effect_of_technology_on_available_water_supply</to>
-				</connector>
-				<connector uid="17" angle="33.1835">
-					<from>technological_water_discovery_1980</from>
-					<to>technological_water_discovery</to>
-				</connector>
-				<connector uid="18" angle="54.0543">
-					<from>effect_of_technology_on_available_water_supply</from>
-					<to>technological_water_discovery</to>
-				</connector>
-				<aux x="226.825" y="653" name="pressure to expand\navailable water supply"/>
-				<connector uid="19" angle="143.031">
-					<from>available_water_supply</from>
-					<to>pressure_to_expand_available_water_supply</to>
-				</connector>
-				<connector uid="20" angle="291.262">
-					<from>pressure_to_expand_available_water_supply</from>
-					<to>technological_water_discovery</to>
-				</connector>
-				<aux x="146.111" y="570.36" name="sensitivity\nof pressure to expand\nwater supply to available\nwater supply"/>
-				<connector uid="21" angle="314.324">
-					<from>sensitivity_of_pressure_to_expand_water_supply_to_available_water_supply</from>
-					<to>pressure_to_expand_available_water_supply</to>
-				</connector>
-				<aux x="250.778" y="752.53" name="initial available water supply"/>
-				<connector uid="22" angle="128.896">
-					<from>available_water_supply</from>
-					<to>effect_of_available_water_supply_on_land_irrigated</to>
-				</connector>
-				<stock font_style="italic" font_weight="bold" x="619.571" y="259.571" name="Cropland"/>
-				<aux x="638.459" y="377.571" name="irrigated cropland"/>
-				<connector uid="24" angle="279.094">
-					<from>Cropland</from>
-					<to>irrigated_cropland</to>
-				</connector>
-				<connector uid="25" angle="358.31">
-					<from>fraction_of_cropland_irrigated</from>
-					<to>irrigated_cropland</to>
-				</connector>
-				<aux x="278.5" y="213" name="fraction of cropland irrigated\nindicated by GDP per person"/>
-				<aux x="147.111" y="59" name="sensitivity of fraction of cropland irrigated\nindicated to GDP per person"/>
-				<connector uid="26" angle="310.47">
-					<from>sensitivity_of_fraction_of_cropland_irrigated_indicated_to_GDP_per_person</from>
-					<to>fraction_of_cropland_irrigated_indicated_by_GDP_per_person</to>
-				</connector>
-				<aux x="288.778" y="90" name="base fraction of cropland irrigated"/>
-				<connector uid="27" angle="265.223">
-					<from>base_fraction_of_cropland_irrigated</from>
-					<to>fraction_of_cropland_irrigated_indicated_by_GDP_per_person</to>
-				</connector>
-				<connector uid="28" angle="326.025">
-					<from>fraction_of_cropland_irrigated_indicated_by_GDP_per_person</from>
-					<to>fraction_of_cropland_irrigated</to>
-				</connector>
-				<text_box border_width="thin" border_style="solid" uid="29" x="62.825" y="1068" width="260" height="58">the more technological water discovery
-the less future investment due to crowding out of more profitable forms of investment</text_box>
-				<text_box border_width="thin" border_style="solid" uid="30" x="1172.42" y="158" width="260" height="58">do we need to represent the cost of this technological development in investment?</text_box>
-				<stock x="1231.58" y="687.197" name="total groundwater anomaly"/>
-				<flow label_side="left" x="1231.58" y="767.682" name="unsustainable\ngroundwater withdrawal">
-					<pts>
-						<pt x="1231.58" y="704.697"/>
-						<pt x="1231.58" y="839.667"/>
-					</pts>
-				</flow>
-				<connector uid="31" angle="140.974">
-					<from>
-						<alias uid="32"/>
-					</from>
-					<to>unsustainable_groundwater_withdrawal</to>
-				</connector>
-				<flow x="1320.33" y="685.667" name="deep groundwater refill">
-					<pts>
-						<pt x="1398.58" y="685.667"/>
-						<pt x="1254.08" y="685.667"/>
-					</pts>
-				</flow>
-				<aux label_side="top" x="1396.58" y="600.747" name="average deep groundwater\ninfiltration time"/>
-				<connector uid="33" angle="228.079">
-					<from>average_deep_groundwater_infiltration_time</from>
-					<to>deep_groundwater_refill</to>
-				</connector>
-				<aux label_side="right" x="1378.58" y="776.03" name="natural water recharge"/>
-				<connector uid="34" angle="302.807">
-					<from>deep_groundwater_refill</from>
-					<to>natural_water_recharge</to>
-				</connector>
-				<connector uid="35" angle="356.75">
-					<from>unsustainable_groundwater_withdrawal</from>
-					<to>natural_water_recharge</to>
-				</connector>
-				<connector uid="36" angle="27.7585">
-					<from>
-						<alias uid="32"/>
-					</from>
-					<to>natural_water_recharge</to>
-				</connector>
-				<connector uid="37" angle="25.7825">
-					<from>total_groundwater_anomaly</from>
-					<to>deep_groundwater_refill</to>
-				</connector>
-				<aux x="1001.25" y="824" name="unsustainable fraction of\nwater withdrawal"/>
-				<aux x="968.917" y="907.5" name="initial fraction of\nunsustainable water withdrawal"/>
-				<connector uid="38" angle="68.8323">
-					<from>initial_fraction_of_unsustainable_water_withdrawal</from>
-					<to>unsustainable_fraction_of_water_withdrawal</to>
-				</connector>
-				<connector uid="39" angle="309.27">
-					<from>total_water_withdrawal</from>
-					<to>unsustainable_fraction_of_water_withdrawal</to>
-				</connector>
-				<connector uid="40" angle="337.543">
-					<from>technological_water_discovery</from>
-					<to>unsustainable_fraction_of_water_withdrawal</to>
-				</connector>
-				<connector uid="41" angle="0">
-					<from>unsustainable_fraction_of_water_withdrawal</from>
-					<to>unsustainable_groundwater_withdrawal</to>
-				</connector>
-				<connector uid="42" angle="3.27037">
-					<from>
-						<alias uid="43"/>
-					</from>
-					<to>natural_water_recharge_flow</to>
-				</connector>
-				<stock font_style="italic" font_weight="bold" x="1226" y="1116" name="Land water storage from\nwater impoundment"/>
-				<aux font_style="italic" font_weight="bold" x="1396.58" y="1130" name="SLR from LWS"/>
-				<connector uid="44" angle="326.98">
-					<from>irrigated_cropland</from>
-					<to>agricultural_water_withdrawal</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="1158" y="535" name="Surface Temperature Anomaly"/>
-				<connector uid="45" angle="142.279">
-					<from>Surface_Temperature_Anomaly</from>
-					<to>effect_of_surface_temperature_anomaly_on_water_lost_to_evapotranspiration</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="444" y="139" name="switch irrigation fraction policy"/>
-				<aux font_style="italic" font_weight="bold" x="576" y="142" name="irrigation fraction policy"/>
-				<aux font_style="italic" font_weight="bold" x="517.417" y="72" name="start year"/>
-				<connector uid="46" angle="278.13">
-					<from>switch_irrigation_fraction_policy</from>
-					<to>fraction_of_cropland_irrigated</to>
-				</connector>
-				<connector uid="47" angle="271.113">
-					<from>start_year</from>
-					<to>fraction_of_cropland_irrigated</to>
-				</connector>
-				<connector uid="48" angle="246.371">
-					<from>irrigation_fraction_policy</from>
-					<to>fraction_of_cropland_irrigated</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="533" y="873.5" name="on agricultural water use policy"/>
-				<aux font_style="italic" font_weight="bold" x="485" y="1078" name="switch non agricultural water use policy"/>
-				<connector uid="49" angle="19.8552">
-					<from>switch_non_agricultural_water_use_policy</from>
-					<to>non_agricultural_water_withdrawal_per_million_person</to>
-				</connector>
-				<connector uid="50" angle="352.093">
-					<from>
-						<alias uid="51"/>
-					</from>
-					<to>non_agricultural_water_withdrawal_per_million_person</to>
-				</connector>
-				<connector uid="52" angle="332.802">
-					<from>on_agricultural_water_use_policy</from>
-					<to>non_agricultural_water_withdrawal_per_million_person</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="959" y="163" name="irrigation efficiency multiplier"/>
-				<aux x="1001.25" y="238.541" name="policy multiplier"/>
-				<connector uid="53" angle="299.218">
-					<from>irrigation_efficiency_multiplier</from>
-					<to>policy_multiplier</to>
-				</connector>
-				<connector uid="54" angle="226.914">
-					<from>
-						<alias uid="55"/>
-					</from>
-					<to>policy_multiplier</to>
-				</connector>
-				<connector uid="56" angle="304.574">
-					<from>policy_multiplier</from>
-					<to>effect_of_technology_on_irrigation_efficiency</to>
-				</connector>
-				<aux x="202" y="1336.53" name="technological water per unit of water used"/>
-				<connector uid="57" angle="305.538">
-					<from>
-						<alias uid="58"/>
-					</from>
-					<to>technological_water_per_unit_of_water_used</to>
-				</connector>
-				<connector uid="59" angle="225">
-					<from>
-						<alias uid="60"/>
-					</from>
-					<to>technological_water_per_unit_of_water_used</to>
-				</connector>
-				<aux x="206" y="1457" name="relative technological water\nper unit of water used"/>
-				<connector uid="61" angle="260.399">
-					<from>technological_water_per_unit_of_water_used</from>
-					<to>relative_technological_water_per_unit_of_water_used</to>
-				</connector>
-				<aux x="165.111" y="292.47" name="average relative real\nGDP per person"/>
-				<aux x="147.111" y="388.5" name="time for GDP to impact irrigation"/>
-				<connector uid="67" angle="90.1898">
-					<from>time_for_GDP_to_impact_irrigation</from>
-					<to>average_relative_real_GDP_per_person</to>
-				</connector>
-				<connector uid="68" angle="39.215">
-					<from>average_relative_real_GDP_per_person</from>
-					<to>fraction_of_cropland_irrigated_indicated_by_GDP_per_person</to>
-				</connector>
-				<aux x="229.25" y="372.67" name="initial average relative real\ngdp per person"/>
-				<connector uid="69" angle="137.241">
-					<from>initial_average_relative_real_gdp_per_person</from>
-					<to>average_relative_real_GDP_per_person</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="123" y="192" name="real GDP per person 1"/>
-				<connector uid="70" angle="270.813">
-					<from>real_GDP_per_person_1</from>
-					<to>average_relative_real_GDP_per_person</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="777" y="861" name="Global population"/>
-				<connector uid="71" angle="165.79">
-					<from>Global_population</from>
-					<to>non_agricultural_water_withdrawl</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="924" y="1236" name="real GDP per person"/>
-				<connector uid="72" angle="120.256">
-					<from>real_GDP_per_person</from>
-					<to>non_agricultural_water_withdrawal_per_million_person</to>
-				</connector>
-				<alias font_style="italic" uid="32" x="1328.66" y="844.667" width="18" height="18">
-					<of>total_water_withdrawal</of>
-				</alias>
-				<alias font_style="italic" uid="43" x="306" y="548" width="18" height="18">
-					<of>natural_water_recharge</of>
-				</alias>
-				<alias font_style="italic" font_weight="bold" uid="51" x="524" y="948" width="18" height="18">
-					<of>start_year</of>
-				</alias>
-				<alias font_style="italic" font_weight="bold" uid="55" x="1076" y="140" width="18" height="18">
-					<of>start_year</of>
-				</alias>
-				<alias font_style="italic" uid="58" x="131" y="1243" width="18" height="18">
-					<of>technological_water_discovery</of>
-				</alias>
-				<alias font_style="italic" uid="60" x="283" y="1244" width="18" height="18">
-					<of>total_water_withdrawal</of>
-				</alias>
-			</view>
-		</views>
-	</model>
 	<model name="Grass">
 		<variables>
 			<aux name="grass net primary production" access="output" isee:autocreated="true">
@@ -3175,7 +2214,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="66" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="64" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4441,7 +3480,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="738.75" isee:scroll_y="35" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="738.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4912,7 +3951,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="184" isee:scroll_y="460" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7340,7 +6379,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="99" isee:scroll_y="257" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="1598" isee:scroll_y="168" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
