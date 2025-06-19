@@ -90,6 +90,7 @@
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/inputs/frida_clim_land_transitions_hist_ssp245.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/inputs/frida_clim_land_wood_biomass_ssp245.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-emissions/data/outputs/climate_calibration_data.csv"/>
+		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/inputs/frida_clim_npp_initial_values.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
 		<isee:sensi_specs name="Climate Sensitivity" method="grid">
@@ -117,7 +118,6 @@
 			<isee:parameter name="Forest.CO2_tree_net_primary_production_parameter[1]" scaling="10000"/>
 			<isee:parameter name="Grass.CO2_grass_net_primary_production_parameter[1]" scaling="10000"/>
 			<isee:parameter name="Land_Use.normal_average_time_cropland_in_use[1]" scaling="0.1"/>
-			<isee:parameter name="Grass.grass_net_primary_production_in_1980[1]" scaling="1000"/>
 			<isee:parameter name="Grass.STA_grass_net_primary_production_parameter[1]" scaling="1000"/>
 			<isee:parameter name="Grass.STA_squared_grass_net_primary_production_parameter[1]" scaling="1000"/>
 			<isee:parameter name="Forest.STA_tree_net_primary_production_parameter[1]" scaling="1000"/>
@@ -131,7 +131,6 @@
 			<isee:parameter name="grassland_soil_carbon.grassland_soil_carbon_1980[1]" scaling="0.1"/>
 			<isee:parameter name="soil_carbon_decay.grassland_litter_input_share_slow_soil_carbon[1]" scaling="1000"/>
 			<isee:parameter name="soil_carbon_decay.grassland_slow_soil_carbon_historic_share[1]" scaling="100"/>
-			<isee:parameter name="Forest.tree_net_primary_production_in_1980[1]" scaling="1000"/>
 			<isee:parameter name="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon[1]" scaling="1000"/>
 			<isee:parameter name="soil_carbon_decay.cropland_slow_soil_carbon_historic_share[1]" scaling="100"/>
 			<isee:parameter name="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon[1]" scaling="1000"/>
@@ -462,8 +461,6 @@
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
@@ -472,8 +469,6 @@
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
-				<connect2 to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
@@ -859,18 +854,6 @@ This is what determines when the model stops calculating</doc>
 			</module>
 			<module name="Government\nRegulations" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Freshwater.irrigation_efficiency_multiplier" from="Government_Regulations.irrigation_efficiency_multiplier"/>
-				<connect2 to="Freshwater.irrigation_efficiency_multiplier" from="Government_Regulations.irrigation_efficiency_multiplier"/>
-				<connect to="Freshwater.irrigation_fraction_policy" from="Government_Regulations.irrigation_fraction_policy"/>
-				<connect2 to="Freshwater.irrigation_fraction_policy" from="Government_Regulations.irrigation_fraction_policy"/>
-				<connect to="Freshwater.on_agricultural_water_use_policy" from="Government_Regulations.non_agricultural_water_use_policy"/>
-				<connect2 to="Freshwater.on_agricultural_water_use_policy" from="Government_Regulations.non_agricultural_water_use_policy"/>
-				<connect to="Freshwater.start_year" from="Government_Regulations.start_year"/>
-				<connect2 to="Freshwater.start_year" from="Government_Regulations.start_year"/>
-				<connect to="Freshwater.switch_irrigation_fraction_policy" from="Government_Regulations.switch_irrigation_fraction_policy"/>
-				<connect2 to="Freshwater.switch_irrigation_fraction_policy" from="Government_Regulations.switch_irrigation_fraction_policy"/>
-				<connect to="Freshwater.switch_non_agricultural_water_use_policy" from="Government_Regulations.switch_non_agricultural_water_use_policy"/>
-				<connect2 to="Freshwater.switch_non_agricultural_water_use_policy" from="Government_Regulations.switch_non_agricultural_water_use_policy"/>
 			</module>
 			<aux name="Simulation Start">
 				<doc>${No Sensi}

@@ -296,8 +296,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Crop.Cropland" from="Land_Use.Cropland"/>
 				<connect to="cropland_soil_carbon.Cropland" from="Land_Use.Cropland"/>
 				<connect2 to="cropland_soil_carbon.Cropland" from="Land_Use.Cropland"/>
-				<connect to="Freshwater.Cropland" from="Land_Use.Cropland"/>
-				<connect2 to="Freshwater.Cropland" from="Land_Use.Cropland"/>
 				<connect to="Land_Use_and_Agriculture.Cropland" from="Land_Use.Cropland"/>
 				<connect2 to="Cropland" from="Land_Use.Cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.Cropland" from="Land_Use.Cropland"/>
@@ -1108,7 +1106,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MAXSOFT(tree_net_primary_production_in_1980 + change_in_tree_net_primary_production_from_CO2+change_in_tree_net_primary_production_from_STA+change_in_tree_net_primary_production_from_STA_squared, tree_net_primary_production_in_1980*minimum_fraction_of_1980_tree_primary_production,tolerance_for_net_primary_production )</eqn>
+				<eqn>MAXSOFT(tree_net_primary_production_in_1750 + change_in_tree_net_primary_production_from_CO2+change_in_tree_net_primary_production_from_STA+change_in_tree_net_primary_production_from_STA_squared, tree_net_primary_production_in_1750*minimum_fraction_of_1980_tree_primary_production,tolerance_for_net_primary_production )</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="CO2 tree net primary\nproduction parameter">
@@ -1134,14 +1132,14 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>tree_net_primary_production_in_1980*effect_of_CO2_on_tree_net_primary_production</eqn>
+				<eqn>tree_net_primary_production_in_1750*effect_of_CO2_on_tree_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="change in tree net\nprimary production from STA">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>tree_net_primary_production_in_1980*effect_of_STA_on_tree_net_primary_production</eqn>
+				<eqn>tree_net_primary_production_in_1750*effect_of_STA_on_tree_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="effect of STA on\ntree net primary production">
@@ -1167,7 +1165,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>tree_net_primary_production_in_1980*effect_of_STA_squared_on_tree_net_primary_production</eqn>
+				<eqn>tree_net_primary_production_in_1750*effect_of_STA_squared_on_tree_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="effect of STA squared on\ntree net primary production">
@@ -1203,17 +1201,10 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<eqn>young_forest_net_primary_production*(1-Young_forest_net_primary_production_aboveground_biomass_share)</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="tree net primary production\nin 1980">
+			<aux name="tree net primary production\nin 1750">
 				<doc>${Internal Calibration Parameter}
-https://doi.org/10.1038/nature07276 (0.00545)
-
-https://doi.org/10.1073/pnas.0704243104 (0.0072)</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.008320717</eqn>
-				</element>
+</doc>
+				<eqn>0.0075685940320028</eqn>
 				<range min="0.005" max="0.01"/>
 				<units>GtC/(Mha*year)</units>
 			</aux>
@@ -1593,7 +1584,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="700" isee:scroll_y="88.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="445" isee:scroll_y="361.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1692,9 +1683,9 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>tree_net_primary_production</from>
 					<to>young_forest_net_primary_production</to>
 				</connector>
-				<aux x="687.083" y="943.167" name="tree net primary production\nin 1980"/>
+				<aux x="687.083" y="943.167" name="tree net primary production\nin 1750"/>
 				<connector uid="13" angle="31.7595">
-					<from>tree_net_primary_production_in_1980</from>
+					<from>tree_net_primary_production_in_1750</from>
 					<to>tree_net_primary_production</to>
 				</connector>
 				<aux x="664.247" y="510.047" name="young forest net\nprimary production"/>
@@ -1988,13 +1979,13 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>mature_to_young_forest</to>
 				</connector>
 				<alias font_style="italic" uid="15" x="646.75" y="1135.33" width="18" height="18">
-					<of>tree_net_primary_production_in_1980</of>
+					<of>tree_net_primary_production_in_1750</of>
 				</alias>
 				<alias font_style="italic" uid="17" x="1072.75" y="1180.33" width="18" height="18">
-					<of>tree_net_primary_production_in_1980</of>
+					<of>tree_net_primary_production_in_1750</of>
 				</alias>
 				<alias font_style="italic" uid="19" x="1302.75" y="1060.6" width="18" height="18">
-					<of>tree_net_primary_production_in_1980</of>
+					<of>tree_net_primary_production_in_1750</of>
 				</alias>
 				<alias font_style="italic" uid="54" x="642" y="157" width="18" height="18">
 					<of>Mature_forest_aboveground_biomass_per_area</of>
@@ -2011,7 +2002,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MAXSOFT(grass_net_primary_production_in_1980 + change_in_grass_net_primary_production_from_CO2+change_in_grass_net_primary_production_from_STA+change_in_grass_net_primary_production_from_STA_squared, grass_net_primary_production_in_1980*minimum_fraction_of_1980_grass_primary_production, tolerance_for_net_primary_production)</eqn>
+				<eqn>MAXSOFT(grass_net_primary_production_in_1750 + change_in_grass_net_primary_production_from_CO2+change_in_grass_net_primary_production_from_STA+change_in_grass_net_primary_production_from_STA_squared, grass_net_primary_production_in_1750*minimum_fraction_of_1980_grass_primary_production, tolerance_for_net_primary_production)</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="CO2 grass net primary production parameter">
@@ -2037,14 +2028,14 @@ Limits for extreme conditions in no feedback cases</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grass_net_primary_production_in_1980*effect_of_CO2_on_grass_net_primary_production</eqn>
+				<eqn>grass_net_primary_production_in_1750*effect_of_CO2_on_grass_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="change in grass net\nprimary production from STA">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grass_net_primary_production_in_1980*effect_of_STA_on_grass_net_primary_production</eqn>
+				<eqn>grass_net_primary_production_in_1750*effect_of_STA_on_grass_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="effect of STA on\ngrass net primary production">
@@ -2054,7 +2045,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>(Surface_Temperature_Anomaly-INIT(Surface_Temperature_Anomaly))*STA_grass_net_primary_production_parameter</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="STA grass net primary production parameter">
+			<aux name="STA grass net primary\nproduction parameter">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -2070,7 +2061,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grass_net_primary_production_in_1980*effect_of_STA_squared_on_grass_net_primary_production</eqn>
+				<eqn>grass_net_primary_production_in_1750*effect_of_STA_squared_on_grass_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="effect of STA squared on\ngrass net primary production">
@@ -2113,15 +2104,10 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>0.1</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="grass net primary production\nin 1980">
+			<aux name="grass net primary production\nin 1750">
 				<doc>${Internal Calibration Parameter}
-https://doi.org/10.1007/s11769-019-1063-x 0.0046283</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.005</eqn>
-				</element>
+</doc>
+				<eqn>0.00456236784424038</eqn>
 				<range min="0.0025" max="0.005"/>
 				<units>GtC/(Mha*year)</units>
 			</aux>
@@ -2214,7 +2200,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="64" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="91" isee:scroll_y="82" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2271,7 +2257,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				</connector>
 				<aux x="369" y="468" name="change in grass net\nprimary production from STA"/>
 				<aux x="291.42" y="732" name="effect of STA on\ngrass net primary production"/>
-				<aux label_side="left" label_angle="225" x="209.57" y="823.86" name="STA grass net primary production parameter"/>
+				<aux label_side="left" label_angle="225" x="209.57" y="823.86" name="STA grass net primary\nproduction parameter"/>
 				<connector uid="4" angle="81.0979">
 					<from>STA_grass_net_primary_production_parameter</from>
 					<to>effect_of_STA_on_grass_net_primary_production</to>
@@ -2314,9 +2300,9 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>grassland_net_primary_production</to>
 				</connector>
 				<aux x="841.25" y="141.5" name="animal grazing"/>
-				<aux x="376.333" y="352" name="grass net primary production\nin 1980"/>
+				<aux x="376.333" y="352" name="grass net primary production\nin 1750"/>
 				<connector uid="13" angle="31.7595">
-					<from>grass_net_primary_production_in_1980</from>
+					<from>grass_net_primary_production_in_1750</from>
 					<to>grass_net_primary_production</to>
 				</connector>
 				<aux x="624.14" y="192.821" name="grassland net\nprimary production"/>
@@ -2376,13 +2362,13 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>grass_net_primary_production</to>
 				</connector>
 				<alias font_style="italic" uid="15" x="212" y="563.167" width="18" height="18">
-					<of>grass_net_primary_production_in_1980</of>
+					<of>grass_net_primary_production_in_1750</of>
 				</alias>
 				<alias font_style="italic" uid="17" x="663" y="618.167" width="18" height="18">
-					<of>grass_net_primary_production_in_1980</of>
+					<of>grass_net_primary_production_in_1750</of>
 				</alias>
 				<alias font_style="italic" uid="19" x="951" y="513.43" width="18" height="18">
-					<of>grass_net_primary_production_in_1980</of>
+					<of>grass_net_primary_production_in_1750</of>
 				</alias>
 			</view>
 		</views>
