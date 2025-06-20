@@ -1191,7 +1191,7 @@ rho_GrIS_SID[Run] * (GrIS_outlet_max-Sea_level_anomaly_from_GrIS_DIS) * EXP(epsi
 IF SWITCH_population_is_input = 0 THEN
 scale_factor_thermosteric_SLR * constant_annual_sea_level_rise_from_LWS_rate
 ELSE
-scale_factor_thermosteric_SLR * annual_sea_level_rise_sensitivity_to_population * Global_population
+scale_factor_thermosteric_SLR * annual_sea_level_rise_sensitivity_to_population * Global_population_exogenous
 
 ELSE
 0</eqn>
@@ -1213,7 +1213,7 @@ ELSE
 				<range min="1e-8" max="6e-8"/>
 				<units>metre/year/Mp</units>
 			</aux>
-			<aux name="Global population">
+			<aux name="Global population exogenous">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1275,7 +1275,7 @@ ELSE
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="7" isee:page_rows="4" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="7" isee:page_rows="4" isee:scroll_y="900" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2366,7 +2366,7 @@ ELSE
 				<aux x="87.646" y="1282.92" name="constant annual sea level\nrise from LWS rate"/>
 				<aux x="184.398" y="1517.06" name="start year for SLR from land water storage"/>
 				<aux x="385.833" y="1304.17" name="annual sea level rise sensitivity to population"/>
-				<aux x="319.925" y="1347.75" name="Global population"/>
+				<aux x="319.925" y="1347.75" name="Global population exogenous"/>
 				<aux x="288.425" y="1233.17" name="initial sea level anomaly from LWS"/>
 				<connector uid="585" angle="349.883">
 					<from>constant_annual_sea_level_rise_from_LWS_rate</from>
@@ -2387,7 +2387,7 @@ ELSE
 					<to>yearly_SLR_from_LWS</to>
 				</connector>
 				<connector uid="589" angle="125.91">
-					<from>Global_population</from>
+					<from>Global_population_exogenous</from>
 					<to>yearly_SLR_from_LWS</to>
 				</connector>
 				<connector uid="590" angle="177.138">
