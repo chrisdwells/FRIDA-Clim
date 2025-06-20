@@ -5,7 +5,7 @@
 		<name>Sea Level</name>
 		<uuid>656dacef-005e-41a3-aedc-d19f6fd6e9f6</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -868,14 +868,13 @@ ELSE
 				<range min="-0.005" max="-0.001"/>
 				<units>metre</units>
 			</aux>
-			<aux name="initial thermosteric sea level anomaly">
+			<aux name="initial thermosteric\nsea level anomaly">
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>-0.008</eqn>
-				<range min="-0.015" max="-0.005"/>
 				<units>metre</units>
 			</aux>
 			<aux name="MG temperature\nnonlinearity">
@@ -1163,21 +1162,71 @@ rho_GrIS_SID[Run] * (GrIS_outlet_max-Sea_level_anomaly_from_GrIS_DIS) * EXP(epsi
 				<eqn>1600</eqn>
 				<units>metre</units>
 			</aux>
-			<aux name="Sea level anomaly from LWS" access="output" isee:autocreated="true">
-				<doc>${Calibrated Output,Explanatory Variable}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0</eqn>
-				<units>metre</units>
-			</aux>
 			<aux name="Surface Temperature Anomaly" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>deg C</units>
+			</aux>
+			<aux name="SWITCH population is input" access="input">
+				<eqn>0</eqn>
+				<units>1</units>
+			</aux>
+			<stock name="Sea level anomaly from LWS">
+				<doc>0.0</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>initial_sea_level_anomaly_from_LWS</eqn>
+				<inflow>yearly_SLR_from_LWS</inflow>
+				<units>metre</units>
+			</stock>
+			<flow name="yearly SLR from LWS">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF TIME &gt;= start_year_for_SLR_from_land_water_storage THEN
+
+IF SWITCH_population_is_input = 0 THEN
+scale_factor_thermosteric_SLR * constant_annual_sea_level_rise_from_LWS_rate
+ELSE
+scale_factor_thermosteric_SLR * annual_sea_level_rise_sensitivity_to_population * Global_population
+
+ELSE
+0</eqn>
+				<units>metre/year</units>
+			</flow>
+			<aux name="constant annual sea level\nrise from LWS rate">
+				<doc>Rates calibrated to match IPCC projections, see FRISIAv1.0 model documentation (Ramme et al., submitted to GMD),</doc>
+				<eqn>0.0003</eqn>
+				<range min="0.0002" max="0.0004"/>
+				<units>metre/year</units>
+			</aux>
+			<aux name="start year for SLR from land water storage">
+				<eqn>1960</eqn>
+				<units>years</units>
+			</aux>
+			<aux name="annual sea level rise sensitivity to population">
+				<doc>Rates calibrated to match IPCC projections, see FRISIAv1.0 model documentation (Ramme et al., submitted to GMD),</doc>
+				<eqn>2.5e-8</eqn>
+				<range min="1e-8" max="6e-8"/>
+				<units>metre/year/Mp</units>
+			</aux>
+			<aux name="Global population">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>1</eqn>
+				<units>Mp</units>
+			</aux>
+			<aux name="initial sea level anomaly from LWS">
+				<doc>This is set simply to match the calibration data, which is anomaly with respect to 1993.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>-0.0034</eqn>
+				<units>metre</units>
 			</aux>
 		</variables>
 		<views>
@@ -1226,7 +1275,7 @@ rho_GrIS_SID[Run] * (GrIS_outlet_max-Sea_level_anomaly_from_GrIS_DIS) * EXP(epsi
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="7" isee:page_rows="4" isee:scroll_y="940.833" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="7" isee:page_rows="4" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1929,11 +1978,7 @@ rho_GrIS_SID[Run] * (GrIS_outlet_max-Sea_level_anomaly_from_GrIS_DIS) * EXP(epsi
 					<to>net_downward_radiative_flux</to>
 				</connector>
 				<stacked_container uid="360" x="2570.67" y="91.25" width="391.25" height="206.34">
-					<graph width="391.25" height="206.34" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
-						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
-							<entity name="Sea_level_anomaly_from_LWS[1]"/>
-						</plot>
-					</graph>
+					<graph width="391.25" height="206.34" comparative="true" type="time_series" isee:points_only="true" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true"/>
 				</stacked_container>
 				<stacked_container uid="361" x="1709.42" y="87.5893" width="391.25" height="213.661">
 					<graph width="391.25" height="213.661" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
@@ -1981,7 +2026,7 @@ rho_GrIS_SID[Run] * (GrIS_outlet_max-Sea_level_anomaly_from_GrIS_DIS) * EXP(epsi
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
 				</connector>
 				<aux x="341.14" y="957.875" name="initial sea level anomaly from MG"/>
-				<aux x="288.795" y="606.417" name="initial thermosteric sea level anomaly"/>
+				<aux x="288.795" y="606.417" name="initial thermosteric\nsea level anomaly"/>
 				<aux label_side="left" label_angle="135" x="128.833" y="818.736" name="MG temperature\nnonlinearity"/>
 				<connector uid="368" angle="322.329">
 					<from>MG_temperature_nonlinearity</from>
@@ -2301,15 +2346,53 @@ rho_GrIS_SID[Run] * (GrIS_outlet_max-Sea_level_anomaly_from_GrIS_DIS) * EXP(epsi
 					<to>AntIS_param_h0</to>
 				</connector>
 				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="550" x="62.536" y="1109.92" width="250.39" height="20">Sea-level rise from land water storage</text_box>
-				<aux label_side="right" x="205.398" y="1224.29" name="Sea level anomaly from LWS"/>
-				<connector uid="561" angle="34.1952">
-					<from>Sea_level_anomaly_from_LWS</from>
-					<to>Total_global_sea_level_anomaly</to>
-				</connector>
 				<aux font_style="italic" font_weight="bold" x="566.667" y="426.667" name="Surface Temperature Anomaly"/>
 				<connector uid="582" angle="298.74">
 					<from>Surface_Temperature_Anomaly</from>
 					<to>T_anomaly_for_SLR</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="341.14" y="1411.87" name="SWITCH population is input"/>
+				<stock x="236.286" y="1216.67" name="Sea level anomaly from LWS"/>
+				<connector uid="583" angle="22.232">
+					<from>Sea_level_anomaly_from_LWS</from>
+					<to>Total_global_sea_level_anomaly</to>
+				</connector>
+				<flow x="236.286" y="1300.92" name="yearly SLR from LWS">
+					<pts>
+						<pt x="236.286" y="1376.67"/>
+						<pt x="236.286" y="1234.17"/>
+					</pts>
+				</flow>
+				<aux x="87.646" y="1282.92" name="constant annual sea level\nrise from LWS rate"/>
+				<aux x="184.398" y="1517.06" name="start year for SLR from land water storage"/>
+				<aux x="385.833" y="1304.17" name="annual sea level rise sensitivity to population"/>
+				<aux x="319.925" y="1347.75" name="Global population"/>
+				<aux x="288.425" y="1233.17" name="initial sea level anomaly from LWS"/>
+				<connector uid="585" angle="349.883">
+					<from>constant_annual_sea_level_rise_from_LWS_rate</from>
+					<to>yearly_SLR_from_LWS</to>
+				</connector>
+				<connector uid="586" angle="69.9988">
+					<from>
+						<alias uid="584"/>
+					</from>
+					<to>yearly_SLR_from_LWS</to>
+				</connector>
+				<connector uid="587" angle="100.586">
+					<from>start_year_for_SLR_from_land_water_storage</from>
+					<to>yearly_SLR_from_LWS</to>
+				</connector>
+				<connector uid="588" angle="147.641">
+					<from>SWITCH_population_is_input</from>
+					<to>yearly_SLR_from_LWS</to>
+				</connector>
+				<connector uid="589" angle="125.91">
+					<from>Global_population</from>
+					<to>yearly_SLR_from_LWS</to>
+				</connector>
+				<connector uid="590" angle="177.138">
+					<from>annual_sea_level_rise_sensitivity_to_population</from>
+					<to>yearly_SLR_from_LWS</to>
 				</connector>
 				<alias font_style="italic" label_side="top" uid="151" x="227.286" y="857.611" width="18" height="18">
 					<of>T_anomaly_for_SLR</of>
@@ -2424,6 +2507,9 @@ rho_GrIS_SID[Run] * (GrIS_outlet_max-Sea_level_anomaly_from_GrIS_DIS) * EXP(epsi
 				</alias>
 				<alias font_style="italic" uid="547" x="947.042" y="1131.21" width="16.75" height="16.75">
 					<of>Total_global_sea_level_anomaly</of>
+				</alias>
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" uid="584" x="119.833" y="1457.56" width="18" height="18">
+					<of>scale_factor_thermosteric_SLR</of>
 				</alias>
 			</view>
 		</views>

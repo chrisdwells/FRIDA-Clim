@@ -5,7 +5,7 @@
 		<name>Climate</name>
 		<uuid>6b3172a7-ef66-4feb-8f28-f439698b1c18</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -17,7 +17,7 @@
 		<dim name="ExtremesExposureImpactCase" size="11"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -228,10 +228,8 @@
 	</model_units>
 	<model name="Climate">
 		<variables>
-			<module name="Sea Level" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA-Clim_Modules/Sea Level.itmx">
+			<module name="Sea Level" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_ChrisRepo/FRIDA-Clim_Modules/Sea Level.itmx">
 				<format scale_by="auto"/>
-				<connect to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
-				<connect2 to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
 				<connect to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
 				<connect2 to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
 				<connect to="Sea_Level.Change_in_Surface_Temperature" from='Energy_Balance_Model."Change_in_Land_&amp;_Ocean_Surface_Temperature"'/>
@@ -248,9 +246,11 @@
 				<connect2 to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
+				<connect2 to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 			</module>
 			<module name="Ocean" isee:label="Ocean
-Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA-Clim_Modules/Ocean.itmx">
+Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_ChrisRepo/FRIDA-Clim_Modules/Ocean.itmx">
 				<format scale_by="auto"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
@@ -412,8 +412,6 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Ocean.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
@@ -427,7 +425,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 			</module>
-			<module name="Emissions" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA-Clim_Modules/Emissions.itmx">
+			<module name="Emissions" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_ChrisRepo/FRIDA-Clim_Modules/Emissions.itmx">
 				<format scale_by="auto"/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
@@ -489,7 +487,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 			</module>
 			<module name="Forcing" isee:label="Radiative
-Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA-Clim_Modules/Forcing.itmx">
+Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_ChrisRepo/FRIDA-Clim_Modules/Forcing.itmx">
 				<format scale_by="auto"/>
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
