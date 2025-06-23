@@ -138,7 +138,6 @@
 			<isee:parameter name="soil_carbon_decay.mature_forest_litter_input_share_slow_soil_carbon[1]" scaling="1000"/>
 			<isee:parameter name="soil_carbon_decay.mature_forest_slow_soil_carbon_historic_share[1]" scaling="100"/>
 			<isee:parameter name="soil_carbon_decay.e0[1]"/>
-			<isee:parameter name="Forest.forest_aboveground_biomass_1980[1]" scaling="0.1"/>
 			<isee:parameter name="Forest.Young_mature_forest_biomass_ratio[1]" scaling="100"/>
 			<isee:parameter name="Land_Use.forest_recovery_time[1]"/>
 			<isee:parameter name="Terrestrial_Carbon_Balance.Global_peatland_carbon_uptake_rate[1]" scaling="100"/>

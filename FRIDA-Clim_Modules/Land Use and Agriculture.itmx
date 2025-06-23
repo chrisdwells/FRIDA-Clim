@@ -674,7 +674,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_x="35" isee:scroll_y="8.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1467,7 +1467,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass_1980-Young_forest_aboveground_biomass</eqn>
+				<eqn>forest_aboveground_biomass_1750-Young_forest_aboveground_biomass</eqn>
 				<format precision="full"/>
 				<inflow>maturing</inflow>
 				<inflow>Mature_forest_growth</inflow>
@@ -1508,15 +1508,12 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<eqn>cutting+clearing</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="forest aboveground biomass 1980">
+			<aux name="forest aboveground biomass 1750">
 				<doc>${Internal Calibration Parameter}
-https://doi.org/10.5194/essd-13-3927-2021, 2021.</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>546.9907432</eqn>
-				</element>
+Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2021.
+
+1750 value from LUH dataset</doc>
+				<eqn>685.90765</eqn>
 				<range min="450" max="700"/>
 				<units>GtC</units>
 			</aux>
@@ -1552,14 +1549,14 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass-forest_aboveground_biomass_1980</eqn>
+				<eqn>forest_aboveground_biomass-forest_aboveground_biomass_1750</eqn>
 				<units>GtC</units>
 			</aux>
 			<stock name="Young forest\naboveground biomass">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass_1980*Young_mature_forest_biomass_ratio*young_forest_share</eqn>
+				<eqn>forest_aboveground_biomass_1750*Young_mature_forest_biomass_ratio*young_forest_share</eqn>
 				<format precision="full"/>
 				<inflow>young_forest_growth</inflow>
 				<outflow>maturing</outflow>
@@ -1780,7 +1777,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="445" isee:scroll_y="361.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="1068.13" isee:scroll_y="225" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1978,7 +1975,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>clearing</from>
 					<to>timber</to>
 				</connector>
-				<aux color="blue" x="1045.76" y="606.535" name="forest aboveground biomass 1980"/>
+				<aux color="blue" x="1045.76" y="606.535" name="forest aboveground biomass 1750"/>
 				<aux color="blue" x="904.571" y="97.5714" name="Young mature forest biomass\nratio"/>
 				<aux font_style="italic" font_weight="bold" x="1653.54" y="407.833" name="clearing forest\nfor grassland"/>
 				<connector uid="32" angle="155.787">
@@ -1996,7 +1993,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>forest_aboveground_biomass_balance</to>
 				</connector>
 				<connector uid="35" angle="181.06">
-					<from>forest_aboveground_biomass_1980</from>
+					<from>forest_aboveground_biomass_1750</from>
 					<to>forest_aboveground_biomass_balance</to>
 				</connector>
 				<stock label_side="top" x="1013.64" y="411.333" name="Young forest\naboveground biomass"/>
@@ -2591,7 +2588,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>756.435125</eqn>
 				<units>MHa</units>
 			</aux>
-			<aux name="Initial\nMature Forest">
+			<aux name="Initial\nTotal Forest Area">
 				<doc>${External Parameter}
 </doc>
 				<eqn>4620.527325</eqn>
@@ -2618,7 +2615,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Mature_Forest</eqn>
+				<eqn>Initial_Total_Forest_Area - Actual_initial_Young_forest_Area</eqn>
 				<inflow>forest_completing_recovery</inflow>
 				<outflow>clearing_forests_for_crops</outflow>
 				<outflow>clearing_forest_for_grassland</outflow>
@@ -2688,7 +2685,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>0</eqn>
+				<eqn>Actual_initial_Young_forest_Area</eqn>
 				<inflow>foresting_grassland</inflow>
 				<inflow>foresting_degraded_land</inflow>
 				<inflow>forresting_cropland</inflow>
@@ -2901,6 +2898,23 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<eqn>RUNCUM(clearing_grassland+foresting_grassland+degraded_land_from_grassland)</eqn>
 				<units>Mha</units>
 			</aux>
+			<aux name="Reference Initial\nYoung Forest Area">
+				<doc>${External Parameter}
+This is taken from LUH as the total area transitioning into forest land within the last 60 years before the initial year 1750 in our model. This assumes an average young forest maturation time of 60 years (FRIDA allowed range is 50-70 years). This will be scaled with the actual recovery time in this run, to better approximate the correct initialisation.</doc>
+				<eqn>471.409</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="Actual initial Young forest Area">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Reference_Initial_Young_Forest_Area*(forest_recovery_time/Reference_forest_recovery_time)</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="Reference forest recovery time">
+				<eqn>60</eqn>
+				<units>years</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -2950,7 +2964,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="359.167" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2992,7 +3006,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<aux x="638" y="353.5" name="Initial Cropland"/>
 				<aux x="1383" y="659" name="Habitable Land Area"/>
 				<aux x="668.083" y="782.333" name="Initial Grassland"/>
-				<aux x="693.5" y="46.5" name="Initial\nMature Forest"/>
+				<aux x="531.833" y="37" name="Initial\nTotal Forest Area"/>
 				<stock label_side="center" x="688" y="90.583" width="150" height="90" name="Mature Forest"/>
 				<stock label_side="center" x="691.25" y="355" width="150" height="90" name="Cropland"/>
 				<flow background="white" label_side="top" x="755.583" y="251.125" width="21.3333" height="21.3333" name="clearing forests\nfor crops">
@@ -3213,6 +3227,21 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<connector uid="108" color="#EEEEEE" font_color="#EEEEEE" angle="165.719">
 					<from>degraded_land_from_grassland</from>
 					<to>gross_grassland_land_use_loss</to>
+				</connector>
+				<aux x="1358.5" y="73" name="Reference Initial\nYoung Forest Area"/>
+				<aux x="1309.17" y="169.917" name="Actual initial Young forest Area"/>
+				<connector uid="109" angle="19.5965">
+					<from>forest_recovery_time</from>
+					<to>Actual_initial_Young_forest_Area</to>
+				</connector>
+				<connector uid="110" angle="230.301">
+					<from>Reference_Initial_Young_Forest_Area</from>
+					<to>Actual_initial_Young_forest_Area</to>
+				</connector>
+				<aux x="1413.33" y="128.25" name="Reference forest recovery time"/>
+				<connector uid="111" angle="192.817">
+					<from>Reference_forest_recovery_time</from>
+					<to>Actual_initial_Young_forest_Area</to>
 				</connector>
 				<alias font_style="italic" uid="80" x="1551.5" y="35.5" width="45" height="35">
 					<of>Mature_Forest</of>
