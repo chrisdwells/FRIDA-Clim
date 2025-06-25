@@ -34,7 +34,7 @@ frida_calib = pd.read_csv('../../../WorldTransFRIDA/Data/Calibration Data.csv', 
 frida_calib = frida_calib.T
 
 frida_calib_hist = frida_calib['1980':'2020']
-
+I 
 frida_calib_crop = frida_calib_hist['Crop.Crop Production[1]']
 frida_calib_pop = frida_calib_hist['Demographics.Population[1]']
 
