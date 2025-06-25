@@ -5,7 +5,7 @@
 		<name>Land Use and Agriculture</name>
 		<uuid>fe807591-4e3d-4e2c-b464-70ec4fb12094</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -15,7 +15,7 @@
 	<dimensions>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -674,7 +674,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_x="35" isee:scroll_y="8.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -907,13 +907,6 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<eqn>.6</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Total average harvest index">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0.6</eqn>
-				<units>1</units>
-			</aux>
 			<aux name="crop production exogenous" access="output">
 				<doc>${Calibrated Output}
 Calibration data from:
@@ -923,6 +916,131 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				</dimensions>
 				<eqn>0</eqn>
 				<units>PCal/year</units>
+			</aux>
+			<aux name="crop yield">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>crop_production/Cropland</eqn>
+				<units>PCal/(Mha*year)</units>
+			</aux>
+			<aux name="harvest index for food crops">
+				<doc>https://doi.org/10.1016/j.fcr.2022.108578</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>MINSOFT(normal_harvest_index_for_food_crops*effect_of_crop_yield_on_harvest_index,max_harvest_index_for_food_crops, tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction)</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="normal harvest index for food crops">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.44990066007591</eqn>
+				</element>
+				<range min="0.4" max="0.45"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="effect of crop\nyield on harvest index">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>(crop_yield/crop_yield_in_1980)^sensitivity_of_effect_of_crop_yield_on_harvest_index</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="sensitivity of effect of crop\nyield on harvest index">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.0989407396381699</eqn>
+				</element>
+				<range min="0.05" max="0.1"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="crop yield in 1980" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>5.90574472508119</eqn>
+				</element>
+				<format precision="0.01"/>
+				<range min="5.5" max="6.5"/>
+				<units>PCal/(Mha*year)</units>
+			</aux>
+			<aux name="max harvest index for food crops">
+				<doc>${External Parameter}
+Hay RKM. Harvest index: a review of its use in plant breeding and crop physiology. The Annals of Applied Biology. 1995 Feb;126(1):197-216. DOI: 10.1111/j.1744-7348.1995.tb05015.x.
+</doc>
+				<eqn>0.6</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Total average harvest index">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>harvest_index_for_feed_crops*fraction_of_crop_production_for_feed 
++ 
+harvest_index_for_energy_crops * fraction_of_crop_production_for_energy
++
+harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fraction_of_crop_production_for_feed)</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="harvest index\nfor energy crops">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.946146343585683</eqn>
+				</element>
+				<range min="0.6" max="0.95"/>
+				<units>1</units>
+			</aux>
+			<aux name="harvest index for feed crops">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.799444218938155</eqn>
+				</element>
+				<range min="0.5" max="0.8"/>
+				<units>1</units>
+			</aux>
+			<aux name="fraction of crop\nproduction for energy">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="1750" max="2021.99999999998"/>
+					<yscale min="0" max="0.05"/>
+					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.00018,0.00045,0.00063,0.00081,0.00099,0.00117,0.00135,0.00162,0.0018,0.00206,0.00224,0.00251,0.00269,0.00296,0.00323,0.00341,0.00368,0.00377,0.00431,0.00476,0.00503,0.00548,0.00601,0.00664,0.00718,0.00736,0.00871,0.00916,0.02199,0.02289,0.02379,0.02567,0.0272,0.02756,0.02846,0.03052,0.0316,0.03294,0.03456,0.03609,0.03734,0.03878,0.04039,0.0412,0.04228,0.04282,0.04336,0.04425,0.044385,0.04497,0.04569,0.04605,0.04677,0.04731,0.04767,0.04785,0.04811,0.04847,0.04919</ypts>
+				</gf>
+				<units>1</units>
+			</aux>
+			<aux name="fraction of crop production for feed">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="1750" max="2021.99999999998"/>
+					<yscale min="0" max="0.3"/>
+					<ypts>0.0221,0.0221,0.0226,0.0237,0.0245,0.0253,0.0275,0.0291,0.0299,0.0318,0.0334,0.035,0.0366,0.0377,0.0388,0.0397,0.0406,0.0415,0.0425,0.04335,0.0442,0.04525,0.0463,0.0474,0.0485,0.0493,0.0501,0.0512,0.0521,0.053,0.0539,0.05415,0.0544,0.0549,0.0571,0.0582,0.0592666666666667,0.0603333333333333,0.0614,0.06195,0.0625,0.0652,0.0668,0.067875,0.06895,0.070025,0.0711,0.0722,0.073,0.0738,0.0748666666666667,0.0759333333333333,0.077,0.0773,0.0776,0.0792,0.07975,0.0808,0.0835,0.0846,0.0883,0.08965,0.0921,0.09345,0.0948,0.0959,0.098,0.0999,0.1018,0.1034,0.105,0.10665,0.1083,0.10935,0.1131,0.1147,0.115966666666667,0.117233333333333,0.1185,0.1217,0.1228,0.1239,0.1266,0.1287,0.13005,0.133,0.1352,0.13625,0.1379,0.1411,0.1422,0.1476,0.14865,0.1513,0.1524,0.1551,0.1589,0.1605,0.1632,0.1648,0.1675,0.1691,0.1729,0.1745,0.1756,0.1783,0.1794,0.1815,0.1847,0.1853,0.1885,0.1901,0.1923,0.195,0.1971,0.1982,0.1998,0.2004,0.2031,0.2057,0.2068,0.209,0.2101,0.2117,0.2127,0.2144,0.2176,0.2181,0.2203,0.2219,0.2246,0.2262,0.2273,0.2289,0.23,0.2321,0.2338,0.2348,0.2359,0.2375,0.2391,0.2402,0.2413,0.2429,0.244,0.2451,0.2451,0.2467,0.2478,0.2488,0.2499,0.251,0.251,0.2526,0.2531,0.2548,0.2553,0.2564,0.2575,0.2575,0.2585,0.2596,0.2601,0.2612,0.2623,0.2628,0.2628,0.2634,0.2645,0.265,0.2666,0.2671,0.2677,0.2682,0.2693,0.2704,0.2709,0.272,0.2731,0.2736,0.2747,0.2758,0.2763,0.2768,0.2768,0.2768,0.2768,0.2758,0.2752,0.2752,0.2747,0.2747,0.2741,0.2741,0.2731,0.2731,0.2731,0.2725,0.2725,0.2715,0.2704,0.2698,0.2688,0.2671,0.2661,0.2639,0.2634,0.2618,0.2591,0.2575,0.2548,0.251,0.2483,0.2445,0.2429,0.237,0.2354,0.2262,0.2246,0.2214,0.2197,0.2004,0.1993,0.1982,0.1966,0.1944,0.1923,0.189,0.1864,0.1794,0.1777,0.175,0.1707,0.1675,0.1637,0.1605,0.1573,0.153,0.1497,0.1476,0.1454,0.1433,0.1427,0.1406,0.1384,0.1379,0.1368,0.1357,0.1346,0.1336,0.133,0.132,0.132,0.132,0.132,0.1293</ypts>
+				</gf>
+				<units>1</units>
 			</aux>
 		</variables>
 		<views>
@@ -973,7 +1091,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1398.75" isee:scroll_y="768.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1317.5" isee:scroll_y="764.167" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1033,7 +1151,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 					<from>crop_residue_production</from>
 					<to>crop_residue_litter</to>
 				</connector>
-				<stock font_style="italic" font_weight="bold" x="1458.5" y="1107.34" name="Cropland"/>
+				<stock font_style="italic" font_weight="bold" x="1464.33" y="1314.01" name="Cropland"/>
 				<aux x="1699.25" y="980.667" name="cropland net primary production"/>
 				<connector uid="57" angle="84.6281">
 					<from>crop_production</from>
@@ -1078,8 +1196,8 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<stacked_container uid="143" x="2519" y="1226.71" width="405.714" height="350.857">
 					<graph width="405.714" height="350.857" type="time_series" isee:points_only="true" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true"/>
 				</stacked_container>
-				<aux x="1939.84" y="1196" name="tolerance of the cap on harvest index and residue on field fraction"/>
-				<connector uid="189" angle="26.5297">
+				<aux x="1912.34" y="1402.67" name="tolerance of the cap on harvest index and residue on field fraction"/>
+				<connector uid="189" angle="46.0457">
 					<from>tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction</from>
 					<to>crop_residue_on_field_fraction</to>
 				</connector>
@@ -1088,14 +1206,92 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 					<from>max_crop_residue_on_field_fraction</from>
 					<to>crop_residue_on_field_fraction</to>
 				</connector>
-				<aux x="1775.5" y="1212.5" name="Total average harvest index"/>
-				<connector uid="203" angle="116.5">
+				<aux label_side="bottom" x="1625.66" y="1171.5" name="crop production exogenous"/>
+				<aux x="1572.33" y="1327.5" name="crop yield"/>
+				<connector uid="204" angle="330.939">
+					<from>Cropland</from>
+					<to>crop_yield</to>
+				</connector>
+				<connector uid="205" angle="264.735">
+					<from>crop_production</from>
+					<to>crop_yield</to>
+				</connector>
+				<aux x="1809.17" y="1381" name="harvest index for food crops"/>
+				<aux x="1720.92" y="1306.51" name="normal harvest index for food crops"/>
+				<connector uid="206" angle="319.832">
+					<from>normal_harvest_index_for_food_crops</from>
+					<to>harvest_index_for_food_crops</to>
+				</connector>
+				<aux x="1720.92" y="1425.29" name="effect of crop\nyield on harvest index"/>
+				<connector uid="207" angle="26.6507">
+					<from>effect_of_crop_yield_on_harvest_index</from>
+					<to>harvest_index_for_food_crops</to>
+				</connector>
+				<aux x="1720.92" y="1524.34" name="sensitivity of effect of crop\nyield on harvest index"/>
+				<connector uid="208" angle="90">
+					<from>sensitivity_of_effect_of_crop_yield_on_harvest_index</from>
+					<to>effect_of_crop_yield_on_harvest_index</to>
+				</connector>
+				<connector uid="209" angle="284.232">
+					<from>crop_yield_in_1980</from>
+					<to>effect_of_crop_yield_on_harvest_index</to>
+				</connector>
+				<aux x="1812.17" y="1460.79" name="max harvest index for food crops"/>
+				<connector uid="210" angle="92.1532">
+					<from>max_harvest_index_for_food_crops</from>
+					<to>harvest_index_for_food_crops</to>
+				</connector>
+				<aux x="1859.67" y="1302.17" name="Total average harvest index"/>
+				<connector uid="212" angle="57.3567">
+					<from>harvest_index_for_food_crops</from>
+					<to>Total_average_harvest_index</to>
+				</connector>
+				<aux x="1681.25" y="1366.33" name="crop yield in 1980"/>
+				<connector uid="213" angle="303.555">
+					<from>crop_yield</from>
+					<to>effect_of_crop_yield_on_harvest_index</to>
+				</connector>
+				<aux x="1988.17" y="1468.54" name="harvest index\nfor energy crops"/>
+				<aux x="2125.67" y="1402.67" name="harvest index for feed crops"/>
+				<connector uid="219" angle="99.9033">
+					<from>harvest_index_for_energy_crops</from>
+					<to>Total_average_harvest_index</to>
+				</connector>
+				<connector uid="222" angle="138.991">
+					<from>harvest_index_for_feed_crops</from>
+					<to>Total_average_harvest_index</to>
+				</connector>
+				<connector uid="223" angle="133.553">
 					<from>Total_average_harvest_index</from>
 					<to>crop_residue_production</to>
 				</connector>
-				<aux label_side="bottom" x="1494.83" y="1161.5" name="crop production exogenous"/>
+				<connector uid="224" angle="155.333">
+					<from>tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction</from>
+					<to>harvest_index_for_food_crops</to>
+				</connector>
+				<aux x="1450.83" y="1106.67" name="fraction of crop\nproduction for energy"/>
+				<aux x="1450.83" y="1171.5" name="fraction of crop production for feed"/>
+				<connector uid="230" angle="123.071">
+					<from>
+						<alias uid="231"/>
+					</from>
+					<to>Total_average_harvest_index</to>
+				</connector>
+				<connector uid="232" angle="138.013">
+					<from>
+						<alias uid="233"/>
+					</from>
+					<to>Total_average_harvest_index</to>
+				</connector>
 				<alias font_style="italic" font_weight="bold" uid="77" x="2560.79" y="1118.36" width="45" height="35">
 					<of>Cropland</of>
+				</alias>
+				<alias color="blue" background="white" font_style="italic" uid="231" x="2057.67" y="1480.17" width="18" height="18">
+					<shape type="circle" radius="18"/>
+					<of>fraction_of_crop_production_for_energy</of>
+				</alias>
+				<alias font_style="italic" uid="233" x="2122.67" y="1456" width="18" height="18">
+					<of>fraction_of_crop_production_for_feed</of>
 				</alias>
 			</view>
 		</views>
@@ -1271,7 +1467,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass_1980-Young_forest_aboveground_biomass</eqn>
+				<eqn>forest_aboveground_biomass_1750-Young_forest_aboveground_biomass</eqn>
 				<format precision="full"/>
 				<inflow>maturing</inflow>
 				<inflow>Mature_forest_growth</inflow>
@@ -1312,15 +1508,12 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<eqn>cutting+clearing</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="forest aboveground biomass 1980">
+			<aux name="forest aboveground biomass 1750">
 				<doc>${Internal Calibration Parameter}
-https://doi.org/10.5194/essd-13-3927-2021, 2021.</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>546.9907432</eqn>
-				</element>
+Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2021.
+
+1750 value from LUH dataset</doc>
+				<eqn>685.90765</eqn>
 				<range min="450" max="700"/>
 				<units>GtC</units>
 			</aux>
@@ -1356,14 +1549,14 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass-forest_aboveground_biomass_1980</eqn>
+				<eqn>forest_aboveground_biomass-forest_aboveground_biomass_1750</eqn>
 				<units>GtC</units>
 			</aux>
 			<stock name="Young forest\naboveground biomass">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass_1980*Young_mature_forest_biomass_ratio*young_forest_share</eqn>
+				<eqn>forest_aboveground_biomass_1750*Young_mature_forest_biomass_ratio*young_forest_share</eqn>
 				<format precision="full"/>
 				<inflow>young_forest_growth</inflow>
 				<outflow>maturing</outflow>
@@ -1584,7 +1777,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="445" isee:scroll_y="361.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="1068.13" isee:scroll_y="225" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1782,7 +1975,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>clearing</from>
 					<to>timber</to>
 				</connector>
-				<aux color="blue" x="1045.76" y="606.535" name="forest aboveground biomass 1980"/>
+				<aux color="blue" x="1045.76" y="606.535" name="forest aboveground biomass 1750"/>
 				<aux color="blue" x="904.571" y="97.5714" name="Young mature forest biomass\nratio"/>
 				<aux font_style="italic" font_weight="bold" x="1653.54" y="407.833" name="clearing forest\nfor grassland"/>
 				<connector uid="32" angle="155.787">
@@ -1800,7 +1993,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>forest_aboveground_biomass_balance</to>
 				</connector>
 				<connector uid="35" angle="181.06">
-					<from>forest_aboveground_biomass_1980</from>
+					<from>forest_aboveground_biomass_1750</from>
 					<to>forest_aboveground_biomass_balance</to>
 				</connector>
 				<stock label_side="top" x="1013.64" y="411.333" name="Young forest\naboveground biomass"/>
@@ -2395,7 +2588,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>756.435125</eqn>
 				<units>MHa</units>
 			</aux>
-			<aux name="Initial\nMature Forest">
+			<aux name="Initial\nTotal Forest Area">
 				<doc>${External Parameter}
 </doc>
 				<eqn>4620.527325</eqn>
@@ -2422,7 +2615,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Mature_Forest</eqn>
+				<eqn>Initial_Total_Forest_Area - Actual_initial_Young_forest_Area</eqn>
 				<inflow>forest_completing_recovery</inflow>
 				<outflow>clearing_forests_for_crops</outflow>
 				<outflow>clearing_forest_for_grassland</outflow>
@@ -2492,7 +2685,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>0</eqn>
+				<eqn>Actual_initial_Young_forest_Area</eqn>
 				<inflow>foresting_grassland</inflow>
 				<inflow>foresting_degraded_land</inflow>
 				<inflow>forresting_cropland</inflow>
@@ -2705,6 +2898,23 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<eqn>RUNCUM(clearing_grassland+foresting_grassland+degraded_land_from_grassland)</eqn>
 				<units>Mha</units>
 			</aux>
+			<aux name="Reference Initial\nYoung Forest Area">
+				<doc>${External Parameter}
+This is taken from LUH as the total area transitioning into forest land within the last 60 years before the initial year 1750 in our model. This assumes an average young forest maturation time of 60 years (FRIDA allowed range is 50-70 years). This will be scaled with the actual recovery time in this run, to better approximate the correct initialisation.</doc>
+				<eqn>471.409</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="Actual initial Young forest Area">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Reference_Initial_Young_Forest_Area*(forest_recovery_time/Reference_forest_recovery_time)</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="Reference forest recovery time">
+				<eqn>60</eqn>
+				<units>years</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -2754,7 +2964,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="359.167" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2796,7 +3006,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<aux x="638" y="353.5" name="Initial Cropland"/>
 				<aux x="1383" y="659" name="Habitable Land Area"/>
 				<aux x="668.083" y="782.333" name="Initial Grassland"/>
-				<aux x="693.5" y="46.5" name="Initial\nMature Forest"/>
+				<aux x="531.833" y="37" name="Initial\nTotal Forest Area"/>
 				<stock label_side="center" x="688" y="90.583" width="150" height="90" name="Mature Forest"/>
 				<stock label_side="center" x="691.25" y="355" width="150" height="90" name="Cropland"/>
 				<flow background="white" label_side="top" x="755.583" y="251.125" width="21.3333" height="21.3333" name="clearing forests\nfor crops">
@@ -3017,6 +3227,21 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<connector uid="108" color="#EEEEEE" font_color="#EEEEEE" angle="165.719">
 					<from>degraded_land_from_grassland</from>
 					<to>gross_grassland_land_use_loss</to>
+				</connector>
+				<aux x="1358.5" y="73" name="Reference Initial\nYoung Forest Area"/>
+				<aux x="1309.17" y="169.917" name="Actual initial Young forest Area"/>
+				<connector uid="109" angle="19.5965">
+					<from>forest_recovery_time</from>
+					<to>Actual_initial_Young_forest_Area</to>
+				</connector>
+				<connector uid="110" angle="230.301">
+					<from>Reference_Initial_Young_Forest_Area</from>
+					<to>Actual_initial_Young_forest_Area</to>
+				</connector>
+				<aux x="1413.33" y="128.25" name="Reference forest recovery time"/>
+				<connector uid="111" angle="192.817">
+					<from>Reference_forest_recovery_time</from>
+					<to>Actual_initial_Young_forest_Area</to>
 				</connector>
 				<alias font_style="italic" uid="80" x="1551.5" y="35.5" width="45" height="35">
 					<of>Mature_Forest</of>
