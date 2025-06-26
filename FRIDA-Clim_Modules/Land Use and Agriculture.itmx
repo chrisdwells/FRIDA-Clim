@@ -824,7 +824,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>10000</eqn>
+				<eqn>crop_production_exogenous/UNIT_GtC_per_PCal_crop</eqn>
 				<units>PCal/year</units>
 			</aux>
 			<aux name="crop residue litter" access="output">
@@ -912,7 +912,7 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 Calibration data from:
 Food and Agriculture Organization of the United Nations (2023)</doc>
 				<eqn>0</eqn>
-				<units>PCal/year</units>
+				<units>GtC/year</units>
 			</aux>
 			<aux name="crop yield">
 				<dimensions>
@@ -1279,6 +1279,14 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 						<alias uid="233"/>
 					</from>
 					<to>Total_average_harvest_index</to>
+				</connector>
+				<connector uid="234" angle="152.804">
+					<from>UNIT_GtC_per_PCal_crop</from>
+					<to>crop_production</to>
+				</connector>
+				<connector uid="235" angle="130.683">
+					<from>crop_production_exogenous</from>
+					<to>crop_production</to>
 				</connector>
 				<alias font_style="italic" font_weight="bold" uid="77" x="2560.79" y="1118.36" width="45" height="35">
 					<of>Cropland</of>
