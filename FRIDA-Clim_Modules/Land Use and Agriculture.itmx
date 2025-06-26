@@ -5,7 +5,7 @@
 		<name>Land Use and Agriculture</name>
 		<uuid>fe807591-4e3d-4e2c-b464-70ec4fb12094</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -15,7 +15,7 @@
 	<dimensions>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -1774,7 +1774,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="1068.13" isee:scroll_y="225" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="1068.13" isee:scroll_y="112.5" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2582,7 +2582,7 @@ Limits for extreme conditions in no feedback cases</doc>
 			<aux name="Initial Grassland">
 				<doc>${External Parameter}
 </doc>
-				<eqn>756.435125</eqn>
+				<eqn>Total_land_area_in_FRIDA - (Initial_Total_Forest_Area + Initial_Degraded_Land + Initial_Cropland)</eqn>
 				<units>MHa</units>
 			</aux>
 			<aux name="Initial\nTotal Forest Area">
@@ -2912,6 +2912,10 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<eqn>60</eqn>
 				<units>years</units>
 			</aux>
+			<aux name="Total land area in FRIDA">
+				<eqn>8894.19</eqn>
+				<units>Mha</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -2961,7 +2965,7 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="359.167" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="403.333" isee:scroll_y="300" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3002,7 +3006,7 @@ This is taken from LUH as the total area transitioning into forest land within t
 				</style>
 				<aux x="638" y="353.5" name="Initial Cropland"/>
 				<aux x="1383" y="659" name="Habitable Land Area"/>
-				<aux x="668.083" y="782.333" name="Initial Grassland"/>
+				<aux x="651.416" y="792.08" name="Initial Grassland"/>
 				<aux x="531.833" y="37" name="Initial\nTotal Forest Area"/>
 				<stock label_side="center" x="688" y="90.583" width="150" height="90" name="Mature Forest"/>
 				<stock label_side="center" x="691.25" y="355" width="150" height="90" name="Cropland"/>
@@ -3240,11 +3244,43 @@ This is taken from LUH as the total area transitioning into forest land within t
 					<from>Reference_forest_recovery_time</from>
 					<to>Actual_initial_Young_forest_Area</to>
 				</connector>
+				<aux x="600.833" y="889.167" name="Total land area in FRIDA"/>
+				<connector uid="112" angle="82.6707">
+					<from>Total_land_area_in_FRIDA</from>
+					<to>Initial_Grassland</to>
+				</connector>
+				<connector uid="113" angle="14.8641">
+					<from>
+						<alias uid="114"/>
+					</from>
+					<to>Initial_Grassland</to>
+				</connector>
+				<connector uid="115" angle="92.107">
+					<from>
+						<alias uid="116"/>
+					</from>
+					<to>Initial_Grassland</to>
+				</connector>
+				<connector uid="117" angle="349.592">
+					<from>
+						<alias uid="118"/>
+					</from>
+					<to>Initial_Grassland</to>
+				</connector>
 				<alias font_style="italic" uid="80" x="1551.5" y="35.5" width="45" height="35">
 					<of>Mature_Forest</of>
 				</alias>
 				<alias font_style="italic" uid="82" x="1585.5" y="249.5" width="45" height="35">
 					<of>Young_Forest</of>
+				</alias>
+				<alias font_style="italic" uid="118" x="517.667" y="760.167" width="18" height="18">
+					<of>Initial_Cropland</of>
+				</alias>
+				<alias font_style="italic" uid="114" x="543.5" y="809.333" width="18" height="18">
+					<of>Initial_Total_Forest_Area</of>
+				</alias>
+				<alias font_style="italic" uid="116" x="647" y="907.667" width="18" height="18">
+					<of>Initial_Degraded_Land</of>
 				</alias>
 			</view>
 		</views>

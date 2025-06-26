@@ -1063,7 +1063,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1012.5" isee:scroll_y="1028.33" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1205.83" isee:scroll_y="727.5" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2552,12 +2552,6 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:summing/>
 				<units>Mha</units>
 			</aux>
-			<aux name="Initial Grassland">
-				<doc>${External Parameter}
-</doc>
-				<eqn>756.435125</eqn>
-				<units>MHa</units>
-			</aux>
 			<aux name="Initial\nTotal Forest Area">
 				<doc>${External Parameter}
 </doc>
@@ -2878,6 +2872,14 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<eqn>60</eqn>
 				<units>years</units>
 			</aux>
+			<aux name="Total land area in FRIDA">
+				<eqn>8894.19</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="Initial Grassland">
+				<eqn>Total_land_area_in_FRIDA - (Initial_Total_Forest_Area + Initial_Degraded_Land + Initial_Cropland)</eqn>
+				<units>Mha</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -2927,7 +2929,7 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="381" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="207.5" isee:scroll_y="245.625" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2968,7 +2970,6 @@ This is taken from LUH as the total area transitioning into forest land within t
 				</style>
 				<aux x="638" y="353.5" name="Initial Cropland"/>
 				<aux x="1383" y="659" name="Habitable Land Area"/>
-				<aux x="668.083" y="782.333" name="Initial Grassland"/>
 				<aux x="531.833" y="37" name="Initial\nTotal Forest Area"/>
 				<stock label_side="center" x="688" y="90.583" width="150" height="90" name="Mature Forest"/>
 				<stock label_side="center" x="691.25" y="355" width="150" height="90" name="Cropland"/>
@@ -3205,11 +3206,44 @@ This is taken from LUH as the total area transitioning into forest land within t
 					<from>forest_completing_recovery</from>
 					<to>cutting</to>
 				</connector>
+				<aux x="603.833" y="916.167" name="Total land area in FRIDA"/>
+				<aux x="625" y="820" name="Initial Grassland"/>
+				<connector uid="121" angle="354.902">
+					<from>
+						<alias uid="120"/>
+					</from>
+					<to>Initial_Grassland</to>
+				</connector>
+				<connector uid="122" angle="11.6246">
+					<from>
+						<alias uid="116"/>
+					</from>
+					<to>Initial_Grassland</to>
+				</connector>
+				<connector uid="123" angle="72.7456">
+					<from>Total_land_area_in_FRIDA</from>
+					<to>Initial_Grassland</to>
+				</connector>
+				<connector uid="124" angle="98.2771">
+					<from>
+						<alias uid="118"/>
+					</from>
+					<to>Initial_Grassland</to>
+				</connector>
 				<alias font_style="italic" uid="80" x="1551.5" y="35.5" width="45" height="35">
 					<of>Mature_Forest</of>
 				</alias>
 				<alias font_style="italic" uid="82" x="1585.5" y="249.5" width="45" height="35">
 					<of>Young_Forest</of>
+				</alias>
+				<alias font_style="italic" uid="120" x="520.667" y="787.167" width="18" height="18">
+					<of>Initial_Cropland</of>
+				</alias>
+				<alias font_style="italic" uid="116" x="546.5" y="836.333" width="18" height="18">
+					<of>Initial_Total_Forest_Area</of>
+				</alias>
+				<alias font_style="italic" uid="118" x="650" y="934.667" width="18" height="18">
+					<of>Initial_Degraded_Land</of>
 				</alias>
 			</view>
 		</views>
@@ -6552,7 +6586,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="436.25" isee:scroll_y="328.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="1442.86" isee:scroll_y="165.714" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
