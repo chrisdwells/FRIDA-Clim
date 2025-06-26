@@ -15,7 +15,7 @@ base_year = 1980
 target_year = 1855
 
 
-df_gmst = pd.read_csv('../data/IGCC/annual_averages.csv', index_col=0)
+df_gmst = pd.read_csv('../data/external/IGCC/annual_averages.csv', index_col=0)
 
 delT = np.mean(df_gmst.loc[(base_year - 5 < df_gmst['timebound_lower']) & 
                    (df_gmst['timebound_lower'] < base_year + 5)]['gmst'].values
@@ -23,7 +23,7 @@ delT = np.mean(df_gmst.loc[(base_year - 5 < df_gmst['timebound_lower']) &
                    (df_gmst['timebound_lower'] < target_year + 5)]['gmst'].values)
                                
 
-df_conc = pd.read_csv('../data/IGCC/ghg_concentrations_1750-2023.csv', index_col=0)
+df_conc = pd.read_csv('../data/external/IGCC/ghg_concentrations_1750-2023.csv', index_col=0)
 
 delC = np.mean(df_conc.loc[(base_year - 5 < df_conc.index) & 
                    (df_conc.index < base_year + 5)]['CO2'].values
@@ -69,4 +69,4 @@ for lu in frida_vars.keys():
      row.append(frida_vars[lu])
 df_out.loc[0] = row
 
-df_out.to_csv('../data/inputs/frida_clim_npp_initial_values.csv')
+df_out.to_csv('../data/processed_for_frida/frida_clim_npp_initial_values.csv')

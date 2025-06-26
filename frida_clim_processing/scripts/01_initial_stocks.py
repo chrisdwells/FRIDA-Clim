@@ -10,7 +10,7 @@ luh_to_frida = {
     }
 
 df_hist_stocks = pd.read_csv(
-    "../data/landuse/hist/hist_LUH_stocks_for_FRIDA.csv", index_col = 'Unnamed: 0')
+    "../data/external/landuse/hist/hist_LUH_stocks_for_FRIDA.csv", index_col = 'Unnamed: 0')
 
 
 df_out = pd.DataFrame(columns=luh_to_frida.keys())
@@ -21,4 +21,4 @@ for lu in luh_to_frida.keys():
      row.append(df_hist_stocks[luh_to_frida[lu]][start_year])
 df_out.loc[0] = row
 
-df_out.to_csv('../data/inputs/frida_clim_land_stocks.csv')
+df_out.to_csv('../data/processed_for_frida/frida_clim_land_stocks.csv')

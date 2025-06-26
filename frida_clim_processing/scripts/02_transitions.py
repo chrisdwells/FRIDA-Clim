@@ -25,7 +25,7 @@ luh_to_frida = {
 
 
 df_transitions_hist = pd.read_csv(
-    "../data/landuse/hist/hist_LUH_transitions_for_FRIDA.csv", index_col = 'Unnamed: 0')
+    "../data/external/landuse/hist/hist_LUH_transitions_for_FRIDA.csv", index_col = 'Unnamed: 0')
 
 df_transitions_hist = df_transitions_hist.loc[df_transitions_hist.index >= start_year]
 
@@ -36,7 +36,7 @@ for scen in ssps:
     df_transitions = df_transitions.set_index('Year')
 
     df_transitions_scen = pd.read_csv(
-        f"../data/landuse/{scen}/{scen}_LUH_transitions_for_FRIDA.csv", index_col = 'Unnamed: 0')
+        f"../data/external/landuse/{scen}/{scen}_LUH_transitions_for_FRIDA.csv", index_col = 'Unnamed: 0')
     df_transitions_scen = df_transitions_scen.loc[df_transitions_scen.index <= end_year]
     
     df_transitions_full = pd.concat((df_transitions_hist, df_transitions_scen), axis=0)
@@ -44,5 +44,5 @@ for scen in ssps:
     for transition in luh_to_frida.keys():
         df_transitions[luh_to_frida[transition]] = df_transitions_full[transition]
     
-    df_transitions.to_csv(f'../data/inputs/frida_clim_land_transitions_hist_{scen}.csv')
+    df_transitions.to_csv(f'../data/processed_for_frida/frida_clim_land_transitions_hist_{scen}.csv')
     
