@@ -5,7 +5,7 @@
 		<name>Land Use and Agriculture</name>
 		<uuid>fe807591-4e3d-4e2c-b464-70ec4fb12094</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -15,7 +15,7 @@
 	<dimensions>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -362,8 +362,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="forest_soil_carbon.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect2 to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
-				<connect to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest"/>
-				<connect2 to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest"/>
 			</module>
 			<stock name="Grassland" access="input">
 				<dimensions>
@@ -592,8 +590,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest_carbon_balance.mature_forest_net_primary_production_1" from="Forest.mature_forest_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
-				<connect to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest"/>
-				<connect2 to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest"/>
 				<connect to="Forest_carbon_balance.timber_1" from="Forest.timber"/>
 				<connect2 to="Forest_carbon_balance.timber_1" from="Forest.timber"/>
 				<connect to="Terrestrial_Carbon_Balance.timber" from="Forest.timber"/>
@@ -676,7 +672,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_y="46.4286" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -788,10 +784,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connector uid="80" isee:thickness="2" angle="58.6431" isee:autocreated="true">
 					<from>Land_Use</from>
 					<to>Forest</to>
-				</connector>
-				<connector uid="101" isee:thickness="2" angle="238.643" isee:autocreated="true">
-					<from>Forest</from>
-					<to>Land_Use</to>
 				</connector>
 				<connector uid="73" isee:thickness="2" angle="71.0964" isee:autocreated="true">
 					<from>Grass</from>
@@ -1071,7 +1063,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1256" isee:scroll_y="1078" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1012.5" isee:scroll_y="1028.33" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1548,7 +1540,7 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>cutting_exogenous</eqn>
+				<eqn>cutting_1 * Mature_forest_aboveground_biomass_per_area</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -1763,7 +1755,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="516" isee:scroll_y="127" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="718.571" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1973,7 +1965,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>Young_forest_aboveground_biomass</from>
 					<to>forest_aboveground_biomass</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1152.57" y="346.333" name="cutting 1"/>
+				<aux font_style="italic" font_weight="bold" x="1161.14" y="337.762" name="cutting 1"/>
 				<flow x="1256" y="302.417" name="cutting">
 					<pts>
 						<pt x="1256" y="393.833"/>
@@ -2127,10 +2119,6 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>mature_to_young_forest</to>
 				</connector>
 				<aux x="1191.67" y="256" name="cutting exogenous"/>
-				<connector uid="86" angle="355.03">
-					<from>cutting_exogenous</from>
-					<to>cutting</to>
-				</connector>
 				<aux font_style="italic" font_weight="bold" x="1336.67" y="1338.74" name="Atmospheric CO2 Concentration"/>
 				<connector uid="87" angle="113.987">
 					<from>Atmospheric_CO2_Concentration</from>
@@ -2153,6 +2141,14 @@ Limits for extreme conditions in no feedback cases</doc>
 				<connector uid="91" angle="324.782">
 					<from>Surface_Temperature_Anomaly_1</from>
 					<to>STA_effect_on_aboveground_biomass_per_area</to>
+				</connector>
+				<connector uid="92" angle="108.946">
+					<from>Mature_forest_aboveground_biomass_per_area</from>
+					<to>cutting</to>
+				</connector>
+				<connector uid="93" angle="28.6203">
+					<from>cutting_1</from>
+					<to>cutting</to>
 				</connector>
 				<alias font_style="italic" uid="15" x="646.75" y="1135.33" width="18" height="18">
 					<of>tree_net_primary_production_in_1750</of>
@@ -2750,7 +2746,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>mature_to_young_forest</eqn>
+				<eqn>forest_completing_recovery</eqn>
 				<non_negative/>
 				<units>Mha/Year</units>
 			</flow>
@@ -2829,13 +2825,6 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<eqn>0</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="mature to young forest" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha/year</units>
-			</aux>
 			<stock name="Grassland" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
@@ -2873,8 +2862,21 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<units>Mha</units>
 			</aux>
 			<aux name="Actual initial Young forest Area">
-				<eqn>0</eqn>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Reference_Initial_Young_Forest_Area*(forest_recovery_time/Reference_forest_recovery_time)</eqn>
 				<units>Mha</units>
+			</aux>
+			<aux name="Reference Initial\nYoung Forest Area">
+				<doc>${External Parameter}
+This is taken from LUH as the total area transitioning into forest land within the last 60 years before the initial year 1750 in our model. This assumes an average young forest maturation time of 60 years (FRIDA allowed range is 50-70 years). This will be scaled with the actual recovery time in this run, to better approximate the correct initialisation.</doc>
+				<eqn>471.409</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="Reference forest recovery time">
+				<eqn>60</eqn>
+				<units>years</units>
 			</aux>
 		</variables>
 		<views>
@@ -2925,7 +2927,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="353.333" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="381" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3160,11 +3162,6 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<from>clearing_forests_for_crops_exogenous</from>
 					<to>clearing_forests_for_crops</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="941.25" y="55" name="mature to young forest"/>
-				<connector uid="103" angle="19.631">
-					<from>mature_to_young_forest</from>
-					<to>cutting</to>
-				</connector>
 				<stock label_side="center" x="691.25" y="693.08" width="150" height="90" name="Grassland"/>
 				<aux x="1481.19" y="730.969" name="Forest Land"/>
 				<aux x="186.333" y="175.917" name="gross forest land use loss"/>
@@ -3190,6 +3187,24 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<to>gross_grassland_land_use_loss</to>
 				</connector>
 				<aux x="1326.95" y="261.792" name="Actual initial Young forest Area"/>
+				<aux x="1353.5" y="147" name="Reference Initial\nYoung Forest Area"/>
+				<aux x="1408.33" y="202.25" name="Reference forest recovery time"/>
+				<connector uid="110" angle="22.5072">
+					<from>forest_recovery_time</from>
+					<to>Actual_initial_Young_forest_Area</to>
+				</connector>
+				<connector uid="111" angle="245.037">
+					<from>Reference_Initial_Young_Forest_Area</from>
+					<to>Actual_initial_Young_forest_Area</to>
+				</connector>
+				<connector uid="112" angle="196.782">
+					<from>Reference_forest_recovery_time</from>
+					<to>Actual_initial_Young_forest_Area</to>
+				</connector>
+				<connector uid="113" angle="98.3787">
+					<from>forest_completing_recovery</from>
+					<to>cutting</to>
+				</connector>
 				<alias font_style="italic" uid="80" x="1551.5" y="35.5" width="45" height="35">
 					<of>Mature_Forest</of>
 				</alias>
@@ -3638,7 +3653,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="738.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="470" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
