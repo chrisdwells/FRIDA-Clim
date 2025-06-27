@@ -14,7 +14,6 @@
 	</sim_specs>
 	<dimensions>
 		<dim name="ClimateCase" size="100"/>
-		<dim name="ExtremesExposureImpactCase" size="11"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
 	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
@@ -341,8 +340,6 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="Energy_Balance_Model.selected_extremes_exposure_damages_case" from="Climate_Units.selected_extremes_exposure_damages_case"/>
-				<connect2 to="Energy_Balance_Model.selected_extremes_exposure_damages_case" from="Climate_Units.selected_extremes_exposure_damages_case"/>
 				<connect to="Ocean.UNIT_deg_C_to_unitless" from="Climate_Units.UNIT_deg_C_to_unitless"/>
 				<connect2 to="Ocean.UNIT_deg_C_to_unitless" from="Climate_Units.UNIT_deg_C_to_unitless"/>
 				<connect to="CH4_Forcing.UNIT_fraction_to_ppm" from="Climate_Units.UNIT_fraction_to_ppm"/>
@@ -420,8 +417,6 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Energy_Balance_Model.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Energy_Balance_Model.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="Energy_Balance_Model.selected_extremes_exposure_damages_case" from="Climate_Units.selected_extremes_exposure_damages_case"/>
-				<connect2 to="Energy_Balance_Model.selected_extremes_exposure_damages_case" from="Climate_Units.selected_extremes_exposure_damages_case"/>
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 			</module>
@@ -648,8 +643,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Terrestrial_Carbon_Balance.Cropland" from="Land_Use.Cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.cropland_net_primary_production" from="Crop.cropland_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.cropland_net_primary_production" from="Crop.cropland_net_primary_production"/>
-				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
+				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.initial_cropland_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.initial_cropland_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.cutting" from="Forest.cutting"/>
 				<connect2 to="Terrestrial_Carbon_Balance.cutting" from="Forest.cutting"/>
 				<connect to="Terrestrial_Carbon_Balance.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
@@ -666,8 +661,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
@@ -676,8 +671,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
-				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
+				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
 				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
 				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
@@ -1306,312 +1301,6 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<outflow>Change_in_Thermocline_Ocean_Temperature</outflow>
 				<units>K</units>
 			</stock>
-			<aux name="Surface Temperature 1850 to\n1900 offset relative to 1750">
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.0445709403896298</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.0592501092185202</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.0691358090473176</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.0885361197764824</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.0400789302798466</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.030172509421578</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.0372531834331316</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.0980315085807447</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.0474173595071435</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.0527072800405088</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.0874814211029794</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.0221540565555871</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.0694024595841392</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.0762455844350463</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.0282244965263826</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.0616656217119794</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.059437204816152</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.0518261206106155</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.0578797422655833</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.0455439033225218</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.0643831388973761</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.05501583311031</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.0436829851907439</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.0720712045982016</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.0310778379325425</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.0547887572499722</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.0340926004827782</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.0286330527585749</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.0592834667165812</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.0511455097629712</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.0537511919838622</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.0504174179582276</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.0518213185852188</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.0532771909842098</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.0323001305492004</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>-0.00322365295203333</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.0413885416808997</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.0464218773528486</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.0382112186640147</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.0167440582792641</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.0227287116047413</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.0521833558643004</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.0852178972070606</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.0222734949559676</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.0513812630015806</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.0724600191604098</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.0585006972261716</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.0580196287643537</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.0722182319303111</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.0634878005428413</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.0426809181055161</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.0517869391720947</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.0739023733342263</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.0414267807474069</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.0422892220273054</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.0671792652124755</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.0447550171308955</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.0468827991769165</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.0587929178501516</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.0447280341378512</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.0361915926707816</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.0910538503881343</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.0573304020092361</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.0556341904756137</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.0443509613789955</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.0487278838299453</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.0360790187005631</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.0527158490266749</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.0656468975883704</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.0461778802382722</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.0582223156518408</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.0288464704793335</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.0566608913939641</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.0463019989018643</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.0736395923044539</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.0557756961357269</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.052445098823542</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.0253847406241432</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.0352991833755975</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.016672001731502</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.0601034952981341</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.0822960048150043</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.0560717477221559</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.050549579180988</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.0379281735010288</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.0782941472299365</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.0402414797383955</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.0682377429408545</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.0514883596975169</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.052864336259419</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.0236306095194135</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.0702005236828296</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.0543553585331476</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.0492758364420314</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.0634840798328657</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.0224481697778002</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.0555349144313716</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.0733245692690573</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.0683532091195718</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.0689910387054539</eqn>
-				</element>
-				<units>K</units>
-			</aux>
 			<aux name="UNIT Celcius to Kelvin">
 				<doc>${Unit}
 </doc>
@@ -1624,10 +1313,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>IF SWITCH_STA_Override=1 AND TIME &gt; STARTTIME THEN
-STA_Override[Run]
-ELSE
-(Surface_Temperature-Surface_Temperature_1850_to_1900_offset_relative_to_1750[selected_climate_case[Run]])*UNIT_Celcius_to_Kelvin</eqn>
+				<eqn>Surface_Temperature*UNIT_Celcius_to_Kelvin</eqn>
 				<units>deg C</units>
 			</aux>
 			<aux name="Heat Capacity of Thermocline Ocean" access="output">
@@ -3816,104 +3502,15 @@ kappa3 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 				<eqn>5</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="T effect on\npopulation exposure to\nrecord breaking indices">
-				<doc>${Climate Impact Parameter,External Parameter}
-</doc>
-				<dimensions>
-					<dim name="ExtremesExposureImpactCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.565540704864298</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.627663799219922</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.658195622854939</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.681410649461101</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.701624925062043</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.720652235778445</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.739679545637248</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.759893818448058</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.783108839461655</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.813640651854293</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.875763709700239</eqn>
-				</element>
-				<units>Indices/(person*year*deg C)</units>
-			</aux>
-			<aux name="T2 effect on\npopulation exposure to\nrecord breaking indices">
-				<doc>${Climate Impact Parameter,External Parameter}
-</doc>
-				<dimensions>
-					<dim name="ExtremesExposureImpactCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>-0.00944092259601037</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>-0.0156047402766353</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>-0.0186340903879236</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>-0.0209374721348816</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>-0.0229431211145033</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>-0.0248310001461158</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>-0.0267188791272859</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>-0.028724527942793</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>-0.0310279093608017</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>-0.0340572588108228</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>-0.0402210743439813</eqn>
-				</element>
-				<units>Indices/(person*year*deg C^2)</units>
-			</aux>
-			<aux name="Climate indices with record breaking\nexposure per person per year" access="output">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Surface_Temperature_Anomaly*T_effect_on_population_exposure_to_record_breaking_indices[selected_extremes_exposure_damages_case] + (Surface_Temperature_Anomaly^2)*T2_effect_on_population_exposure_to_record_breaking_indices[selected_extremes_exposure_damages_case]</eqn>
-				<units>Indices/(person*year)</units>
-			</aux>
-			<aux name="Absolute Surface Temperature\n1850 to 1900">
-				<eqn>13.618</eqn>
+			<aux name="Absolute Surface Temperature\n1750">
+				<eqn>13.518</eqn>
 				<units>deg C</units>
 			</aux>
 			<aux name="Absolute Surface Temperature" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Absolute_Surface_Temperature_1850_to_1900+Surface_Temperature_Anomaly</eqn>
+				<eqn>Absolute_Surface_Temperature_1750+Surface_Temperature_Anomaly</eqn>
 				<units>deg C</units>
 			</aux>
 			<aux name="net downward\nradiative flux">
@@ -4277,26 +3874,6 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				</element>
 				<units>YJ</units>
 			</aux>
-			<aux name="selected extremes exposure\ndamages case" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="SWITCH STA Override">
-				<eqn>0</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="STA Override">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0</eqn>
-				<units>deg C</units>
-			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -4346,7 +3923,7 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="319" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="378" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4405,7 +3982,6 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				</flow>
 				<stock x="583" y="645.503" name="Deep Ocean Temperature"/>
 				<stock x="589.667" y="415.503" name="Thermocline Ocean Temperature"/>
-				<aux x="748" y="140.583" name="Surface Temperature 1850 to\n1900 offset relative to 1750"/>
 				<aux x="759.833" y="245.333" name="UNIT Celcius to Kelvin"/>
 				<aux x="881.833" y="191.503" name="Surface Temperature Anomaly"/>
 				<aux x="201.5" y="364.503" name="Heat Capacity of Thermocline Ocean"/>
@@ -4415,10 +3991,6 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<aux x="252.5" y="442.003" name="Deep Ocean Heat Uptake Efficacy\nFactor"/>
 				<aux x="281" y="294.253" name="Heat Transfer Coefficient\nbetween Surface and Thermocline Ocean"/>
 				<aux x="295.667" y="536.503" name="Heat Transfer Coefficient\nbetween Thermocline Ocean\nand Deep Ocean"/>
-				<connector uid="1" angle="339.169">
-					<from>Surface_Temperature_1850_to_1900_offset_relative_to_1750</from>
-					<to>Surface_Temperature_Anomaly</to>
-				</connector>
 				<connector uid="2" angle="23.8085">
 					<from>UNIT_Celcius_to_Kelvin</from>
 					<to>Surface_Temperature_Anomaly</to>
@@ -4521,31 +4093,10 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 					</from>
 					<to>Change_in_Deep_Ocean_Temperature</to>
 				</connector>
-				<connector uid="27" angle="311.46">
-					<from>
-						<alias uid="28"/>
-					</from>
-					<to>Surface_Temperature_Anomaly</to>
-				</connector>
-				<aux x="929" y="336.333" name="T effect on\npopulation exposure to\nrecord breaking indices"/>
-				<aux x="1027.4" y="381.333" name="T2 effect on\npopulation exposure to\nrecord breaking indices"/>
-				<aux x="1072" y="309.333" name="Climate indices with record breaking\nexposure per person per year"/>
-				<connector uid="29" angle="7.4401">
-					<from>Surface_Temperature_Anomaly</from>
-					<to>Climate_indices_with_record_breaking_exposure_per_person_per_year</to>
-				</connector>
-				<connector uid="30" angle="29.1468">
-					<from>T_effect_on_population_exposure_to_record_breaking_indices</from>
-					<to>Climate_indices_with_record_breaking_exposure_per_person_per_year</to>
-				</connector>
-				<connector uid="31" angle="58.2241">
-					<from>T2_effect_on_population_exposure_to_record_breaking_indices</from>
-					<to>Climate_indices_with_record_breaking_exposure_per_person_per_year</to>
-				</connector>
-				<aux label_side="bottom" x="924" y="70.503" name="Absolute Surface Temperature\n1850 to 1900"/>
+				<aux label_side="bottom" x="803.333" y="115.17" name="Absolute Surface Temperature\n1750"/>
 				<aux x="990" y="128" name="Absolute Surface Temperature"/>
-				<connector uid="32" angle="15.7877">
-					<from>Absolute_Surface_Temperature_1850_to_1900</from>
+				<connector uid="32" angle="52.917">
+					<from>Absolute_Surface_Temperature_1750</from>
 					<to>Absolute_Surface_Temperature</to>
 				</connector>
 				<connector uid="33" angle="53.0866">
@@ -4632,30 +4183,11 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 					<to>ocean_heat_flow</to>
 				</connector>
 				<aux x="1065" y="932.333" name="Initial ocean heat\ncontent change"/>
-				<aux font_style="italic" font_weight="bold" x="917.146" y="263.333" name="selected extremes exposure\ndamages case"/>
-				<connector uid="54" angle="358.252">
-					<from>selected_extremes_exposure_damages_case</from>
-					<to>Climate_indices_with_record_breaking_exposure_per_person_per_year</to>
-				</connector>
-				<aux x="1148.5" y="140.583" name="SWITCH STA Override"/>
-				<aux x="1148.5" y="200" name="STA Override"/>
-				<connector uid="55" angle="165.379">
-					<from>STA_Override</from>
-					<to>Surface_Temperature_Anomaly</to>
-				</connector>
-				<connector uid="56" angle="190.537">
-					<from>SWITCH_STA_Override</from>
-					<to>Surface_Temperature_Anomaly</to>
-				</connector>
 				<alias color="blue" background="white" font_style="italic" font_weight="bold" uid="23" x="416" y="477.25" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>selected_climate_case</of>
 				</alias>
 				<alias color="blue" background="white" font_style="italic" font_weight="bold" uid="26" x="420.834" y="689.75" width="18" height="18">
-					<shape type="circle" radius="18"/>
-					<of>selected_climate_case</of>
-				</alias>
-				<alias color="blue" background="white" font_style="italic" font_weight="bold" uid="28" x="781.833" y="79.503" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>selected_climate_case</of>
 				</alias>
@@ -4687,9 +4219,6 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 	<model name="Terrestrial_Carbon_Balance">
 		<variables>
 			<aux name="UNIT GtC per PCal" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>0.001756582675</eqn>
 				<units>GtC/PCal</units>
 			</aux>
@@ -5834,9 +5363,6 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<units>GtC/Year</units>
 			</aux>
 			<aux name="UNIT GtC per PCal 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>0.001756582675</eqn>
 				<units>GtC/PCal</units>
 			</aux>

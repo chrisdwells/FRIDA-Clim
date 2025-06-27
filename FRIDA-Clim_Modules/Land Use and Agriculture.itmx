@@ -5,7 +5,7 @@
 		<name>Land Use and Agriculture</name>
 		<uuid>fe807591-4e3d-4e2c-b464-70ec4fb12094</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -13,9 +13,10 @@
 		<dt reciprocal="true">8</dt>
 	</sim_specs>
 	<dimensions>
+		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -406,14 +407,14 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
 				<connect to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
 				<connect2 to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
 				<connect to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_grassland" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_grassland"/>
 				<connect2 to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_grassland" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_grassland"/>
 				<connect to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_degraded_land" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_degraded_land"/>
 				<connect2 to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_degraded_land" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_degraded_land"/>
+				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.initial_cropland_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.initial_cropland_soil_carbon"/>
 				<connect to="Cropland_Carbon_Balance.litter_emissions_cropland_GtC" from="cropland_soil_carbon.litter_emissions_cropland_GtC"/>
 				<connect2 to="Cropland_Carbon_Balance.litter_emissions_cropland_GtC" from="cropland_soil_carbon.litter_emissions_cropland_GtC"/>
 				<connect to="Cropland_Carbon_Balance.slow_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.slow_soil_carbon_cropland_to_forest"/>
@@ -462,10 +463,10 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest_carbon_balance.forest_landuse_fast_soil_carbon_input" from="forest_soil_carbon.forest_landuse_fast_soil_carbon_input"/>
 				<connect to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
 				<connect2 to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
 				<connect to="Forest_carbon_balance.litter_emissions_young_forest_GtC" from="forest_soil_carbon.litter_emissions_young_forest_GtC"/>
@@ -518,8 +519,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Grassland_carbon_balance.grassland_landuse_fast_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_fast_soil_carbon_input"/>
 				<connect to="Grassland_carbon_balance.grassland_landuse_slow_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Grassland_carbon_balance.grassland_landuse_slow_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
+				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
 				<connect to="Grassland_carbon_balance.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
 				<connect to="Grassland_carbon_balance.slow_soil_carbon_grassland_to_cropland" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_cropland"/>
@@ -810,9 +811,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 			<aux name="UNIT GtC per PCal crop" access="output" isee:autocreated="true">
 				<doc>${External Parameter,Unit}
 From FAO data</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>0.000220559</eqn>
 				<range min="0.000220559" max="0.00027385"/>
 				<units>GtC/PCal</units>
@@ -945,7 +943,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(crop_yield/crop_yield_in_1980)^sensitivity_of_effect_of_crop_yield_on_harvest_index</eqn>
+				<eqn>(crop_yield/crop_yield_1980_reference)^sensitivity_of_effect_of_crop_yield_on_harvest_index</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="sensitivity of effect of crop\nyield on harvest index">
@@ -960,7 +958,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<range min="0.05" max="0.1"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="crop yield in 1980" access="output" isee:autocreated="true">
+			<aux name="crop yield 1980 reference" access="output" isee:autocreated="true">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -1027,7 +1025,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				</gf>
 				<units>1</units>
 			</aux>
-			<aux name="fraction of crop production for feed">
+			<aux name="fraction of crop\nproduction for feed">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1088,7 +1086,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1237.5" isee:scroll_y="901.667" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1246" isee:scroll_y="767" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1230,7 +1228,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 					<to>effect_of_crop_yield_on_harvest_index</to>
 				</connector>
 				<connector uid="209" angle="284.232">
-					<from>crop_yield_in_1980</from>
+					<from>crop_yield_1980_reference</from>
 					<to>effect_of_crop_yield_on_harvest_index</to>
 				</connector>
 				<aux x="1812.17" y="1460.79" name="max harvest index for food crops"/>
@@ -1243,7 +1241,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 					<from>harvest_index_for_food_crops</from>
 					<to>Total_average_harvest_index</to>
 				</connector>
-				<aux x="1681.25" y="1366.33" name="crop yield in 1980"/>
+				<aux x="1681.25" y="1366.33" name="crop yield 1980 reference"/>
 				<connector uid="213" angle="303.555">
 					<from>crop_yield</from>
 					<to>effect_of_crop_yield_on_harvest_index</to>
@@ -1267,7 +1265,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 					<to>harvest_index_for_food_crops</to>
 				</connector>
 				<aux x="1450.83" y="1106.67" name="fraction of crop\nproduction for energy"/>
-				<aux x="1450.83" y="1171.5" name="fraction of crop production for feed"/>
+				<aux x="1450.83" y="1171.5" name="fraction of crop\nproduction for feed"/>
 				<connector uid="230" angle="123.071">
 					<from>
 						<alias uid="231"/>
@@ -1307,7 +1305,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MAXSOFT(tree_net_primary_production_in_1750 + change_in_tree_net_primary_production_from_CO2+change_in_tree_net_primary_production_from_STA+change_in_tree_net_primary_production_from_STA_squared, tree_net_primary_production_in_1750*minimum_fraction_of_1980_tree_primary_production,tolerance_for_net_primary_production )</eqn>
+				<eqn>MAXSOFT(tree_net_primary_production_in_1750 + change_in_tree_net_primary_production_from_CO2+change_in_tree_net_primary_production_from_STA+change_in_tree_net_primary_production_from_STA_squared, tree_net_primary_production_in_1750*minimum_fraction_of_1750_tree_primary_production,tolerance_for_net_primary_production )</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="CO2 tree net primary\nproduction parameter">
@@ -1522,19 +1520,6 @@ Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2
 				<range min="450" max="700"/>
 				<units>GtC</units>
 			</aux>
-			<aux name="Young mature forest biomass\nratio">
-				<doc>${Internal Calibration Parameter}
-https://doi.org/10.1038/s41467-018-05132-5
-https://doi.org/10.1016/j.foreco.2021.119507</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.558925781</eqn>
-				</element>
-				<range min="0.3" max="0.7"/>
-				<units>dmnl</units>
-			</aux>
 			<aux name="clearing forest\nfor grassland" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -1561,7 +1546,7 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass_1750*Young_mature_forest_biomass_ratio*young_forest_share</eqn>
+				<eqn>initial_Young_forest_aboveground_biomass[Climate_Units.selected_climate_case[Run]]</eqn>
 				<format precision="full"/>
 				<inflow>young_forest_growth</inflow>
 				<outflow>maturing</outflow>
@@ -1710,7 +1695,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>.05</eqn>
 				<units>GtC/Mha</units>
 			</aux>
-			<aux name="minimum fraction of 1980 tree primary production">
+			<aux name="minimum fraction of 1750\ntree primary production">
 				<doc>${Assumption}
 Limits for extreme conditions in no feedback cases</doc>
 				<eqn>.2</eqn>
@@ -1732,6 +1717,13 @@ Limits for extreme conditions in no feedback cases</doc>
 				</dimensions>
 				<eqn>cutting/Mature_forest_aboveground_biomass_per_area</eqn>
 				<units>Mha/year</units>
+			</aux>
+			<aux name="initial Young forest\naboveground biomass">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<eqn>NAN</eqn>
+				<units>GtC</units>
 			</aux>
 		</variables>
 		<views>
@@ -1782,7 +1774,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="1068.13" isee:scroll_y="112.5" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="430" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1949,7 +1941,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>tree_net_primary_production</from>
 					<to>mature_forest_net_primary_production</to>
 				</connector>
-				<connector uid="28" angle="1.28162">
+				<connector uid="28" angle="1.28154">
 					<from>Young_forest_net_primary_production_aboveground_biomass_share</from>
 					<to>young_forest_growth</to>
 				</connector>
@@ -1981,7 +1973,6 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>timber</to>
 				</connector>
 				<aux color="blue" x="1045.76" y="606.535" name="forest aboveground biomass 1750"/>
-				<aux color="blue" x="904.571" y="97.5714" name="Young mature forest biomass\nratio"/>
 				<aux font_style="italic" font_weight="bold" x="1653.54" y="407.833" name="clearing forest\nfor grassland"/>
 				<connector uid="32" angle="155.787">
 					<from>clearing_forest_for_grassland</from>
@@ -2152,14 +2143,14 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>tolerance_for_minimum_fraction_of_normal_mature_forest_aboveground_biomass_per_area</from>
 					<to>Maximum_mature_forest_aboveground_biomass_per_area</to>
 				</connector>
-				<aux x="715.17" y="824.714" name="minimum fraction of 1980 tree primary production"/>
+				<aux x="715.17" y="824.714" name="minimum fraction of 1750\ntree primary production"/>
 				<aux x="676.083" y="743" name="tolerance for net primary production"/>
 				<connector uid="81" angle="1.91445">
 					<from>tolerance_for_net_primary_production</from>
 					<to>tree_net_primary_production</to>
 				</connector>
 				<connector uid="82" angle="359.501">
-					<from>minimum_fraction_of_1980_tree_primary_production</from>
+					<from>minimum_fraction_of_1750_tree_primary_production</from>
 					<to>tree_net_primary_production</to>
 				</connector>
 				<aux x="1186" y="256.333" name="cutting exogenous"/>
@@ -2176,6 +2167,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>Mature_forest_aboveground_biomass_per_area</from>
 					<to>mature_to_young_forest</to>
 				</connector>
+				<aux x="1013.64" y="148" name="initial Young forest\naboveground biomass"/>
 				<alias font_style="italic" uid="15" x="646.75" y="1135.33" width="18" height="18">
 					<of>tree_net_primary_production_in_1750</of>
 				</alias>
@@ -2200,7 +2192,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MAXSOFT(grass_net_primary_production_in_1750 + change_in_grass_net_primary_production_from_CO2+change_in_grass_net_primary_production_from_STA+change_in_grass_net_primary_production_from_STA_squared, grass_net_primary_production_in_1750*minimum_fraction_of_1980_grass_primary_production, tolerance_for_net_primary_production)</eqn>
+				<eqn>MAXSOFT(grass_net_primary_production_in_1750 + change_in_grass_net_primary_production_from_CO2+change_in_grass_net_primary_production_from_STA+change_in_grass_net_primary_production_from_STA_squared, grass_net_primary_production_in_1750*minimum_fraction_of_1750_grass_primary_production, tolerance_for_net_primary_production)</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="CO2 grass net primary production parameter">
@@ -2337,7 +2329,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>ppm</units>
 			</aux>
-			<aux name="minimum fraction of 1980\ngrass primary production">
+			<aux name="minimum fraction of 1750\ngrass primary production">
 				<doc>${Assumption}
 Limits for extreme conditions in no feedback cases</doc>
 				<eqn>.2</eqn>
@@ -2398,7 +2390,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="91" isee:scroll_y="82" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="3" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2549,14 +2541,14 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>animal_grazing</from>
 					<to>grassland_litter</to>
 				</connector>
-				<aux x="352.17" y="290.714" name="minimum fraction of 1980\ngrass primary production"/>
+				<aux x="352.17" y="290.714" name="minimum fraction of 1750\ngrass primary production"/>
 				<aux x="313.083" y="209" name="tolerance for net primary production"/>
 				<connector uid="38" angle="4.91068">
 					<from>tolerance_for_net_primary_production</from>
 					<to>grass_net_primary_production</to>
 				</connector>
 				<connector uid="39" angle="19.1633">
-					<from>minimum_fraction_of_1980_grass_primary_production</from>
+					<from>minimum_fraction_of_1750_grass_primary_production</from>
 					<to>grass_net_primary_production</to>
 				</connector>
 				<alias font_style="italic" uid="15" x="212" y="563.167" width="18" height="18">
@@ -3352,8 +3344,6 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
 				<connect to="soil_carbon_emissions.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
 				<connect2 to="soil_carbon_emissions.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
-				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
 				<connect to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
 				<connect2 to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
 				<connect to="forest_soil_carbon.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
@@ -3366,6 +3356,8 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<connect2 to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_degraded_land" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_degraded_land"/>
 				<connect to="degraded_land_soil_carbon.fast_soil_carbon_cropland_to_degraded_land" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_degraded_land"/>
 				<connect2 to="degraded_land_soil_carbon.fast_soil_carbon_cropland_to_degraded_land" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_degraded_land"/>
+				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.initial_cropland_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.initial_cropland_soil_carbon"/>
 				<connect to="Cropland_Carbon_Balance.litter_emissions_cropland_GtC" from="cropland_soil_carbon.litter_emissions_cropland_GtC"/>
 				<connect2 to="Cropland_Carbon_Balance.litter_emissions_cropland_GtC" from="cropland_soil_carbon.litter_emissions_cropland_GtC"/>
 				<connect to="soil_carbon_emissions.litter_emissions_cropland_GtC" from="cropland_soil_carbon.litter_emissions_cropland_GtC"/>
@@ -3441,8 +3433,8 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<connect2 to="Grassland_carbon_balance.grassland_landuse_slow_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_slow_soil_carbon_input"/>
 				<connect to="soil_carbon_emissions.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
 				<connect2 to="soil_carbon_emissions.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
+				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
 				<connect to="Grassland_carbon_balance.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
 				<connect to="soil_carbon_emissions.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
@@ -3551,10 +3543,10 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<connect2 to="Forest_carbon_balance.forest_landuse_fast_soil_carbon_input" from="forest_soil_carbon.forest_landuse_fast_soil_carbon_input"/>
 				<connect to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
 				<connect2 to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
 				<connect to="soil_carbon_emissions.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
@@ -3886,7 +3878,7 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>cropland_soil_carbon_1980*(1-slow_soil_carbon_historic_share)</eqn>
+				<eqn>initial_cropland_soil_carbon*(1-slow_soil_carbon_historic_share)</eqn>
 				<inflow>litter_input_fast_soil_carbon_cropland</inflow>
 				<inflow>Fast_soil_cropland_carbon_input_from_land_use_transitions</inflow>
 				<outflow>fast_soil_carbon_loss_cropland</outflow>
@@ -3897,7 +3889,7 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>cropland_soil_carbon_1980*slow_soil_carbon_historic_share</eqn>
+				<eqn>initial_cropland_soil_carbon*slow_soil_carbon_historic_share</eqn>
 				<inflow>litter_input_slow_soil_carbon_cropland</inflow>
 				<inflow>Slow_soil_cropland_carbon_input_from_land_use_transitions</inflow>
 				<outflow>slow_soil_carbon_loss_cropland</outflow>
@@ -3964,10 +3956,10 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>soil_carbon_cropland - cropland_soil_carbon_1980</eqn>
+				<eqn>soil_carbon_cropland - initial_cropland_soil_carbon</eqn>
 				<units>GtC</units>
 			</aux>
-			<aux name="cropland soil carbon 1980" access="output" isee:autocreated="true">
+			<aux name="initial cropland soil carbon" access="output" isee:autocreated="true">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -4203,7 +4195,7 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="184" isee:scroll_y="460" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="973" isee:scroll_y="1" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4277,7 +4269,7 @@ This is taken from LUH as the total area transitioning into forest land within t
 				<aux x="86.4407" y="565" name="soil carbon emissions\ncropland GtC"/>
 				<aux x="653" y="601.09" name="cropland litter to soil carbon"/>
 				<aux x="1348.08" y="332.083" name="soil carbon balance cropland"/>
-				<aux x="1461.25" y="288.583" name="cropland soil carbon 1980"/>
+				<aux x="1461.25" y="288.583" name="initial cropland soil carbon"/>
 				<connector uid="1" angle="178.686">
 					<from>cropland_landuse_slow_soil_carbon_input</from>
 					<to>Slow_soil_cropland_carbon_input_from_land_use_transitions</to>
@@ -4311,7 +4303,7 @@ This is taken from LUH as the total area transitioning into forest land within t
 					<to>soil_carbon_cropland</to>
 				</connector>
 				<connector uid="10" angle="201.026">
-					<from>cropland_soil_carbon_1980</from>
+					<from>initial_cropland_soil_carbon</from>
 					<to>soil_carbon_balance_cropland</to>
 				</connector>
 				<connector uid="11" angle="298.227">
@@ -5190,7 +5182,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>soil_carbon_forest - Forest_soil_carbon_1980</eqn>
+				<eqn>soil_carbon_forest - initial_forest_soil_carbon</eqn>
 				<units>GtC</units>
 			</aux>
 			<aux name="litter to soil carbon mature forest" access="output" isee:autocreated="true">
@@ -5550,7 +5542,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<eqn>0.411719920422693</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Forest soil carbon 1980" access="output" isee:autocreated="true">
+			<aux name="initial forest soil carbon" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -5677,7 +5669,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="133.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="2024" isee:scroll_y="254" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6118,17 +6110,17 @@ https://doi.org/10.1126/science.1201609</doc>
 					<to>litter_input_slow_soil_carbon_young_forest</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="2187.5" y="114.167" name="young forest slow soil\ncarbon historic share"/>
-				<aux x="2459.5" y="532.833" name="Forest soil carbon 1980"/>
+				<aux x="2459.5" y="532.833" name="initial forest soil carbon"/>
 				<connector uid="80" angle="209.853">
 					<from>soil_carbon_young_forest</from>
-					<to>Forest_soil_carbon_1980</to>
+					<to>initial_forest_soil_carbon</to>
 				</connector>
 				<connector uid="81" angle="324.717">
 					<from>soil_carbon_mature_forest</from>
-					<to>Forest_soil_carbon_1980</to>
+					<to>initial_forest_soil_carbon</to>
 				</connector>
 				<connector uid="82" angle="92.2507">
-					<from>Forest_soil_carbon_1980</from>
+					<from>initial_forest_soil_carbon</from>
 					<to>soil_carbon_balance_forest</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" label_side="top" x="1093.25" y="1205" name="forest completing\nrecovery"/>
@@ -6298,7 +6290,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grassland_soil_carbon_1980*(1-slow_soil_carbon_historic_share_1)</eqn>
+				<eqn>initial_grassland_soil_carbon*(1-slow_soil_carbon_historic_share_1)</eqn>
 				<inflow>litter_input_fast_soil_carbon_grassland</inflow>
 				<inflow>fast_soil_grassland_carbon_input_from_land_use_transitions</inflow>
 				<outflow>Fast_soil_out_of_grassland_from_land_use_transitions</outflow>
@@ -6332,7 +6324,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grassland_soil_carbon_1980*slow_soil_carbon_historic_share_1</eqn>
+				<eqn>initial_grassland_soil_carbon*slow_soil_carbon_historic_share_1</eqn>
 				<inflow>litter_input_slow_soil_carbon_grassland</inflow>
 				<inflow>slow_soil_grassland_carbon_input_from_land_use_transitions</inflow>
 				<outflow>slow_soil_carbon_loss_grassland</outflow>
@@ -6553,7 +6545,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>soil_carbon_grassland - grassland_soil_carbon_1980</eqn>
+				<eqn>soil_carbon_grassland - initial_grassland_soil_carbon</eqn>
 				<units>GtC</units>
 			</aux>
 			<aux name="soil carbon grassland" access="output" isee:autocreated="true">
@@ -6563,7 +6555,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<eqn>fast_soil_carbon_grassland+slow_soil_carbon_grassland</eqn>
 				<units>GtC</units>
 			</aux>
-			<aux name="grassland soil carbon 1980" access="output" isee:autocreated="true">
+			<aux name="initial grassland soil carbon" access="output" isee:autocreated="true">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
@@ -6934,9 +6926,9 @@ https://doi.org/10.1126/science.1201609</doc>
 					</from>
 					<to>soil_carbon_grassland</to>
 				</connector>
-				<aux x="2023.33" y="455.583" name="grassland soil carbon 1980"/>
+				<aux x="2023.33" y="455.583" name="initial grassland soil carbon"/>
 				<connector uid="52" angle="180">
-					<from>grassland_soil_carbon_1980</from>
+					<from>initial_grassland_soil_carbon</from>
 					<to>soil_carbon_balance_grassland</to>
 				</connector>
 				<flow x="1011" y="963.795" name="Slow soil carbon emissions grassland">
@@ -7077,12 +7069,7 @@ https://doi.org/10.1126/science.1201609</doc>
 			<aux name="e0">
 				<doc>${Internal Calibration Parameter}
 Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., ... &amp; Waha, K. (2018). LPJmL4–a dynamic global vegetation model with managed land–Part 1: Model description. Geoscientific Model Development, 11(4), 1343-1375. https://doi.org/10.5194/gmd-11-429-2018</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>290.0287445</eqn>
-				</element>
+				<eqn>290.0287445</eqn>
 				<range min="290" max="320"/>
 				<units>dmnl</units>
 			</aux>
@@ -7232,7 +7219,7 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="122" isee:scroll_y="335" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>

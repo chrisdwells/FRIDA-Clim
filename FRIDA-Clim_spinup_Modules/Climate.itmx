@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="50" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -230,16 +230,8 @@
 			<module name="Ocean" isee:label="Ocean
 Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/FRIDA-Clim_spinup_Modules/Ocean.itmx">
 				<format scale_by="auto"/>
-				<connect to="Forest.Atmospheric_CO2_Concentration" from="Ocean.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Forest.Atmospheric_CO2_Concentration" from="Ocean.Atmospheric_CO2_Concentration"/>
-				<connect to="Grass.Atmospheric_CO2_Concentration" from="Ocean.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="Ocean.Atmospheric_CO2_Concentration"/>
-				<connect to="Forest.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
-				<connect2 to="Forest.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
-				<connect to="Grass.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
-				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect to="soil_carbon_decay.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect2 to="soil_carbon_decay.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect to="Ocean.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -269,8 +261,18 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 			</module>
 			<module name="Climate Units" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
-				<connect2 to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ocean.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Ocean.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ocean.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
@@ -281,6 +283,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Ocean.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ocean.selected_climate_case_4" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Ocean.selected_climate_case_4" from="Climate_Units.selected_climate_case"/>
+				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ocean.UNIT_deg_C_to_unitless" from="Climate_Units.UNIT_deg_C_to_unitless"/>
 				<connect2 to="Ocean.UNIT_deg_C_to_unitless" from="Climate_Units.UNIT_deg_C_to_unitless"/>
 				<connect to="Ocean.UNIT_fraction_to_ppm" from="Climate_Units.UNIT_fraction_to_ppm"/>
@@ -289,8 +293,6 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Ocean.UNIT_GtC_to_kmol" from="Climate_Units.UNIT_GtC_to_kmol"/>
 				<connect to="Ocean.UNIT_GtC_to_kmol_1" from="Climate_Units.UNIT_GtC_to_kmol"/>
 				<connect2 to="Ocean.UNIT_GtC_to_kmol_1" from="Climate_Units.UNIT_GtC_to_kmol"/>
-				<connect to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
-				<connect2 to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect2 to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="Ocean.UNIT_Kelvin_at_0_deg_C_unitless" from="Climate_Units.UNIT_Kelvin_at_0_deg_C_unitless"/>
@@ -345,8 +347,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Terrestrial_Carbon_Balance.Cropland" from="Land_Use.Cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.cropland_net_primary_production" from="Crop.cropland_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.cropland_net_primary_production" from="Crop.cropland_net_primary_production"/>
-				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
+				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.initial_cropland_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.initial_cropland_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.cutting" from="Forest.cutting"/>
 				<connect2 to="Terrestrial_Carbon_Balance.cutting" from="Forest.cutting"/>
 				<connect to="Terrestrial_Carbon_Balance.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
@@ -363,8 +365,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
@@ -373,8 +375,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
-				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
+				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
+				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
 				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
 				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
@@ -594,9 +596,9 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<module label_side="center" x="433.277" y="291.36" name="Ocean"/>
-				<module x="473.833" y="66.0827" name="Climate Units"/>
-				<connector uid="8" color="#F0F3F3" font_color="#F0F3F3" isee:thickness="1" angle="259.795" isee:autocreated="true">
+				<module label_side="center" x="382.166" y="314.833" name="Ocean"/>
+				<module x="264.944" y="207.749" name="Climate Units"/>
+				<connector uid="8" color="red" font_color="red" isee:thickness="1" angle="317.588" isee:autocreated="true">
 					<from>Climate_Units</from>
 					<to>Ocean</to>
 				</connector>
@@ -610,7 +612,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 					<from>Emissions</from>
 					<to>Terrestrial_Carbon_Balance</to>
 				</connector>
-				<connector uid="57" isee:thickness="2" angle="256.153" isee:autocreated="true">
+				<connector uid="57" isee:thickness="2" angle="299.568" isee:autocreated="true">
 					<from>Climate_Units</from>
 					<to>Emissions</to>
 				</connector>
@@ -623,9 +625,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>90</eqn>
-				</element>
+				<eqn>Run</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="UNIT ppm to ppb" access="output">
@@ -924,9 +924,6 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 	<model name="Terrestrial_Carbon_Balance">
 		<variables>
 			<aux name="UNIT GtC per PCal" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>0.001756582675</eqn>
 				<units>GtC/PCal</units>
 			</aux>
@@ -998,9 +995,6 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<units>GtC/Year</units>
 			</flow>
 			<aux name="animal grazing" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>GtC/Year</units>
 			</aux>
@@ -1456,23 +1450,14 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<units>GtC/Year</units>
 			</flow>
 			<aux name="forest soil carbon 1980" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>536.2</eqn>
 				<units>GtC</units>
 			</aux>
 			<aux name="cropland soil carbon 1980" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>70.853816</eqn>
 				<units>GtC</units>
 			</aux>
 			<aux name="grassland soil carbon 1980" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>209.23</eqn>
 				<units>GtC</units>
 			</aux>
@@ -1610,7 +1595,7 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="3" isee:scroll_y="390" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="3" isee:scroll_y="161.667" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2066,9 +2051,6 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<units>GtC/Year</units>
 			</aux>
 			<aux name="UNIT GtC per PCal 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>0.001756582675</eqn>
 				<units>GtC/PCal</units>
 			</aux>
@@ -2249,7 +2231,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="41" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2588,7 +2570,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="253" isee:scroll_y="282" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2772,9 +2754,6 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<units>GtC</units>
 			</aux>
 			<aux name="animal grazing 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>GtC/Year</units>
 			</aux>
@@ -2911,7 +2890,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="90" isee:scroll_y="161" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
