@@ -3,7 +3,7 @@
 	<header>
 		<smile version="1.0" namespace="std, isee" uses_arrays="1"/>
 		<name>Ocean</name>
-		<uuid>d6f206c6-ee58-4917-a038-4ceeed62b2b0</uuid>
+		<uuid>acaafb26-d1d1-40f9-87b7-c2cf1de0bd52</uuid>
 		<vendor>isee systems, inc.</vendor>
 		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="50" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="1" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -231,638 +231,18 @@
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Warm_surface_ocean_carbon_reservoir[selected_climate_case[Run]]</eqn>
+				<eqn>adjusted_Amount_of_carbon_in_the_warm_surface_ocean_in_spinup</eqn>
 				<format precision="full"/>
 				<inflow>Low_latitude_ocean_air_sea_carbon_uptake</inflow>
 				<inflow>Mixing_of_carbon_from_intermediate_depth_to_the_warm_surface_ocean</inflow>
 				<outflow>Biological_carbon_pump_C_export_from_warm_surface_to_intermediate_ocean</outflow>
 				<units>GtC</units>
 			</stock>
-			<aux name="Initial Warm surface\nocean carbon reservoir">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>1787.16881503</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>2828.90939856</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>2312.36804824</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>3527.9138239</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>1918.35600925</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>2515.08667981</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>3006.11774748</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>2700.93651954</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>2421.7443648</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>2982.50380339</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>2316.6835602</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>2493.53239094</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>2232.59028773</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>3055.64096367</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>1059.34046499</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>1560.95807583</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>1282.55918689</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>1309.83771129</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>1881.09896883</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>1937.72972909</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>2373.3171284</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>2963.23915066</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>1820.50475832</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>2810.80804311</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>2321.3785842</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>2328.68280081</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>2253.12223591</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>1726.80846848</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>1072.95625055</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>1492.22737514</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>2309.26928438</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>2503.2912981</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>2742.41143851</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>2726.40362617</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>1484.25878867</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>1789.23604966</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>2519.82896704</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>1973.47332724</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>1663.35170307</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>1378.4481207</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>2270.86509549</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>2509.86133149</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>1707.1645017</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>2460.22426041</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>2532.18428547</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>2888.5239623</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>3087.81653304</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>2414.84900812</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>2380.79045749</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>2040.84011483</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>3142.61935556</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>2184.24362687</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>1586.47304839</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>2363.75225116</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>1380.9125167</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>1672.09462301</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>1325.54394083</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>1939.40259135</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>1993.88186545</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>3348.63350628</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>1408.55637209</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>994.106271877</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>1425.73594318</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>2132.84586058</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>2754.49111072</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>872.507015952</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>1887.83617343</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>2475.80537311</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>1438.11013848</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>807.18777098</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>1503.18400332</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>1030.70200914</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>1912.07505168</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>2713.86181641</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>918.829071531</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>1963.0136864</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>3071.92706088</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>2397.81980544</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>1430.89619944</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>3285.6276982</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>2557.58854914</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>1315.05684942</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>2501.8932485</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>2790.08972057</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>2990.35926397</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>1603.34990111</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>2787.22827666</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>1764.03074316</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>827.984816689</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>938.353085749</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>1930.47160721</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>1694.87223124</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>1652.43607664</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>1583.25725978</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>2253.26433798</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>879.980268262</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>2778.67948414</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>1757.8060477</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>2924.05258887</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>2257.2029946</eqn>
-				</element>
-				<format precision="full"/>
-				<range min="2200" max="2240"/>
-				<units>GtC</units>
-			</aux>
-			<aux name="Initial Cold surface ocean carbon reservoir">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>497.963654232</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>432.389028139</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>559.168593127</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>165.929299571</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>263.595587205</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>352.907031369</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>317.072843628</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>526.485556747</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>507.264948175</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>523.348994622</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>246.997087417</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>434.139708913</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>515.343121047</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>145.866446285</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>414.584836866</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>104.437962773</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>189.022302202</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>380.788128506</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>114.160111237</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>516.884997933</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>255.669878791</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>184.803390135</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>171.923338535</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>468.064025167</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>164.933617426</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>532.160958</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>417.974347871</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>108.756163543</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>545.498931866</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>324.937856822</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>229.117848392</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>238.088014836</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>114.334132565</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>529.391262015</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>389.549049281</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>495.522367773</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>190.729741928</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>128.488844779</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>513.61825963</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>389.135745452</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>69.885580443</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>87.2676233011</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>536.120852386</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>298.113085541</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>542.393278791</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>510.00620952</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>477.597579972</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>531.568700586</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>158.280707729</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>211.589776152</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>326.576003576</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>93.9772837333</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>238.989664345</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>578.304669138</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>296.917798958</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>410.849160708</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>499.396320559</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>265.159863268</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>458.938592062</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>528.84342111</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>435.968640047</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>140.408465656</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>485.043798152</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>92.6061028124</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>120.889578916</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>274.941091061</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>95.6967118933</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>294.099810852</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>395.16729238</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>434.164957358</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>91.6158626205</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>440.699110697</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>297.116215157</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>372.694781358</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>539.362930737</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>267.988229142</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>449.850053712</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>648.893442469</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>335.654242515</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>250.442268872</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>414.290856203</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>485.527333936</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>237.887973507</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>278.947346704</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>262.783748659</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>380.468088638</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>304.421044961</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>418.82409661</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>575.737810672</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>571.90235927</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>274.86849656</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>362.776250676</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>582.495055407</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>240.441153499</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>280.106429806</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>494.869537777</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>218.483352077</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>295.142603796</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>320.634783822</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>266.387251595</eqn>
-				</element>
-				<format precision="full"/>
-				<range min="315" max="340"/>
-				<units>GtC</units>
-			</aux>
 			<stock name="Cold surface ocean\ncarbon reservoir">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Cold_surface_ocean_carbon_reservoir[selected_climate_case[Run]]</eqn>
+				<eqn>adjusted_Amount_of_carbon_in_the_cold_surface_ocean_in_spinup</eqn>
 				<format precision="full"/>
 				<inflow>Poleward_transport_of_carbon_via_the_overturning_circulation</inflow>
 				<inflow>High_latitude_ocean_air_sea_carbon_uptake</inflow>
@@ -884,7 +264,7 @@
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Intermediate_depth_ocean_carbon_reservoir[selected_climate_case[Run]]</eqn>
+				<eqn>adjusted_Amount_of_carbon_in_the_intermediate_depth_ocean_in_spinup</eqn>
 				<format precision="full"/>
 				<inflow>Upward_transport_of_carbon_from_the_deep_ocean_via_the_overturning_circulation</inflow>
 				<inflow>Biological_carbon_pump_C_export_from_warm_surface_to_intermediate_ocean</inflow>
@@ -893,631 +273,11 @@
 				<outflow>Mixing_of_carbon_from_intermediate_depth_to_the_warm_surface_ocean</outflow>
 				<units>GtC</units>
 			</stock>
-			<aux name="Initial Intermediate depth ocean carbon reservoir">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>9210.08786632</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>3812.35334158</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>4266.34003057</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>9328.27594865</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>7752.88177451</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>2914.63642416</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>4149.85862464</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>7431.98156549</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>4093.32805776</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>9764.32064381</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>4316.18703551</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>3684.28099599</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>8009.20960817</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>6488.22371994</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>6060.51773724</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>4187.86840746</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>7576.92767891</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>4657.95933431</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>5839.20323162</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>6692.21658767</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>7536.88132416</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>4613.12726088</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>3824.63593706</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>4983.59939771</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>3736.98784867</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>9201.82484752</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>5232.69653779</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>5871.16546279</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>9011.98726651</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>3533.0895941</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>6423.59936596</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>3477.05650082</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>3062.7113754</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>3600.13682362</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>5617.8761267</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>3240.53553517</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>6634.50941673</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>8191.54763926</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>3323.57999238</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>9204.01801576</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>3404.81893219</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>5651.19013753</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>7987.60094298</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>6086.91127794</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>3289.18627638</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>4389.34650613</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>4994.20499801</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>5383.6594299</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>4740.06772174</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>8930.37822974</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>7373.83811792</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>6541.70432558</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>6975.32192981</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>6211.17201836</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>8736.85228184</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>5053.13555131</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>6001.08705052</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>5723.6465866</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>6891.4035042</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>4776.07321246</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>7971.38934527</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>6687.63973284</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>8118.78841106</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>4975.04253268</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>3760.4835832</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>9187.60043068</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>3199.48376038</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>9114.39811332</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>6019.83960301</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>8720.59225</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>8242.09998891</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>6845.95735328</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>7316.31944175</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>4042.708803</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>5865.53189206</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>4205.65177222</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>3401.02595681</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>3757.44269265</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>9458.50928019</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>6699.26776222</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>4564.20699248</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>7439.36966089</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>3475.76832856</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>8894.03178225</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>8703.71966502</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>4994.8074739</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>3687.50714296</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>9005.10542306</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>5685.80611307</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>4342.34927275</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>5979.21762657</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>7401.04655592</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>7056.73994277</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>3256.57944431</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>9160.9104702</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>9844.73150556</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>4816.993734</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>8928.23522916</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>7675.21264113</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>8767.78943372</eqn>
-				</element>
-				<format precision="full"/>
-				<range min="6000" max="7000"/>
-				<units>GtC</units>
-			</aux>
-			<aux name="Initial Deep ocean ocean carbon reservoir">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>25312.1788313</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>30065.6688325</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>31194.2412705</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>25001.007654</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>26071.3709975</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>30090.8896835</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>27907.7052187</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>24388.189795</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>28123.3877644</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>24379.8592807</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>32208.7333102</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>30739.6054078</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>25108.0680378</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>26653.657811</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>30027.0009496</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>32403.1566354</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>27316.7121785</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>29780.6748989</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>29856.1059383</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>30037.7459859</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>25383.2831876</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>28823.3904204</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>31900.8328246</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>27822.5688921</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>30528.772378</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>24439.9478385</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>29078.7775587</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>31770.4927429</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>27069.241309</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>31608.6262132</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>27702.3784888</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>31340.9938425</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>31048.9960121</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>29082.0340822</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>29040.9177257</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>31313.199558</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>26140.1671708</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>25976.8958574</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>32198.7913783</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>25895.5868482</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>33102.8287262</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>30086.8852799</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>27620.9929774</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>28565.7926579</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>29841.200377</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>29221.6835708</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>27226.4488128</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>30416.6301666</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>28936.4429559</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>26972.287951</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>26243.2106218</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>28323.0316243</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>28853.6828883</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>27644.3910878</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>28095.6634955</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>28288.9664797</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>28535.1012687</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>27698.8821279</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>27665.8888374</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>27848.8641462</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>26272.2202155</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>30936.0529869</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>27740.4354146</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>29532.8777553</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>29180.8631147</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>28192.6483307</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>32105.5116707</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>24119.2905088</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>28176.7691174</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>27303.0058196</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>28894.3591559</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>30133.9724061</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>27057.565305</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>29267.2263577</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>30989.5860044</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>30578.2347217</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>29201.3357704</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>29674.0364027</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>25664.1233144</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>25869.6970444</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>30435.995011</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>29286.3900689</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>31339.0370148</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>23408.2910405</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>24443.8046797</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>28900.2815259</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>31019.2242137</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>26204.5973475</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>31679.7439639</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>31897.0867247</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>29644.717206</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>26400.6394126</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>27112.8703336</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>32421.0118363</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>26892.7908961</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>26482.1764315</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>29557.4492154</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>27444.0649497</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>24692.6181894</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>23995.2394062</eqn>
-				</element>
-				<format precision="full"/>
-				<range min="28000" max="31000"/>
-				<units>GtC</units>
-			</aux>
 			<stock name="Deep ocean\nocean carbon reservoir">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Deep_ocean_ocean_carbon_reservoir[selected_climate_case[Run]]</eqn>
+				<eqn>adjusted_Amount_of_carbon_in_the_deep_ocean_in_spinup</eqn>
 				<format precision="full"/>
 				<inflow>Downward_transport_of_carbon_via_the_overturning_circulation</inflow>
 				<inflow>Convective_mixing_of_carbon_between_polar_surface_ocean_and_deep_ocean</inflow>
@@ -2524,981 +1284,6 @@
 					<eqn>25.4841549689422</eqn>
 				</element>
 				<units>Sv</units>
-			</aux>
-			<aux name="Warm surface ocean area fraction">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<eqn>0.85</eqn>
-				<format precision="full"/>
-				<units>1</units>
-			</aux>
-			<aux name="Depth of warm surface ocean layer">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>241.653714863495</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>382.562238689928</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>311.715541570942</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>477.89951970241</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>259.34195038628</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>340.642625984511</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>407.006814935928</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>365.920559508764</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>327.983922019353</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>403.420151698298</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>312.125541368333</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>337.541983079644</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>302.408044190453</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>414.140887420595</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>142.72847795321</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>210.253126454015</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>173.059623002992</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>177.00811459106</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>253.915418470675</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>261.500379270152</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>321.369054917029</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>400.682922957083</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>245.640216983966</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>380.075948147077</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>313.327068595431</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>315.183012262317</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>304.22268823856</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>232.210549280946</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>144.71500079047</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>201.229185305242</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>311.99645475335</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>337.657141586193</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>370.156789161849</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>368.851300812</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>200.202530850484</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>241.620223386394</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>341.172748171756</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>267.046740497157</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>224.392721172847</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>185.928241072565</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>306.253285790458</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>338.659568632708</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>230.488642822712</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>332.364650242868</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>342.266424341451</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>390.415217457633</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>417.821889719818</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>326.267630666517</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>322.336154001785</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>275.754842465131</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>425.52765744882</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>294.961236134756</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>214.423324122901</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>319.166704378786</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>186.141081995348</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>226.143549143494</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>178.688594653358</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>262.198961067946</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>269.598232463691</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>454.018348850905</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>190.54392443214</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>133.796745365228</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>192.371950799347</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>287.582466788034</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>372.525840512488</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>117.635655858216</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>254.487310574658</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>334.798853093452</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>194.509710675229</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>108.886225722125</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>202.399833770579</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>138.938150956026</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>258.272261829552</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>367.078099634881</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>123.871168515451</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>265.003280560228</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>415.728072746516</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>324.115524406279</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>193.096511514456</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>444.93457617853</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>344.748779690261</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>177.238709811727</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>337.657141586193</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>378.339624223531</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>404.399646302613</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>216.719255575174</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>376.670388544053</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>237.953778206549</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>111.520607630475</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>126.448958208338</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>260.443915148672</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>229.382365333294</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>223.446527262458</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>213.59049777911</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>303.815504944338</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>118.592669153271</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>374.970474976832</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>237.163352720699</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>395.770413677128</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>305.540102153466</eqn>
-				</element>
-				<units>metre</units>
-			</aux>
-			<aux name="Depth of cold\nsurface ocean layer">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>383.045245269137</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>332.847513177085</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>439.107207754878</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>126.538053551955</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>201.054505022811</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>267.084541026751</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>239.600580487907</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>395.936972232512</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>383.927644606343</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>399.232006696946</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>199.899230315023</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>333.705331171646</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>391.021478813957</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>109.852235700718</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>328.519785258773</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>82.4554611212535</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>146.455804796155</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>290.895938188656</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>88.6602123081784</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>408.339936358091</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>192.950784199226</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>141.963544577796</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>133.647896007939</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>357.316931816749</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>127.592784598698</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>403.082972008153</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>322.713640499206</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>87.1908745669652</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>432.767961495003</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>255.815797350111</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>176.02157051389</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>185.678628174888</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>88.2493165230949</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>400.47497028582</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>303.664539392892</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>385.979488627538</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>144.104225481853</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>97.7396710874429</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>398.6945923259</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>302.512246214503</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>54.6096631402152</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>68.2267558771706</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>416.450316152287</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>231.680160325187</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>417.292913506837</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>392.169563749453</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>363.053910916529</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>411.937834203532</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>120.613837788421</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>162.50122054599</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>247.9011929332</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>72.4054232837175</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>184.144692543374</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>447.351395600622</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>235.160586852198</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>312.045996664773</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>387.846227828444</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>201.645954696296</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>350.113689061996</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>397.116024891631</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>329.801927635289</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>113.417167944596</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>376.965994272357</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>72.514409449737</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>91.7543748468121</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>217.917039338322</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>75.421211445056</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>225.706616368747</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>300.041139142682</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>338.473364373785</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>73.0523620009205</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>348.363219453384</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>227.034528486661</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>283.856644329586</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>425.139055966517</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>208.720189087066</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>343.2286562714</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>494.745956748992</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>260.894659710866</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>188.917002603854</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>325.523987847324</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>385.210741230173</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>185.678628174888</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>210.081289776368</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>201.314116119923</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>292.094412967621</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>236.594908280296</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>331.496353976061</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>458.078647945935</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>453.621918800551</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>215.06479715715</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>277.012704912304</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>442.836216074866</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>189.322311636023</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>219.312653411661</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>394.070446977019</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>167.943331473237</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>232.024992800507</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>243.628766496086</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>201.197589324764</eqn>
-				</element>
-				<units>metre</units>
-			</aux>
-			<aux name="Thickness of\nintermediate ocean layer">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>960.810825827983</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>395.253416983318</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>428.78021536966</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>946.096347782927</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>803.66789770755</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>307.548035781988</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>436.668667335802</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>793.864470768342</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>443.75133984658</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>974.980847348826</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>400.898651956744</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>383.423966234116</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>850.234436452335</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>683.699259819674</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>609.498560604672</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>404.282176144583</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>782.507260866006</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>483.870613487376</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>586.535335870353</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>665.453702443349</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>802.226995915626</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>489.053967725683</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>390.633697260814</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>514.758241188388</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>388.915461719733</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>936.608542331647</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>528.710526020959</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>558.675412945926</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>913.535624103094</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>364.576398719764</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>672.272532826924</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>363.262235871792</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>322.396711900026</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>377.999471299992</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>579.76069566869</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>342.320869726062</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>701.206350185049</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>850.253256948842</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>350.312752436506</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>967.31905077408</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>331.924309275812</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>549.605857045675</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>810.822039509101</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>605.484908152956</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>338.136213638982</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>452.619380093341</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>516.154546351313</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>542.099277906071</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>495.172119157654</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>899.759064576364</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>747.381140118141</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>672.0001429866</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>733.793415876472</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>640.911758788386</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>869.717234139027</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>534.273877322611</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>623.329001736345</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>608.659946927393</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>697.532139449383</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>489.220377202819</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>843.437824759832</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>658.762584065277</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>828.535769407906</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>518.01888021172</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>407.376052863842</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>900.363256498672</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>322.759244314633</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>972.710908024949</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>633.627664694089</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>912.748581459873</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>809.713197685061</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>654.084113700863</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>768.791830787681</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>402.73933517632</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>592.577852701583</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>438.953293831888</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>354.709746837513</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>393.245806681259</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>984.230798695355</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>701.59650609395</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>444.125543362101</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>741.443360942261</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>363.262235871792</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>946.805238813535</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>907.628433494476</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>527.311851800738</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>362.91165411139</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>922.785022003996</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>573.450597398241</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>446.084474686774</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>597.977826487208</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>783.76606314377</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>708.076939857406</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>313.487862429327</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>870.683863983446</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>990.88898226149</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>486.578188637332</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>915.139304559812</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>818.652113490932</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>944.766096074594</eqn>
-				</element>
-				<units>metre</units>
-			</aux>
-			<aux name="Ocean surface area">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<eqn>360000000000000</eqn>
-				<units>metre^2</units>
-			</aux>
-			<aux name="Ocean volume">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<eqn>1360000000000000000</eqn>
-				<units>metre^3</units>
-			</aux>
-			<aux name="Volume of warm surface ocean reservoir">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Ocean_surface_area*Warm_surface_ocean_area_fraction*Depth_of_warm_surface_ocean_layer[selected_climate_case]</eqn>
-				<format precision="full"/>
-				<units>metre^3</units>
-			</aux>
-			<aux name="Volume of cold surface\nocean reservoir">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Ocean_surface_area*(1.0 - Warm_surface_ocean_area_fraction) *Depth_of_cold_surface_ocean_layer[selected_climate_case[Run]]</eqn>
-				<format precision="full"/>
-				<units>metre^3</units>
-			</aux>
-			<aux name="Volume of intermediate\nocean reservoir">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Ocean_surface_area*Thickness_of_intermediate_ocean_layer[selected_climate_case[Run]]</eqn>
-				<format precision="full"/>
-				<units>metre^3</units>
-			</aux>
-			<aux name="Volume of deep ocean reservoir">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Ocean_volume-Volume_of_warm_surface_ocean_reservoir-Volume_of_cold_surface_ocean_reservoir-Volume_of_intermediate_ocean_reservoir</eqn>
-				<format precision="full"/>
-				<units>metre^3</units>
 			</aux>
 			<aux name="Warm surface\nocean pCO2">
 				<dimensions>
@@ -5456,629 +3241,11 @@
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Warm_surface_ocean_pH[selected_climate_case[Run]]</eqn>
+				<eqn>Warm_surface_ocean_pH_in_spinup</eqn>
 				<format precision="full"/>
 				<inflow>Change_of_warm_surface_ocean_pH</inflow>
 				<units>1</units>
 			</stock>
-			<aux name="Initial Warm\nsurface ocean pH">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>8.08819328624</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>8.08694314919</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>8.08050249826</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>8.09020428205</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>8.08948274503</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>8.09374230205</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>8.0952377381</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>8.09805844631</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>8.09380282272</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>8.09204192769</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>8.0708191843</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>8.09298745312</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>8.09638307247</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>8.09797810631</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>8.07561918985</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>8.0770515766</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>8.0821422284</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>8.08877195734</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>8.08062332775</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>8.07927121978</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>8.09562364259</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>8.08827638804</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>8.08310589455</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>8.08769625122</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>8.08430870603</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>8.09127338872</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>8.08280710195</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>8.07187618943</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>8.08094319547</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>8.08068942981</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>8.08543819088</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>8.08177301398</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>8.08300528899</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>8.09215607752</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>8.08310388939</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>8.08607868643</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>8.0951834229</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>8.09241474449</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>8.08280988156</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>8.08208474961</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>8.08059128908</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>8.08110921798</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>8.08323098117</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>8.08678181025</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>8.08576856223</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>8.08735878443</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>8.09297939637</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>8.08463942988</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>8.08921795481</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>8.08711426089</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>8.09363298698</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>8.08320100747</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>8.08781103154</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>8.08582077986</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>8.07761994081</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>8.09050743129</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>8.07934912663</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>8.08893947682</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>8.08802483041</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>8.09919033398</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>8.09211527033</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>8.07175958065</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>8.08321171237</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>8.07883669881</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>8.0907543495</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>8.0755329239</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>8.0794401278</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>8.08829777837</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>8.09201169645</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>8.08287066444</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>8.07301463307</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>8.07798497236</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>8.0866628192</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>8.09266124152</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>8.07701402514</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>8.08379802464</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>8.09355901937</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>8.09098090201</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>8.08380686405</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>8.09703455718</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>8.07800584157</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>8.07634564858</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>8.07951364037</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>8.09953732671</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>8.08921126603</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>8.08550036586</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>8.08417250488</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>8.07622966804</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>8.07512086623</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>8.0766592554</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>8.08240193141</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>8.08962686907</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>8.08864299724</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>8.07914768802</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>8.07843038041</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>8.07842914466</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>8.08503054538</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>8.07778067428</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>8.09190526346</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>8.09445603707</eqn>
-				</element>
-				<range min="8.07" max="8.12"/>
-				<units>1</units>
-			</aux>
-			<aux name="Initial Cold\nsurface ocean pH">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>8.30369016425</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>8.29698399056</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>8.38510781673</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>8.24439502914</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>8.26505941227</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>8.2348939679</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>8.23203138224</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>8.20853968776</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>8.23075188184</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>8.27305675591</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>8.47659697626</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>8.30126967931</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>8.23885263715</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>8.20687499942</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>8.41870164433</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>8.40642390968</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>8.33945662488</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>8.28459734171</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>8.34508500352</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>8.40410054785</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>8.21242840028</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>8.28600166868</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>8.34812446332</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>8.26726710054</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>8.32271481214</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>8.23658171628</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>8.32201230941</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>8.46569697723</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>8.42073171946</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>8.39775018466</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>8.29136759541</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>8.35845348286</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>8.32744169666</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>8.23147099696</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>8.355532844</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>8.35742572055</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>8.2233197447</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>8.24532441204</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>8.35027979799</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>8.35100446544</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>8.36945558419</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>8.35347704688</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>8.34925459473</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>8.33742685191</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>8.30160243917</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>8.31001531467</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>8.24469320437</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>8.32535563685</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>8.26608622986</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>8.30200971002</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>8.2375416102</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>8.31932400488</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>8.30401387509</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>8.33360007613</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>8.41559742455</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>8.2588305745</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>8.34731765698</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>8.26258311795</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>8.27129567111</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>8.18622465244</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>8.23900894314</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>8.48825905644</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>8.33778499897</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>8.36340213198</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>8.25121181734</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>8.42036295751</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>8.3985187217</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>8.28753899108</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>8.24995797109</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>8.36634991158</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>8.44318930508</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>8.41681003108</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>8.28305957301</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>8.2699014261</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>8.40743387791</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>8.36182962215</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>8.27222498356</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>8.2654311289</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>8.33884377797</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>8.21666054273</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>8.39348802564</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>8.42143274119</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>8.35017684673</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>8.20534303426</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>8.27345135403</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>8.29934686398</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>8.33329266367</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>8.40499610638</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>8.43115243816</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>8.41874452433</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>8.36704500975</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>8.25824816409</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>8.25820660756</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>8.40185451346</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>8.37711012044</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>8.44204641173</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>8.30807333178</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>8.3800326613</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>8.24465551891</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>8.23098736481</eqn>
-				</element>
-				<range min="8.25" max="8.4"/>
-				<units>1</units>
-			</aux>
 			<aux name="Warm TK">
 				<dimensions>
 					<dim name="Run"/>
@@ -6319,7 +3486,7 @@
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Cold_surface_ocean_pH[selected_climate_case[Run]]</eqn>
+				<eqn>Cold_surface_ocean_pH_in_spinup</eqn>
 				<format precision="full"/>
 				<inflow>Change_of_cold_surface_ocean_pH</inflow>
 				<units>1</units>
@@ -7662,7 +4829,7 @@
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(Reference_strength_of_biological_carbon_pump_in_high_latitude_ocean[selected_climate_case_3[Run]] + High_latitude_carbon_pump_sensitivity_to_global_T_anomaly[selected_climate_case_3[Run]]*Surface_Temperature_Anomaly)*(1.0 - High_latitude_carbon_pump_transfer_efficiency[selected_climate_case_3[Run]])</eqn>
+				<eqn>(Reference_strength_of_biological_carbon_pump_in_high_latitude_ocean[selected_climate_case_3[Run]] + High_latitude_carbon_pump_sensitivity_to_global_T_anomaly[selected_climate_case_3[Run]]*Surface_Temperature_Anomaly)*(High_latitude_carbon_pump_transfer_efficiency[selected_climate_case_3[Run]])</eqn>
 				<format precision="full"/>
 				<units>GtC/Year</units>
 			</aux>
@@ -7714,13 +4881,6 @@
 				<eqn>1000000</eqn>
 				<units>metre^3/Sv</units>
 			</aux>
-			<aux name="selected climate case" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>49</eqn>
-				<units>dmnl</units>
-			</aux>
 			<aux name="selected climate case 1" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -7768,8 +4928,1095 @@
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Atmospheric_CO2_Concentration_1750[selected_climate_case[Run]]</eqn>
+				<eqn>Atmospheric_CO2_Concentration_1750[selected_climate_case_5[Run]]</eqn>
 				<units>ppm</units>
+			</aux>
+			<aux name="Amount of carbon in the\nwarm surface ocean in spinup">
+				<eqn>2178</eqn>
+				<range min="2200" max="2240"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="Amount of carbon in the\ncold surface ocean in spinup">
+				<eqn>321.8</eqn>
+				<range min="315" max="340"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="Amount of carbon in the\nintermediate depth\nocean in spinup">
+				<eqn>5699.6</eqn>
+				<range min="6000" max="7000"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="Amount of carbon in the\ndeep ocean in spinup">
+				<eqn>26036.7</eqn>
+				<range min="28000" max="31000"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="Warm surface ocean\npH in spinup">
+				<eqn>8.1376045</eqn>
+				<range min="8.07" max="8.12"/>
+				<units>1</units>
+			</aux>
+			<aux name="Cold surface ocean\npH in spinup">
+				<eqn>8.3509986</eqn>
+				<range min="8.25" max="8.4"/>
+				<units>1</units>
+			</aux>
+			<aux name="default Depth of warm\nsurface ocean layer">
+				<eqn>300</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="default Depth of cold\nsurface ocean layer">
+				<eqn>250</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="scaling of Depth of warm\nsurface ocean layer">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Depth_of_warm_surface_ocean_layer[selected_climate_case[Run]] / default_Depth_of_warm_surface_ocean_layer</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="scaling of Depth of cold\nsurface ocean layer">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Depth_of_cold_surface_ocean_layer[selected_climate_case[Run]] / default_Depth_of_cold_surface_ocean_layer</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="adjusted Amount of carbon in the\nwarm surface ocean in spinup">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Amount_of_carbon_in_the_warm_surface_ocean_in_spinup * scaling_of_Depth_of_warm_surface_ocean_layer</eqn>
+				<range min="2200" max="2240"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="adjusted Amount of carbon in the\ncold surface ocean in spinup">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Amount_of_carbon_in_the_cold_surface_ocean_in_spinup * scaling_of_Depth_of_cold_surface_ocean_layer</eqn>
+				<range min="2200" max="2240"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="adjusted Amount of carbon in the\nintermediate depth\nocean in spinup">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Amount_of_carbon_in_the_intermediate_depth_ocean_in_spinup * scaling_of_Thickness_of_intermediate_surface_ocean_layer</eqn>
+				<range min="2200" max="2240"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="adjusted Amount of carbon in the\ndeep\nocean in spinup">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Amount_of_carbon_in_the_deep_ocean_in_spinup_with_delta* scaling_of_Volume_of_deep_ocean_reservoir</eqn>
+				<range min="2200" max="2240"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="default Thickness of intermediate\nsurface ocean layer">
+				<eqn>600</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="scaling of Thickness of intermediate\nsurface ocean layer">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Thickness_of_intermediate_ocean_layer[selected_climate_case[Run]] / default_Thickness_of_intermediate_surface_ocean_layer</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="default Volume of deep\nocean reservoir">
+				<eqn>1.0387e18</eqn>
+				<units>(metre^3)</units>
+			</aux>
+			<aux name="scaling of Volume of deep\nocean reservoir">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Volume_of_deep_ocean_reservoir/ default_Volume_of_deep_ocean_reservoir</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="deep ocean carbon delta">
+				<eqn>2500</eqn>
+				<units>GtC</units>
+			</aux>
+			<aux name="Amount of carbon in the\ndeep ocean in spinup with delta">
+				<eqn>Amount_of_carbon_in_the_deep_ocean_in_spinup + deep_ocean_carbon_delta</eqn>
+				<range min="28000" max="31000"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Warm surface ocean area fraction">
+				<eqn>0.85</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Depth of warm\nsurface ocean layer">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>175.93329860935</eqn>
+				</element>
+				<units>metre</units>
+			</aux>
+			<aux name="Depth of cold\nsurface ocean layer">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>398.207116626645</eqn>
+				</element>
+				<units>metre</units>
+			</aux>
+			<aux name="Thickness of\nintermediate ocean layer">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>932.577785213888</eqn>
+				</element>
+				<units>metre</units>
+			</aux>
+			<aux name="Ocean surface area">
+				<eqn>3.6e14</eqn>
+				<units>metre^2</units>
+			</aux>
+			<aux name="Ocean volume">
+				<eqn>1.36e18</eqn>
+				<units>metre^3</units>
+			</aux>
+			<aux name="Volume of warm surface ocean reservoir">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Ocean_surface_area*Warm_surface_ocean_area_fraction*Depth_of_warm_surface_ocean_layer[selected_climate_case[Run]]</eqn>
+				<units>metre^3</units>
+			</aux>
+			<aux name="Volume of cold surface\nocean reservoir">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Ocean_surface_area*(1.0 - Warm_surface_ocean_area_fraction) *Depth_of_cold_surface_ocean_layer[selected_climate_case[Run]]</eqn>
+				<units>metre^3</units>
+			</aux>
+			<aux name="Volume of intermediate\nocean reservoir">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Ocean_surface_area*Thickness_of_intermediate_ocean_layer[selected_climate_case[Run]]</eqn>
+				<units>metre^3</units>
+			</aux>
+			<aux name="Volume of deep ocean reservoir">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Ocean_volume-Volume_of_warm_surface_ocean_reservoir-Volume_of_cold_surface_ocean_reservoir-Volume_of_intermediate_ocean_reservoir</eqn>
+				<units>metre^3</units>
+			</aux>
+			<aux name="selected climate case 5" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
 			</aux>
 		</variables>
 		<views>
@@ -7820,7 +6067,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="4" isee:scroll_y="956.667" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="4" isee:scroll_x="587.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7860,8 +6107,6 @@
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
 				<stock label_side="center" x="1046.49" y="1421.33" width="227.125" height="42.75" name="Warm surface ocean\ncarbon reservoir"/>
-				<aux x="90.25" y="236.911" name="Initial Warm surface\nocean carbon reservoir"/>
-				<aux x="225.057" y="236.911" name="Initial Cold surface ocean carbon reservoir"/>
 				<stock label_side="center" x="1408.55" y="1423.4" width="241.779" height="33.3631" name="Cold surface ocean\ncarbon reservoir"/>
 				<flow label_side="bottom" x="1433.83" y="1537.76" name="Poleward transport of carbon\nvia the overturning circulation">
 					<pts>
@@ -7870,8 +6115,6 @@
 					</pts>
 				</flow>
 				<stock label_side="center" x="1071.98" y="1618.76" width="372.143" height="34.4286" name="Intermediate depth\nocean carbon reservoir"/>
-				<aux x="359.125" y="236.911" name="Initial Intermediate depth ocean carbon reservoir"/>
-				<aux x="491.625" y="236.911" name="Initial Deep ocean ocean carbon reservoir"/>
 				<stock label_side="center" x="1051.03" y="1845.9" width="655.571" height="108.214" name="Deep ocean\nocean carbon reservoir"/>
 				<flow label_side="bottom" x="1506.64" y="1651.33" name="Downward transport of carbon via the overturning circulation">
 					<pts>
@@ -7909,10 +6152,10 @@
 						<pt x="1229.53" y="1464.08"/>
 					</pts>
 				</flow>
-				<text_box uid="1" x="102.551" y="909.57" width="203.5" height="21.25">Setting the overturning strength</text_box>
-				<aux x="189" y="944" name="Reference overturning strength in Sv"/>
-				<aux x="249.384" y="1049.63" name="Ocean overturning strength"/>
-				<aux x="335" y="965" name="from Sv to\ncubic metre per year"/>
+				<text_box uid="1" x="96.7177" y="1543.74" width="203.5" height="21.25">Setting the overturning strength</text_box>
+				<aux x="183.167" y="1578.17" name="Reference overturning strength in Sv"/>
+				<aux x="243.551" y="1683.8" name="Ocean overturning strength"/>
+				<aux x="329.167" y="1599.17" name="from Sv to\ncubic metre per year"/>
 				<connector uid="3" angle="322.595">
 					<from>Reference_overturning_strength_in_Sv</from>
 					<to>Ocean_overturning_strength</to>
@@ -7921,7 +6164,7 @@
 					<from>from_Sv_to_cubic_metre_per_year</from>
 					<to>Ocean_overturning_strength</to>
 				</connector>
-				<connector uid="7" angle="50.1943">
+				<connector uid="7" angle="50.1942">
 					<from>
 						<alias uid="8"/>
 					</from>
@@ -7939,11 +6182,11 @@
 					</from>
 					<to>Upward_transport_of_carbon_from_the_deep_ocean_via_the_overturning_circulation</to>
 				</connector>
-				<connector uid="11" angle="149.474">
+				<connector uid="11" angle="149.475">
 					<from>Deep_ocean_ocean_carbon_reservoir</from>
 					<to>Upward_transport_of_carbon_from_the_deep_ocean_via_the_overturning_circulation</to>
 				</connector>
-				<connector uid="13" angle="9.18779">
+				<connector uid="13" angle="9.1874">
 					<from>Intermediate_depth_ocean_carbon_reservoir</from>
 					<to>Poleward_transport_of_carbon_via_the_overturning_circulation</to>
 				</connector>
@@ -7955,7 +6198,7 @@
 					<from>Cold_surface_ocean_carbon_reservoir</from>
 					<to>Convective_mixing_of_carbon_between_polar_surface_ocean_and_deep_ocean</to>
 				</connector>
-				<connector uid="18" angle="19.3313">
+				<connector uid="18" angle="19.3311">
 					<from>Deep_ocean_ocean_carbon_reservoir</from>
 					<to>Convective_mixing_of_carbon_between_polar_surface_ocean_and_deep_ocean</to>
 				</connector>
@@ -7967,10 +6210,10 @@
 					<from>Warm_surface_ocean_carbon_reservoir</from>
 					<to>Mixing_of_carbon_from_intermediate_depth_to_the_warm_surface_ocean</to>
 				</connector>
-				<aux x="159.5" y="1344.63" name="Intermediate to warm surface ocean mixing strength"/>
-				<aux x="330.5" y="1344.63" name="Cold surface to deep\nocean mixing strength"/>
-				<aux label_side="top" x="141.5" y="1249.57" name="Reference intermediate to warm surface ocean mixing strength"/>
-				<aux label_side="top" x="368.5" y="1254.57" name="Reference cold surface to deep ocean mixing strength"/>
+				<aux x="187.833" y="1974.63" name="Intermediate to warm surface ocean mixing strength"/>
+				<aux x="358.833" y="1974.63" name="Cold surface to deep\nocean mixing strength"/>
+				<aux label_side="top" x="169.833" y="1879.57" name="Reference intermediate to warm surface ocean mixing strength"/>
+				<aux label_side="top" x="396.833" y="1884.57" name="Reference cold surface to deep ocean mixing strength"/>
 				<connector uid="22" angle="280.722">
 					<from>Reference_intermediate_to_warm_surface_ocean_mixing_strength</from>
 					<to>Intermediate_to_warm_surface_ocean_mixing_strength</to>
@@ -8002,107 +6245,6 @@
 						<alias uid="29"/>
 					</from>
 					<to>Convective_mixing_of_carbon_between_polar_surface_ocean_and_deep_ocean</to>
-				</connector>
-				<text_box uid="30" x="66.7202" y="444.476" width="307.25" height="21.25">Calculation of volumes of ocean carbon reservoirs</text_box>
-				<aux label_side="top" x="238.667" y="510.333" name="Warm surface ocean area fraction"/>
-				<aux label_side="top" x="347.792" y="510.333" name="Depth of warm surface ocean layer"/>
-				<aux label_side="top" x="455.417" y="510.333" name="Depth of cold\nsurface ocean layer"/>
-				<aux label_side="top" x="559.667" y="510.904" name="Thickness of\nintermediate ocean layer"/>
-				<aux label_side="top" x="96.2917" y="510.333" name="Ocean surface area"/>
-				<aux x="96.2917" y="701.33" name="Ocean volume"/>
-				<aux x="238.667" y="617.333" name="Volume of warm surface ocean reservoir"/>
-				<aux x="386.542" y="617.333" name="Volume of cold surface\nocean reservoir"/>
-				<aux x="559.667" y="620.333" name="Volume of intermediate\nocean reservoir"/>
-				<aux x="289.292" y="734.33" name="Volume of deep ocean reservoir"/>
-				<connector uid="31" angle="307.802">
-					<from>Ocean_surface_area</from>
-					<to>Volume_of_warm_surface_ocean_reservoir</to>
-				</connector>
-				<connector uid="32" angle="339.764">
-					<from>Ocean_surface_area</from>
-					<to>Volume_of_cold_surface_ocean_reservoir</to>
-				</connector>
-				<connector uid="33" angle="346.646">
-					<from>Ocean_surface_area</from>
-					<to>Volume_of_intermediate_ocean_reservoir</to>
-				</connector>
-				<connector uid="34" angle="270">
-					<from>Warm_surface_ocean_area_fraction</from>
-					<to>Volume_of_warm_surface_ocean_reservoir</to>
-				</connector>
-				<connector uid="35" angle="324.111">
-					<from>Warm_surface_ocean_area_fraction</from>
-					<to>Volume_of_cold_surface_ocean_reservoir</to>
-				</connector>
-				<connector uid="36" angle="224.437">
-					<from>Depth_of_warm_surface_ocean_layer</from>
-					<to>Volume_of_warm_surface_ocean_reservoir</to>
-				</connector>
-				<connector uid="37" angle="237.231">
-					<from>Depth_of_cold_surface_ocean_layer</from>
-					<to>Volume_of_cold_surface_ocean_reservoir</to>
-				</connector>
-				<connector uid="38" angle="270">
-					<from>Thickness_of_intermediate_ocean_layer</from>
-					<to>Volume_of_intermediate_ocean_reservoir</to>
-				</connector>
-				<connector uid="39" angle="309.987">
-					<from>Volume_of_warm_surface_ocean_reservoir</from>
-					<to>Volume_of_deep_ocean_reservoir</to>
-				</connector>
-				<connector uid="40" angle="232.728">
-					<from>Volume_of_cold_surface_ocean_reservoir</from>
-					<to>Volume_of_deep_ocean_reservoir</to>
-				</connector>
-				<connector uid="41" angle="217.405">
-					<from>Volume_of_intermediate_ocean_reservoir</from>
-					<to>Volume_of_deep_ocean_reservoir</to>
-				</connector>
-				<connector uid="42" angle="5.13638">
-					<from>Ocean_volume</from>
-					<to>Volume_of_deep_ocean_reservoir</to>
-				</connector>
-				<connector uid="43" angle="125.538">
-					<from>
-						<alias uid="44"/>
-					</from>
-					<to>Upward_transport_of_carbon_from_the_deep_ocean_via_the_overturning_circulation</to>
-				</connector>
-				<connector uid="46" angle="153.465">
-					<from>
-						<alias uid="47"/>
-					</from>
-					<to>Convective_mixing_of_carbon_between_polar_surface_ocean_and_deep_ocean</to>
-				</connector>
-				<connector uid="48" angle="241.888">
-					<from>
-						<alias uid="49"/>
-					</from>
-					<to>Downward_transport_of_carbon_via_the_overturning_circulation</to>
-				</connector>
-				<connector uid="51" angle="296.799">
-					<from>
-						<alias uid="49"/>
-					</from>
-					<to>Convective_mixing_of_carbon_between_polar_surface_ocean_and_deep_ocean</to>
-				</connector>
-				<connector uid="52" angle="337.441">
-					<from>
-						<alias uid="53"/>
-					</from>
-					<to>Mixing_of_carbon_from_intermediate_depth_to_the_warm_surface_ocean</to>
-				</connector>
-				<connector uid="54" angle="8.51037">
-					<from>
-						<alias uid="55"/>
-					</from>
-					<to>Mixing_of_carbon_from_intermediate_depth_to_the_warm_surface_ocean</to>
-				</connector>
-				<connector uid="56" angle="4.56903">
-					<from>
-						<alias uid="55"/>
-					</from>
-					<to>Poleward_transport_of_carbon_via_the_overturning_circulation</to>
 				</connector>
 				<aux label_side="bottom" x="1287.73" y="921.643" name="Warm surface\nocean pCO2"/>
 				<aux x="1160.05" y="155.333" name="Warm surface ocean temperature"/>
@@ -8171,10 +6313,8 @@
 					<from>Cold_surface_ocean_alkalinity_sensitivity_to_global_T_anomaly</from>
 					<to>Cold_surface_ocean_alkalinity_unitless</to>
 				</connector>
-				<text_box uid="76" x="185.194" y="1183.32" width="203.5" height="21.25">Setting the mixing strength</text_box>
+				<text_box uid="76" x="213.527" y="1813.32" width="203.5" height="21.25">Setting the mixing strength</text_box>
 				<stock x="875.571" y="1039.79" name="Warm surface ocean pH"/>
-				<aux x="188.536" y="349.964" name="Initial Warm\nsurface ocean pH"/>
-				<aux x="339.343" y="349.964" name="Initial Cold\nsurface ocean pH"/>
 				<aux x="1337.34" y="341.429" name="Warm TK"/>
 				<connector uid="78" angle="318.715">
 					<from>Warm_surface_ocean_temperature</from>
@@ -8334,7 +6474,6 @@
 					<from>old_hion_warm</from>
 					<to>fg_warm</to>
 				</connector>
-				<text_box uid="116" x="64.714" y="301.836" width="398.607" height="24.2036">Initial pH values of the surface ocean boxes, also dependent on climate case</text_box>
 				<aux x="1018.54" y="815.929" name="calkg warm"/>
 				<connector uid="117" angle="0">
 					<from>fg_warm</from>
@@ -8352,21 +6491,9 @@
 					<from>Warm_surface_ocean_carbon_reservoir</from>
 					<to>DIC_concentration_in_warm_surface_layer</to>
 				</connector>
-				<connector uid="123" angle="129.122">
-					<from>
-						<alias uid="53"/>
-					</from>
-					<to>DIC_concentration_in_warm_surface_layer</to>
-				</connector>
 				<aux x="1724.05" y="1389.64" name="DIC concentration in cold surface layer"/>
 				<connector uid="124" angle="14.5308">
 					<from>Cold_surface_ocean_carbon_reservoir</from>
-					<to>DIC_concentration_in_cold_surface_layer</to>
-				</connector>
-				<connector uid="125" angle="7.10434">
-					<from>
-						<alias uid="49"/>
-					</from>
 					<to>DIC_concentration_in_cold_surface_layer</to>
 				</connector>
 				<connector uid="128" angle="0">
@@ -8599,50 +6726,26 @@
 					<from>Cold_surface_ocean_pCO2</from>
 					<to>High_latitude_ocean_air_sea_carbon_uptake</to>
 				</connector>
-				<connector uid="195" angle="354.2">
-					<from>
-						<alias uid="192"/>
-					</from>
-					<to>High_latitude_ocean_air_sea_carbon_uptake</to>
-				</connector>
-				<connector uid="196" angle="187.237">
-					<from>
-						<alias uid="192"/>
-					</from>
-					<to>Low_latitude_ocean_air_sea_carbon_uptake</to>
-				</connector>
 				<connector uid="197" angle="199.983">
 					<from>Air_sea_gas_exchange_coefficient</from>
 					<to>Low_latitude_ocean_air_sea_carbon_uptake</to>
 				</connector>
-				<connector uid="198" angle="343.144">
+				<connector uid="198" angle="343.145">
 					<from>Air_sea_gas_exchange_coefficient</from>
 					<to>High_latitude_ocean_air_sea_carbon_uptake</to>
 				</connector>
-				<connector uid="201" angle="321.773">
-					<from>
-						<alias uid="191"/>
-					</from>
-					<to>High_latitude_ocean_air_sea_carbon_uptake</to>
-				</connector>
-				<connector uid="203" angle="219.657">
-					<from>
-						<alias uid="191"/>
-					</from>
-					<to>Low_latitude_ocean_air_sea_carbon_uptake</to>
-				</connector>
 				<aux x="230.75" y="68.0003" width="30.5" height="30.5" name="Air sea co2 flux"/>
-				<text_box uid="205" x="155" y="1502.5" width="138.5" height="21">Biological carbon pump</text_box>
-				<aux x="120.5" y="1659.25" name="Reference strength of biological carbon pump in high latitude ocean"/>
-				<aux x="120.5" y="1738.5" name="High latitude carbon\npump sensitivity to global T anomaly"/>
-				<aux x="115" y="1815" name="High latitude carbon pump transfer efficiency"/>
-				<aux x="120.5" y="1575.75" name="Reference strength of biological\ncarbon pump in low\nlatitude ocean"/>
-				<aux x="324" y="1575.75" name="Warm surface ocean\ncarbon export to intermediate ocean"/>
+				<text_box uid="205" x="183.333" y="2132.5" width="138.5" height="21">Biological carbon pump</text_box>
+				<aux x="148.833" y="2289.25" name="Reference strength of biological carbon pump in high latitude ocean"/>
+				<aux x="148.833" y="2368.5" name="High latitude carbon\npump sensitivity to global T anomaly"/>
+				<aux x="143.333" y="2445" name="High latitude carbon pump transfer efficiency"/>
+				<aux x="148.833" y="2205.75" name="Reference strength of biological\ncarbon pump in low\nlatitude ocean"/>
+				<aux x="352.333" y="2205.75" name="Warm surface ocean\ncarbon export to intermediate ocean"/>
 				<connector uid="207" angle="0">
 					<from>Reference_strength_of_biological_carbon_pump_in_low_latitude_ocean</from>
 					<to>Warm_surface_ocean_carbon_export_to_intermediate_ocean</to>
 				</connector>
-				<aux x="324" y="1659.25" name="Cold surface ocean\ncarbon export to intermediate ocean"/>
+				<aux x="352.333" y="2289.25" name="Cold surface ocean\ncarbon export to intermediate ocean"/>
 				<connector uid="208" angle="6.20345">
 					<from>Reference_strength_of_biological_carbon_pump_in_high_latitude_ocean</from>
 					<to>Cold_surface_ocean_carbon_export_to_intermediate_ocean</to>
@@ -8655,7 +6758,7 @@
 					<from>High_latitude_carbon_pump_transfer_efficiency</from>
 					<to>Cold_surface_ocean_carbon_export_to_intermediate_ocean</to>
 				</connector>
-				<aux x="324" y="1738.5" name="Cold surface ocean\ncarbon export to\ndeep ocean"/>
+				<aux x="352.333" y="2368.5" name="Cold surface ocean\ncarbon export to\ndeep ocean"/>
 				<connector uid="211" angle="7.76517">
 					<from>High_latitude_carbon_pump_transfer_efficiency</from>
 					<to>Cold_surface_ocean_carbon_export_to_deep_ocean</to>
@@ -8756,30 +6859,17 @@
 					<from>UNIT_GtC_to_kmol_1</from>
 					<to>High_latitude_ocean_air_sea_carbon_uptake</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="354" y="906.5" name="UNIT Sv to Cubic metre"/>
+				<aux font_style="italic" font_weight="bold" label_side="top" x="348.167" y="1540.67" name="UNIT Sv to Cubic metre"/>
 				<connector uid="237" angle="255.964">
 					<from>UNIT_Sv_to_Cubic_metre</from>
 					<to>from_Sv_to_cubic_metre_per_year</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="413.75" y="696.25" name="selected climate case"/>
-				<connector uid="238" angle="148.392">
-					<from>selected_climate_case</from>
-					<to>Volume_of_warm_surface_ocean_reservoir</to>
-				</connector>
-				<connector uid="239" angle="134.023">
-					<from>selected_climate_case</from>
-					<to>Volume_of_cold_surface_ocean_reservoir</to>
-				</connector>
-				<connector uid="240" angle="52.4868">
-					<from>selected_climate_case</from>
-					<to>Volume_of_intermediate_ocean_reservoir</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="148.75" y="1020.29" name="selected climate case 1"/>
+				<aux font_style="italic" font_weight="bold" x="142.917" y="1654.46" name="selected climate case 1"/>
 				<connector uid="241" angle="14.6601">
 					<from>selected_climate_case_1</from>
 					<to>Ocean_overturning_strength</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="245" y="1393.75" name="selected climate case 2"/>
+				<aux font_style="italic" font_weight="bold" x="273.333" y="2023.75" name="selected climate case 2"/>
 				<connector uid="242" angle="114.905">
 					<from>selected_climate_case_2</from>
 					<to>Intermediate_to_warm_surface_ocean_mixing_strength</to>
@@ -8788,7 +6878,7 @@
 					<from>selected_climate_case_2</from>
 					<to>Cold_surface_to_deep_ocean_mixing_strength</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="441.25" y="1693.75" name="selected climate case 3"/>
+				<aux font_style="italic" font_weight="bold" x="469.583" y="2323.75" name="selected climate case 3"/>
 				<connector uid="244" angle="75.9638">
 					<from>selected_climate_case_3</from>
 					<to>Warm_surface_ocean_carbon_export_to_intermediate_ocean</to>
@@ -8826,7 +6916,7 @@
 					<from>selected_climate_case_4</from>
 					<to>Cold_surface_ocean_salinity_unitless</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="468.75" y="965" name="UNIT Seconds per year 1"/>
+				<aux font_style="italic" font_weight="bold" x="462.917" y="1599.17" name="UNIT Seconds per year 1"/>
 				<connector uid="253" angle="180">
 					<from>UNIT_Seconds_per_year_1</from>
 					<to>from_Sv_to_cubic_metre_per_year</to>
@@ -8869,21 +6959,17 @@
 					<to>Cold_surface_ocean_salinity_unitless</to>
 				</connector>
 				<aux x="1359.97" y="977.5" name="Atmospheric CO2 Concentration 1750"/>
-				<connector uid="266" angle="259.964">
+				<connector uid="266" angle="269.243">
 					<from>Surface_Temperature_Anomaly</from>
 					<to>Cold_surface_ocean_carbon_export_to_intermediate_ocean</to>
 				</connector>
-				<connector uid="267" angle="261.321">
+				<connector uid="267" angle="270.046">
 					<from>Surface_Temperature_Anomaly</from>
 					<to>Cold_surface_ocean_carbon_export_to_deep_ocean</to>
 				</connector>
 				<aux x="1363.97" y="1062.5" name="Atmospheric CO2 Concentration"/>
 				<connector uid="268" angle="275.021">
 					<from>Atmospheric_CO2_Concentration_1750</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
-				<connector uid="269" angle="3.92156">
-					<from>selected_climate_case</from>
 					<to>Atmospheric_CO2_Concentration</to>
 				</connector>
 				<connector uid="270" angle="213.809">
@@ -8894,10 +6980,279 @@
 					<from>Atmospheric_CO2_Concentration</from>
 					<to>High_latitude_ocean_air_sea_carbon_uptake</to>
 				</connector>
+				<aux x="163.972" y="493.05" name="Amount of carbon in the\nwarm surface ocean in spinup"/>
+				<aux x="298.779" y="493.05" name="Amount of carbon in the\ncold surface ocean in spinup"/>
+				<aux x="215.972" y="572.389" name="Amount of carbon in the\nintermediate depth\nocean in spinup"/>
+				<aux x="66.9362" y="661.05" name="Amount of carbon in the\ndeep ocean in spinup"/>
+				<aux x="147.258" y="839.853" name="Warm surface ocean\npH in spinup"/>
+				<aux x="298.065" y="839.853" name="Cold surface ocean\npH in spinup"/>
+				<text_box uid="272" x="79.6862" y="754.85" width="398.607" height="68.5786">The initial pH might be dependent on the different climate case, because of the different surface T anomaly. Impact is probably not too big though.
+
+These need to fit with the initial values of the surface carbon reservoirs.</text_box>
+				<text_box uid="273" x="80.0932" y="426.774" width="349.036" height="32.4643">Initial reservoir values -&gt; Largely calibration parameters, but have to roughly fit with volumes of the individual boxes.</text_box>
+				<aux x="673.889" y="586.85" name="default Depth of warm\nsurface ocean layer"/>
+				<aux x="805.514" y="565.85" name="default Depth of cold\nsurface ocean layer"/>
+				<aux x="612.815" y="527.889" name="scaling of Depth of warm\nsurface ocean layer"/>
+				<connector uid="274" angle="136.008">
+					<from>default_Depth_of_warm_surface_ocean_layer</from>
+					<to>scaling_of_Depth_of_warm_surface_ocean_layer</to>
+				</connector>
+				<aux x="728.972" y="489.139" name="scaling of Depth of cold\nsurface ocean layer"/>
+				<connector uid="275" angle="157.543">
+					<from>default_Depth_of_cold_surface_ocean_layer</from>
+					<to>scaling_of_Depth_of_cold_surface_ocean_layer</to>
+				</connector>
+				<aux x="438.129" y="564.3" name="adjusted Amount of carbon in the\nwarm surface ocean in spinup"/>
+				<connector uid="276" angle="153.704">
+					<from>scaling_of_Depth_of_warm_surface_ocean_layer</from>
+					<to>adjusted_Amount_of_carbon_in_the_warm_surface_ocean_in_spinup</to>
+				</connector>
+				<connector uid="277" angle="315.977">
+					<from>Amount_of_carbon_in_the_warm_surface_ocean_in_spinup</from>
+					<to>adjusted_Amount_of_carbon_in_the_warm_surface_ocean_in_spinup</to>
+				</connector>
+				<aux x="699.129" y="384.3" name="adjusted Amount of carbon in the\ncold surface ocean in spinup"/>
+				<connector uid="278" angle="15.197">
+					<from>Amount_of_carbon_in_the_cold_surface_ocean_in_spinup</from>
+					<to>adjusted_Amount_of_carbon_in_the_cold_surface_ocean_in_spinup</to>
+				</connector>
+				<connector uid="279" angle="130.889">
+					<from>scaling_of_Depth_of_cold_surface_ocean_layer</from>
+					<to>adjusted_Amount_of_carbon_in_the_cold_surface_ocean_in_spinup</to>
+				</connector>
+				<aux x="409.129" y="624.3" name="adjusted Amount of carbon in the\nintermediate depth\nocean in spinup"/>
+				<aux x="347.764" y="689.889" name="adjusted Amount of carbon in the\ndeep\nocean in spinup"/>
+				<connector uid="280" angle="337.85">
+					<from>Amount_of_carbon_in_the_intermediate_depth_ocean_in_spinup</from>
+					<to>adjusted_Amount_of_carbon_in_the_intermediate_depth_ocean_in_spinup</to>
+				</connector>
+				<aux x="787.514" y="707.889" name="default Thickness of intermediate\nsurface ocean layer"/>
+				<aux x="587.889" y="650.96" name="scaling of Thickness of intermediate\nsurface ocean layer"/>
+				<connector uid="281" angle="164.083">
+					<from>default_Thickness_of_intermediate_surface_ocean_layer</from>
+					<to>scaling_of_Thickness_of_intermediate_surface_ocean_layer</to>
+				</connector>
+				<connector uid="282" angle="153.012">
+					<from>scaling_of_Thickness_of_intermediate_surface_ocean_layer</from>
+					<to>adjusted_Amount_of_carbon_in_the_intermediate_depth_ocean_in_spinup</to>
+				</connector>
+				<aux x="758.129" y="857.853" name="default Volume of deep\nocean reservoir"/>
+				<aux x="616.889" y="778.389" name="scaling of Volume of deep\nocean reservoir"/>
+				<connector uid="283" angle="128.273">
+					<from>default_Volume_of_deep_ocean_reservoir</from>
+					<to>scaling_of_Volume_of_deep_ocean_reservoir</to>
+				</connector>
+				<connector uid="284" angle="141.397">
+					<from>scaling_of_Volume_of_deep_ocean_reservoir</from>
+					<to>adjusted_Amount_of_carbon_in_the_deep_ocean_in_spinup</to>
+				</connector>
+				<aux x="172.472" y="707.889" name="deep ocean carbon delta"/>
+				<aux x="215.972" y="646.05" name="Amount of carbon in the\ndeep ocean in spinup with delta"/>
+				<connector uid="285" angle="53.8733">
+					<from>deep_ocean_carbon_delta</from>
+					<to>Amount_of_carbon_in_the_deep_ocean_in_spinup_with_delta</to>
+				</connector>
+				<connector uid="286" angle="26.1027">
+					<from>Amount_of_carbon_in_the_deep_ocean_in_spinup</from>
+					<to>Amount_of_carbon_in_the_deep_ocean_in_spinup_with_delta</to>
+				</connector>
+				<connector uid="287" angle="5.92938">
+					<from>Amount_of_carbon_in_the_deep_ocean_in_spinup_with_delta</from>
+					<to>adjusted_Amount_of_carbon_in_the_deep_ocean_in_spinup</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="644" y="468.667" name="selected climate case"/>
+				<text_box uid="305" x="95.7202" y="1055.31" width="307.25" height="21.25">Calculation of volumes of ocean carbon reservoirs</text_box>
+				<aux label_side="top" x="267.667" y="1121.17" name="Warm surface ocean area fraction"/>
+				<aux label_side="top" x="376.792" y="1121.17" name="Depth of warm\nsurface ocean layer"/>
+				<aux label_side="top" x="484.417" y="1121.17" name="Depth of cold\nsurface ocean layer"/>
+				<aux label_side="top" x="588.667" y="1121.74" name="Thickness of\nintermediate ocean layer"/>
+				<aux label_side="top" x="125.292" y="1121.17" name="Ocean surface area"/>
+				<aux x="125.292" y="1312.16" name="Ocean volume"/>
+				<aux x="267.667" y="1228.17" name="Volume of warm surface ocean reservoir"/>
+				<aux x="415.542" y="1228.17" name="Volume of cold surface\nocean reservoir"/>
+				<aux x="588.667" y="1231.17" name="Volume of intermediate\nocean reservoir"/>
+				<aux x="318.292" y="1345.16" name="Volume of deep ocean reservoir"/>
+				<connector uid="306" angle="307.802">
+					<from>Ocean_surface_area</from>
+					<to>Volume_of_warm_surface_ocean_reservoir</to>
+				</connector>
+				<connector uid="307" angle="339.764">
+					<from>Ocean_surface_area</from>
+					<to>Volume_of_cold_surface_ocean_reservoir</to>
+				</connector>
+				<connector uid="308" angle="346.646">
+					<from>Ocean_surface_area</from>
+					<to>Volume_of_intermediate_ocean_reservoir</to>
+				</connector>
+				<connector uid="309" angle="270">
+					<from>Warm_surface_ocean_area_fraction</from>
+					<to>Volume_of_warm_surface_ocean_reservoir</to>
+				</connector>
+				<connector uid="310" angle="324.111">
+					<from>Warm_surface_ocean_area_fraction</from>
+					<to>Volume_of_cold_surface_ocean_reservoir</to>
+				</connector>
+				<connector uid="311" angle="224.437">
+					<from>Depth_of_warm_surface_ocean_layer</from>
+					<to>Volume_of_warm_surface_ocean_reservoir</to>
+				</connector>
+				<connector uid="312" angle="237.231">
+					<from>Depth_of_cold_surface_ocean_layer</from>
+					<to>Volume_of_cold_surface_ocean_reservoir</to>
+				</connector>
+				<connector uid="313" angle="270">
+					<from>Thickness_of_intermediate_ocean_layer</from>
+					<to>Volume_of_intermediate_ocean_reservoir</to>
+				</connector>
+				<connector uid="314" angle="309.987">
+					<from>Volume_of_warm_surface_ocean_reservoir</from>
+					<to>Volume_of_deep_ocean_reservoir</to>
+				</connector>
+				<connector uid="315" angle="232.728">
+					<from>Volume_of_cold_surface_ocean_reservoir</from>
+					<to>Volume_of_deep_ocean_reservoir</to>
+				</connector>
+				<connector uid="316" angle="217.405">
+					<from>Volume_of_intermediate_ocean_reservoir</from>
+					<to>Volume_of_deep_ocean_reservoir</to>
+				</connector>
+				<connector uid="317" angle="5.13638">
+					<from>Ocean_volume</from>
+					<to>Volume_of_deep_ocean_reservoir</to>
+				</connector>
+				<connector uid="318" angle="143.973">
+					<from>
+						<alias uid="319"/>
+					</from>
+					<to>Volume_of_warm_surface_ocean_reservoir</to>
+				</connector>
+				<connector uid="320" angle="96.9112">
+					<from>
+						<alias uid="319"/>
+					</from>
+					<to>Volume_of_cold_surface_ocean_reservoir</to>
+				</connector>
+				<connector uid="321" angle="41.0548">
+					<from>
+						<alias uid="319"/>
+					</from>
+					<to>Volume_of_intermediate_ocean_reservoir</to>
+				</connector>
+				<connector uid="322" angle="93.3059">
+					<from>Depth_of_warm_surface_ocean_layer</from>
+					<to>scaling_of_Depth_of_warm_surface_ocean_layer</to>
+				</connector>
+				<connector uid="323" angle="267.23">
+					<from>selected_climate_case</from>
+					<to>scaling_of_Depth_of_warm_surface_ocean_layer</to>
+				</connector>
+				<connector uid="324" angle="93.8467">
+					<from>Depth_of_cold_surface_ocean_layer</from>
+					<to>scaling_of_Depth_of_cold_surface_ocean_layer</to>
+				</connector>
+				<connector uid="325" angle="11.454">
+					<from>selected_climate_case</from>
+					<to>scaling_of_Depth_of_cold_surface_ocean_layer</to>
+				</connector>
+				<connector uid="326" angle="115.095">
+					<from>Thickness_of_intermediate_ocean_layer</from>
+					<to>scaling_of_Thickness_of_intermediate_surface_ocean_layer</to>
+				</connector>
+				<connector uid="327" angle="277.891">
+					<from>selected_climate_case</from>
+					<to>scaling_of_Thickness_of_intermediate_surface_ocean_layer</to>
+				</connector>
+				<connector uid="328" angle="87.2181">
+					<from>Volume_of_deep_ocean_reservoir</from>
+					<to>scaling_of_Volume_of_deep_ocean_reservoir</to>
+				</connector>
+				<connector uid="333" angle="142.524">
+					<from>
+						<alias uid="330"/>
+					</from>
+					<to>Convective_mixing_of_carbon_between_polar_surface_ocean_and_deep_ocean</to>
+				</connector>
+				<connector uid="334" angle="155.302">
+					<from>
+						<alias uid="335"/>
+					</from>
+					<to>Convective_mixing_of_carbon_between_polar_surface_ocean_and_deep_ocean</to>
+				</connector>
+				<connector uid="336" angle="197.554">
+					<from>
+						<alias uid="330"/>
+					</from>
+					<to>Downward_transport_of_carbon_via_the_overturning_circulation</to>
+				</connector>
+				<connector uid="337" angle="205.001">
+					<from>
+						<alias uid="335"/>
+					</from>
+					<to>Upward_transport_of_carbon_from_the_deep_ocean_via_the_overturning_circulation</to>
+				</connector>
+				<connector uid="340" angle="39.9047">
+					<from>
+						<alias uid="338"/>
+					</from>
+					<to>Mixing_of_carbon_from_intermediate_depth_to_the_warm_surface_ocean</to>
+				</connector>
+				<connector uid="341" angle="73.1255">
+					<from>
+						<alias uid="339"/>
+					</from>
+					<to>Mixing_of_carbon_from_intermediate_depth_to_the_warm_surface_ocean</to>
+				</connector>
+				<connector uid="342" angle="31.896">
+					<from>
+						<alias uid="338"/>
+					</from>
+					<to>Poleward_transport_of_carbon_via_the_overturning_circulation</to>
+				</connector>
+				<connector uid="343" angle="205">
+					<from>
+						<alias uid="344"/>
+					</from>
+					<to>Low_latitude_ocean_air_sea_carbon_uptake</to>
+				</connector>
+				<connector uid="345" angle="222.043">
+					<from>
+						<alias uid="346"/>
+					</from>
+					<to>Low_latitude_ocean_air_sea_carbon_uptake</to>
+				</connector>
+				<connector uid="347" angle="23.9473">
+					<from>
+						<alias uid="344"/>
+					</from>
+					<to>High_latitude_ocean_air_sea_carbon_uptake</to>
+				</connector>
+				<connector uid="348" angle="7.57918">
+					<from>
+						<alias uid="346"/>
+					</from>
+					<to>High_latitude_ocean_air_sea_carbon_uptake</to>
+				</connector>
+				<connector uid="349" angle="80.7111">
+					<from>
+						<alias uid="350"/>
+					</from>
+					<to>DIC_concentration_in_warm_surface_layer</to>
+				</connector>
+				<connector uid="351" angle="284.246">
+					<from>
+						<alias uid="352"/>
+					</from>
+					<to>DIC_concentration_in_cold_surface_layer</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1446.67" y="1027.08" name="selected climate case 5"/>
+				<connector uid="354" angle="194.931">
+					<from>selected_climate_case_5</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
 				<alias font_style="italic" uid="8" x="1391.67" y="1669.33" width="18" height="18">
 					<of>Ocean_overturning_strength</of>
 				</alias>
-				<alias color="blue" background="white" font_style="italic" label_side="top" uid="21" x="239.786" y="1296.14" width="18" height="18">
+				<alias color="blue" background="white" font_style="italic" label_side="top" uid="21" x="268.119" y="1926.14" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>from_Sv_to_cubic_metre_per_year</of>
 				</alias>
@@ -8907,24 +7262,6 @@
 				</alias>
 				<alias font_style="italic" label_side="top" uid="29" x="1676.54" y="1563.78" width="18" height="18">
 					<of>Cold_surface_to_deep_ocean_mixing_strength</of>
-				</alias>
-				<alias color="blue" background="white" font_style="italic" uid="44" x="1391.67" y="1798.83" width="18" height="18">
-					<shape type="circle" radius="18"/>
-					<of>Volume_of_deep_ocean_reservoir</of>
-				</alias>
-				<alias color="blue" background="white" font_style="italic" uid="47" x="1694.54" y="1685.9" width="18" height="18">
-					<shape type="circle" radius="18"/>
-					<of>Volume_of_deep_ocean_reservoir</of>
-				</alias>
-				<alias font_style="italic" uid="49" x="1554" y="1536.83" width="18" height="18">
-					<of>Volume_of_cold_surface_ocean_reservoir</of>
-				</alias>
-				<alias color="blue" background="white" font_style="italic" label_side="left" uid="53" x="1119.2" y="1490.33" width="18" height="18">
-					<shape type="circle" radius="18"/>
-					<of>Volume_of_warm_surface_ocean_reservoir</of>
-				</alias>
-				<alias font_style="italic" uid="55" x="1038.81" y="1559.61" width="18" height="18">
-					<of>Volume_of_intermediate_ocean_reservoir</of>
 				</alias>
 				<alias font_style="italic" label_side="top" uid="119" x="923.714" y="901.929" width="18" height="18">
 					<of>Warm_surface_ocean_alkalinity_unitless</of>
@@ -8948,12 +7285,6 @@
 					<shape type="circle" radius="18"/>
 					<of>Ocean_surface_pH_change_time_scale</of>
 				</alias>
-				<alias font_style="italic" uid="191" x="1343.64" y="1105.93" width="18" height="18">
-					<of>Ocean_surface_area</of>
-				</alias>
-				<alias font_style="italic" uid="192" x="1343.64" y="1264.64" width="18" height="18">
-					<of>Warm_surface_ocean_area_fraction</of>
-				</alias>
 				<alias font_style="italic" uid="217" x="1884.57" y="1952.43" width="18" height="18">
 					<of>Cold_surface_ocean_carbon_export_to_deep_ocean</of>
 				</alias>
@@ -8969,6 +7300,33 @@
 				</alias>
 				<alias font_style="italic" uid="255" x="428.417" y="39.018" width="18" height="18">
 					<of>High_latitude_ocean_air_sea_carbon_uptake</of>
+				</alias>
+				<alias font_style="italic" uid="319" x="469" y="1316.33" width="18" height="18">
+					<of>selected_climate_case</of>
+				</alias>
+				<alias font_style="italic" uid="330" x="1729.75" y="1672.67" width="18" height="18">
+					<of>Volume_of_cold_surface_ocean_reservoir</of>
+				</alias>
+				<alias font_style="italic" uid="335" x="1690.58" y="1740.54" width="18" height="18">
+					<of>Volume_of_deep_ocean_reservoir</of>
+				</alias>
+				<alias font_style="italic" uid="338" x="1075.58" y="1571" width="18" height="18">
+					<of>Volume_of_intermediate_ocean_reservoir</of>
+				</alias>
+				<alias font_style="italic" uid="339" x="1088.08" y="1680.17" width="18" height="18">
+					<of>Volume_of_warm_surface_ocean_reservoir</of>
+				</alias>
+				<alias font_style="italic" uid="344" x="1340.43" y="1332.83" width="18" height="18">
+					<of>Ocean_surface_area</of>
+				</alias>
+				<alias font_style="italic" uid="346" x="1340.43" y="1276" width="18" height="18">
+					<of>Warm_surface_ocean_area_fraction</of>
+				</alias>
+				<alias font_style="italic" uid="350" x="920.583" y="1366" width="18" height="18">
+					<of>Volume_of_warm_surface_ocean_reservoir</of>
+				</alias>
+				<alias font_style="italic" uid="352" x="1733.5" y="1283.5" width="18" height="18">
+					<of>Volume_of_cold_surface_ocean_reservoir</of>
 				</alias>
 			</view>
 		</views>

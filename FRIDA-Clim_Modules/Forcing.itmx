@@ -384,10 +384,8 @@
 				<format scale_by="auto"/>
 				<connect to="Forcing.Total_Land_use_forcing" from="Land_Use_Forcing.Total_Land_use_forcing"/>
 				<connect2 to="Total_Land_use_forcing" from="Land_Use_Forcing.Total_Land_use_forcing"/>
-				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
-				<connect2 to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 			</module>
 			<module name="N2O Forcing" isee:label="">
 				<format scale_by="auto"/>
@@ -508,14 +506,14 @@
 				<eqn> Effective_Radiative_Forcing_from_Natural_Sources +  Anthropogenic_Effective_Radiative_Forcing</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
-			<aux name="Total Land use forcing" access="input">
+			<aux name="Minor GHGs Effective\nRadiative Forcing" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
-			<aux name="Minor GHGs Effective\nRadiative Forcing" access="input">
+			<aux name="Total Land use forcing" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -571,7 +569,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="210" isee:scroll_y="352" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="29" isee:scroll_y="331" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -702,15 +700,6 @@
 					<from>Anthropogenic_Effective_Radiative_Forcing</from>
 					<to>Total_Effective_Radiative_Forcing</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1190.25" y="594.929" name="Total Land use forcing"/>
-				<connector uid="19" angle="270.918" isee:autocreated="true">
-					<from>Land_Use_Forcing</from>
-					<to>Total_Land_use_forcing</to>
-				</connector>
-				<connector uid="20" angle="203.909">
-					<from>Total_Land_use_forcing</from>
-					<to>Anthropogenic_Effective_Radiative_Forcing</to>
-				</connector>
 				<connector uid="21" isee:thickness="2" angle="25.6208" isee:autocreated="true">
 					<from>CH4_Forcing</from>
 					<to>Ozone_Forcing</to>
@@ -734,6 +723,15 @@
 				</connector>
 				<connector uid="26" angle="242.684">
 					<from>Minor_GHGs_Effective_Radiative_Forcing</from>
+					<to>Anthropogenic_Effective_Radiative_Forcing</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1190.25" y="588.333" name="Total Land use forcing"/>
+				<connector uid="27" angle="270" isee:autocreated="true">
+					<from>Land_Use_Forcing</from>
+					<to>Total_Land_use_forcing</to>
+				</connector>
+				<connector uid="28" angle="205.339">
+					<from>Total_Land_use_forcing</from>
 					<to>Anthropogenic_Effective_Radiative_Forcing</to>
 				</connector>
 			</view>
@@ -762,7 +760,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.0050719894266572</eqn>
+					<eqn>-0.0041252334697835</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.0051206946887558</eqn>
@@ -1070,7 +1068,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.0231524460391283</eqn>
+					<eqn>0.0056116268563207</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.0270457615894637</eqn>
@@ -1378,7 +1376,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.455218292672536</eqn>
+					<eqn>-3.45456298908812</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.0759172370741734</eqn>
@@ -1869,7 +1867,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.14470180847195</eqn>
+					<eqn>1.0134227582165</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>1.98765321568301</eqn>
@@ -2398,7 +2396,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1.05942700377038</eqn>
+					<eqn>1.22462885446108</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>1.14015663982192</eqn>
@@ -2699,314 +2697,6 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				</element>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Initial CH4 in atmosphere">
-				<doc>${External Parameter}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>2152.55855739</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>2144.46789785</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>2161.30666727</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>2128.96640392</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>2151.2848499</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>2147.92164106</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>2159.33459121</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>2154.09812918</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>2144.35862439</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>2159.36546257</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>2126.88561972</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>2160.1181034</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>2155.62092253</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>2149.88876078</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>2153.67088954</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>2145.25735594</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>2150.34262523</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>2160.23924155</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>2141.45922774</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>2149.74265851</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>2149.19344056</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>2140.84166333</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>2146.08319862</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>2138.72235253</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>2156.30904163</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>2139.07488985</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>2150.76997128</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>2158.06212987</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>2155.9365612</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>2158.94482927</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>2149.49778429</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>2159.55070913</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>2153.27707118</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>2148.59151857</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>2159.43898482</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>2161.73313314</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>2150.93637814</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>2145.26198434</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>2155.81951303</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>2159.14018828</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>2149.11674228</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>2140.14219261</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>2152.16695768</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>2151.58780409</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>2140.3558592</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>2154.49251781</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>2151.34628609</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>2144.4158656</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>2138.49575017</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>2156.40060829</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>2147.94397162</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>2149.67312822</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>2140.2552854</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>2161.12579431</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>2151.71205745</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>2154.30287928</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>2149.53360499</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>2154.46183051</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>2135.46810642</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>2151.58859259</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>2155.82392194</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>2154.58352701</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>2149.96076135</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>2145.3055802</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>2153.12291873</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>2141.25421156</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>2156.82484847</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>2152.62845074</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>2146.25062005</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>2153.51294605</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>2144.52140132</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>2154.54264204</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>2153.56006527</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>2160.8514272</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>2148.95237043</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>2158.92928003</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>2160.13427522</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>2159.74234676</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>2153.02761384</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>2158.76455478</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>2155.19303712</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>2149.69599527</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>2136.92840251</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>2156.52358502</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>2145.75649851</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>2147.42671034</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>2142.35548017</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>2139.47143282</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>2148.18655699</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>2148.08616863</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>2152.62985114</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>2138.48849622</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>2147.49967641</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>2150.56796831</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>2151.63668765</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>2160.57369827</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>2161.27458125</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>2138.96019556</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>2141.14076235</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>2158.93703846</eqn>
-				</element>
-				<units>MtCH4</units>
-			</aux>
 			<aux name="Total CH4 Emissions 1" access="input">
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>MtCH4/yr</units>
@@ -3150,7 +2840,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_CH4_in_atmosphere[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<inflow>CH4_into_atmosphere</inflow>
 				<outflow>CH4_out_of_atmosphere</outflow>
 				<units>MtCH4</units>
@@ -3218,7 +2908,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="235" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="487" isee:scroll_y="561" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3303,7 +2993,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Atmospheric_CH4_Concentration_1750</from>
 					<to>CH4_Effective_Radiative_Forcing</to>
 				</connector>
-				<aux x="769.33" y="346.813" name="Initial CH4 in atmosphere"/>
 				<aux font_style="italic" font_weight="bold" x="811.753" y="129.542" name="Total CH4 Emissions 1"/>
 				<aux font_style="italic" font_weight="bold" x="968.42" y="258.666" name="CH4 Baseline Emissions"/>
 				<aux x="898" y="612" name="Molecular Weight of Air 1"/>
@@ -3504,7 +3193,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>276.570907793485</eqn>
+					<eqn>277.087201625129</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>277.436004170625</eqn>
@@ -3845,7 +3534,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1.00945762384316</eqn>
+					<eqn>1.06066721182038</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.802667075010937</eqn>
@@ -4272,7 +3961,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="356.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="423.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4450,676 +4139,653 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 	</model>
 	<model name="Land_Use_Forcing">
 		<variables>
+			<aux name="Total Land use forcing" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Irrigation_ERF*Calibration_scaling_of_Irrigation_forcing[selected_climate_case[Run]] + Albedo_ERF*Calibration_scaling_of_Albedo_forcing[selected_climate_case[Run]]</eqn>
+				<units>W/(metre^2)</units>
+			</aux>
+			<aux name="Albedo ERF" access="output" isee:autocreated="true">
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="1750" max="2100"/>
+					<yscale min="0" max="100"/>
+					<ypts>-0.0000243,-0.000392149,-0.000745799,-0.001085603,-0.001411949,-0.001725224,-0.002025816,-0.002314113,-0.002590502,-0.002855372,-0.00310911,-0.003352104,-0.003584742,-0.003807411,-0.004020499,-0.004224394,-0.004419484,-0.004606156,-0.004784799,-0.0049558,-0.005119547,-0.005276427,-0.005426829,-0.00557114,-0.005709748,-0.00584304,-0.005971405,-0.006095231,-0.006214904,-0.006330813,-0.006443346,-0.00655289,-0.006659833,-0.006764563,-0.006867468,-0.006968936,-0.007069353,-0.007169108,-0.00726859,-0.007368184,-0.00746828,-0.007569265,-0.007671527,-0.007775454,-0.007881433,-0.007989852,-0.008101099,-0.008215562,-0.008333628,-0.008455686,-0.008582122,-0.008713326,-0.008849684,-0.008991584,-0.009139414,-0.009293562,-0.009454416,-0.009622364,-0.009797792,-0.00998109,-0.010172644,-0.010372843,-0.010582074,-0.010800725,-0.011029184,-0.011267839,-0.011517002,-0.011776045,-0.012043696,-0.012318669,-0.012599681,-0.012885446,-0.01317468,-0.013466098,-0.013758417,-0.014050993,-0.014344936,-0.014641651,-0.014942542,-0.015249015,-0.015562474,-0.015884323,-0.01621595,-0.016557914,-0.01690967,-0.017270597,-0.017640069,-0.018017465,-0.01840216,-0.018793532,-0.019190957,-0.019593796,-0.020001008,-0.02041113,-0.020822683,-0.021234184,-0.021644154,-0.022051111,-0.022453574,-0.022850096,-0.023240985,-0.023629118,-0.024017574,-0.024409434,-0.024807779,-0.025215688,-0.025636242,-0.026072521,-0.026527605,-0.027004575,-0.027506511,-0.028036494,-0.028597603,-0.02919292,-0.029825523,-0.030498494,-0.031214913,-0.03197786,-0.032790416,-0.033655085,-0.034566189,-0.035511964,-0.036480496,-0.037459875,-0.03843819,-0.039403529,-0.040343981,-0.041247639,-0.042107926,-0.042934259,-0.04373904,-0.044534671,-0.045333554,-0.046148092,-0.046990686,-0.047873739,-0.048808803,-0.049793722,-0.050815228,-0.05185974,-0.052913672,-0.053963442,-0.054995465,-0.055996156,-0.056951934,-0.057852261,-0.058720689,-0.059602141,-0.060541867,-0.061585118,-0.06277686,-0.064130215,-0.065597802,-0.067125469,-0.068659068,-0.070144447,-0.071527461,-0.072770669,-0.073891723,-0.074919618,-0.075883322,-0.076805478,-0.077694362,-0.078556267,-0.079397486,-0.08022431,-0.081043033,-0.081859948,-0.082681346,-0.083513502,-0.084361218,-0.085226729,-0.086112012,-0.087019046,-0.08794981,-0.08890628,-0.089890436,-0.090904255,-0.091949715,-0.093028796,-0.094141447,-0.095274367,-0.096408928,-0.097526491,-0.098608415,-0.099636058,-0.100590779,-0.101453939,-0.102206896,-0.102831008,-0.103308278,-0.103647657,-0.103894319,-0.104095983,-0.104300369,-0.104555197,-0.104908187,-0.105407059,-0.106099532,-0.107033327,-0.108256163,-0.10979979,-0.111618387,-0.113642608,-0.115803105,-0.118030528,-0.120255528,-0.122408755,-0.124420859,-0.126222493,-0.127748857,-0.128992432,-0.129984836,-0.130758446,-0.131345638,-0.131778789,-0.132090274,-0.132312471,-0.132477755,-0.132618504,-0.132767092,-0.132955898,-0.133210193,-0.13352945,-0.133907287,-0.134337321,-0.13481317,-0.135328451,-0.135876782,-0.136451779,-0.13704706,-0.13704706,-0.137443327,-0.137815854,-0.138155562,-0.138460904,-0.138775062,-0.139134145,-0.139532919,-0.13996312,-0.140422292,-0.140907583,-0.141409177,-0.141893666,-0.14231022,-0.142719352,-0.143197481,-0.143727633,-0.144268596,-0.144795835,-0.145298902,-0.145775368,-0.146225543,-0.146649974,-0.147052062,-0.147433854,-0.147800793,-0.148160597,-0.148520118,-0.148885735,-0.149261494,-0.149646178,-0.150038984,-0.150436016,-0.150831457,-0.151219539,-0.151592614,-0.151943107,-0.152269284,-0.15257273,-0.153117083,-0.153362316,-0.153594259,-0.153813607,-0.154023921,-0.154230211,-0.154436488,-0.15464554,-0.154859459,-0.155080102,-0.155308945,-0.15554679,-0.155793418,-0.15604692,-0.156303238,-0.156556289,-0.156798598,-0.15702205,-0.157218968,-0.157383186,-0.15751065,-0.157599244,-0.157648726,-0.157660688,-0.157638382,-0.15758681,-0.157512799,-0.157424027,-0.157327429,-0.157228145,-0.157129128,-0.157031329,-0.156933863,-0.156834439,-0.15672994,-0.156616575,-0.156490011,-0.15634543,-0.15617764,-0.155981609,-0.155752906,-0.155487986,-0.155184236,-0.154840159,-0.154456229,-0.154035116,-0.153581042,-0.153099662,-0.152597861,-0.152082776,-0.151560662,-0.151035804,-0.150509977,-0.149982143,-0.149448577,-0.148903841,-0.148341492,-0.147754842,-0.147137772,-0.146485329,-0.145794207,-0.145062299,-0.144289046,-0.143475892,-0.142625026,-0.141739235,-0.140821754,-0.139876114,-0.138906043,-0.137915325,-0.136907485,-0.13588547,-0.134851318,-0.133805722,-0.132747543,-0.131673564,-0.130578739,-0.129456638,-0.128300248,-0.12710285,-0.125858972</ypts>
+				</gf>
+				<units>W/(metre^2)</units>
+			</aux>
+			<aux name="Irrigation ERF" access="output" isee:autocreated="true">
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="1750" max="2100"/>
+					<yscale min="0" max="100"/>
+					<ypts>0,0.0000671,0.000130958,0.000191568,0.000248977,0.000303216,0.00035432,0.000402321,0.000447253,0.000489148,0.000528039,0.00056396,0.000596943,0.000627022,0.000654229,0.000678598,0.000700162,0.000718953,0.000735005,0.000748351,0.000759023,0.000767055,0.00077248,0.000775331,0.000775641,0.000773443,0.00076877,0.000761655,0.00075213,0.00074023,0.000725987,0.000709435,0.000690605,0.000669532,0.000646248,0.000620786,0.000593179,0.000563461,0.000531665,0.000497823,0.000461968,0.000424134,0.000384353,0.000342659,0.000299084,0.000253663,0.000206427,0.000157409,0.000106644,0.0000542,0,-0.0000558,-0.00011324,-0.000172251,-0.000232813,-0.000294891,-0.000358453,-0.000423466,-0.000489897,-0.000557713,-0.00062688,-0.000697367,-0.000769139,-0.000842164,-0.000916408,-0.000991839,-0.001068424,-0.001146129,-0.001224922,-0.001304769,-0.001385638,-0.001467495,-0.001550308,-0.001634042,-0.001718667,-0.001804147,-0.001890451,-0.001977544,-0.002065395,-0.002153971,-0.002243237,-0.002333161,-0.00242371,-0.002514852,-0.002606552,-0.002698778,-0.002791497,-0.002884676,-0.002978282,-0.003072281,-0.003166641,-0.003261329,-0.003356312,-0.003451556,-0.003547029,-0.003642697,-0.003738528,-0.003834488,-0.003930545,-0.004026665,-0.004122816,-0.004218964,-0.004315076,-0.00441112,-0.004507062,-0.004602869,-0.004698508,-0.004793946,-0.00488915,-0.004984088,-0.005078725,-0.00517303,-0.005266968,-0.005360507,-0.005453615,-0.005546257,-0.0056384,-0.005730013,-0.005821061,-0.005911513,-0.006001333,-0.006090491,-0.006178952,-0.006266683,-0.006353652,-0.006439826,-0.006525171,-0.006609654,-0.006693243,-0.006775904,-0.006857604,-0.006938311,-0.007017991,-0.007096611,-0.007174139,-0.00725054,-0.007325783,-0.007399833,-0.007472659,-0.007544227,-0.007614503,-0.007683456,-0.007751051,-0.007817256,-0.007882038,-0.007945364,-0.008007201,-0.008067515,-0.008126274,-0.008183445,-0.008238994,-0.008293001,-0.008345876,-0.008398091,-0.008450119,-0.008502432,-0.008555501,-0.008609799,-0.008665798,-0.008723969,-0.008784786,-0.00884872,-0.008916244,-0.008987829,-0.009063947,-0.009145071,-0.009231672,-0.009324224,-0.009423197,-0.009529064,-0.009642297,-0.009763369,-0.009892751,-0.010030915,-0.010178334,-0.010335479,-0.010502823,-0.010680838,-0.010869996,-0.011070768,-0.011283628,-0.011509047,-0.011747498,-0.011999452,-0.012265381,-0.012545758,-0.012841054,-0.013151743,-0.013478295,-0.013821184,-0.014180881,-0.014558267,-0.014955398,-0.015374536,-0.015817945,-0.016287888,-0.016786627,-0.017316428,-0.017879552,-0.018478264,-0.019114825,-0.019789328,-0.02049505,-0.021223934,-0.021967926,-0.022718967,-0.023469001,-0.024209972,-0.024933824,-0.0256325,-0.026297944,-0.02891891,-0.029399294,-0.029770103,-0.030169918,-0.030540917,-0.031102818,-0.031583904,-0.032260555,-0.032768428,-0.033308339,-0.033962753,-0.034647234,-0.035551205,-0.036114813,-0.036760469,-0.037542069,-0.038198284,-0.039017212,-0.03964992,-0.040305263,-0.040305263,-0.040766555,-0.041037629,-0.041051892,-0.040835834,-0.040842008,-0.041082496,-0.041431858,-0.041867343,-0.042385262,-0.042966692,-0.043517843,-0.043747774,-0.043424126,-0.043513525,-0.044144662,-0.044950119,-0.045729636,-0.04641568,-0.046998002,-0.047481084,-0.047873502,-0.048176816,-0.048413575,-0.048577399,-0.048703209,-0.048815961,-0.048942318,-0.049105399,-0.049317654,-0.04956417,-0.049852983,-0.050160401,-0.050469539,-0.050757553,-0.050992282,-0.051146031,-0.051227873,-0.051251789,-0.051158452,-0.051059253,-0.050940133,-0.050794664,-0.050634119,-0.050473877,-0.05032348,-0.050186834,-0.050065051,-0.049958458,-0.04986629,-0.049785788,-0.049711231,-0.049632165,-0.049532435,-0.049391202,-0.049185618,-0.048893225,-0.048494976,-0.047978277,-0.047338099,-0.046575578,-0.045697108,-0.044713473,-0.043638647,-0.042489323,-0.041284209,-0.040040942,-0.038772592,-0.037486968,-0.036188475,-0.03488182,-0.033576109,-0.032289709,-0.031053984,-0.02991205,-0.028910322,-0.028083115,-0.027438684,-0.026957375,-0.026603028,-0.026337999,-0.026132535,-0.025967162,-0.025830404,-0.025715291,-0.025617693,-0.025535444,-0.025467522,-0.025412897,-0.025369335,-0.025333343,-0.025300728,-0.025267079,-0.025228524,-0.025182535,-0.025128273,-0.02506671,-0.025000289,-0.024932537,-0.024866737,-0.02480599,-0.024752829,-0.024707795,-0.024671023,-0.024642347,-0.024621511,-0.02460825,-0.02460231,-0.024603389,-0.024610971,-0.024624264,-0.024642135,-0.024662978,-0.024684502,-0.024704026,-0.024719227,-0.024728598,-0.024731761,-0.024729617,-0.02472405</ypts>
+				</gf>
+				<units>W/(metre^2)</units>
+			</aux>
 			<aux name="Calibration scaling\nof Albedo forcing">
-				<doc>${External Parameter}
+				<doc>${External Calibration Parameter}
 </doc>
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.922014398699323</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="2">
-					<eqn>0.380445110322867</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="3">
-					<eqn>0.65538781707774</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="4">
-					<eqn>0.456634457110883</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="5">
-					<eqn>1.3968880651855</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="6">
-					<eqn>0.734989629392523</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="7">
-					<eqn>1.73907378750396</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="8">
-					<eqn>0.639032366378387</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="9">
-					<eqn>0.606820321728584</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="10">
-					<eqn>0.627425060871521</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="11">
-					<eqn>1.42669415565294</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="12">
-					<eqn>1.59171837638241</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="13">
-					<eqn>1.22999744539616</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="14">
-					<eqn>0.666957852863374</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="15">
-					<eqn>1.40990820897715</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="16">
-					<eqn>1.2936073049644</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="17">
-					<eqn>1.21890593995538</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="18">
-					<eqn>1.23947428022757</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="19">
-					<eqn>1.086744307806</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="20">
-					<eqn>1.10067139488909</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="21">
-					<eqn>0.350948993720666</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="22">
-					<eqn>1.04785868305874</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="23">
-					<eqn>1.00735315509389</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="24">
-					<eqn>0.588689187930449</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="25">
-					<eqn>1.05923284956835</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="26">
-					<eqn>0.416944002971356</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="27">
-					<eqn>1.06046474023926</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="28">
-					<eqn>1.26183872569516</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="29">
-					<eqn>0.645150081860221</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="30">
-					<eqn>0.607964746782778</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="31">
-					<eqn>0.767223642547787</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="32">
-					<eqn>0.776004127104438</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="33">
-					<eqn>1.10559347495175</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="34">
-					<eqn>0.685490957596986</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="35">
-					<eqn>0.439631346795631</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="36">
-					<eqn>1.45619287544497</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="37">
-					<eqn>0.956688540246695</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="38">
-					<eqn>1.85892414174332</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="39">
-					<eqn>1.09748017851876</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="40">
-					<eqn>1.46623740989443</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="41">
-					<eqn>1.56049744059968</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="42">
-					<eqn>0.741266859824793</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="43">
-					<eqn>0.791905185791415</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="44">
-					<eqn>0.787979187296368</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="45">
-					<eqn>0.674291154785162</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="46">
-					<eqn>0.560248860626874</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="47">
-					<eqn>0.862280446360961</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="48">
-					<eqn>0.951298151818876</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="49">
-					<eqn>0.784881542667058</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="50">
-					<eqn>0.642599737435664</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="51">
-					<eqn>1.47607614781321</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="52">
-					<eqn>1.46429143823328</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="53">
-					<eqn>1.22942825699998</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="54">
-					<eqn>0.766470612901844</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="55">
-					<eqn>-0.191654711291463</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="56">
-					<eqn>0.429906574183522</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="57">
-					<eqn>0.774633011064075</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="58">
-					<eqn>1.03503405341341</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="59">
-					<eqn>0.469747837252813</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="60">
-					<eqn>0.984943837282787</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="61">
-					<eqn>1.61233505436313</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="62">
-					<eqn>0.446373538906913</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="63">
-					<eqn>1.59894932515482</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="64">
-					<eqn>0.618059422023036</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="65">
-					<eqn>0.816276737160692</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="66">
-					<eqn>1.50047327559554</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="67">
-					<eqn>1.10590653964318</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="68">
-					<eqn>1.0024455975411</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="69">
-					<eqn>0.935960394120485</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="70">
-					<eqn>1.45857506748739</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="71">
-					<eqn>1.42866672556185</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="72">
-					<eqn>0.485070312990405</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="73">
-					<eqn>0.824987273981364</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="74">
-					<eqn>1.10033944445848</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="75">
-					<eqn>1.75762267476667</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="76">
-					<eqn>0.209357376198553</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="77">
-					<eqn>0.737799186225138</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="78">
-					<eqn>1.05835400755117</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="79">
-					<eqn>1.12895473704349</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="80">
-					<eqn>1.05402225978747</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="81">
-					<eqn>0.567458908481114</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="82">
-					<eqn>0.255288033375029</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="83">
-					<eqn>1.5997273414224</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="84">
-					<eqn>0.256243210694042</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="85">
-					<eqn>0.807819939513089</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="86">
-					<eqn>1.3584480922893</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="87">
-					<eqn>1.85600966608161</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="88">
-					<eqn>1.05729412043766</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="89">
-					<eqn>1.22628408314247</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="90">
-					<eqn>0.863070508090428</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="91">
-					<eqn>1.04386665166283</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="92">
-					<eqn>0.598047276129147</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="93">
-					<eqn>1.00552704718054</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="94">
-					<eqn>1.15019494645609</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="95">
-					<eqn>0.46669333068442</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="96">
-					<eqn>1.02823638327718</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="97">
-					<eqn>0.862143977297678</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="98">
-					<eqn>0.527595455072765</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="99">
-					<eqn>1.10247808492158</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<element subscript="100">
-					<eqn>-0.322257520120038</eqn>
+					<eqn>0.888047123774346</eqn>
 				</element>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="selected climate case 1" access="input">
+			<aux name="Calibration scaling\nof Irrigation forcing">
+				<doc>${External Calibration Parameter}
+</doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<eqn>5</eqn>
-				<units>dmnl</units>
+				<element subscript="1">
+					<eqn>-1.82374951801733</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>-1.88466916066423</eqn>
+				</element>
+				<units>Dimensionless</units>
 			</aux>
-			<aux name="Irrigation Forcing per\nIrrigation H2O Emissions">
-				<eqn>-4.12e-14</eqn>
-				<units>(W/(metre^2))/(((m)^3)/year)</units>
-			</aux>
-			<aux name="Fraction of Irrigation\nwater which is emitted">
-				<eqn>0.432875474</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="Irrigation Forcing">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>(Irrigation_Emissions - INIT(Irrigation_Emissions) )*Irrigation_Forcing_per_Irrigation_H2O_Emissions</eqn>
-				<units>W/(metre^2)</units>
-			</aux>
-			<aux name="Irrigation Emissions">
-				<eqn>agricultural_water_withdrawal*Fraction_of_Irrigation_water_which_is_emitted</eqn>
-				<units>m^3/year</units>
-			</aux>
-			<aux name="Total Land use forcing" access="output" isee:autocreated="true">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Irrigation_Forcing*Calibration_scaling_of_Irrigation_forcing[selected_climate_case_1[Run]] + Land_Use_Forcing_from_Albedo_Change*Calibration_scaling_of_Albedo_forcing[selected_climate_case_1[Run]]</eqn>
-				<units>W/(metre^2)</units>
-			</aux>
-			<aux name="Land Use Forcing per\nchange in Land Use albedo">
-				<eqn>-13.9646322</eqn>
-				<units>(W/(metre^2))</units>
-			</aux>
-			<aux name="Land Use Forcing from\nAlbedo Change">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>(Albedo - INIT(Albedo))*Land_Use_Forcing_per_change_in_Land_Use_albedo</eqn>
-				<units>(W/(metre^2))</units>
-			</aux>
-			<aux name="Albedo" access="input">
+			<aux name="selected climate case" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
-			</aux>
-			<aux name="Calibration scaling\nof Irrigation forcing">
-				<doc>${External Parameter}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.810534721510403</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>1.26999179902516</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>1.29896361497706</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.554455093370336</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.315759893714081</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.595111707539372</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.796324303724005</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.631908167033411</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>1.39620491923686</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>2.15142718402768</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>1.09948696054018</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.462694388865545</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>1.94720327183904</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.780655672773392</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>1.7705337756344</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>1.54757414355913</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>1.73259167649783</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.729107546868051</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.891562903214136</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>-0.492650106978339</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.980048930881133</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>1.42126896190369</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>-1.06256154655558</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>1.1016501222493</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.952604475980887</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>-0.0215963042176511</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>1.99820165246365</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.10121640247268</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>1.20896399919318</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.422614298054602</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.62753180531757</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>1.03509045152156</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.199446258003466</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.389163572540777</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.609902667544231</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>1.37135697492379</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>1.77701823193093</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>1.74362212037977</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>1.70228324519492</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>1.68255735361076</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>1.81664812223808</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>1.02934012166822</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>1.20053060204257</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.57222575140148</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.494907645969434</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>1.88989186437761</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>1.3819799833052</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>2.16430106474227</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>1.26509605828622</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>-0.36915549759051</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>1.5538470975392</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>2.00510555861567</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>-0.246174402693798</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.122649292313613</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>1.99633380610331</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.623907741097375</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>1.87208734258471</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.236206089907749</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.968193180029121</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>1.29039879903225</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>1.03298102560775</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>-0.321325521516187</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>-1.07842179072118</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.944717894699846</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.730748134589571</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.980677891765542</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>1.49388119351282</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>-0.0335624922884408</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>1.32517781346419</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>1.2550164056271</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>-0.452742692568735</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>2.20144955317459</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.186387820369442</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.901325486685237</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>1.96163119877006</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>1.7404733920496</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.83674779855526</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.58587577247974</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.256439907875196</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>1.65043731090077</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>-1.89131475107207</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.96986409778023</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.357176816394793</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.608109007471361</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>1.03580775981855</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.567105904212616</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>1.37425966477126</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>-1.26837312806362</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>1.91389694712214</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>1.4211459490678</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>1.96533040171469</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>1.1845477929689</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>1.65659515138036</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>2.0568587249642</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>1.47737934343474</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>1.94958191286694</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.652821226298209</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>1.66400472250698</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>1.4979133362036</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>1.96257577080129</eqn>
-				</element>
-				<units>Dimensionless</units>
-			</aux>
-			<aux name="agricultural water\nwithdrawal">
-				<eqn>0</eqn>
-				<units>m^3/year</units>
 			</aux>
 		</variables>
 		<views>
@@ -5170,7 +4836,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:scroll_y="76.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5209,61 +4875,31 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<aux x="607.5" y="406.666" name="Calibration scaling\nof Albedo forcing"/>
-				<aux x="600" y="476.166" name="selected climate case 1"/>
-				<aux x="384.5" y="199.25" name="Irrigation Forcing per\nIrrigation H2O Emissions"/>
-				<aux x="102.75" y="148.25" name="Fraction of Irrigation\nwater which is emitted"/>
-				<aux x="281.25" y="325" name="Irrigation Forcing"/>
-				<connector uid="1" angle="259.287">
-					<from>Irrigation_Forcing_per_Irrigation_H2O_Emissions</from>
-					<to>Irrigation_Forcing</to>
-				</connector>
-				<aux x="238.75" y="221.75" name="Irrigation Emissions"/>
-				<connector uid="2" angle="331.611">
-					<from>Fraction_of_Irrigation_water_which_is_emitted</from>
-					<to>Irrigation_Emissions</to>
-				</connector>
-				<connector uid="3" angle="292.373">
-					<from>Irrigation_Emissions</from>
-					<to>Irrigation_Forcing</to>
-				</connector>
-				<aux x="446.25" y="463.75" name="Total Land use forcing"/>
-				<connector uid="4" angle="333.435">
-					<from>Irrigation_Forcing</from>
-					<to>Total_Land_use_forcing</to>
-				</connector>
-				<aux x="737" y="274" name="Land Use Forcing per\nchange in Land Use albedo"/>
-				<aux x="618" y="304" name="Land Use Forcing from\nAlbedo Change"/>
-				<connector uid="6" angle="194.149">
-					<from>Land_Use_Forcing_per_change_in_Land_Use_albedo</from>
-					<to>Land_Use_Forcing_from_Albedo_Change</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="672" y="159.166" name="Albedo"/>
-				<connector uid="7" angle="281.939">
-					<from>Albedo</from>
-					<to>Land_Use_Forcing_from_Albedo_Change</to>
-				</connector>
-				<connector uid="9" angle="195.68">
-					<from>Land_Use_Forcing_from_Albedo_Change</from>
-					<to>Total_Land_use_forcing</to>
-				</connector>
-				<connector uid="11" angle="200.856">
+				<aux x="375.083" y="399.25" name="Total Land use forcing"/>
+				<aux x="284.083" y="315.25" name="Albedo ERF"/>
+				<aux x="390.083" y="297.25" name="Irrigation ERF"/>
+				<aux x="533.333" y="333.25" name="Calibration scaling\nof Albedo forcing"/>
+				<connector uid="15" angle="202.639">
 					<from>Calibration_scaling_of_Albedo_forcing</from>
 					<to>Total_Land_use_forcing</to>
 				</connector>
-				<connector uid="12" angle="178.642">
-					<from>selected_climate_case_1</from>
+				<connector uid="16" angle="330.301">
+					<from>Albedo_ERF</from>
 					<to>Total_Land_use_forcing</to>
 				</connector>
-				<aux x="316.25" y="476.166" name="Calibration scaling\nof Irrigation forcing"/>
-				<connector uid="13" angle="22.0439">
+				<connector uid="17" angle="281.149">
+					<from>Irrigation_ERF</from>
+					<to>Total_Land_use_forcing</to>
+				</connector>
+				<aux x="208.333" y="402.25" name="Calibration scaling\nof Irrigation forcing"/>
+				<connector uid="18" angle="18.3026">
 					<from>Calibration_scaling_of_Irrigation_forcing</from>
 					<to>Total_Land_use_forcing</to>
 				</connector>
-				<aux x="278" y="107.333" name="agricultural water\nwithdrawal"/>
-				<connector uid="14" angle="276.066">
-					<from>agricultural_water_withdrawal</from>
-					<to>Irrigation_Emissions</to>
+				<aux font_style="italic" font_weight="bold" x="510.833" y="413.75" name="selected climate case"/>
+				<connector uid="19" angle="198.903">
+					<from>selected_climate_case</from>
+					<to>Total_Land_use_forcing</to>
 				</connector>
 			</view>
 		</views>
@@ -5351,7 +4987,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.960497136879743</eqn>
+					<eqn>0.938441690102658</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.960945037880797</eqn>
@@ -5732,7 +5368,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="108.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5991,7 +5627,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1.03577038162171</eqn>
+					<eqn>1.08931729941352</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>1.06288336432548</eqn>
@@ -6292,10 +5928,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				</element>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Initial N2O in atmosphere">
-				<eqn>238411.9977</eqn>
-				<units>ktN2O</units>
-			</aux>
 			<aux name="Initial Cumulative\nN2O emissions">
 				<eqn>341127.234</eqn>
 				<units>KtN2O</units>
@@ -6360,7 +5992,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_N2O_in_atmosphere</eqn>
+				<eqn>0</eqn>
 				<inflow>N2O_into_atmosphere</inflow>
 				<outflow>N2O_out_of_atmosphere</outflow>
 				<units>ktN2O</units>
@@ -6429,7 +6061,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="42" isee:scroll_y="66" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="193" isee:scroll_y="174" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6547,7 +6179,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Calibration_scaling_of_N2O_forcing</from>
 					<to>N2O_Effective_Radiative_Forcing</to>
 				</connector>
-				<aux x="450.917" y="313.917" name="Initial N2O in atmosphere"/>
 				<aux x="168.327" y="198.521" name="Initial Cumulative\nN2O emissions"/>
 				<aux font_style="italic" font_weight="bold" x="325.827" y="659.5" name="Surface Temperature"/>
 				<connector uid="16" angle="139.365">
@@ -6658,7 +6289,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.942816721158061</eqn>
+					<eqn>1.04741514350982</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>1.18241555231028</eqn>
@@ -6966,7 +6597,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.0232046419090958</eqn>
+					<eqn>0.0152487736567465</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.0287605879438195</eqn>
@@ -7274,7 +6905,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1.00101955736141</eqn>
+					<eqn>1.1860296153358</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.82030769674244</eqn>
@@ -7843,7 +7474,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.0002719497588067</eqn>
+					<eqn>0.0002529642369469</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.0002742145871908</eqn>
@@ -8149,7 +7780,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.0018791331562759</eqn>
+					<eqn>0.0008800499414112</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.0018009325205853</eqn>
@@ -8470,7 +8101,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.0000891757139853208</eqn>
+					<eqn>0.00000353374702198904</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.0000796331185784117</eqn>
@@ -8776,7 +8407,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.0014362040391549</eqn>
+					<eqn>0.0013721892430854</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.0011555412012776</eqn>
@@ -9082,7 +8713,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.00000344254355514116</eqn>
+					<eqn>0.0000488409315247575</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.0000327937984671046</eqn>
@@ -9424,7 +9055,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.0000359412444426485</eqn>
+					<eqn>-0.0000448948170448622</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.0001234403846982</eqn>
@@ -9982,7 +9613,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>2.09870184029329</eqn>
+					<eqn>2.28676004520559</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>1.43040481285485</eqn>

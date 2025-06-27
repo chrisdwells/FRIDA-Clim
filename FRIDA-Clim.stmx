@@ -3,7 +3,7 @@
 	<header>
 		<smile version="1.0" namespace="std, isee" uses_arrays="1" uses_submodels=""/>
 		<name>FRIDA-Clim</name>
-		<uuid>3924aef6-b823-4f30-a097-790a6cd89080</uuid>
+		<uuid>f70d8701-d8ac-480a-a1ab-2de3e450aaee</uuid>
 		<vendor>isee systems, inc.</vendor>
 		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
@@ -14,42 +14,9 @@
 	</sim_specs>
 	<dimensions>
 		<dim name="ClimateCase" size="100"/>
-		<dim name="Coastal_Protection_level">
-			<elem name="insufficient"/>
-			<elem name="well_protected"/>
-		</dim>
-		<dim name="ColdMortalityImpactCase" size="11"/>
-		<dim name="CropImpactsCase" size="11"/>
-		<dim name="EnergySource">
-			<elem name="Coal_fuel_extraction"/>
-			<elem name="Coal_energy_conversion"/>
-			<elem name="Oil_fuel_extraction"/>
-			<elem name="Oil_energy_conversion"/>
-			<elem name="Gas_fuel_extraction"/>
-			<elem name="Gas_energy_conversion"/>
-			<elem name="Hydropower"/>
-			<elem name="Nuclear"/>
-			<elem name="Bio"/>
-			<elem name="Solar"/>
-			<elem name="Wind"/>
-		</dim>
-		<dim name="EnergySupplyHydroDamage" size="11"/>
-		<dim name="EnergySupplyThermoDamage" size="11"/>
-		<dim name="ExtremesExposureImpactCase" size="11"/>
-		<dim name="FossilFuelTypes">
-			<elem name="Gas"/>
-			<elem name="Oil"/>
-			<elem name="Coal"/>
-		</dim>
 		<dim name="Future_Decades" size="9"/>
 		<dim name="Historical_5yr_time_steps" size="9"/>
 		<dim name="Historical_Decades" size="4"/>
-		<dim name="HotMortalityImpactCase" size="11"/>
-		<dim name="labouExposureLevel">
-			<elem name="No_Exposure"/>
-			<elem name="Low_Exposure"/>
-			<elem name="High_Exposure"/>
-		</dim>
 		<dim name="PCTILE">
 			<elem name="Low"/>
 			<elem name="P25"/>
@@ -57,12 +24,6 @@
 			<elem name="P75"/>
 			<elem name="High"/>
 		</dim>
-		<dim name="PopCohortLen10" size="10"/>
-		<dim name="PopCohortLen19" size="19"/>
-		<dim name="PopCohortLen20" size="20"/>
-		<dim name="PopCohortLen25" size="25"/>
-		<dim name="PopCohortLen5" size="5"/>
-		<dim name="Renewable_Age_Group" size="7"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
 	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
@@ -85,6 +46,27 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
+		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_land.csv" precomputed="false" isee:format="numbers">
+			<table name="Land variables" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_temperature.csv" precomputed="false" isee:format="numbers">
+			<table name="Surface Temperature timeseries" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_aerosols.csv" precomputed="false" isee:format="numbers">
+			<table name="Aerosol Forcings" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_CO2.csv" precomputed="false" isee:format="numbers">
+			<table name="CO2 Concentration" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
+			<table name="Ocean CO2 Flux" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
+			<table name="Ocean CO2 Flux" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
+			<table name="OHC" use_settings="true"/>
+		</export>
 		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_stocks.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_transitions_hist_ssp245.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_wood_biomass_ssp245.csv"/>
@@ -94,8 +76,96 @@
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/crop_production.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Climate Sensitivity" method="grid">
-			<isee:variable starting_value="1" ending_value="100" type="incremental" min="1" max="100" seed="12345" name="Climate_Units.selected_climate_case[1]" num_samples="100"/>
+		<isee:sensi_specs name="Climate Sensitivity" method="external" path="r../calibration/data/priors_input/priors_inputs_1000.csv">
+			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"[1]'/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean[1]"/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean[1]"/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Deep_Ocean_Heat_Uptake_Efficacy_Factor[1]"/>
+			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Transfer_Coefficient_between_Land_&amp;_Ocean_Surface_and_Space"[1]'/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Transfer_Coefficient_between_Surface_and_Thermocline_Ocean[1]"/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Transfer_Coefficient_between_Thermocline_Ocean_and_Deep_Ocean[1]"/>
+			<isee:variable type="adhoc" name="Aerosol_Forcing.Scaling_Aerosol_Cloud_Interactions_Effective_Radiative_Forcing_scaling_factor[1]"/>
+			<isee:variable type="adhoc" name="Aerosol_Forcing.Logarithmic_Aerosol_Cloud_Interactions_Effective_Radiative_Forcing_scaling_factor[1]"/>
+			<isee:variable type="adhoc" name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Radiation_Interactions_per_unit_SO2_Emissions[1]"/>
+			<isee:variable type="adhoc" name="CH4_Forcing.Calibration_scaling_of_CH4_forcing[1]"/>
+			<isee:variable type="adhoc" name="N2O_Forcing.Calibration_scaling_of_N2O_forcing[1]"/>
+			<isee:variable type="adhoc" name="Minor_GHGs_Forcing.Calibration_scaling_of_Minor_GHG_forcing[1]"/>
+			<isee:variable type="adhoc" name="Stratospheric_Water_Vapour_Forcing.Calibration_scaling_of_Stratospheric_H2O_forcing[1]"/>
+			<isee:variable type="adhoc" name="BC_on_Snow_Forcing.Calibration_scaling_of_Black_Carbon_on_Snow_forcing[1]"/>
+			<isee:variable type="adhoc" name="Land_Use_Forcing.Calibration_scaling_of_Albedo_forcing[1]"/>
+			<isee:variable type="adhoc" name="Land_Use_Forcing.Calibration_scaling_of_Irrigation_forcing[1]"/>
+			<isee:variable type="adhoc" name="Natural_Forcing.Calibration_scaling_of_Volcano_forcing[1]"/>
+			<isee:variable type="adhoc" name="CO2_Forcing.Calibration_scaling_of_CO2_forcing[1]"/>
+			<isee:variable type="adhoc" name="Natural_Forcing.Amplitude_of_Effective_Radiative_Forcing_from_Solar_Output_Variations[1]"/>
+			<isee:variable type="adhoc" name="Natural_Forcing.Linear_trend_in_Effective_Radiative_Forcing_from_Solar_Output_Variations[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_CH4_concentration_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_N2O_concentration_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_Montreal_gases_equivalent_effective_stratospheric_chlorine_concentration_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_CO_emissions_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_VOC_emissions_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_NOx_emissions_change[1]"/>
+			<isee:variable type="adhoc" name="Forest.CO2_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_maximum_aboveground_biomass_per_area_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_squared_maximum_aboveground_biomass_per_area_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_squared_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.CO2_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.STA_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.STA_squared_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Crop.harvest_index_for_energy_crops[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Warm_surface_ocean_alkalinity_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Cold_surface_ocean_alkalinity_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.High_latitude_carbon_pump_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Warm_surface_ocean_temperature_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Cold_surface_ocean_temperature_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Warm_surface_ocean_salinity_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Cold_surface_ocean_salinity_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Cold_surface_ocean_carbon_reservoir[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Cold_surface_ocean_pH[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Deep_ocean_ocean_carbon_reservoir[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Intermediate_depth_ocean_carbon_reservoir[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Warm_surface_ocean_carbon_reservoir[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Warm_surface_ocean_pH[1]"/>
+			<isee:variable type="adhoc" name="Forest.Initial_Mature_forest_aboveground_biomass[1]"/>
+			<isee:variable type="adhoc" name="Forest.Initial_Young_forest_aboveground_biomass[1]"/>
+			<isee:variable type="adhoc" name="Land_Use.Initial_Mature_Forest[1]"/>
+			<isee:variable type="adhoc" name="Land_Use.Initial_Young_Forest[1]"/>
+			<isee:variable type="adhoc" name="cropland_soil_carbon.Initial_fast_soil_carbon_cropland[1]"/>
+			<isee:variable type="adhoc" name="cropland_soil_carbon.Initial_slow_soil_carbon_cropland[1]"/>
+			<isee:variable type="adhoc" name="degraded_land_soil_carbon.Initial_fast_soil_carbon_degraded_land[1]"/>
+			<isee:variable type="adhoc" name="degraded_land_soil_carbon.Initial_slow_soil_carbon_degraded_land[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_fast_soil_carbon_mature_forest[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_fast_soil_carbon_young_forest[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_slow_soil_carbon_mature_forest[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_slow_soil_carbon_young_forest[1]"/>
+			<isee:variable type="adhoc" name="grassland_soil_carbon.Initial_fast_soil_carbon_grassland[1]"/>
+			<isee:variable type="adhoc" name="grassland_soil_carbon.Initial_slow_soil_carbon_grassland[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Depth_of_warm_surface_ocean_layer[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Thickness_of_intermediate_ocean_layer[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Depth_of_cold_surface_ocean_layer[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Reference_overturning_strength_in_Sv[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Reference_intermediate_to_warm_surface_ocean_mixing_strength[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Reference_cold_surface_to_deep_ocean_mixing_strength[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Reference_strength_of_biological_carbon_pump_in_low_latitude_ocean[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Reference_strength_of_biological_carbon_pump_in_high_latitude_ocean[1]"/>
+			<isee:variable type="adhoc" name="Ocean.High_latitude_carbon_pump_transfer_efficiency[1]"/>
+			<isee:variable type="adhoc" name="Crop.normal_harvest_index_for_food_crops[1]"/>
+			<isee:variable type="adhoc" name="Crop.sensitivity_of_effect_of_crop_yield_on_harvest_index[1]"/>
+			<isee:variable type="adhoc" name="Crop.crop_yield_1980_reference[1]"/>
+			<isee:variable type="adhoc" name="Crop.harvest_index_for_feed_crops[1]"/>
+			<isee:variable type="adhoc" name="Crop.sensitivity_of_effect_of_crop_residue_production_on_field_fraction[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.grassland_litter_input_share_slow_soil_carbon[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.mature_forest_litter_input_share_slow_soil_carbon[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.natural_decay_rate_fast_soil_carbon[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.natural_decay_rate_litter_carbon[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.natural_decay_rate_slow_soil_carbon[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.temp_response[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.e0[1]"/>
+			<isee:variable type="adhoc" name="degraded_land_soil_carbon.degraded_land_productivity_reduction_factor[1]"/>
+			<isee:variable type="adhoc" name="Land_Use.forest_recovery_time[1]"/>
+			<isee:variable type="adhoc" name="CO2_Forcing.Atmospheric_CO2_Concentration_1750[1]"/>
 		</isee:sensi_specs>
 	</isee:sensi_specs_list>
 	<isee:optimizer_specs_list active_index="7">
@@ -115,33 +185,9 @@
 			<isee:payoff name="Energy Demand" action="min"/>
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Carbon Balance Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" maxiter="0">
-			<isee:parameter name="Crop.sensitivity_of_effect_of_crop_residue_production_on_field_fraction[1]" scaling="100"/>
-			<isee:parameter name="Forest.CO2_tree_net_primary_production_parameter[1]" scaling="10000"/>
-			<isee:parameter name="Grass.CO2_grass_net_primary_production_parameter[1]" scaling="10000"/>
 			<isee:parameter name="Land_Use.normal_average_time_cropland_in_use[1]" scaling="0.1"/>
-			<isee:parameter name="Grass.STA_grass_net_primary_production_parameter[1]" scaling="1000"/>
-			<isee:parameter name="Grass.STA_squared_grass_net_primary_production_parameter[1]" scaling="1000"/>
-			<isee:parameter name="Forest.STA_tree_net_primary_production_parameter[1]" scaling="1000"/>
-			<isee:parameter name="Forest.STA_squared_tree_net_primary_production_parameter[1]" scaling="1000"/>
-			<isee:parameter name="soil_carbon_decay.natural_decay_rate_fast_soil_carbon[1]" scaling="1000"/>
-			<isee:parameter name="soil_carbon_decay.natural_decay_rate_slow_soil_carbon[1]" scaling="10000"/>
-			<isee:parameter name="soil_carbon_decay.natural_decay_rate_litter_carbon[1]" scaling="100"/>
-			<isee:parameter name="soil_carbon_decay.temp_response[1]"/>
-			<isee:parameter name="forest_soil_carbon.forest_soil_carbon_initialisation[1]" scaling="0.1"/>
 			<isee:parameter name="cropland_soil_carbon.initial_cropland_soil_carbon[1]"/>
-			<isee:parameter name="grassland_soil_carbon.initial_grassland_soil_carbon[1]" scaling="0.1"/>
-			<isee:parameter name="soil_carbon_decay.grassland_litter_input_share_slow_soil_carbon[1]" scaling="1000"/>
-			<isee:parameter name="soil_carbon_decay.grassland_slow_soil_carbon_historic_share[1]" scaling="100"/>
-			<isee:parameter name="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon[1]" scaling="1000"/>
-			<isee:parameter name="soil_carbon_decay.cropland_slow_soil_carbon_historic_share[1]" scaling="100"/>
-			<isee:parameter name="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon[1]" scaling="1000"/>
-			<isee:parameter name="soil_carbon_decay.young_forest_slow_soil_carbon_historic_share[1]" scaling="100"/>
-			<isee:parameter name="soil_carbon_decay.mature_forest_litter_input_share_slow_soil_carbon[1]" scaling="1000"/>
-			<isee:parameter name="soil_carbon_decay.mature_forest_slow_soil_carbon_historic_share[1]" scaling="100"/>
-			<isee:parameter name="Land_Use.forest_recovery_time[1]"/>
 			<isee:parameter name="Terrestrial_Carbon_Balance.Global_peatland_carbon_uptake_rate[1]" scaling="100"/>
-			<isee:parameter name="Forest.STA_squared_maximum_aboveground_biomass_per_area_parameter[1]" scaling="1000"/>
-			<isee:parameter name="Forest.STA_maximum_aboveground_biomass_per_area_parameter[1]" scaling="1000"/>
 			<isee:parameter name="forest_soil_carbon.Young_forest_soil_carbon_reduction_factor[1]" scaling="100"/>
 			<isee:payoff name="Carbon Balance Payoff" action="min"/>
 			<isee:payoff name="Land Use and Agriculture Payoff" action="min" inactive="true"/>
@@ -151,7 +197,6 @@
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Land Use and Agriculture Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" maxiter="0">
 			<isee:parameter name="Land_Use.normal_average_time_cropland_in_use[1]" scaling="0.1"/>
-			<isee:parameter name="Crop.sensitivity_of_effect_of_crop_residue_production_on_field_fraction[1]" scaling="100"/>
 			<isee:parameter name="Land_Use.sensitivity_of_crop_land_use_time_to_cropland_size[1]"/>
 			<isee:parameter name="Crop.tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction[1]" scaling="1000"/>
 			<isee:payoff name="Land Use and Agriculture Payoff" action="min"/>
@@ -448,6 +493,24 @@
 		<variables>
 			<module name="Climate" isee:label="" url="r../FRIDA-Clim_Modules/Climate.itmx">
 				<format scale_by="auto"/>
+				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect2 to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
@@ -462,8 +525,6 @@
 				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 				<connect2 to="Sea_Level.SWITCH_population_is_input" from="SWITCH_population_is_input"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
@@ -500,8 +561,6 @@
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
-				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
@@ -645,8 +704,6 @@
 			</module>
 			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../FRIDA-Clim_Modules/Land Use and Agriculture.itmx">
 				<format scale_by="auto"/>
-				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect2 to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect to="Terrestrial_Carbon_Balance.crop_production_1" from="Crop.crop_production"/>
@@ -663,6 +720,8 @@
 				<connect2 to="Cropland_Carbon_Balance.UNIT_GtC_per_PCal_1" from="Crop.UNIT_GtC_per_PCal_crop"/>
 				<connect to="Terrestrial_Carbon_Balance.UNIT_GtC_per_PCal" from="Crop.UNIT_GtC_per_PCal_crop"/>
 				<connect2 to="Terrestrial_Carbon_Balance.UNIT_GtC_per_PCal" from="Crop.UNIT_GtC_per_PCal_crop"/>
+				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
 				<connect to="Terrestrial_Carbon_Balance.cutting" from="Forest.cutting"/>
@@ -689,6 +748,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.young_forest_net_primary_production" from="Forest.young_forest_net_primary_production"/>
 				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grassland_carbon_balance.animal_grazing_1" from="Grass.animal_grazing"/>
@@ -701,6 +762,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
@@ -729,6 +792,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
+				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
@@ -757,12 +822,16 @@
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_cropland" from="cropland_soil_carbon.soil_carbon_cropland"/>
 				<connect to="Cropland_Carbon_Balance.soil_carbon_emissions_cropland_GtC" from="cropland_soil_carbon.soil_carbon_emissions_cropland_GtC"/>
 				<connect2 to="Cropland_Carbon_Balance.soil_carbon_emissions_cropland_GtC" from="cropland_soil_carbon.soil_carbon_emissions_cropland_GtC"/>
+				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect2 to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect to="Terrestrial_Carbon_Balance.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
 				<connect2 to="Terrestrial_Carbon_Balance.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_degraded_land" from="degraded_land_soil_carbon.soil_carbon_degraded_land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_degraded_land" from="degraded_land_soil_carbon.soil_carbon_degraded_land"/>
+				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest_carbon_balance.fast_soil_carbon_forest_to_cropland" from="forest_soil_carbon.fast_soil_carbon_forest_to_cropland"/>
 				<connect2 to="Forest_carbon_balance.fast_soil_carbon_forest_to_cropland" from="forest_soil_carbon.fast_soil_carbon_forest_to_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.fast_soil_carbon_emissions_young_forest" from="forest_soil_carbon.fast_soil_carbon_emissions_young_forest"/>
@@ -773,8 +842,6 @@
 				<connect2 to="Forest_carbon_balance.forest_landuse_fast_soil_carbon_input" from="forest_soil_carbon.forest_landuse_fast_soil_carbon_input"/>
 				<connect to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
@@ -801,6 +868,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_mature_forest" from="forest_soil_carbon.soil_carbon_mature_forest"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_young_forest" from="forest_soil_carbon.soil_carbon_young_forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_young_forest" from="forest_soil_carbon.soil_carbon_young_forest"/>
+				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Grassland_carbon_balance.fast_soil_carbon_grassland_to_cropland" from="grassland_soil_carbon.fast_soil_carbon_grassland_to_cropland"/>
 				<connect2 to="Grassland_carbon_balance.fast_soil_carbon_grassland_to_cropland" from="grassland_soil_carbon.fast_soil_carbon_grassland_to_cropland"/>
 				<connect to="Grassland_carbon_balance.fast_soil_carbon_grassland_to_degraded_land" from="grassland_soil_carbon.fast_soil_carbon_grassland_to_degraded_land"/>
@@ -829,8 +898,12 @@
 				<connect2 to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_grassland" from="grassland_soil_carbon.soil_carbon_grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_grassland" from="grassland_soil_carbon.soil_carbon_grassland"/>
+				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
+				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_emissions_GtC" from="soil_carbon_emissions.gross_soil_carbon_emissions_GtC"/>
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_emissions_GtC" from="soil_carbon_emissions.gross_soil_carbon_emissions_GtC"/>
 				<connect to="Terrestrial_Carbon_Balance.litter_emissions_GtC" from="soil_carbon_emissions.litter_emissions_GtC"/>
@@ -913,7 +986,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="105" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="336.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -974,6 +1047,80 @@ This is what determines when the model stops calculating</doc>
 					<from>SWITCH_population_is_input</from>
 					<to>Climate</to>
 				</connector>
+				<stacked_container uid="177" x="832.056" y="433.25" minimized="true" name="Surface Temperature timeseries">
+					<table interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="Surface Temperature timeseries" isee:mark_for_export="true" title="Surface Temperature timeseries">
+						<item type="time"/>
+						<item>
+							<entity name='Energy_Balance_Model."Land_&amp;_Ocean_Surface_Temperature"[*]'/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="178" x="989.584" y="433.25" minimized="true" name="Ocean CO2 Flux">
+					<table isee:start_time="1781" interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="Ocean CO2 Flux" isee:mark_for_export="true" title="Ocean CO2 Flux">
+						<item type="time"/>
+						<item>
+							<entity name="Ocean.Air_sea_co2_flux[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="179" x="1121.17" y="433.25" minimized="true" name="Aerosol Forcings">
+					<table isee:start_time="2005" isee:stop_time="2014" interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="Aerosol Forcings" isee:mark_for_export="true" title="Aerosol Forcings">
+						<item type="time"/>
+						<item/>
+						<item/>
+					</table>
+				</stacked_container>
+				<stacked_container uid="180" x="832.056" y="509.587" minimized="true" name="CO2 Concentration">
+					<table isee:start_time="2022" isee:stop_time="2022" interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="CO2 Concentration" isee:mark_for_export="true" title="CO2 Concentration">
+						<item type="time"/>
+						<item>
+							<entity name="CO2_Forcing.Atmospheric_CO2_Concentration[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="181" x="989.584" y="513.753" minimized="true" name="OHC">
+					<table isee:start_time="1971" isee:stop_time="2020" interval="49" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="OHC" isee:mark_for_export="true" title="OHC">
+						<item type="time"/>
+						<item>
+							<entity name="Energy_Balance_Model.ocean_heat_content_change[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="182" x="1115.83" y="513.753" minimized="true">
+					<table interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="Land variables" isee:mark_for_export="true" title="Land variables">
+						<item type="time"/>
+						<item>
+							<entity name="grassland_soil_carbon.slow_soil_carbon_grassland[*]"/>
+						</item>
+						<item>
+							<entity name="grassland_soil_carbon.fast_soil_carbon_grassland[*]"/>
+						</item>
+						<item>
+							<entity name="forest_soil_carbon.slow_soil_carbon_young_forest[*]"/>
+						</item>
+						<item>
+							<entity name="forest_soil_carbon.slow_soil_carbon_mature_forest[*]"/>
+						</item>
+						<item>
+							<entity name="forest_soil_carbon.fast_soil_carbon_mature_forest[*]"/>
+						</item>
+						<item>
+							<entity name="forest_soil_carbon.fast_soil_carbon_young_forest[*]"/>
+						</item>
+						<item>
+							<entity name="degraded_land_soil_carbon.slow_soil_carbon_degraded_land[*]"/>
+						</item>
+						<item>
+							<entity name="degraded_land_soil_carbon.fast_soil_carbon_degraded_land[*]"/>
+						</item>
+						<item>
+							<entity name="cropland_soil_carbon.slow_soil_carbon_cropland[*]"/>
+						</item>
+						<item>
+							<entity name="cropland_soil_carbon.fast_soil_carbon_cropland[*]"/>
+						</item>
+					</table>
+				</stacked_container>
 			</view>
 			<view isee:template_view="template:1" isee:name="Landing Page without image" isee:original_design="Deluxe Prev-Next Blue Green Pastel" background="white" page_width="1066" page_height="600" home_view="true" type="interface">
 				<style>

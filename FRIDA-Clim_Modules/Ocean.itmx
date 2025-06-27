@@ -5,7 +5,7 @@
 		<name>Ocean</name>
 		<uuid>70375eeb-c169-4f0b-92ed-62f384970511</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8" isee:build_number="3578" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="100" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -245,7 +245,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1787.16881503</eqn>
+					<eqn>694.218252843</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>2828.90939856</eqn>
@@ -555,7 +555,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>497.963654232</eqn>
+					<eqn>626.122609437</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>432.389028139</eqn>
@@ -900,7 +900,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>9210.08786632</eqn>
+					<eqn>8984.66024408</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>3812.35334158</eqn>
@@ -1210,7 +1210,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>25312.1788313</eqn>
+					<eqn>23990.4112999</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>30065.6688325</eqn>
@@ -1580,7 +1580,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>22.1092095652714</eqn>
+					<eqn>29.9875842503749</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>15.9115737549437</eqn>
@@ -1916,7 +1916,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>75.9226015163111</eqn>
+					<eqn>80.6799103641213</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>83.2759967747288</eqn>
@@ -2224,7 +2224,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>12.7679555489102</eqn>
+					<eqn>13.8265096501095</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>18.438929080319</eqn>
@@ -2539,7 +2539,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>241.653714863495</eqn>
+					<eqn>95.2471288940721</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>382.562238689928</eqn>
@@ -2847,7 +2847,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>383.045245269137</eqn>
+					<eqn>493.942050874222</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>332.847513177085</eqn>
@@ -3155,7 +3155,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>960.810825827983</eqn>
+					<eqn>951.237998901006</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>395.253416983318</eqn>
@@ -3544,7 +3544,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.860490696144448</eqn>
+					<eqn>0.75008287970673</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.864163708505305</eqn>
@@ -3868,7 +3868,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.893825766014956</eqn>
+					<eqn>0.420045203037225</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.322939874089288</eqn>
@@ -4192,7 +4192,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.0365627451961131</eqn>
+					<eqn>-0.0316044467593767</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.0368178217268402</eqn>
@@ -4516,7 +4516,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.159009449119733</eqn>
+					<eqn>-0.0740793624236116</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.285010656065546</eqn>
@@ -4840,7 +4840,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.00000365627451961132</eqn>
+					<eqn>-0.00000316044467593767</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.00000368178217268402</eqn>
@@ -5164,7 +5164,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.0000159009449119733</eqn>
+					<eqn>-0.00000740793624236116</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.0000285010656065546</eqn>
@@ -5482,7 +5482,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>8.08819328624</eqn>
+					<eqn>8.1451102177</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>8.08694314919</eqn>
@@ -5791,7 +5791,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>8.30369016425</eqn>
+					<eqn>8.41476191348</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>8.29698399056</eqn>
@@ -6431,7 +6431,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>7.15864678684427</eqn>
+					<eqn>8.51459917184212</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>6.95117489615712</eqn>
@@ -6739,7 +6739,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>-0.185076925948095</eqn>
+					<eqn>-0.113103203748172</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>-0.43488543282187</eqn>
@@ -7047,7 +7047,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>0.396042000402815</eqn>
+					<eqn>0.237811253750051</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.343281984068357</eqn>
@@ -7355,7 +7355,7 @@
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1.56022389091883</eqn>
+					<eqn>0.88761070216624</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>2.3540066747919</eqn>
@@ -7816,7 +7816,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="4" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="4" isee:scroll_x="606.667" isee:scroll_y="588.333" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>

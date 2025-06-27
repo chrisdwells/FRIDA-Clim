@@ -312,10 +312,26 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="CO2_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="CO2_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="CO2_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Energy_Balance_Model.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Energy_Balance_Model.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
-				<connect2 to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Minor_GHGs_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Minor_GHGs_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="N2O_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -338,6 +354,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Ozone_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ocean.UNIT_deg_C_to_unitless" from="Climate_Units.UNIT_deg_C_to_unitless"/>
@@ -554,10 +572,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="CO2_Forcing.UNIT_MtCO2_to_GtCO2" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect to="CO2_Forcing.UNIT_weight_ratio_of_CO2_over_C" from="Climate_Units.UNIT_weight_ratio_of_CO2_over_C"/>
 				<connect2 to="CO2_Forcing.UNIT_weight_ratio_of_CO2_over_C" from="Climate_Units.UNIT_weight_ratio_of_CO2_over_C"/>
-				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
-				<connect2 to="Land_Use_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect2 to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect to="Minor_GHGs_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
@@ -659,8 +675,6 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
-				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
@@ -853,7 +867,7 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="3" isee:scroll_x="70" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="3" isee:scroll_y="73.3333" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -965,7 +979,7 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 					<dim name="Run"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>90</eqn>
+					<eqn>1</eqn>
 				</element>
 				<units>dmnl</units>
 			</aux>
@@ -1323,7 +1337,7 @@ C2 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>16.0447891010493</eqn>
+					<eqn>14.1297894399967</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>44.5993634089468</eqn>
@@ -1631,7 +1645,7 @@ C3 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>69.0874875294483</eqn>
+					<eqn>160.112365798355</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>237.945038664163</eqn>
@@ -1939,7 +1953,7 @@ C1 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>5.89278558196898</eqn>
+					<eqn>5.16745519905903</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>7.18162783431457</eqn>
@@ -2247,7 +2261,7 @@ kappa1 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1.0922719055872</eqn>
+					<eqn>1.25433233828096</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>1.8985288071973</eqn>
@@ -2555,7 +2569,7 @@ epsilon in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1.66963865825059</eqn>
+					<eqn>1.28635756435639</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.63604602228091</eqn>
@@ -2863,7 +2877,7 @@ kappa2 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>2.6347151011153</eqn>
+					<eqn>2.13914521226008</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>2.17298288282948</eqn>
@@ -3171,7 +3185,7 @@ kappa3 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 					<dim name="ClimateCase"/>
 				</dimensions>
 				<element subscript="1">
-					<eqn>1.47235522552198</eqn>
+					<eqn>1.31428897494332</eqn>
 				</element>
 				<element subscript="2">
 					<eqn>0.719950943639683</eqn>
@@ -3923,7 +3937,7 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="378" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="355" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4747,13 +4761,6 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<eqn>&quot;Commited_future_soil_carbon_loss_due_to_land-use_transitions&quot;/Soil_carbon_adaptation_time_scale</eqn>
 				<units>GtC/Year</units>
 			</flow>
-			<aux name="forest soil carbon 1980" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>536.2</eqn>
-				<units>GtC</units>
-			</aux>
 			<aux name="cropland soil carbon 1980" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -4907,7 +4914,7 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="3" isee:scroll_x="237.5" isee:scroll_y="253.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="3" isee:scroll_x="1636.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5265,9 +5272,8 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 					<from>&quot;Commited_future_soil_carbon_loss_due_to_land-use_transitions&quot;</from>
 					<to>Annual_realized_CO2_emissions_from_land_use_transitions</to>
 				</connector>
-				<aux label_side="bottom" x="1073" y="588.334" name="forest soil carbon 1980"/>
 				<aux x="1073" y="687" name="cropland soil carbon 1980"/>
-				<aux x="1080" y="784" name="grassland soil carbon 1980"/>
+				<aux font_style="italic" font_weight="bold" x="1080" y="784" name="grassland soil carbon 1980"/>
 				<aux x="1208" y="650.417" name="Forest soil carbon 1981"/>
 				<aux x="1924" y="1131.17" name="Total soil carbon"/>
 				<connector uid="63" angle="249.957">
