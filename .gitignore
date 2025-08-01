@@ -2,4 +2,4 @@
 data/priors_input/*csv
 data/priors_output/*csv
 data/spinup_input/*csv
-*isdb
+FRIDA-Clim_spinup.isdb
