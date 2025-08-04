@@ -170,6 +170,7 @@ variable_stock_list = [
     "forest soil carbon.slow soil carbon young forest[1]",
     "grassland soil carbon.fast soil carbon grassland[1]",
     "grassland soil carbon.slow soil carbon grassland[1]",
+    "Terrestrial Carbon Balance.Commited future soil carbon loss due to land-use transitions[1]",
                     ]
 
 stocks_dict = {}
@@ -178,8 +179,6 @@ variable_stock_list_frida = []
 for variable_stock in variable_stock_list:
     variable_stock_list_frida.append(variable_stock.split(".")[0
                        ] + '.Initial ' + variable_stock.split(".")[1])
-
-df_out = pd.DataFrame(columns=[variable_stock_list_frida])
 
 for var in variable_stock_list:
     var_init = var.split(".")[0] + '.Initial ' + var.split(".")[1]

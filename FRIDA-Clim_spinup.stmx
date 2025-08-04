@@ -846,7 +846,7 @@
 			<aux name="Simulation End">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
-				<eqn>5000</eqn>
+				<eqn>8000</eqn>
 				<format precision="1"/>
 				<range min="2023" max="2200"/>
 				<units>years</units>
@@ -1021,10 +1021,13 @@ This is what determines when the model stops calculating</doc>
 						<item>
 							<entity name="grassland_soil_carbon.slow_soil_carbon_grassland[*]"/>
 						</item>
+						<item>
+							<entity name='Terrestrial_Carbon_Balance."Commited_future_soil_carbon_loss_due_to_land-use_transitions"[*]'/>
+						</item>
 					</table>
 				</stacked_container>
-				<stacked_container uid="113" x="599" y="428.444" minimized="true">
-					<table isee:start_time="4980" isee:stop_time="5000" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="Spinup tests" isee:mark_for_export="true">
+				<stacked_container uid="113" x="599" y="428.444">
+					<table isee:start_time="7980" isee:stop_time="8000" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="Spinup tests" isee:mark_for_export="true">
 						<item type="time"/>
 						<item>
 							<entity name="Ocean.Air_sea_co2_flux[*]"/>

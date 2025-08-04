@@ -26,7 +26,7 @@
 		</dim>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="20" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -74,9 +74,10 @@
 		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_npp_initial_values.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/population.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/crop_production.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="r../calibration/data/external/forcing/misc_exog.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Climate Sensitivity" method="external" path="r../calibration/data/priors_input/priors_inputs_1000.csv">
+		<isee:sensi_specs name="Climate Sensitivity" method="external" path="r../calibration/data/priors_input/priors_inputs_20.csv">
 			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"[1]'/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean[1]"/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean[1]"/>
@@ -140,6 +141,7 @@
 			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_slow_soil_carbon_young_forest[1]"/>
 			<isee:variable type="adhoc" name="grassland_soil_carbon.Initial_fast_soil_carbon_grassland[1]"/>
 			<isee:variable type="adhoc" name="grassland_soil_carbon.Initial_slow_soil_carbon_grassland[1]"/>
+			<isee:variable type="adhoc" name='Terrestrial_Carbon_Balance."Initial_Commited_future_soil_carbon_loss_due_to_land-use_transitions"[1]'/>
 			<isee:variable type="adhoc" name="Ocean.Depth_of_warm_surface_ocean_layer[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Thickness_of_intermediate_ocean_layer[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Depth_of_cold_surface_ocean_layer[1]"/>
