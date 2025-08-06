@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="1" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="2" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -271,6 +271,10 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>

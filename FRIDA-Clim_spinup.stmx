@@ -120,10 +120,12 @@
 			<isee:variable type="adhoc" name="soil_carbon_decay.natural_decay_rate_fast_soil_carbon[1]"/>
 			<isee:variable type="adhoc" name="soil_carbon_decay.natural_decay_rate_litter_carbon[1]"/>
 			<isee:variable type="adhoc" name="soil_carbon_decay.natural_decay_rate_slow_soil_carbon[1]"/>
-			<isee:variable type="adhoc" name="soil_carbon_decay.temp_response[1]"/>
 			<isee:variable type="adhoc" name="soil_carbon_decay.e0[1]"/>
+			<isee:variable type="adhoc" name="soil_carbon_decay.temp_response[1]"/>
 			<isee:variable type="adhoc" name="degraded_land_soil_carbon.degraded_land_productivity_reduction_factor[1]"/>
 			<isee:variable type="adhoc" name="Land_Use.forest_recovery_time[1]"/>
+			<isee:variable type="adhoc" name="Forest.tree_net_primary_production_in_1750[1]"/>
+			<isee:variable type="adhoc" name="Grass.grass_net_primary_production_in_1750[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Atmospheric_CO2_Concentration_1750[1]"/>
 		</isee:sensi_specs>
 	</isee:sensi_specs_list>
@@ -455,6 +457,10 @@
 				<connect2 to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -688,6 +694,8 @@
 				<connect2 to="Forest_carbon_balance.young_forest_net_primary_production_1" from="Forest.young_forest_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.young_forest_net_primary_production" from="Forest.young_forest_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.young_forest_net_primary_production" from="Forest.young_forest_net_primary_production"/>
+				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect to="Grassland_carbon_balance.animal_grazing_1" from="Grass.animal_grazing"/>
@@ -698,6 +706,8 @@
 				<connect2 to="Grassland_carbon_balance.grassland_net_primary_production_1" from="Grass.grassland_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
+				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing_forests_for_crops" from="Land_Use.clearing_forests_for_crops"/>
@@ -1026,7 +1036,7 @@ This is what determines when the model stops calculating</doc>
 						</item>
 					</table>
 				</stacked_container>
-				<stacked_container uid="113" x="599" y="428.444">
+				<stacked_container uid="113" x="599" y="428.444" minimized="true">
 					<table isee:start_time="7980" isee:stop_time="8000" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="Spinup tests" isee:mark_for_export="true">
 						<item type="time"/>
 						<item>

@@ -31,20 +31,23 @@ spinup_variables = {
     "Crop.harvest index for feed crops[1]":[0.5	, 0.8],
     "Crop.sensitivity of effect of crop residue production on field fraction[1]":[0, 0.75],
     
-    "soil carbon decay.cropland litter input share slow soil carbon[1]":[0.01, 0.02],
-    "soil carbon decay.grassland litter input share slow soil carbon[1]":[0.01, 0.02],
-    "soil carbon decay.mature forest litter input share slow soil carbon[1]":[0.015, 0.025],
-    "soil carbon decay.young forest litter input share slow soil carbon[1]":[0.01, 0.025],
+    "soil carbon decay.cropland litter input share slow soil carbon[1]":[0.01, 0.03],
+    "soil carbon decay.grassland litter input share slow soil carbon[1]":[0.01, 0.03],
+    "soil carbon decay.mature forest litter input share slow soil carbon[1]":[0.015, 0.035],
+    "soil carbon decay.young forest litter input share slow soil carbon[1]":[0.01, 0.035],
     
     "soil carbon decay.natural decay rate fast soil carbon[1]":[0.025, 0.035],
     "soil carbon decay.natural decay rate litter carbon[1]":[0.6, 0.8],
     "soil carbon decay.natural decay rate slow soil carbon[1]":[0.0008, 0.0012],
-    "soil carbon decay.temp response[1]":[40, 60],
-    "soil carbon decay.e0[1]":[290, 310],
+    "soil carbon decay.e0[1]":[290,300],
+    "soil carbon decay.temp_response[1]":[55,60],
     
     "degraded land soil carbon.degraded land productivity reduction factor[1]":[0.01, 0.1],
     
     "Land Use.forest recovery time[1]":[50, 70],
+    
+    "Forest.tree net primary production in 1750[1]":[0.005, 0.0095],
+    "Grass.grass net primary production in 1750[1]":[0.0035, 0.005],
     }
 
 param_dict = {}
@@ -85,6 +88,7 @@ df.to_csv(
 os.makedirs("../data/spinup_output/", exist_ok=True)
 os.makedirs("../data/priors_input/", exist_ok=True)
 os.makedirs("../data/priors_output/", exist_ok=True)
+os.makedirs("../data/constraining/", exist_ok=True)
 
 needed_csvs = [
     f'../data/spinup_output/Spinup_output_{spinup_samples}.csv',
@@ -95,6 +99,8 @@ needed_csvs = [
     '../data/priors_output/priors_ocean_CO2_flux.csv',
     '../data/priors_output/priors_ocean_heat_content.csv',
     '../data/priors_output/priors_temperature.csv',
+    '../data/priors_output/priors_SLR.csv',
+    '../data/priors_output/priors_NPP.csv',
     ]
 
 for csv in needed_csvs:

@@ -584,6 +584,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect to="Grass.Grassland_1" from="Land_Use.Grassland"/>
 				<connect2 to="Grass.Grassland_1" from="Land_Use.Grassland"/>
+				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 			</module>
 			<module name="Forest" isee:label="">
 				<format scale_by="auto"/>
@@ -627,6 +629,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Forest.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect2 to="Forest.Mature_Forest" from="Land_Use.Mature_Forest"/>
+				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect to="Forest.Young_Forest" from="Land_Use.Young_Forest"/>
@@ -683,7 +687,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_x="164.286" isee:scroll_y="42.8571" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_x="73.3333" isee:scroll_y="75" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2729,7 +2733,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_feed)</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>tree_net_primary_production_in_1750</eqn>
+				<eqn>tree_net_primary_production_in_1750[selected_climate_case]</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="young forest litter" access="output" isee:autocreated="true">
@@ -2742,6 +2746,9 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_feed)</eqn>
 			<aux name="tree net primary production\nin 1750">
 				<doc>${Internal Calibration Parameter}
 </doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
 				<eqn>0.0075685940320028</eqn>
 				<range min="0.005" max="0.01"/>
 				<units>GtC/(Mha*year)</units>
@@ -2871,7 +2878,7 @@ Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass_1750*Young_mature_forest_biomass_ratio[Climate_Units.selected_climate_case]*young_forest_share</eqn>
+				<eqn>forest_aboveground_biomass_1750*Young_mature_forest_biomass_ratio[selected_climate_case]*young_forest_share</eqn>
 				<format precision="full"/>
 				<inflow>young_forest_growth</inflow>
 				<outflow>maturing</outflow>
@@ -3345,6 +3352,13 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<range min="0.3" max="0.7"/>
 				<units>dmnl</units>
 			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -3689,6 +3703,11 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 					<to>cutting</to>
 				</connector>
 				<aux color="blue" x="904.571" y="97.5714" name="Young mature forest biomass\nratio"/>
+				<aux font_style="italic" font_weight="bold" x="1081.25" y="991.25" name="selected climate case"/>
+				<connector uid="95" angle="177.498">
+					<from>selected_climate_case</from>
+					<to>tree_net_primary_production</to>
+				</connector>
 				<alias font_style="italic" uid="54" x="642" y="157" width="18" height="18">
 					<of>Mature_forest_aboveground_biomass_per_area</of>
 				</alias>
@@ -3701,7 +3720,7 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grass_net_primary_production_in_1750</eqn>
+				<eqn>grass_net_primary_production_in_1750[selected_climate_case]</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="grassland litter" access="output" isee:autocreated="true">
@@ -3718,6 +3737,9 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 			<aux name="grass net primary production\nin 1750">
 				<doc>${Internal Calibration Parameter}
 </doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
 				<eqn>0.00456236784424038</eqn>
 				<range min="0.0025" max="0.005"/>
 				<units>GtC/(Mha*year)</units>
@@ -3736,6 +3758,13 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mha</units>
 			</stock>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -3785,7 +3814,7 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="305" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3849,6 +3878,11 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<connector uid="20" angle="30.6507">
 					<from>Grassland_1</from>
 					<to>grassland_net_primary_production</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="633.75" y="340" name="selected climate case"/>
+				<connector uid="27" angle="168.738">
+					<from>selected_climate_case</from>
+					<to>grass_net_primary_production</to>
 				</connector>
 			</view>
 		</views>

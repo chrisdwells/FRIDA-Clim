@@ -3,3 +3,6 @@ data/priors_input/*csv
 data/priors_output/*csv
 data/spinup_input/*csv
 FRIDA-Clim_spinup.isdb
+calibration/data/external/samples_for_priors/*
+calibration/data/priors_input/*
+calibration/data/priors_output/*
