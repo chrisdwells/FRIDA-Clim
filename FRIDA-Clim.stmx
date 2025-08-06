@@ -83,7 +83,7 @@
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../calibration/data/external/forcing/misc_exog.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Climate Sensitivity" method="external" path="r../calibration/data/priors_input/priors_inputs_3000.csv">
+		<isee:sensi_specs name="Climate Sensitivity" method="external" path="r../calibration/data/priors_input/priors_inputs_30000.csv">
 			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"[1]'/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean[1]"/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean[1]"/>
@@ -111,6 +111,15 @@
 			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_CO_emissions_change[1]"/>
 			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_VOC_emissions_change[1]"/>
 			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_NOx_emissions_change[1]"/>
+			<isee:variable type="adhoc" name="Forest.CO2_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_maximum_aboveground_biomass_per_area_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_squared_maximum_aboveground_biomass_per_area_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_squared_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.CO2_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.STA_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.STA_squared_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Crop.harvest_index_for_energy_crops[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Warm_surface_ocean_alkalinity_sensitivity_to_global_T_anomaly[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Cold_surface_ocean_alkalinity_sensitivity_to_global_T_anomaly[1]"/>
 			<isee:variable type="adhoc" name="Ocean.High_latitude_carbon_pump_sensitivity_to_global_T_anomaly[1]"/>
@@ -166,6 +175,7 @@
 			<isee:variable type="adhoc" name="Land_Use.forest_recovery_time[1]"/>
 			<isee:variable type="adhoc" name="Forest.tree_net_primary_production_in_1750[1]"/>
 			<isee:variable type="adhoc" name="Grass.grass_net_primary_production_in_1750[1]"/>
+			<isee:variable type="adhoc" name="Forest.forest_aboveground_biomass_1750[1]"/>
 			<isee:variable type="adhoc" name="CO2_Forcing.Atmospheric_CO2_Concentration_1750[1]"/>
 		</isee:sensi_specs>
 	</isee:sensi_specs_list>

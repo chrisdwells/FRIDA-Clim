@@ -69,20 +69,16 @@ df_fair_data = pd.DataFrame(data=fair_data_dict, columns=fair_data_dict.keys())
 # for FRIDA-Clim, add the land variables
 
 land_variables = {
-    "Forest.CO2 tree net primary production parameter[1]":     [0.0008, 0.001],
-    "Forest.STA maximum aboveground biomass per area parameter[1]":      [0.3, 0.35],
+    "Forest.CO2 tree net primary production parameter[1]":     [0.0008, 0.0012],
+    "Forest.STA maximum aboveground biomass per area parameter[1]":      [0.3, 0.5],
     "Forest.STA squared maximum aboveground biomass per area parameter[1]":    [-0.05, -0.02],
     "Forest.STA squared tree net primary production parameter[1]":    [-0.05, -0.01],
-    "Forest.STA tree net primary production parameter[1]":    [0.1, 0.13],
-    "Grass.CO2 grass net primary production parameter[1]":   [0.0008, 0.001],
-    "Grass.STA grass net primary production parameter[1]":    [0.1, 0.13],
+    "Forest.STA tree net primary production parameter[1]":    [0.1, 0.15],
+    "Grass.CO2 grass net primary production parameter[1]":   [0.0008, 0.0012],
+    "Grass.STA grass net primary production parameter[1]":    [0.1, 0.15],
     "Grass.STA squared grass net primary production parameter[1]":   [-0.05, -0.01],
     "Crop.harvest index for energy crops[1]":[0.6, 0.95],
     }
-
-land_variables = {
-
-    } 
 
 land_param_dict = {}
 
@@ -91,7 +87,7 @@ for i in np.arange(samples):
     run_list.append(f'Run {i+1}')
 land_param_dict['Run'] = run_list
 
-for l_i, land_var in enumerate(land_variables):
+for l_i, land_var in enumerate(list(land_variables.keys())):
     
     land_param_dict[land_var] = scipy.stats.uniform.rvs(
         land_variables[land_var][0],
@@ -121,10 +117,9 @@ ocean_variables = {
     # "Ocean.Cold surface ocean salinity sensitivity to global T anomaly[1]":[-0.3, -0.05],
     }
 
-
 param_dict = {}
 
-for o_i, ocean_var in enumerate(ocean_variables):
+for o_i, ocean_var in enumerate(ocean_variables.keys()):
     
     param_dict[ocean_var] = scipy.stats.uniform.rvs(
         ocean_variables[ocean_var][0],
@@ -200,7 +195,12 @@ df_spinup_params = pd.read_csv(f"../data/spinup_input/spinup_params_{spinup_samp
 
 df_spinup = pd.concat([df_spinup_stocks, df_spinup_params], axis=1)
 
-df_spinup= df_spinup.drop(columns='Forest.Young mature forest biomass ratio[1]')
+df_spinup= df_spinup.drop(columns=[
+    'Forest.Young mature forest biomass ratio[1]',
+    'Land Use.Initial young forest area[1]'
+    ])
+
+
 
 # apply test(s) to make sure equilibrium is reached in the spinup
 df_spinup_tests = pd.read_csv(f'../data/spinup_output/Spinup_output_tests_{spinup_samples}.csv')
@@ -231,6 +231,17 @@ df_combined = pd.concat([df_params, df_spinup_out], axis=1)
 df_run = df_combined["Run"].iloc[:,0]
 df_combined = df_combined.drop(columns='Run')
 df_combined = pd.concat([df_run, df_combined], axis=1)
+
+
+full_vars_list = list(set(fair_vars_to_frida.values())) + list(land_param_dict.keys()) + list(param_dict.keys()) + list(df_spinup.keys())
+full_vars_list = list(filter(lambda a: a != 'Run', full_vars_list))
+full_vars_list.sort()
+
+combined_list = list(df_combined.keys())
+combined_list = list(filter(lambda a: a != 'Run', combined_list))
+combined_list.sort()
+
+assert full_vars_list == combined_list
 
 df_combined = df_combined.rename(columns={
     "Ocean.Atmospheric CO2 Concentration 1750[1]": "CO2 Forcing.Atmospheric CO2 Concentration 1750[1]",

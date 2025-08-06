@@ -15,7 +15,7 @@ load_dotenv()
 samples = int(os.getenv("PRIOR_SAMPLES"))
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
 
-co2_constraint_scaling = 3
+co2_constraint_scaling = 1
 
 NINETY_TO_ONESIGMA = scipy.stats.norm.ppf(0.95)
 
@@ -475,14 +475,14 @@ dict_distributions['Aerosol']['Xs'] = np.linspace(start, stop, 1000)
 dict_distributions['Aerosol']['xlim'] = [start, stop]
 
 
-# start = 413
-# stop = 421
+start = 413
+stop = 421
 
-start = 410
-stop = 470
+# start = 410
+# stop = 470
 
-ax[2, 0].axvline(x=416, color='black')
-ax[2, 0].axvline(x=418, color='black')
+# ax[2, 0].axvline(x=416, color='black')
+# ax[2, 0].axvline(x=418, color='black')
 
 ax[2, 0].plot(
     np.linspace(start, stop, 1000),
@@ -566,7 +566,8 @@ dict_distributions['OHC']['xlim'] = [start, stop]
 
 fig.tight_layout()
 
-#%%
+
+
 plt.savefig(
     "../plots/constraints.png"
 )
@@ -673,7 +674,11 @@ with open('../data/constraining/distributions.pickle', 'wb') as handle:
 co2_priors = scipy.stats.gaussian_kde(co2_in[valid_temp_flux])
 
 
-plt.plot(np.linspace(400, 480, 1000), co2_priors(np.linspace(400, 480, 1000)))
-plt.axvline(x=416)
-plt.axvline(x=418)
+plt.plot(np.linspace(380, 480, 1000), co2_priors(np.linspace(380, 480, 1000)))
+plt.axvline(x=417 - 1)
+plt.axvline(x=417 + 1)
+
+plt.axvline(x=417 - 3, linestyle='--')
+plt.axvline(x=417 + 3, linestyle='--')
+
 plt.title('CO2')

@@ -48,6 +48,11 @@ spinup_variables = {
     
     "Forest.tree net primary production in 1750[1]":[0.005, 0.0095],
     "Grass.grass net primary production in 1750[1]":[0.0035, 0.005],
+    
+    "Forest.forest aboveground biomass 1750[1]":[500, 700],
+    
+    "Land Use.Initial young forest area[1]":[50, 300],
+    
     }
 
 param_dict = {}
