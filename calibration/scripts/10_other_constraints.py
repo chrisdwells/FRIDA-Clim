@@ -653,6 +653,7 @@ plt.savefig(
 
 # plt.close()
 
+#%%
 
 np.savetxt(
     "../data/constraining/runids_rmse_reweighted_pass.csv",
@@ -670,15 +671,3 @@ with open('../data/constraining/distributions.pickle', 'wb') as handle:
 
 #%%
 
-
-co2_priors = scipy.stats.gaussian_kde(co2_in[valid_temp_flux])
-
-
-plt.plot(np.linspace(380, 480, 1000), co2_priors(np.linspace(380, 480, 1000)))
-plt.axvline(x=417 - 1)
-plt.axvline(x=417 + 1)
-
-plt.axvline(x=417 - 3, linestyle='--')
-plt.axvline(x=417 + 3, linestyle='--')
-
-plt.title('CO2')

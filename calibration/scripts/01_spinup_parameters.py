@@ -94,6 +94,7 @@ os.makedirs("../data/spinup_output/", exist_ok=True)
 os.makedirs("../data/priors_input/", exist_ok=True)
 os.makedirs("../data/priors_output/", exist_ok=True)
 os.makedirs("../data/constraining/", exist_ok=True)
+os.makedirs("../data/posteriors_output/", exist_ok=True)
 
 needed_csvs = [
     f'../data/spinup_output/Spinup_output_{spinup_samples}.csv',
@@ -106,6 +107,14 @@ needed_csvs = [
     '../data/priors_output/priors_temperature.csv',
     '../data/priors_output/priors_SLR.csv',
     '../data/priors_output/priors_NPP.csv',
+    '../data/posteriors_output/posteriors_land.csv',
+    '../data/posteriors_output/posteriors_aerosols.csv',
+    '../data/posteriors_output/posteriors_CO2.csv',
+    '../data/posteriors_output/posteriors_ocean_CO2_flux.csv',
+    '../data/posteriors_output/posteriors_ocean_heat_content.csv',
+    '../data/posteriors_output/posteriors_temperature.csv',
+    '../data/posteriors_output/posteriors_SLR.csv',
+    '../data/posteriors_output/posteriors_NPP.csv',
     ]
 
 for csv in needed_csvs:

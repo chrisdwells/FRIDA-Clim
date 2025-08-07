@@ -61,9 +61,6 @@
 		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
 			<table name="Ocean CO2 Flux" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
-			<table name="Ocean CO2 Flux" use_settings="true"/>
-		</export>
 		<export frequency="on_demand" resource="r../calibration/data/priors_output/priors_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
 			<table name="OHC" use_settings="true"/>
 		</export>

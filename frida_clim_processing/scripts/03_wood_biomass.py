@@ -2,9 +2,10 @@ import pandas as pd
 import numpy as np
 
 start_year = 1750
-end_year = 2100
+end_year = 2099
+ext_year = 2299
 
-ssps = ['ssp126', 'ssp245', 'ssp370']
+ssps = ['ssp119', 'ssp126ext', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp534ext', 'ssp585ext']
 
 
 df_wood_biomass_hist = pd.read_csv(
@@ -20,8 +21,13 @@ for scen in ssps:
 
     df_wood_biomass_scen = pd.read_csv(
         f"../data/external/landuse/{scen}/{scen}_LUH_wood_harvest_biomass_for_FRIDA.csv", index_col = 'Unnamed: 0')
+    
+    scen_end = end_year
+    if "ext" in scen:
+        scen_end = ext_year
+        
     df_wood_biomass_scen = df_wood_biomass_scen.loc[(df_wood_biomass_scen.index >= 2016)
-                                                  & (df_wood_biomass_scen.index <= end_year)]
+                                                  & (df_wood_biomass_scen.index <= scen_end)]
     df_wood_biomass_full = pd.concat((df_wood_biomass_hist, df_wood_biomass_scen), axis=0)
     
     df_wood_biomass['Forest.cutting exogenous'] = df_wood_biomass_full['wood_harvest_biomass']

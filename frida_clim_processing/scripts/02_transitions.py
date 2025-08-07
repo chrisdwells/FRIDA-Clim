@@ -2,9 +2,10 @@ import pandas as pd
 import numpy as np
 
 start_year = 1750
-end_year = 2100
+end_year = 2099
+ext_year = 2299
 
-ssps = ['ssp126', 'ssp245', 'ssp370']
+ssps = ['ssp119', 'ssp126ext', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp534ext', 'ssp585ext']
 
 
 # in v2.1, we don't simulate some transitions - leave out for now
@@ -37,7 +38,12 @@ for scen in ssps:
 
     df_transitions_scen = pd.read_csv(
         f"../data/external/landuse/{scen}/{scen}_LUH_transitions_for_FRIDA.csv", index_col = 'Unnamed: 0')
-    df_transitions_scen = df_transitions_scen.loc[df_transitions_scen.index <= end_year]
+    
+    scen_end = end_year
+    if "ext" in scen:
+        scen_end = ext_year
+    
+    df_transitions_scen = df_transitions_scen.loc[df_transitions_scen.index <= scen_end]
     
     df_transitions_full = pd.concat((df_transitions_hist, df_transitions_scen), axis=0)
     

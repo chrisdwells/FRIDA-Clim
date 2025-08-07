@@ -337,16 +337,16 @@ plt.savefig(
 )
 
 #%%
-import scipy.stats
+# import scipy.stats
 
-npp_priors = scipy.stats.gaussian_kde(npp_2000)
+# npp_priors = scipy.stats.gaussian_kde(npp_2000)
 
 
-plt.plot(np.linspace(40, 75, 1000), npp_priors(np.linspace(40, 75, 1000)))
-plt.axvline(x=npp_2000_obs)
-plt.axvline(x=npp_2000_obs-10, linestyle='--')
-plt.axvline(x=npp_2000_obs+10, linestyle='--')
-plt.title('NPP')
+# plt.plot(np.linspace(40, 75, 1000), npp_priors(np.linspace(40, 75, 1000)))
+# plt.axvline(x=npp_2000_obs)
+# plt.axvline(x=npp_2000_obs-10, linestyle='--')
+# plt.axvline(x=npp_2000_obs+10, linestyle='--')
+# plt.title('NPP')
 
 
 #%%
