@@ -1,0 +1,12 @@
+﻿Model,Scenario,Region,Variable,Unit,2005,2010,2020,2030,2040,2050,2060,2070,2080,2090,2100,Notes
+AIM/CGE,SSP3-Baseline,World,Agricultural Production|Crops|Energy,million t DM/yr,0.000,0.000,22.812,59.736,147.777,346.548,610.618,950.184,1299.555,1579.741,1932.908,
+GCAM4,SSP4-34,World,Agricultural Production|Crops|Energy,million t DM/yr,,0.000,416.119,809.968,1401.411,2030.468,3319.492,4981.007,7006.761,8872.496,10415.977,
+GCAM4,SSP4-60,World,Agricultural Production|Crops|Energy,million t DM/yr,,0.000,416.119,575.134,747.468,894.189,1101.942,1228.501,1373.610,1530.004,1819.425,
+IMAGE,SSP1-19,World,Agricultural Production|Crops|Energy,million t DM/yr,31.470,56.039,91.137,445.931,1574.852,2006.292,2870.824,4050.276,5564.747,6731.205,8014.704,
+IMAGE,SSP1-26,World,Agricultural Production|Crops|Energy,million t DM/yr,31.470,56.039,95.188,161.969,399.864,808.240,1637.019,2995.032,5202.316,7526.929,7748.013,
+MESSAGE-GLOBIOM,SSP2-45,World,Agricultural Production|Crops|Energy,million t DM/yr,0.000,0.000,938.601,1058.571,1304.838,1709.238,2318.038,3309.946,4596.479,5835.727,6815.054,
+REMIND-MAGPIE,SSP5-34,World,Agricultural Production|Crops|Energy,million t DM/yr,25.326,11.214,83.660,74.239,109.734,1157.430,5030.808,9704.882,14470.651,18761.841,19915.488,
+REMIND-MAGPIE,SSP5-Baseline,World,Agricultural Production|Crops|Energy,million t DM/yr,25.326,11.214,84.565,87.532,66.829,31.206,34.325,23.590,17.276,58.895,189.018,
+"© SSP Public Database (Version 2.0) https://tntcat.iiasa.ac.at/SspDb 
+ generated: 2025-08-08 10:11:40",,,,,,,,,,,,,,,,
+For recommended citation please follow this link: https://tntcat.iiasa.ac.at/SspDb/dsd?Action=htmlpage&page=citation,,,,,,,,,,,,,,,,

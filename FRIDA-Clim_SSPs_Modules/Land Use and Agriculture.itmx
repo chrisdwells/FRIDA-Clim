@@ -5702,7 +5702,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="784.167" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="428.333" isee:scroll_y="60" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5860,8 +5860,8 @@ Limits for extreme conditions in no feedback cases</doc>
 					</pts>
 				</flow>
 				<aux x="1133" y="850.75" name="mature forest net\nprimary production"/>
-				<stock font_style="italic" font_weight="bold" x="1275.13" y="835" name="Mature Forest"/>
-				<connector uid="26" angle="163.188">
+				<stock font_style="italic" font_weight="bold" x="1272.91" y="833.714" name="Mature Forest"/>
+				<connector uid="26" angle="163.807">
 					<from>Mature_Forest</from>
 					<to>mature_forest_net_primary_production</to>
 				</connector>
@@ -5947,7 +5947,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>Mature_forest_aboveground_biomass</from>
 					<to>Mature_forest_aboveground_biomass_per_area</to>
 				</connector>
-				<connector uid="45" angle="86.8815">
+				<connector uid="45" angle="86.486">
 					<from>Mature_Forest</from>
 					<to>Mature_forest_aboveground_biomass_per_area</to>
 				</connector>
@@ -8764,7 +8764,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="492.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -8827,11 +8827,11 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					</pts>
 				</flow>
 				<aux x="1138" y="252" name="normal average time\ncropland in use"/>
-				<flow isee:segment_with_valve="1" x="1188" y="618.915" name="foresting grassland">
+				<flow isee:segment_with_valve="1" x="1190.5" y="618.915" name="foresting grassland">
 					<pts>
 						<pt x="841.25" y="780.83"/>
-						<pt x="1188" y="780.83"/>
-						<pt x="1188" y="445"/>
+						<pt x="1190.5" y="780.83"/>
+						<pt x="1190.5" y="445"/>
 					</pts>
 				</flow>
 				<flow isee:segment_with_valve="1" x="400" y="432.375" name="clearing forest\nfor grassland">
@@ -8842,16 +8842,16 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 						<pt x="691.25" y="745.5"/>
 					</pts>
 				</flow>
-				<stock label_side="center" x="1116.25" y="355" width="150" height="90" name="Young Forest"/>
-				<flow x="1023.75" y="128.25" name="forest completing\nrecovery">
+				<stock label_side="center" x="1118.75" y="355" width="150" height="90" name="Young Forest"/>
+				<flow x="1025" y="128.25" name="forest completing\nrecovery">
 					<pts>
-						<pt x="1197.5" y="355"/>
-						<pt x="1197.5" y="128.25"/>
+						<pt x="1200" y="355"/>
+						<pt x="1200" y="128.25"/>
 						<pt x="838" y="128.25"/>
 					</pts>
 				</flow>
 				<aux x="1115" y="169.917" name="forest recovery time"/>
-				<connector uid="18" angle="155.458">
+				<connector uid="18" angle="155.157">
 					<from>forest_recovery_time</from>
 					<to>forest_completing_recovery</to>
 				</connector>
@@ -8880,25 +8880,24 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<to>fraction_degraded</to>
 				</connector>
 				<aux x="1349" y="466" name="forrestible land"/>
-				<flow isee:segment_with_valve="1" x="1166" y="509" name="foresting\ndegraded land">
+				<flow x="1128.63" y="486" name="foresting\ndegraded land">
 					<pts>
-						<pt x="1138.5" y="561"/>
-						<pt x="1166" y="561"/>
-						<pt x="1166" y="445"/>
+						<pt x="1128.63" y="515"/>
+						<pt x="1128.63" y="445"/>
 					</pts>
 				</flow>
-				<flow x="972.75" y="400" name="forresting cropland">
+				<flow x="974" y="400" name="forresting cropland">
 					<pts>
 						<pt x="841.25" y="400"/>
-						<pt x="1116.25" y="400"/>
+						<pt x="1118.75" y="400"/>
 					</pts>
 				</flow>
-				<flow x="994.5" y="22" name="cutting">
+				<flow x="995.75" y="22" name="cutting">
 					<pts>
 						<pt x="752" y="90.583"/>
 						<pt x="752" y="22"/>
-						<pt x="1237" y="22"/>
-						<pt x="1237" y="355"/>
+						<pt x="1239.5" y="22"/>
+						<pt x="1239.5" y="355"/>
 					</pts>
 				</flow>
 				<aux x="1581.5" y="160" name="young forest share"/>
@@ -8958,9 +8957,9 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<from>clearing_forest_for_grassland_exogenous</from>
 					<to>clearing_forest_for_grassland</to>
 				</connector>
-				<aux x="586.5" y="537.875" name="clearing grassland exogenous"/>
+				<aux x="587.333" y="533.708" name="clearing grassland exogenous"/>
 				<aux x="842.833" y="593.04" name="fallowing cropland exogenous"/>
-				<connector uid="95" angle="22.0985">
+				<connector uid="95" angle="19.9811">
 					<from>clearing_grassland_exogenous</from>
 					<to>clearing_grassland</to>
 				</connector>
@@ -8969,7 +8968,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<to>fallowing_cropland</to>
 				</connector>
 				<aux x="1170" y="684.08" name="foresting grassland exogenous"/>
-				<connector uid="97" angle="59.9718">
+				<connector uid="97" angle="57.9503">
 					<from>foresting_grassland_exogenous</from>
 					<to>foresting_grassland</to>
 				</connector>
@@ -8979,7 +8978,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<to>degraded_land_from_grassland</to>
 				</connector>
 				<aux x="860.833" y="311.5" name="forresting cropland exogenous"/>
-				<connector uid="99" angle="353.218">
+				<connector uid="99" angle="353.527">
 					<from>forresting_cropland_exogenous</from>
 					<to>forresting_cropland</to>
 				</connector>
@@ -8989,7 +8988,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<to>degraded_land_from_crops</to>
 				</connector>
 				<aux x="1272" y="547.04" name="foresting\ndegraded land exogenous"/>
-				<connector uid="101" angle="144.427">
+				<connector uid="101" angle="141.107">
 					<from>foresting_degraded_land_exogenous</from>
 					<to>foresting_degraded_land</to>
 				</connector>
@@ -8999,7 +8998,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<to>clearing_forests_for_crops</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="941.25" y="55" name="mature to young forest"/>
-				<connector uid="103" angle="19.631">
+				<connector uid="103" angle="19.0388">
 					<from>mature_to_young_forest</from>
 					<to>cutting</to>
 				</connector>
@@ -9019,7 +9018,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<from>clearing_grassland</from>
 					<to>gross_grassland_land_use_loss</to>
 				</connector>
-				<connector uid="107" color="#EEEEEE" font_color="#EEEEEE" angle="178.177">
+				<connector uid="107" color="#EEEEEE" font_color="#EEEEEE" angle="178.237">
 					<from>foresting_grassland</from>
 					<to>gross_grassland_land_use_loss</to>
 				</connector>
@@ -9054,7 +9053,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<to>Initial_Grassland</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="1065.42" y="70" name="selected climate case"/>
-				<connector uid="122" angle="259.424">
+				<connector uid="122" angle="260.246">
 					<from>selected_climate_case</from>
 					<to>forest_completing_recovery</to>
 				</connector>
@@ -9503,7 +9502,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="738.75" isee:scroll_y="82.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="738.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -14208,7 +14207,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="708.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="667.5" isee:scroll_y="900" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -14279,7 +14278,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					</pts>
 				</flow>
 				<stock x="982.17" y="1258.26" name="slow soil carbon mature forest"/>
-				<connector uid="2" angle="242.946">
+				<connector uid="2" angle="241.1">
 					<from>slow_soil_carbon_mature_forest</from>
 					<to>slow_soil_carbon_emissions_mature_forest</to>
 				</connector>
@@ -14334,7 +14333,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<to>litter_to_soil_carbon_mature_forest</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="1084.09" y="1390.21" name="decay rate slow\nsoil carbon 1"/>
-				<connector uid="14" angle="138.483">
+				<connector uid="14" angle="138.48">
 					<from>decay_rate_slow_soil_carbon_1</from>
 					<to>slow_soil_carbon_emissions_mature_forest</to>
 				</connector>

@@ -46,28 +46,28 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="r../calibration/data/posteriors_output/posteriors_land.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_land.csv" precomputed="false" isee:format="numbers">
 			<table name="Land variables timeseries" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/posteriors_output/posteriors_temperature.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_temperature.csv" precomputed="false" isee:format="numbers">
 			<table name="Surface Temperature timeseries" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/posteriors_output/posteriors_aerosols.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_aerosols.csv" precomputed="false" isee:format="numbers">
 			<table name="Aerosol Forcings" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/posteriors_output/posteriors_CO2.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_CO2.csv" precomputed="false" isee:format="numbers">
 			<table name="CO2 Concentration" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/posteriors_output/posteriors_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
 			<table name="Ocean CO2 Flux" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/posteriors_output/posteriors_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
 			<table name="OHC" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/posteriors_output/posteriors_SLR.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_SLR.csv" precomputed="false" isee:format="numbers">
 			<table name="SLR" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/posteriors_output/posteriors_NPP.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_NPP.csv" precomputed="false" isee:format="numbers">
 			<table name="NPP" use_settings="true"/>
 		</export>
 		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_stocks.csv"/>
@@ -76,7 +76,8 @@
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/climate_calibration_data.csv"/>
 		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_npp_initial_values.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/population.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/crop_production.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/crop_production_ssp245.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/emissions_ssp245.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
 		<isee:sensi_specs name="Climate Sensitivity" method="external" path="r../calibration/data/constraining/frida_clim_inputs_100_from_30000_1750_inits.csv">
@@ -919,7 +920,7 @@
 			<aux name="Simulation End">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
-				<eqn>2022</eqn>
+				<eqn>2500</eqn>
 				<format precision="1"/>
 				<range min="2023" max="2200"/>
 				<units>years</units>
