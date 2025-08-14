@@ -252,8 +252,7 @@ df_baseline.to_csv('../data/processed_for_frida/emissions_baseline.csv')
 
 #%%
 
-output_list = ['land', 'aerosols', 'CO2', 'ocean_CO2_flux', 'ocean_heat_content',
-               'temperature', 'SLR', 'NPP']
+output_list = ['output']
 
 needed_csvs = []
 

@@ -365,7 +365,7 @@ df_land = pd.read_csv("../data/priors_output/priors_land.csv")
 
 #%%
 
-gcb = pd.read_csv("../../../calibrate-FRIDA-climate/data/external/gcp_v2023_co2_1750-2022.csv")
+gcb = pd.read_csv("../data/external/gcp_v2023_co2_1750-2022.csv")
 
 land_sink_obs = gcb['land sink'].values[:273]
 

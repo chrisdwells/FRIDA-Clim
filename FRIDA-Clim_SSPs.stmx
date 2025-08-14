@@ -46,38 +46,17 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_land.csv" precomputed="false" isee:format="numbers">
-			<table name="Land variables timeseries" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_temperature.csv" precomputed="false" isee:format="numbers">
-			<table name="Surface Temperature timeseries" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_aerosols.csv" precomputed="false" isee:format="numbers">
-			<table name="Aerosol Forcings" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_CO2.csv" precomputed="false" isee:format="numbers">
-			<table name="CO2 Concentration" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
-			<table name="Ocean CO2 Flux" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
-			<table name="OHC" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_SLR.csv" precomputed="false" isee:format="numbers">
-			<table name="SLR" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp245_NPP.csv" precomputed="false" isee:format="numbers">
-			<table name="NPP" use_settings="true"/>
+		<export frequency="on_demand" resource="r../calibration/data/ssps_output/ssp534-over_output.csv" precomputed="false" isee:format="numbers">
+			<table name="SSP outputs" use_settings="true"/>
 		</export>
 		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_stocks.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_transitions_hist_ssp245.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_wood_biomass_ssp245.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_transitions_hist_ssp534.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_wood_biomass_ssp534.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/climate_calibration_data.csv"/>
 		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_npp_initial_values.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/population.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/crop_production_ssp245.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/emissions_ssp245.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/crop_production_ssp534.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/emissions_ssp534-over.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
 		<isee:sensi_specs name="Climate Sensitivity" method="external" path="r../calibration/data/constraining/frida_clim_inputs_100_from_30000_1750_inits.csv">
@@ -994,7 +973,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="285" isee:scroll_y="20" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="285" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1055,111 +1034,56 @@ This is what determines when the model stops calculating</doc>
 					<from>SWITCH_population_is_input</from>
 					<to>Climate</to>
 				</connector>
-				<stacked_container uid="177" x="832.056" y="433.25" minimized="true" name="Surface Temperature timeseries">
-					<table interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="Surface Temperature timeseries" isee:mark_for_export="true" title="Surface Temperature timeseries">
+				<stacked_container uid="177" x="832.056" y="433.25" minimized="true" name="SSP outputs">
+					<table interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="SSP outputs" isee:mark_for_export="true" title="SSP outputs">
 						<item type="time"/>
 						<item>
 							<entity name='Energy_Balance_Model."Land_&amp;_Ocean_Surface_Temperature"[*]'/>
 						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="178" x="989.584" y="433.25" minimized="true" name="Ocean CO2 Flux">
-					<table isee:start_time="1781" interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="Ocean CO2 Flux" isee:mark_for_export="true" title="Ocean CO2 Flux">
-						<item type="time"/>
-						<item>
-							<entity name="Ocean.Air_sea_co2_flux[*]"/>
-						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="179" x="946.17" y="308.25" width="317.5" height="250" minimized="true" name="Aerosol Forcings">
-					<table isee:start_time="2005" isee:stop_time="2014" interval="1" report_balances="beginning" report_flows="summed" width="317.5" height="250" comparative="true" isee:export_name="Aerosol Forcings" isee:mark_for_export="true" title="Aerosol Forcings">
-						<item type="time"/>
-						<item>
-							<entity name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Cloud_Interactions[*]"/>
-						</item>
-						<item>
-							<entity name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Radiation_Interactions[*]"/>
-						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="180" x="832.056" y="509.587" minimized="true" name="CO2 Concentration">
-					<table isee:start_time="2022" isee:stop_time="2022" interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="CO2 Concentration" isee:mark_for_export="true" title="CO2 Concentration">
-						<item type="time"/>
 						<item>
 							<entity name="CO2_Forcing.Atmospheric_CO2_Concentration[*]"/>
 						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="181" x="989.584" y="513.753" minimized="true" name="OHC">
-					<table isee:start_time="1971" isee:stop_time="2020" interval="49" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="OHC" isee:mark_for_export="true" title="OHC">
-						<item type="time"/>
+						<item>
+							<entity name="Forcing.Total_Effective_Radiative_Forcing[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Air_sea_co2_flux[*]"/>
+						</item>
 						<item>
 							<entity name="Energy_Balance_Model.ocean_heat_content_change[*]"/>
 						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="182" x="1115.83" y="513.753" minimized="true" name="Soil carbon">
-					<table isee:start_time="2022" isee:stop_time="2022" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" title="Soil carbon">
-						<item type="time"/>
-						<item>
-							<entity name="grassland_soil_carbon.slow_soil_carbon_grassland[*]"/>
-						</item>
-						<item>
-							<entity name="grassland_soil_carbon.fast_soil_carbon_grassland[*]"/>
-						</item>
-						<item>
-							<entity name="forest_soil_carbon.slow_soil_carbon_young_forest[*]"/>
-						</item>
-						<item>
-							<entity name="forest_soil_carbon.slow_soil_carbon_mature_forest[*]"/>
-						</item>
-						<item>
-							<entity name="forest_soil_carbon.fast_soil_carbon_mature_forest[*]"/>
-						</item>
-						<item>
-							<entity name="forest_soil_carbon.fast_soil_carbon_young_forest[*]"/>
-						</item>
-						<item>
-							<entity name="degraded_land_soil_carbon.slow_soil_carbon_degraded_land[*]"/>
-						</item>
-						<item>
-							<entity name="degraded_land_soil_carbon.fast_soil_carbon_degraded_land[*]"/>
-						</item>
-						<item>
-							<entity name="cropland_soil_carbon.slow_soil_carbon_cropland[*]"/>
-						</item>
-						<item>
-							<entity name="cropland_soil_carbon.fast_soil_carbon_cropland[*]"/>
-						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="183" x="1248.75" y="433.25" minimized="true" name="Land variables timeseries">
-					<table width="350" height="250" comparative="true" isee:export_name="Land variables timeseries" isee:mark_for_export="true" title="Land variables timeseries">
-						<item type="time"/>
 						<item>
 							<entity name="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance[*]"/>
 						</item>
 						<item>
 							<entity name="Emissions.CO2_Emissions_from_Food_and_Land_Use[*]"/>
 						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="184" x="1242.08" y="509.587" minimized="true" name="Sea Level Rise">
-					<table width="350" height="250" comparative="true" isee:export_name="SLR" isee:mark_for_export="true" title="SLR">
-						<item type="time"/>
 						<item>
 							<entity name="Sea_Level.Total_global_sea_level_anomaly[*]"/>
 						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="185" x="1347.92" y="513.753" minimized="true" name="NPP">
-					<table isee:start_time="2000" isee:stop_time="2000" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="NPP" isee:mark_for_export="true" title="NPP">
-						<item type="time"/>
 						<item>
 							<entity name="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production[*]"/>
 						</item>
 						<item>
 							<entity name="Grass.grassland_net_primary_production[*]"/>
+						</item>
+						<item>
+							<entity name="Forest.young_forest_net_primary_production[*]"/>
+						</item>
+						<item>
+							<entity name="Forest.mature_forest_net_primary_production[*]"/>
+						</item>
+						<item>
+							<entity name="Terrestrial_Carbon_Balance.Total_soil_carbon[*]"/>
+						</item>
+						<item>
+							<entity name="Terrestrial_Carbon_Balance.Total_land_carbon[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Cold_surface_ocean_pH[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Warm_surface_ocean_pH[*]"/>
 						</item>
 					</table>
 				</stacked_container>

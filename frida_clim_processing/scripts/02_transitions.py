@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
 
+# we run them all to 2500, with zero transitions after 2099
+
 start_year = 1750
-end_year = 2099
-ext_year = 2299
+end_year_dynamics = 2099
+end_year = 2500
 
-ssps = ['ssp119', 'ssp126ext', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp534ext', 'ssp585ext']
-
+ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp534', 'ssp585']
 
 # in v2.1, we don't simulate some transitions - leave out for now
 luh_to_frida = {
@@ -39,13 +40,17 @@ for scen in ssps:
     df_transitions_scen = pd.read_csv(
         f"../data/external/landuse/{scen}/{scen}_LUH_transitions_for_FRIDA.csv", index_col = 'Unnamed: 0')
     
-    scen_end = end_year
-    if "ext" in scen:
-        scen_end = ext_year
     
-    df_transitions_scen = df_transitions_scen.loc[df_transitions_scen.index <= scen_end]
+    df_transitions_ssp = df_transitions_scen.loc[df_transitions_scen.index <= end_year_dynamics]
     
-    df_transitions_full = pd.concat((df_transitions_hist, df_transitions_scen), axis=0)
+    extend_values = np.full(df_transitions_ssp.shape[1], 0.0)
+
+    for yr in np.arange(end_year_dynamics+1, end_year+1, 1):
+        row = np.insert(extend_values, 0, yr)
+        df_transitions_ssp.loc[yr] = extend_values
+        
+    
+    df_transitions_full = pd.concat((df_transitions_hist, df_transitions_ssp), axis=0)
     
     for transition in luh_to_frida.keys():
         df_transitions[luh_to_frida[transition]] = df_transitions_full[transition]
