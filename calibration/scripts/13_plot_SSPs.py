@@ -4,6 +4,8 @@ import os
 import numpy as np
 import pickle
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+import matplotlib.patches as mpatches
 
 start = 1750
 end = 2500
@@ -23,7 +25,7 @@ load_dotenv()
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
 
 varlist = [
-       # "Energy Balance Model.Land & Ocean Surface Temperature[1]",
+       "Energy Balance Model.Land & Ocean Surface Temperature[1]",
        # "CO2 Forcing.Atmospheric CO2 Concentration[1]",
        # "Forcing.Total Effective Radiative Forcing[1]",
        # "Ocean.Air sea co2 flux[1]",
@@ -82,7 +84,7 @@ obs_data["Sea Level.Total global sea level anomaly[1]"] = [
 
 # GCB
 gcb = pd.read_csv("../data/external/gcp_v2023_co2_1750-2022.csv")
-gcb = gcb.loc[gcb['Year' <= 2022]]
+gcb = gcb.loc[gcb['Year'] <= 2022]
 
 obs_data["Module.Land Carbon Sink[1]"] = [
     gcb['Year'], gcb['land sink']]
@@ -108,7 +110,7 @@ ssps = {
 with open('../data/external/misc/colors_pd.pkl', 'rb') as handle:
     colors_pd = pickle.load(handle)
 
-
+#%%
 for var in varlist:
     
     varname = var.split(".")[1].split("[1]")[0]
@@ -171,3 +173,97 @@ for var in varlist:
         f"../plots/ssps/{varname}.png"
     )
 
+#%%
+
+vars_plot = {
+    "Energy Balance Model.Land & Ocean Surface Temperature[1]":['K',-1, 10],
+    "Terrestrial Carbon Balance.Terrestrial carbon balance[1]":['GtC/year', -2, 4],
+    }
+
+scens_plot = ['ssp119', 'ssp245', 'ssp534-over', 'ssp585']
+
+fig, ax = plt.subplots(2, 4, figsize=(16, 8))
+ax = ax.ravel()
+
+title_text = ''
+c = -1
+for var in vars_plot.keys():
+    varname = var.split(".")[1].split("[1]")[0]
+
+    for scen in scens_plot:
+        c += 1
+        
+        color=colors_pd.loc[
+                colors_pd['name'] == ssps[scen]]['color'].values[0]
+    
+        ssp_in = pd.read_csv(f'../data/ssps_output/{scen}_output.csv')
+        
+        var_data = np.full((n_years, output_ensemble_size), np.nan)
+    
+        if var in calc_vars.keys():
+            if var == "Module.Land Carbon Sink[1]":
+                tcb_data = np.full((n_years, output_ensemble_size), np.nan)
+                co2_flu_data = np.full((n_years, output_ensemble_size), np.nan)
+                for i in np.arange(output_ensemble_size):
+                    var_data[:,i] = ssp_in[f'="Run {i+1}: Terrestrial Carbon Balance.Terrestrial carbon balance[1]"'
+                               ] + ssp_in[f'="Run {i+1}: Emissions.CO2 Emissions from Food and Land Use[1]"']/3670 # MtCO2 to GtC
+            else:
+                print('Need to make definition')
+        else:
+            for i in np.arange(output_ensemble_size):
+                var_data[:,i] = ssp_in[f'="Run {i+1}: {var}"']
+                
+        offset_text = ''
+        if var in offset_vars.keys():
+            idxs = offset_vars[var]
+            offset_text = f' (offset {idxs[0]+start}-{idxs[1]+start})'
+            var_data = var_data - np.mean(var_data[idxs[0]:idxs[1],:], axis=0)
+            
+        ax[c].axhline(0, color='grey', linestyle = '--')
+        
+            
+        ax[c].plot(time, np.median(var_data, axis=1), color=color)
+        
+        ax[c].fill_between(time, 
+                         np.percentile(var_data, 16, axis=1), 
+                         np.percentile(var_data, 84, axis=1), 
+                         color=color, linewidth=0, alpha=0.2)
+    
+        ax[c].fill_between(time, 
+                         np.percentile(var_data, 5, axis=1), 
+                         np.percentile(var_data, 95, axis=1), 
+                         color=color, linewidth=0, alpha=0.2)
+        
+    
+        if var in obs_data.keys():
+            ax[c].plot(obs_data[var][0], obs_data[var][1], color='black')
+    
+        ax[c].set_title(f'{scen}')
+        if c % 4 == 0:
+            ax[c].set_ylabel(f'{vars_plot[var][0]}')
+            
+        ax[c].set_xlim([start, end])
+        ax[c].set_ylim([vars_plot[var][1], vars_plot[var][2]])
+
+
+    title_text = title_text + f'; {varname}{offset_text}'
+
+
+leg_color = colors_pd.loc[
+        colors_pd['name'] == ssps['ssp119']]['color'].values[0]
+
+handles = []
+
+handles.append(Line2D([0], [0], label='Observations', color='black'))
+handles.append(Line2D([0], [0], label='Median', color=leg_color))
+
+handles.append(mpatches.Patch(facecolor=leg_color, edgecolor=leg_color, linewidth=0, alpha=0.2, label='5-95 percentile'))
+handles.append(mpatches.Patch(facecolor=leg_color, edgecolor=leg_color, linewidth=0, alpha=0.4, label='16-84 percentile'))
+
+ax[0].legend(handles=handles)
+
+plt.suptitle(f'{title_text[1:]}, {output_ensemble_size} members')
+plt.tight_layout()
+plt.savefig(
+    "../plots/ssps/fig3_paper.png"
+)

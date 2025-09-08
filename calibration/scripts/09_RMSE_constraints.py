@@ -144,10 +144,9 @@ npp_2000 = np.full(samples, np.nan)
 for i in np.arange(samples):
     npp_2000[i] = df_npp[f'="Run {i+1}: Terrestrial Carbon Balance.Terrestrial net primary production[1]"']
 
-
-npp_grass_2000 = np.full(samples, np.nan)
-for i in np.arange(samples):
-    npp_grass_2000[i] = df_npp[f'="Run {i+1}: Grass.grassland net primary production[1]"']
+# npp_grass_2000 = np.full(samples, np.nan)
+# for i in np.arange(samples):
+#     npp_grass_2000[i] = df_npp[f'="Run {i+1}: Grass.grassland net primary production[1]"']
 
 npp_constraint = npp_2000_obs    
 
@@ -168,7 +167,7 @@ accept_inc_npp = np.logical_and(accept_both, accept_npp)
 
 #%%
 
-fig, axs = plt.subplots(5, 2, figsize=(12, 15))
+fig, axs = plt.subplots(5, 2, figsize=(15, 15))
 
 axs[0,0].fill_between(time, np.percentile(temp_hist_offset, 84, axis=1), 
               np.percentile(temp_hist_offset, 16, axis=1), color="#000000", alpha=0.2,
@@ -179,7 +178,7 @@ axs[0,0].plot(time, np.median(temp_hist_offset, axis=1),
 
 axs[0,0].plot(time, gmst, label='AR6 obs')
 
-axs[0,0].legend()
+axs[0,0].legend(loc = 'upper left')
 axs[0,0].set_ylabel('deg C')
 axs[0,0].set_title(f'All priors: {samples}')
 
@@ -192,7 +191,7 @@ axs[0,1].fill_between(df_ocean_hist["Year"], np.percentile(flux_hist, 84, axis=1
 axs[0,1].plot(df_ocean_hist["Year"], np.median(flux_hist, axis=1), 
               color="#000000", label='Median')
 
-axs[0,1].plot(df_ocean_hist["Year"], flux)
+# axs[0,1].plot(df_ocean_hist["Year"], flux)
 axs[0,1].plot(df_ocean_hist_crop["Year"], flux_for_rmse, label='GCB obs')
 
 axs[0,1].legend()
@@ -225,7 +224,7 @@ axs[1,1].fill_between(df_ocean_hist["Year"], np.percentile(flux_hist[:, accept_t
 axs[1,1].plot(df_ocean_hist["Year"], np.median(flux_hist[:, accept_temp], axis=1), 
               color="#000000", label='Median')
 
-axs[1,1].plot(df_ocean_hist["Year"], flux)
+# axs[1,1].plot(df_ocean_hist["Year"], flux)
 axs[1,1].plot(df_ocean_hist_crop["Year"], flux_for_rmse, label='GCB obs')
 
 axs[1,1].legend()
@@ -257,7 +256,7 @@ axs[2,1].fill_between(df_ocean_hist["Year"], np.percentile(flux_hist[:, accept_f
 axs[2,1].plot(df_ocean_hist["Year"], np.median(flux_hist[:, accept_flux], axis=1), 
               color="#000000", label='Median')
 
-axs[2,1].plot(df_ocean_hist["Year"], flux)
+# axs[2,1].plot(df_ocean_hist["Year"], flux)
 axs[2,1].plot(df_ocean_hist_crop["Year"], flux_for_rmse, label='GCB obs')
 
 axs[2,1].legend()
@@ -290,7 +289,7 @@ axs[3,1].fill_between(df_ocean_hist["Year"], np.percentile(flux_hist[:, accept_b
 axs[3,1].plot(df_ocean_hist["Year"], np.median(flux_hist[:, accept_both], axis=1), 
               color="#000000", label='Median')
 
-axs[3,1].plot(df_ocean_hist["Year"], flux)
+# axs[3,1].plot(df_ocean_hist["Year"], flux)
 axs[3,1].plot(df_ocean_hist_crop["Year"], flux_for_rmse, label='GCB obs')
 
 axs[3,1].legend()
@@ -321,12 +320,19 @@ axs[4,1].fill_between(df_ocean_hist["Year"], np.percentile(flux_hist[:, accept_i
 axs[4,1].plot(df_ocean_hist["Year"], np.median(flux_hist[:, accept_inc_npp], axis=1), 
               color="#000000", label='Median')
 
-axs[4,1].plot(df_ocean_hist["Year"], flux)
+# axs[4,1].plot(df_ocean_hist["Year"], flux)
 axs[4,1].plot(df_ocean_hist_crop["Year"], flux_for_rmse, label='GCB obs')
 
 axs[4,1].legend()
 axs[4,1].set_ylabel('GtC/yr')
+
 axs[4,1].set_title(f'Passing inc NPP 2000: {n_pass_inc_npp}')
+
+for i in np.arange(5):
+    for j in np.arange(2):
+        axs[i,j].set_xlim([1850, 2022])
+
+plt.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=10, hspace=None)
 
 plt.tight_layout()
 
@@ -352,7 +358,7 @@ plt.savefig(
 #%%
 np.savetxt(
     "../data/constraining/runids_rmse_pass.csv",
-    valid_both.astype(int),
+    valid_inc_npp.astype(int),
     fmt="%d",
 )
 

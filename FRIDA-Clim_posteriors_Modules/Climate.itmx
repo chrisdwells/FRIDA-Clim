@@ -1067,7 +1067,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 			<aux name="UNIT weight ratio of CO2 over C" access="output" isee:autocreated="true">
 				<doc>${Unit}
 </doc>
-				<eqn>3.664149467</eqn>
+				<eqn>3.670</eqn>
 				<units>GtCO2/GtC</units>
 			</aux>
 			<aux name="UNIT Seconds per year" access="output" isee:autocreated="true">

@@ -1,5 +1,7 @@
 import pandas as pd
 
+# Should run the frida_clim_processing scripts before these
+
 start_year = 1750
 
 luh_to_frida = {

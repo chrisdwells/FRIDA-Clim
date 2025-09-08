@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="2" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -785,18 +785,18 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 					<from>Land_Use</from>
 					<to>Crop</to>
 				</connector>
-				<module label_side="top" x="484.75" y="274.75" name="Soil"/>
+				<module label_side="top" x="485.583" y="275.583" name="Soil"/>
 				<module label_side="top" x="501.583" y="404" name="Grass"/>
 				<module label_side="top" x="409.75" y="127" name="Forest"/>
-				<connector uid="74" isee:thickness="2" angle="320.865" isee:autocreated="true">
+				<connector uid="74" isee:thickness="2" angle="320.991" isee:autocreated="true">
 					<from>Forest</from>
 					<to>Soil</to>
 				</connector>
-				<connector uid="76" isee:thickness="2" angle="63.447" isee:autocreated="true">
+				<connector uid="76" isee:thickness="2" angle="62.9899" isee:autocreated="true">
 					<from>Crop</from>
 					<to>Soil</to>
 				</connector>
-				<connector uid="77" isee:thickness="2" angle="25.2724" isee:autocreated="true">
+				<connector uid="77" isee:thickness="2" angle="25.1102" isee:autocreated="true">
 					<from>Land_Use</from>
 					<to>Soil</to>
 				</connector>
@@ -808,7 +808,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 					<from>Forest</from>
 					<to>Land_Use</to>
 				</connector>
-				<connector uid="73" isee:thickness="2" angle="71.0964" isee:autocreated="true">
+				<connector uid="73" isee:thickness="2" angle="70.7782" isee:autocreated="true">
 					<from>Grass</from>
 					<to>Soil</to>
 				</connector>
@@ -9503,7 +9503,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="738.75" isee:scroll_y="82.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="406.25" isee:scroll_y="82.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -12594,7 +12594,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_completing_recovery*Mature_Forest_fast_soil_carbon_per_area</eqn>
+				<eqn>forest_completing_recovery*Young_Forest_fast_soil_carbon_per_area</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -12657,7 +12657,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_completing_recovery*Mature_Forest_slow_soil_carbon_per_area</eqn>
+				<eqn>forest_completing_recovery*Young_Forest_slow_soil_carbon_per_area</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -14208,7 +14208,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="708.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="708.75" isee:scroll_y="375" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -14682,15 +14682,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<from>slow_soil_carbon_mature_forest</from>
 					<to>Mature_Forest_slow_soil_carbon_per_area</to>
 				</connector>
-				<connector uid="88" angle="358.136">
-					<from>Mature_Forest_fast_soil_carbon_per_area</from>
-					<to>maturing_fast_soil_carbon</to>
-				</connector>
-				<connector uid="89" angle="341.757">
-					<from>Mature_Forest_slow_soil_carbon_per_area</from>
-					<to>maturing_slow_soil_carbon</to>
-				</connector>
-				<connector uid="90" angle="78.8163">
+				<connector uid="90" angle="78.8221">
 					<from>
 						<alias uid="91"/>
 					</from>
@@ -14775,6 +14767,14 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<connector uid="104" angle="305.666">
 					<from>selected_climate_case</from>
 					<to>litter_input_slow_soil_carbon_young_forest</to>
+				</connector>
+				<connector uid="105" angle="221.986">
+					<from>Young_Forest_slow_soil_carbon_per_area</from>
+					<to>maturing_slow_soil_carbon</to>
+				</connector>
+				<connector uid="106" angle="178.819">
+					<from>Young_Forest_fast_soil_carbon_per_area</from>
+					<to>maturing_fast_soil_carbon</to>
 				</connector>
 				<alias font_style="italic" uid="66" x="1359.17" y="221.917" width="18" height="18">
 					<of>fast_soil_carbon_forest_to_young_forest</of>

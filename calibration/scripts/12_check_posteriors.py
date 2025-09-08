@@ -56,7 +56,7 @@ co2_in = df_co2.drop(columns='Year').values[0,:]
 
 colors = {"prior": "#207F6E", "post1": "#684C94", "post2": "#EE696B", "target": "black", "post check": "orange"}
 
-fig, ax = plt.subplots(3, 3, figsize=(10, 10))
+fig, ax = plt.subplots(2, 3, figsize=(12, 8))
 
 # post_check_ecs = scipy.stats.gaussian_kde(draws_in["ECS"])
 
@@ -70,7 +70,7 @@ ax[0, 0].plot(
     dict_distributions['ECS']['Xs'],
     dict_distributions['ECS']['Post1'],
     color=colors["post1"],
-    label="Temp+Flux RMSE",
+    label="Temp, Flux NPP Constraints",
 )
 ax[0, 0].plot(
     dict_distributions['ECS']['Xs'],
@@ -103,7 +103,7 @@ ax[0, 1].plot(
     dict_distributions['TCR']['Xs'],
     dict_distributions['TCR']['Post1'],
     color=colors["post1"],
-    label="Temp+Flux RMSE",
+    label="Temp, Flux NPP Constraints",
 )
 ax[0, 1].plot(
     dict_distributions['TCR']['Xs'],
@@ -137,7 +137,7 @@ ax[0, 2].plot(
     dict_distributions['Temp']['Xs'],
     dict_distributions['Temp']['Post1'],
     color=colors["post1"],
-    label="Temp+Flux RMSE",
+    label="Temp, Flux NPP Constraints",
 )
 ax[0, 2].plot(
     dict_distributions['Temp']['Xs'],
@@ -177,7 +177,7 @@ ax[1, 2].plot(
     dict_distributions['Aerosol']['Xs'],
     dict_distributions['Aerosol']['Post1'],
     color=colors["post1"],
-    label="Temp+Flux RMSE",
+    label="Temp, Flux NPP Constraints",
 )
 ax[1, 2].plot(
     dict_distributions['Aerosol']['Xs'],
@@ -209,83 +209,81 @@ ax[1, 2].set_xlabel("W m$^{-2}$, 2005-2014 minus 1750")
 
 post_check_co2 = scipy.stats.gaussian_kde(co2_in)
 
-ax[2, 0].plot(
+ax[1, 0].plot(
     dict_distributions['CO2']['Xs'],
     dict_distributions['CO2']['Priors'],
     color=colors["prior"],
     label="Prior",
 )
-ax[2, 0].plot(
+ax[1, 0].plot(
     dict_distributions['CO2']['Xs'],
     dict_distributions['CO2']['Post1'],
     color=colors["post1"],
-    label="Temp+Flux RMSE",
+    label="Temp, Flux NPP Constraints",
 )
-ax[2, 0].plot(
+ax[1, 0].plot(
     dict_distributions['CO2']['Xs'],
     dict_distributions['CO2']['Post2'],
     color=colors["post2"],
     label="All constraints",
 )
-ax[2, 0].plot(
+ax[1, 0].plot(
     dict_distributions['CO2']['Xs'],
     dict_distributions['CO2']['Target'],
     color=colors["target"],
     label="Target",
 )
-ax[2, 0].plot(
+ax[1, 0].plot(
     dict_distributions['CO2']['Xs'],
     post_check_co2(dict_distributions['CO2']['Xs']),
     color=colors["post check"],
     label="Posteriors",
     linestyle='--',
 )
-ax[2, 0].set_xlim(dict_distributions['CO2']['xlim'])
-ax[2, 0].set_ylim(0, 1.2)
-ax[2, 0].set_title("CO$_2$ concentration")
-ax[2, 0].set_yticklabels([])
-ax[2, 0].set_xlabel("ppm, 2022")
-
-
+ax[1, 0].set_xlim(dict_distributions['CO2']['xlim'])
+ax[1, 0].set_ylim(0, 1.2)
+ax[1, 0].set_title("CO$_2$ concentration")
+ax[1, 0].set_yticklabels([])
+ax[1, 0].set_xlabel("ppm, 2022")
 
 post_check_ohc = scipy.stats.gaussian_kde(ohc_in)
 
-ax[2, 1].plot(
+ax[1, 1].plot(
     dict_distributions['OHC']['Xs'],
     dict_distributions['OHC']['Priors'],
     color=colors["prior"],
     label="Prior",
 )
-ax[2, 1].plot(
+ax[1, 1].plot(
     dict_distributions['OHC']['Xs'],
     dict_distributions['OHC']['Post1'],
     color=colors["post1"],
-    label="Temp+Flux RMSE",
+    label="Temp, Flux NPP Constraints",
 )
-ax[2, 1].plot(
+ax[1, 1].plot(
     dict_distributions['OHC']['Xs'],
     dict_distributions['OHC']['Post2'],
     color=colors["post2"],
     label="All constraints",
 )
-ax[2, 1].plot(
+ax[1, 1].plot(
     dict_distributions['OHC']['Xs'],
     dict_distributions['OHC']['Target'],
     color=colors["target"],
     label="Target",
 )
-ax[2, 1].plot(
+ax[1, 1].plot(
     dict_distributions['OHC']['Xs'],
     post_check_ohc(dict_distributions['OHC']['Xs']),
     color=colors["post check"],
     label="Posteriors",
     linestyle='--',
 )
-ax[2, 1].set_xlim(dict_distributions['OHC']['xlim'])
-ax[2, 1].set_ylim(0, 0.006)
-ax[2, 1].set_title("Ocean heat content change")
-ax[2, 1].set_yticklabels([])
-ax[2, 1].set_xlabel("ZJ, 2020 minus 1971")
+ax[1, 1].set_xlim(dict_distributions['OHC']['xlim'])
+ax[1, 1].set_ylim(0, 0.006)
+ax[1, 1].set_title("Ocean heat content change")
+ax[1, 1].set_yticklabels([])
+ax[1, 1].set_xlabel("ZJ, 2020 minus 1971")
 
 
 plt.tight_layout()
