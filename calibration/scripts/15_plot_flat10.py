@@ -220,3 +220,50 @@ plt.savefig(
     "../plots/flat10/flat10_fig2.png"
 )
 
+#%%
+
+# general
+
+vars_to_plot = [
+    "Energy Balance Model.Land & Ocean Surface Temperature[1]",
+    "CO2 Forcing.Atmospheric CO2 Concentration[1]",
+    "Forcing.Total Effective Radiative Forcing[1]",
+    "Ocean.Air sea co2 flux[1]",
+    "Energy Balance Model.ocean heat content change[1]",
+    "Terrestrial Carbon Balance.Terrestrial carbon balance[1]",
+    "Emissions.CO2 Emissions from Food and Land Use[1]",
+    "Sea Level.Total global sea level anomaly[1]",
+    "Terrestrial Carbon Balance.Terrestrial net primary production[1]",
+    "Grass.grassland net primary production[1]",
+    "Forest.young forest net primary production[1]",
+    "Forest.mature forest net primary production[1]",
+    "Terrestrial Carbon Balance.Total soil carbon[1]",
+    "Terrestrial Carbon Balance.Total land carbon[1]",
+    "Ocean.Cold surface ocean pH[1]",
+    "Ocean.Warm surface ocean pH[1]",
+    "Emissions.land carbon sink[1]",
+    "Ocean.Total ocean carbon",
+    ]
+
+for var in vars_to_plot:
+    fig, ax = plt.subplots(2, 2, figsize=(8, 8))
+    ax = ax.ravel()
+
+    for s_i, scen in enumerate(scens.keys()):
+        df_scen = pd.read_csv(f'../data/flat10_output/{scen}_output.csv')
+        
+        var_in  = loaddata(df_scen, 500, output_ensemble_size, var)
+        
+        ax[s_i].plot(df_scen['Year'][:500], np.median(var_in, axis=1), color = f'C{s_i}')
+        ax[s_i].fill_between(df_scen['Year'][:500], np.percentile(var_in, 5, axis=1), 
+                        np.percentile(var_in, 95, axis=1), color = f'C{s_i}', alpha=0.3, linewidth=0)
+
+        ax[s_i].set_title(f'{scen} {var}')
+        ax[s_i].set_xlabel('Years')
+    
+    plt.tight_layout()
+    plt.savefig(
+        f"../plots/flat10/flat10_{var}.png"
+    )
+
+    
