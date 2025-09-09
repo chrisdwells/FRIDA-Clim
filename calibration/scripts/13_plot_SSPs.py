@@ -16,6 +16,7 @@ pi_idxs = [idx - start for idx in pi_years]
 
 pd_years = [1995, 2014]
 pd_idxs = [idx - start for idx in pi_years]
+ppm_to_GtC = 2.13
 
 
 time = np.arange(start, end+1, 1)
@@ -24,24 +25,72 @@ load_dotenv()
 
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
 
+
+def loaddata(df, n_years, members, varname, offset=False):
+    var_data = np.full((n_years, members), np.nan)
+    for i in np.arange(members):
+        var_data[:,i] = df[f'="Run {i+1}: {varname}"'][:n_years]
+    if offset == True:
+        var_data = var_data - var_data[0,:]
+    return var_data
+
+def carbon_budget_plot(df, axs, xlim, legend=False, nyears = n_years):
+    
+    atmos_scen = np.median(np.gradient(loaddata(df, nyears, output_ensemble_size, "CO2 Forcing.Atmospheric CO2 Concentration[1]", 
+                          offset=True)*ppm_to_GtC, axis=0), axis=1)
+    ocean_scen =  np.median(np.gradient(loaddata(df, nyears, output_ensemble_size, "Ocean.Total ocean carbon"), axis=0), axis=1)
+    land_scen =  np.median(loaddata(df, nyears, output_ensemble_size, "Terrestrial Carbon Balance.Terrestrial carbon balance[1]"), axis=1)
+    
+    components = [land_scen, ocean_scen, atmos_scen]
+    labels = ['Land', 'Ocean', 'Atmosphere']
+    colors = ['#2ca02c', '#4b0082', '#87ceeb']
+    
+    pos_base = np.zeros_like(df['Year'][:nyears], dtype=float)
+    neg_base = np.zeros_like(df['Year'][:nyears], dtype=float)
+    
+    for comp, label, color in zip(components, labels, colors):
+        comp = np.array(comp)
+        
+        pos_part = np.where(comp > 0, comp, 0)
+        neg_part = np.where(comp < 0, comp, 0)
+    
+        axs.fill_between(df['Year'][:nyears], pos_base, pos_base + pos_part, facecolor=color, label=label)
+        pos_base += pos_part  
+        
+        axs.fill_between(df['Year'][:nyears], neg_base, neg_base + neg_part, facecolor=color, hatch='...')
+        neg_base += neg_part  
+        
+    axs.axhline(0, color='black', linewidth=1)
+
+    total = atmos_scen + ocean_scen + land_scen
+    axs.plot(df['Year'][:nyears], total, color='black', linewidth=2, label='Total')
+    
+    axs.set_xlim(xlim)
+    axs.set_ylim([-11,11])
+    axs.set_xlabel('Years')
+    axs.set_ylabel('GtC/yr')
+
+    if legend == True:
+        axs.legend()
+
 varlist = [
        "Energy Balance Model.Land & Ocean Surface Temperature[1]",
-       # "CO2 Forcing.Atmospheric CO2 Concentration[1]",
-       # "Forcing.Total Effective Radiative Forcing[1]",
-       # "Ocean.Air sea co2 flux[1]",
-       # "Energy Balance Model.ocean heat content change[1]",
+        "CO2 Forcing.Atmospheric CO2 Concentration[1]",
+        "Forcing.Total Effective Radiative Forcing[1]",
+        "Ocean.Air sea co2 flux[1]",
+        "Energy Balance Model.ocean heat content change[1]",
        "Terrestrial Carbon Balance.Terrestrial carbon balance[1]",
-       # "Emissions.CO2 Emissions from Food and Land Use[1]",
-       # "Sea Level.Total global sea level anomaly[1]",
-       # "Terrestrial Carbon Balance.Terrestrial net primary production[1]",
-       # "Grass.grassland net primary production[1]",
-       # "Forest.young forest net primary production[1]",
-       # "Forest.mature forest net primary production[1]",
-       # "Terrestrial Carbon Balance.Total soil carbon[1]",
-       # "Terrestrial Carbon Balance.Total land carbon[1]",
-       # "Ocean.Cold surface ocean pH[1]",
-       # "Ocean.Warm surface ocean pH[1]",
-       # "Module.Land Carbon Sink[1]",
+        "Emissions.CO2 Emissions from Food and Land Use[1]",
+        "Sea Level.Total global sea level anomaly[1]",
+        "Terrestrial Carbon Balance.Terrestrial net primary production[1]",
+        "Grass.grassland net primary production[1]",
+        "Forest.young forest net primary production[1]",
+        "Forest.mature forest net primary production[1]",
+        "Terrestrial Carbon Balance.Total soil carbon[1]",
+        "Terrestrial Carbon Balance.Total land carbon[1]",
+        "Ocean.Cold surface ocean pH[1]",
+        "Ocean.Warm surface ocean pH[1]",
+        "Module.Land Carbon Sink[1]",
        ]
 
 offset_vars = {
@@ -175,9 +224,29 @@ for var in varlist:
 
 #%%
 
+fig, ax = plt.subplots(2, 4, figsize=(16, 8))
+ax = ax.ravel()
+
+for s_i, scen in enumerate(ssps.keys()):
+    
+    df_scen = pd.read_csv(f'../data/ssps_output/{scen}_output.csv')
+    legend = False
+    if scen == 'ssp119':
+        legend=True
+    carbon_budget_plot(df_scen, ax[s_i], [1750, 2500], legend=legend)
+    ax[s_i].set_ylim([-7.5, 20])
+    ax[s_i].set_title(scen)
+
+plt.suptitle(f'Carbon response, {output_ensemble_size} members')
+plt.tight_layout()
+plt.savefig(
+    "../plots/ssps/carbon_response.png"
+)
+    
+#%%
 vars_plot = {
     "Energy Balance Model.Land & Ocean Surface Temperature[1]":['K',-1, 10],
-    "Terrestrial Carbon Balance.Terrestrial carbon balance[1]":['GtC/year', -2, 4],
+    # "Terrestrial Carbon Balance.Terrestrial carbon balance[1]":['GtC/year', -2, 4],
     }
 
 scens_plot = ['ssp119', 'ssp245', 'ssp534-over', 'ssp585']
@@ -246,9 +315,19 @@ for var in vars_plot.keys():
         ax[c].set_ylim([vars_plot[var][1], vars_plot[var][2]])
 
 
-    title_text = title_text + f'; {varname}{offset_text}'
 
-
+    for scen in scens_plot:
+        c += 1
+        df_scen = pd.read_csv(f'../data/ssps_output/{scen}_output.csv')
+        legend = False
+        if scen == 'ssp119':
+            legend=True
+        carbon_budget_plot(df_scen, ax[c], [1750, 2500], legend=legend)
+        ax[c].set_ylim([-7.5, 20])
+        ax[c].set_ylabel('')
+        if c % 4 == 0:
+            ax[c].set_ylabel('GtC/yr')
+            
 leg_color = colors_pd.loc[
         colors_pd['name'] == ssps['ssp119']]['color'].values[0]
 
@@ -262,8 +341,8 @@ handles.append(mpatches.Patch(facecolor=leg_color, edgecolor=leg_color, linewidt
 
 ax[0].legend(handles=handles)
 
-plt.suptitle(f'{title_text[1:]}, {output_ensemble_size} members')
+plt.suptitle(f'GMST, Carbon response, {output_ensemble_size} members')
 plt.tight_layout()
 plt.savefig(
-    "../plots/ssps/fig3_paper.png"
+    "../plots/ssps/fig6_paper.png"
 )
