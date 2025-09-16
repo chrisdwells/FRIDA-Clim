@@ -4,6 +4,10 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
+# run the priors (FRIDA-clim_priors.stmx) before this.
+
+# from here onwards the output depends on the calibration version.
+
 # taken from calibrate-FRIDA-climate
 
 # Adapted from FaIR calibrate
@@ -13,6 +17,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
+calibration = os.getenv("CALIBRATION")
 
 def rmse(obs, mod):
     return np.sqrt(np.sum((obs - mod) ** 2) / len(obs))
@@ -25,7 +30,7 @@ npp_2000_obs = 59.22
 
 #%%
 
-df_temp = pd.read_csv("../data/priors_output/priors_temperature.csv")
+df_temp = pd.read_csv(f"../{calibration}/data/priors_output/priors_temperature.csv")
 
 temp_hist = df_temp.loc[(df_temp['Year']>=1850) & (df_temp['Year']<=2022)].drop(columns='Year').values
 temp_hist_offset = temp_hist - np.average(temp_hist[:52, :], weights=weights, axis=0)
@@ -39,7 +44,7 @@ time = df_temp_obs["time"].loc[(df_temp_obs['time'] > 1850)
                                & (df_temp_obs['time'] < 2023)].values
 
 
-df_flux = pd.read_csv("../data/priors_output/priors_ocean_CO2_flux.csv")
+df_flux = pd.read_csv(f"../{calibration}/data/priors_output/priors_ocean_CO2_flux.csv")
 
 if '="Calibration Data: Ocean.Air sea co2 flux[1]"' in df_flux.keys(): # this occured once - not sure why
     df_flux = df_flux.drop(['="Calibration Data: Ocean.Air sea co2 flux[1]"'], axis=1)
@@ -132,13 +137,10 @@ plt.ylabel('Flux 2005-14')
 
 #%%
 
-df_npp = pd.read_csv("../data/priors_output/priors_NPP.csv")
-
+df_npp = pd.read_csv(f"../{calibration}/data/priors_output/priors_NPP.csv")
 
 if '="Calibration Data: Terrestrial Carbon Balance.Terrestrial net primary production[1]"' in df_npp.keys(): # this occured once - not sure why
     df_npp = df_npp.drop(['="Calibration Data: Terrestrial Carbon Balance.Terrestrial net primary production[1]"'], axis=1)
-
-
 
 npp_2000 = np.full(samples, np.nan)
 for i in np.arange(samples):
@@ -339,7 +341,7 @@ plt.tight_layout()
 os.makedirs("../plots", exist_ok=True)
 
 plt.savefig(
-    "../plots/rmse_constrained.png"
+    f"../{calibration}/plots/rmse_constrained.png"
 )
 
 #%%
@@ -357,7 +359,7 @@ plt.savefig(
 
 #%%
 np.savetxt(
-    "../data/constraining/runids_rmse_pass.csv",
+    f"../{calibration}/data/constraining/runids_rmse_pass.csv",
     valid_inc_npp.astype(int),
     fmt="%d",
 )
@@ -365,11 +367,7 @@ np.savetxt(
 #%%
 
 
-# TO DO 
-df_land = pd.read_csv("../data/priors_output/priors_land.csv")
-
-
-#%%
+df_land = pd.read_csv(f"../{calibration}/data/priors_output/priors_land.csv")
 
 gcb = pd.read_csv("../data/external/gcp_v2023_co2_1750-2022.csv")
 

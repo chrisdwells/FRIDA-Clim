@@ -12,6 +12,7 @@ load_dotenv()
 GtC_to_MtCO2 = 3670
 years = 500
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
+calibration = os.getenv("CALIBRATION")
 ppm_to_GtC = 2.13
 
 scens = {
@@ -101,7 +102,7 @@ fig, ax = plt.subplots(3, 3, figsize=(15, 15))
 ax = ax.ravel()
 
 for scen in scens.keys():
-    ems_in = pd.read_csv(f'../../frida_clim_processing/data/processed_for_frida/emissions_{scen.replace("-", "_")}.csv')
+    ems_in = pd.read_csv(f'../../frida_clim_processing/data/processed_for_frida/flat10/emissions_{scen.replace("-", "_")}.csv')
     ems_gtc = ems_in['Emissions.CO2 Emissions from Fossil use'][:years]/GtC_to_MtCO2
     
     ax[0].plot(ems_in['Year'][:years], ems_gtc,
@@ -119,7 +120,7 @@ ax[0].set_xlim([0,320])
 ax[0].set_ylim([-15,15])
 
 
-df_cdr = pd.read_csv('../data/flat10_output/flat10-cdr_output.csv')
+df_cdr = pd.read_csv(f'../{calibration}/data/flat10_output/flat10-cdr_output.csv')
 plot_reversibility(ax[1], df_cdr, ems_cumul_cdr, '#87ceeb', "CO2 Forcing.Atmospheric CO2 Concentration[1]", 'Atmos conc. (ppm)')
 plot_reversibility(ax[1], df_cdr, ems_cumul_cdr, '#2ca02c', "Terrestrial Carbon Balance.Terrestrial carbon balance[1]", 'Land sink', cumul=True)
 plot_reversibility(ax[1], df_cdr, ems_cumul_cdr, '#4b0082', "Ocean.Total ocean carbon", 'Ocean sink')
@@ -143,7 +144,7 @@ ax[2].set_xlabel('Cumul. CO2 emissions (GtC)')
 ax[2].set_ylabel('K')
 
 
-df_flat10 = pd.read_csv('../data/flat10_output/flat10_output.csv')
+df_flat10 = pd.read_csv(f'../{calibration}/data/flat10_output/flat10_output.csv')
 
 gmst_flat10 = loaddata(df_flat10, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
 
@@ -151,7 +152,7 @@ t100 = np.mean(gmst_flat10[91:110,:], axis=0)
 plot_dist(ax[3], t100, 0, 4, 'T100yr', 'K')
 
 
-df_zec = pd.read_csv('../data/flat10_output/flat10-zec_output.csv')
+df_zec = pd.read_csv(f'../{calibration}/data/flat10_output/flat10-zec_output.csv')
 
 gmst_zec = loaddata(df_zec, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
 
@@ -176,7 +177,7 @@ plot_dist(ax[8], tr0, -1, 1, 'TR0', 'K')
 
 plt.tight_layout()
 plt.savefig(
-    "../plots/flat10/flat10_fig1.png"
+    f"../{calibration}/plots/flat10/flat10_fig1.png"
 )
 
 #%%
@@ -187,7 +188,7 @@ plt.savefig(
 fig, ax = plt.subplots(3, 4, figsize=(20, 15))
 
 for s_i, scen in enumerate(scens.keys()):
-    df_scen = pd.read_csv(f'../data/flat10_output/{scen}_output.csv')
+    df_scen = pd.read_csv(f'../{calibration}/data/flat10_output/{scen}_output.csv')
     
     gmst_scen = loaddata(df_scen, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
     
@@ -201,7 +202,7 @@ for s_i, scen in enumerate(scens.keys()):
 
     legend = False
     
-    ems_in = pd.read_csv(f'../../frida_clim_processing/data/processed_for_frida/emissions_{scen.replace("-", "_")}.csv')
+    ems_in = pd.read_csv(f'../../frida_clim_processing/data/processed_for_frida/flat10/emissions_{scen.replace("-", "_")}.csv')
     ems_gtc = ems_in['Emissions.CO2 Emissions from Fossil use'][:years]/GtC_to_MtCO2
     ems_cumul = np.cumsum(ems_gtc)[:300]
         
@@ -214,7 +215,7 @@ for s_i, scen in enumerate(scens.keys()):
 
 plt.tight_layout()
 plt.savefig(
-    "../plots/flat10/flat10_fig2.png"
+    f"../{calibration}/plots/flat10/flat10_fig2.png"
 )
 
 #%%
@@ -247,7 +248,7 @@ for var in vars_to_plot:
     ax = ax.ravel()
 
     for s_i, scen in enumerate(scens.keys()):
-        df_scen = pd.read_csv(f'../data/flat10_output/{scen}_output.csv')
+        df_scen = pd.read_csv(f'../{calibration}/data/flat10_output/{scen}_output.csv')
         
         var_in  = loaddata(df_scen, 500, output_ensemble_size, var)
         
@@ -260,7 +261,7 @@ for var in vars_to_plot:
     
     plt.tight_layout()
     plt.savefig(
-        f"../plots/flat10/flat10_{var}.png"
+        f"../{calibration}/plots/flat10/flat10_{var}.png"
     )
 
     #%%
@@ -271,7 +272,7 @@ fig, ax = plt.subplots(3, 4, figsize=(20, 15))
 
 
 for scen in scens.keys():
-    ems_in = pd.read_csv(f'../../frida_clim_processing/data/processed_for_frida/emissions_{scen.replace("-", "_")}.csv')
+    ems_in = pd.read_csv(f'../../frida_clim_processing/data/processed_for_frida/flat10/emissions_{scen.replace("-", "_")}.csv')
     ems_gtc = ems_in['Emissions.CO2 Emissions from Fossil use'][:years]/GtC_to_MtCO2
     
     ax[0,0].plot(ems_in['Year'][:years], ems_gtc,
@@ -290,7 +291,7 @@ ax[0,0].set_ylim([-15,15])
 ax[0,0].set_title(r"$\mathrm{CO_2}$ Emissions")
 
 for s_i, scen in enumerate(scens.keys()):
-    df_scen = pd.read_csv(f'../data/flat10_output/{scen}_output.csv')
+    df_scen = pd.read_csv(f'../{calibration}/data/flat10_output/{scen}_output.csv')
     
     gmst_scen = loaddata(df_scen, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
     
@@ -304,7 +305,7 @@ for s_i, scen in enumerate(scens.keys()):
     ax[0, 1].set_ylabel('K')
     
     
-    ems_in = pd.read_csv(f'../../frida_clim_processing/data/processed_for_frida/emissions_{scen.replace("-", "_")}.csv')
+    ems_in = pd.read_csv(f'../../frida_clim_processing/data/processed_for_frida/flat10/emissions_{scen.replace("-", "_")}.csv')
     ems_gtc = ems_in['Emissions.CO2 Emissions from Fossil use'][:years]/GtC_to_MtCO2
     ems_cumul = np.cumsum(ems_gtc)[:300]
         
@@ -341,42 +342,42 @@ for s_i, scen in enumerate(scens.keys()):
     ax[1, s_i].set_title(f'{scen} median carbon response')
 
 
-df_flat10 = pd.read_csv('../data/flat10_output/flat10_output.csv')
+df_flat10 = pd.read_csv(f'../{calibration}/data/flat10_output/flat10_output.csv')
 gmst_flat10 = loaddata(df_flat10, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
 t100 = np.mean(gmst_flat10[91:110,:], axis=0)
-plot_dist(ax[2,0], t100, 0, 4, 'T100yr', 'K')
+plot_dist(ax[2,0], t100, 0.7, 2.5, 'T100yr', 'K')
 ax[2,0].legend()
 
-df_zec = pd.read_csv('../data/flat10_output/flat10-zec_output.csv')
+df_zec = pd.read_csv(f'../{calibration}/data/flat10_output/flat10-zec_output.csv')
 gmst_zec = loaddata(df_zec, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
 zec50 = np.mean(gmst_zec[141:160,:], axis=0) - np.mean(gmst_zec[91:110,:], axis=0)
-plot_dist(ax[2,1], zec50, -1.0, 0.7, 'ZEC50', 'K')
+plot_dist(ax[2,1], zec50, -1.0, 0.2, 'ZEC50', 'K')
 
 
 zec100 = np.mean(gmst_zec[191:210,:], axis=0) - np.mean(gmst_zec[91:110,:], axis=0)
-plot_dist(ax[2,1], zec100, -1.0, 0.7, 'ZEC100', 'K')
+plot_dist(ax[2,1], zec100, -1.0, 0.2, 'ZEC100', 'K')
 
 zec300 = np.mean(gmst_zec[391:410,:], axis=0) - np.mean(gmst_zec[91:110,:], axis=0)
-plot_dist(ax[2,1], zec300, -1.0, 0.7, 'ZEC300', 'K')
+plot_dist(ax[2,1], zec300, -1.0, 0.2, 'ZEC300', 'K')
 
 
 ax[2,1].set_title('ZEC50, ZEC100, ZEC300')
 ax[2,1].legend()
 
-df_cdr = pd.read_csv('../data/flat10_output/flat10-cdr_output.csv')
+df_cdr = pd.read_csv(f'../{calibration}/data/flat10_output/flat10-cdr_output.csv')
 gmst_cdr = loaddata(df_cdr, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
 peak_idxs = np.argmax(gmst_cdr, axis=0)
 tPW = df_cdr['Year'][peak_idxs] - 150
-plot_dist(ax[2,2], tPW, -25, 25, 't-PW', 'Years')
+plot_dist(ax[2,2], tPW, -35, 10, 't-PW', 'Years')
 ax[2,2].legend()
 
 
 tnz = np.mean(gmst_cdr[141:160,:], axis=0) - np.mean(gmst_flat10[116:135,:], axis=0)
-plot_dist(ax[2,3], tnz, -1, 1, 'TNZ', 'K')    
+plot_dist(ax[2,3], tnz, -1, 0.2, 'TNZ', 'K')    
 tr0 = np.mean(gmst_cdr[301:320,:], axis=0)
-plot_dist(ax[2,3], tr0, -1, 1, 'TR0', 'K')    
+plot_dist(ax[2,3], tr0, -1, 0.2, 'TR0', 'K')    
 tr1000 = np.mean(gmst_cdr[191:210,:], axis=0) - np.mean(gmst_flat10[91:110,:], axis=0)
-plot_dist(ax[2,3], tr1000, -1, 1, 'TR1000', 'K')
+plot_dist(ax[2,3], tr1000, -1, 0.2, 'TR1000', 'K')
 ax[2,3].set_title('TNZ, TR0, TR1000')
 ax[2,3].legend()
 
@@ -389,5 +390,5 @@ for i in np.arange(12):
     
 plt.tight_layout()
 plt.savefig(
-    "../plots/flat10/fig5_paper.png"
+    f"../{calibration}/plots/flat10/fig5_paper.png"
 )

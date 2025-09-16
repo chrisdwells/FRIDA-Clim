@@ -13,7 +13,7 @@
 		<dt reciprocal="true">8</dt>
 	</sim_specs>
 	<dimensions>
-		<dim name="ClimateCase" size="100"/>
+		<dim name="ClimateCase" size="1000"/>
 		<dim name="Coastal_Protection_level">
 			<elem name="insufficient"/>
 			<elem name="well_protected"/>
@@ -85,10 +85,10 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="r../calibration/data/spinup_output/Spinup_output_100.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/spinup_output/Spinup_output_1000.csv" precomputed="false" isee:format="numbers">
 			<table name="Spinup outputs" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../calibration/data/spinup_output/Spinup_output_tests_100.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../calibration/data/spinup_output/Spinup_output_tests_1000.csv" precomputed="false" isee:format="numbers">
 			<table name="Spinup tests" use_settings="true"/>
 		</export>
 		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_stocks.csv"/>
@@ -97,7 +97,7 @@
 		<import isee:overwrite="false" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_spinup_misc_constants.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Sensitivity" method="external" path="r../calibration/data/spinup_input/spinup_params_100.csv">
+		<isee:sensi_specs name="Sensitivity" method="external" path="r../calibration/data/spinup_input/spinup_params_1000.csv">
 			<isee:variable type="adhoc" name="Ocean.Depth_of_warm_surface_ocean_layer[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Thickness_of_intermediate_ocean_layer[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Depth_of_cold_surface_ocean_layer[1]"/>

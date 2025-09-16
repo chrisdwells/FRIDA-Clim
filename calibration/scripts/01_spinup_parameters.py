@@ -6,7 +6,11 @@ import numpy as np
 
 load_dotenv()
 
-# Generates the input parameters for FRIDA-Clim_spinup.stmx
+# Generates the input parameters for FRIDA-Clim_spinup.stmx.
+
+# This, and other scripts up to and including 08_historical_initials_params.py, 
+# are independent of the calibration version, because the spinup and input 
+# parameters to priors don't depend on the calibration version.
 
 spinup_samples = int(os.getenv("SPINUP_SAMPLES"))
 

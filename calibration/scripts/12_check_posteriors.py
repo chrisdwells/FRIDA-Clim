@@ -13,13 +13,14 @@ import scipy.stats
 load_dotenv()
 
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
+calibration = os.getenv("CALIBRATION")
 
-draws_in = pd.read_csv(f'../data/constraining/draws_{output_ensemble_size}.csv')
+draws_in = pd.read_csv(f'../{calibration}/data/constraining/draws_{output_ensemble_size}.csv')
 
-with open('../data/constraining/distributions.pickle', 'rb') as handle:
+with open(f'../{calibration}/data/constraining/distributions.pickle', 'rb') as handle:
     dict_distributions = pickle.load(handle)
 
-temp_posteriors = pd.read_csv('../data/posteriors_output/posteriors_temperature.csv')
+temp_posteriors = pd.read_csv(f'../{calibration}/data/posteriors_output/posteriors_temperature.csv')
 
 
 temp_pi = np.average(temp_posteriors.loc[(temp_posteriors['Year']>=1850) & (temp_posteriors['Year']<=1900)].drop(columns='Year').values, axis=0)
@@ -29,14 +30,14 @@ temp_in = temp_pd - temp_pi
 
 
 #%%
-df_ohc = pd.read_csv('../data/posteriors_output/posteriors_ocean_heat_content.csv')
+df_ohc = pd.read_csv(f'../{calibration}/data/posteriors_output/posteriors_ocean_heat_content.csv')
 
 ohc_data = df_ohc.drop(columns='Year').values
 
 ohc_in = (ohc_data[1,:] - ohc_data[0,:])*1000 # units
 
 
-df_aer = pd.read_csv("../data/posteriors_output/posteriors_aerosols.csv")
+df_aer = pd.read_csv(f"../{calibration}/data/posteriors_output/posteriors_aerosols.csv")
 
 faci_in = np.full(output_ensemble_size, np.nan)
 fari_in = np.full(output_ensemble_size, np.nan)
@@ -50,7 +51,7 @@ for i in np.arange(output_ensemble_size):
 
 faer_in = fari_in + faci_in
 
-df_co2 = pd.read_csv("../data/posteriors_output/posteriors_CO2.csv")
+df_co2 = pd.read_csv(f"../{calibration}/data/posteriors_output/posteriors_CO2.csv")
 co2_in = df_co2.drop(columns='Year').values[0,:]
 
 
@@ -289,5 +290,5 @@ ax[1, 1].set_xlabel("ZJ, 2020 minus 1971")
 plt.tight_layout()
 
 plt.savefig(
-    "../plots/check_posteriors.png"
+    f"../{calibration}/plots/check_posteriors.png"
 )

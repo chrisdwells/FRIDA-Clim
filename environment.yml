@@ -1,0 +1,11 @@
+name: frida-clim
+channels:
+  - conda-forge
+dependencies:
+  - pandas
+  - numpy
+  - matplotlib
+  - os
+  - copy
+  - dotenv
+  - pickle

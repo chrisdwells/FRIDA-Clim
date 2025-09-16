@@ -14,13 +14,14 @@ load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
+calibration = os.getenv("CALIBRATION")
 
 co2_constraint_scaling = 1
 
 NINETY_TO_ONESIGMA = scipy.stats.norm.ppf(0.95)
 
 valid_temp_flux = np.loadtxt(
-    "../data/constraining/runids_rmse_pass.csv",
+    f"../{calibration}/data/constraining/runids_rmse_pass.csv",
 ).astype(np.int64)
 
 input_ensemble_size = len(valid_temp_flux)
@@ -30,21 +31,21 @@ assert input_ensemble_size > output_ensemble_size
 
 # need to manipulate temperature so do differently to others
 
-df_temp = pd.read_csv("../data/priors_output/priors_temperature.csv")
+df_temp = pd.read_csv(f"../{calibration}/data/priors_output/priors_temperature.csv")
 
 temp_pi = np.average(df_temp.loc[(df_temp['Year']>=1850) & (df_temp['Year']<=1900)].drop(columns='Year').values, axis=0)
 temp_pd = np.average(df_temp.loc[(df_temp['Year']>=2003) & (df_temp['Year']<=2022)].drop(columns='Year').values, axis=0)
 temp_in = temp_pd - temp_pi
 
 # for others, pull in data by run
-df_ohc = pd.read_csv("../data/priors_output/priors_ocean_heat_content.csv")
+df_ohc = pd.read_csv(f"../{calibration}/data/priors_output/priors_ocean_heat_content.csv")
 ohc_data = np.full((2, samples), np.nan)
 for i in np.arange(samples):
     ohc_data[:,i] = df_ohc[f'="Run {i+1}: Energy Balance Model.ocean heat content change[1]"']
 ohc_in = (ohc_data[1,:] - ohc_data[0,:])*1000 # units
 
 
-df_aer = pd.read_csv("../data/priors_output/priors_aerosols.csv")
+df_aer = pd.read_csv(f"../{calibration}/data/priors_output/priors_aerosols.csv")
 faci_in = np.full(samples, np.nan)
 fari_in = np.full(samples, np.nan)
 for i in np.arange(samples):
@@ -54,7 +55,7 @@ for i in np.arange(samples):
     f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"'])
 faer_in = fari_in + faci_in
 
-df_co2 = pd.read_csv("../data/priors_output/priors_CO2.csv")
+df_co2 = pd.read_csv(f"../{calibration}/data/priors_output/priors_CO2.csv")
 co2_in = np.full(samples, np.nan)
 for i in np.arange(samples):
     co2_in[i] = df_co2[f'="Run {i+1}: CO2 Forcing.Atmospheric CO2 Concentration[1]"']
@@ -569,7 +570,7 @@ fig.tight_layout()
 
 
 plt.savefig(
-    "../plots/constraints.png"
+    f"../{calibration}/plots/constraints.png"
 )
 # plt.close()
 
@@ -646,7 +647,7 @@ ax[0].set_title("Temperature anomaly: posterior")
 
 plt.tight_layout()
 plt.savefig(
-    "../plots/final_reweighted_temp.png"
+    f"../{calibration}/plots/final_reweighted_temp.png"
 )
 
 
@@ -656,18 +657,16 @@ plt.savefig(
 #%%
 
 np.savetxt(
-    "../data/constraining/runids_rmse_reweighted_pass.csv",
+    f"../{calibration}/data/constraining/runids_rmse_reweighted_pass.csv",
     sorted(draws[0].index),
     fmt="%d",
 )
 
 #%%
 
-draws[0].to_csv(f'../data/constraining/draws_{output_ensemble_size}.csv')
+draws[0].to_csv(f'../{calibration}/data/constraining/draws_{output_ensemble_size}.csv')
 
 
-with open('../data/constraining/distributions.pickle', 'wb') as handle:
+with open(f'../{calibration}/data/constraining/distributions.pickle', 'wb') as handle:
     pickle.dump(dict_distributions, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-#%%
 
