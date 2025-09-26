@@ -572,6 +572,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="CO2_Forcing.UNIT_MtCO2_to_GtCO2" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect to="CO2_Forcing.UNIT_weight_ratio_of_CO2_over_C" from="Climate_Units.UNIT_weight_ratio_of_CO2_over_C"/>
 				<connect2 to="CO2_Forcing.UNIT_weight_ratio_of_CO2_over_C" from="Climate_Units.UNIT_weight_ratio_of_CO2_over_C"/>
+				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>

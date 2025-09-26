@@ -384,6 +384,8 @@
 				<format scale_by="auto"/>
 				<connect to="Forcing.Total_Land_use_forcing" from="Land_Use_Forcing.Total_Land_use_forcing"/>
 				<connect2 to="Total_Land_use_forcing" from="Land_Use_Forcing.Total_Land_use_forcing"/>
+				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 			</module>
@@ -569,7 +571,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="29" isee:scroll_y="331" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="585" isee:scroll_y="331" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4143,16 +4145,8 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Irrigation_ERF*Calibration_scaling_of_Irrigation_forcing[selected_climate_case[Run]] + Albedo_ERF*Calibration_scaling_of_Albedo_forcing[selected_climate_case[Run]]</eqn>
-				<units>W/(metre^2)</units>
-			</aux>
-			<aux name="Albedo ERF" access="output" isee:autocreated="true">
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="1750" max="2100"/>
-					<yscale min="0" max="100"/>
-					<ypts>-0.0000243,-0.000392149,-0.000745799,-0.001085603,-0.001411949,-0.001725224,-0.002025816,-0.002314113,-0.002590502,-0.002855372,-0.00310911,-0.003352104,-0.003584742,-0.003807411,-0.004020499,-0.004224394,-0.004419484,-0.004606156,-0.004784799,-0.0049558,-0.005119547,-0.005276427,-0.005426829,-0.00557114,-0.005709748,-0.00584304,-0.005971405,-0.006095231,-0.006214904,-0.006330813,-0.006443346,-0.00655289,-0.006659833,-0.006764563,-0.006867468,-0.006968936,-0.007069353,-0.007169108,-0.00726859,-0.007368184,-0.00746828,-0.007569265,-0.007671527,-0.007775454,-0.007881433,-0.007989852,-0.008101099,-0.008215562,-0.008333628,-0.008455686,-0.008582122,-0.008713326,-0.008849684,-0.008991584,-0.009139414,-0.009293562,-0.009454416,-0.009622364,-0.009797792,-0.00998109,-0.010172644,-0.010372843,-0.010582074,-0.010800725,-0.011029184,-0.011267839,-0.011517002,-0.011776045,-0.012043696,-0.012318669,-0.012599681,-0.012885446,-0.01317468,-0.013466098,-0.013758417,-0.014050993,-0.014344936,-0.014641651,-0.014942542,-0.015249015,-0.015562474,-0.015884323,-0.01621595,-0.016557914,-0.01690967,-0.017270597,-0.017640069,-0.018017465,-0.01840216,-0.018793532,-0.019190957,-0.019593796,-0.020001008,-0.02041113,-0.020822683,-0.021234184,-0.021644154,-0.022051111,-0.022453574,-0.022850096,-0.023240985,-0.023629118,-0.024017574,-0.024409434,-0.024807779,-0.025215688,-0.025636242,-0.026072521,-0.026527605,-0.027004575,-0.027506511,-0.028036494,-0.028597603,-0.02919292,-0.029825523,-0.030498494,-0.031214913,-0.03197786,-0.032790416,-0.033655085,-0.034566189,-0.035511964,-0.036480496,-0.037459875,-0.03843819,-0.039403529,-0.040343981,-0.041247639,-0.042107926,-0.042934259,-0.04373904,-0.044534671,-0.045333554,-0.046148092,-0.046990686,-0.047873739,-0.048808803,-0.049793722,-0.050815228,-0.05185974,-0.052913672,-0.053963442,-0.054995465,-0.055996156,-0.056951934,-0.057852261,-0.058720689,-0.059602141,-0.060541867,-0.061585118,-0.06277686,-0.064130215,-0.065597802,-0.067125469,-0.068659068,-0.070144447,-0.071527461,-0.072770669,-0.073891723,-0.074919618,-0.075883322,-0.076805478,-0.077694362,-0.078556267,-0.079397486,-0.08022431,-0.081043033,-0.081859948,-0.082681346,-0.083513502,-0.084361218,-0.085226729,-0.086112012,-0.087019046,-0.08794981,-0.08890628,-0.089890436,-0.090904255,-0.091949715,-0.093028796,-0.094141447,-0.095274367,-0.096408928,-0.097526491,-0.098608415,-0.099636058,-0.100590779,-0.101453939,-0.102206896,-0.102831008,-0.103308278,-0.103647657,-0.103894319,-0.104095983,-0.104300369,-0.104555197,-0.104908187,-0.105407059,-0.106099532,-0.107033327,-0.108256163,-0.10979979,-0.111618387,-0.113642608,-0.115803105,-0.118030528,-0.120255528,-0.122408755,-0.124420859,-0.126222493,-0.127748857,-0.128992432,-0.129984836,-0.130758446,-0.131345638,-0.131778789,-0.132090274,-0.132312471,-0.132477755,-0.132618504,-0.132767092,-0.132955898,-0.133210193,-0.13352945,-0.133907287,-0.134337321,-0.13481317,-0.135328451,-0.135876782,-0.136451779,-0.13704706,-0.13704706,-0.137443327,-0.137815854,-0.138155562,-0.138460904,-0.138775062,-0.139134145,-0.139532919,-0.13996312,-0.140422292,-0.140907583,-0.141409177,-0.141893666,-0.14231022,-0.142719352,-0.143197481,-0.143727633,-0.144268596,-0.144795835,-0.145298902,-0.145775368,-0.146225543,-0.146649974,-0.147052062,-0.147433854,-0.147800793,-0.148160597,-0.148520118,-0.148885735,-0.149261494,-0.149646178,-0.150038984,-0.150436016,-0.150831457,-0.151219539,-0.151592614,-0.151943107,-0.152269284,-0.15257273,-0.153117083,-0.153362316,-0.153594259,-0.153813607,-0.154023921,-0.154230211,-0.154436488,-0.15464554,-0.154859459,-0.155080102,-0.155308945,-0.15554679,-0.155793418,-0.15604692,-0.156303238,-0.156556289,-0.156798598,-0.15702205,-0.157218968,-0.157383186,-0.15751065,-0.157599244,-0.157648726,-0.157660688,-0.157638382,-0.15758681,-0.157512799,-0.157424027,-0.157327429,-0.157228145,-0.157129128,-0.157031329,-0.156933863,-0.156834439,-0.15672994,-0.156616575,-0.156490011,-0.15634543,-0.15617764,-0.155981609,-0.155752906,-0.155487986,-0.155184236,-0.154840159,-0.154456229,-0.154035116,-0.153581042,-0.153099662,-0.152597861,-0.152082776,-0.151560662,-0.151035804,-0.150509977,-0.149982143,-0.149448577,-0.148903841,-0.148341492,-0.147754842,-0.147137772,-0.146485329,-0.145794207,-0.145062299,-0.144289046,-0.143475892,-0.142625026,-0.141739235,-0.140821754,-0.139876114,-0.138906043,-0.137915325,-0.136907485,-0.13588547,-0.134851318,-0.133805722,-0.132747543,-0.131673564,-0.130578739,-0.129456638,-0.128300248,-0.12710285,-0.125858972</ypts>
-				</gf>
+				<eqn>Irrigation_ERF*Calibration_scaling_of_Irrigation_forcing[selected_climate_case[Run]] +
+(Albedo - INIT(Albedo))*Land_Use_Forcing_per_change_in_Land_Use_albedo*Calibration_scaling_of_Albedo_forcing[selected_climate_case[Run]]</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="Irrigation ERF" access="output" isee:autocreated="true">
@@ -4787,6 +4781,17 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
+			<aux name="Land Use Forcing per\nchange in Land Use albedo">
+				<eqn>-17.69765761029825</eqn>
+				<units>(W/(metre^2))</units>
+			</aux>
+			<aux name="Albedo" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -4876,15 +4881,10 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
 				<aux x="375.083" y="399.25" name="Total Land use forcing"/>
-				<aux x="284.083" y="315.25" name="Albedo ERF"/>
 				<aux x="390.083" y="297.25" name="Irrigation ERF"/>
 				<aux x="533.333" y="333.25" name="Calibration scaling\nof Albedo forcing"/>
 				<connector uid="15" angle="202.639">
 					<from>Calibration_scaling_of_Albedo_forcing</from>
-					<to>Total_Land_use_forcing</to>
-				</connector>
-				<connector uid="16" angle="330.301">
-					<from>Albedo_ERF</from>
 					<to>Total_Land_use_forcing</to>
 				</connector>
 				<connector uid="17" angle="281.149">
@@ -4899,6 +4899,16 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<aux font_style="italic" font_weight="bold" x="510.833" y="413.75" name="selected climate case"/>
 				<connector uid="19" angle="198.903">
 					<from>selected_climate_case</from>
+					<to>Total_Land_use_forcing</to>
+				</connector>
+				<aux x="430" y="178" name="Land Use Forcing per\nchange in Land Use albedo"/>
+				<aux font_style="italic" font_weight="bold" x="225" y="203.75" name="Albedo"/>
+				<connector uid="20" angle="332.513">
+					<from>Albedo</from>
+					<to>Total_Land_use_forcing</to>
+				</connector>
+				<connector uid="21" angle="281.06">
+					<from>Land_Use_Forcing_per_change_in_Land_Use_albedo</from>
 					<to>Total_Land_use_forcing</to>
 				</connector>
 			</view>

@@ -433,10 +433,10 @@ for var in vars_plot.keys():
             
         ax[c].plot(time, np.median(var_data, axis=1), color=color)
         
-        ax[c].fill_between(time, 
-                         np.percentile(var_data, 17, axis=1), 
-                         np.percentile(var_data, 83, axis=1), 
-                         color=color, linewidth=0, alpha=0.2)
+        # ax[c].fill_between(time, 
+        #                  np.percentile(var_data, 17, axis=1), 
+        #                  np.percentile(var_data, 83, axis=1), 
+        #                  color=color, linewidth=0, alpha=0.2)
     
         ax[c].fill_between(time, 
                          np.percentile(var_data, 5, axis=1), 

@@ -46,13 +46,13 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="r../data/ssps_output/ssp119_output.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/ssps_output/ssp585_output.csv" precomputed="false" isee:format="numbers">
 			<table name="SSP outputs" use_settings="true"/>
 		</export>
 		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv"/>
 		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_npp_initial_values.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/population.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/ssps/all_inputs_ssp119.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/ssps/all_inputs_ssp585.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/external/climate_longrun_input_data.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
@@ -509,6 +509,8 @@
 				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 				<connect2 to="Sea_Level.SWITCH_population_is_input" from="SWITCH_population_is_input"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
@@ -688,6 +690,8 @@
 			</module>
 			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../FRIDA-Clim_SSPs_Modules/Land Use and Agriculture.itmx">
 				<format scale_by="auto"/>
+				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect2 to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect to="Terrestrial_Carbon_Balance.crop_production_1" from="Crop.crop_production"/>

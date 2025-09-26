@@ -533,6 +533,8 @@
 				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 				<connect2 to="Sea_Level.SWITCH_population_is_input" from="SWITCH_population_is_input"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
@@ -712,6 +714,8 @@
 			</module>
 			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../FRIDA-Clim_posteriors_Modules/Land Use and Agriculture.itmx">
 				<format scale_by="auto"/>
+				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect2 to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect to="Terrestrial_Carbon_Balance.crop_production_1" from="Crop.crop_production"/>
