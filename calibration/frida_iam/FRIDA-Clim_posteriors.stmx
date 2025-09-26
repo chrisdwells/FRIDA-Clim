@@ -70,6 +70,9 @@
 		<export frequency="on_demand" resource="r../data/posteriors_output/posteriors_NPP.csv" precomputed="false" isee:format="numbers">
 			<table name="NPP" use_settings="true"/>
 		</export>
+		<export resource="r../data/posteriors_output/posteriors_1980_stocks.csv" precomputed="false" isee:format="numbers">
+			<table name="1980 stocks" use_settings="true"/>
+		</export>
 		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_transitions_hist.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_wood_biomass_hist.csv"/>
@@ -998,7 +1001,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="285" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="285" isee:scroll_y="75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1164,6 +1167,146 @@ This is what determines when the model stops calculating</doc>
 						</item>
 						<item>
 							<entity name="Grass.grassland_net_primary_production[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="186" x="855" y="620">
+					<table isee:start_time="1980" isee:stop_time="1980" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="1980 stocks" isee:mark_for_export="true" title="1980 stocks">
+						<item type="time"/>
+						<item>
+							<entity name="Energy_Balance_Model.Deep_Ocean_Temperature[*]"/>
+						</item>
+						<item>
+							<entity name='Energy_Balance_Model."Land_&amp;_Ocean_Surface_Temperature"[*]'/>
+						</item>
+						<item>
+							<entity name="Energy_Balance_Model.ocean_heat_content_change[*]"/>
+						</item>
+						<item>
+							<entity name="Energy_Balance_Model.Thermocline_Ocean_Temperature[*]"/>
+						</item>
+						<item>
+							<entity name="CH4_Forcing.CH4_in_atmosphere[*]"/>
+						</item>
+						<item>
+							<entity name="CO2_Forcing.Atmospheric_CO2_mass_anomaly_since_1750[*]"/>
+						</item>
+						<item>
+							<entity name="Minor_GHGs_Forcing.HFC134a_eq_in_atmosphere[*]"/>
+						</item>
+						<item>
+							<entity name="N2O_Forcing.Cumulative_N2O_emissions[*]"/>
+						</item>
+						<item>
+							<entity name="N2O_Forcing.N2O_in_atmosphere[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Cold_surface_ocean_carbon_reservoir[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Cold_surface_ocean_pH[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Deep_ocean_ocean_carbon_reservoir[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Intermediate_depth_ocean_carbon_reservoir[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Warm_surface_ocean_carbon_reservoir[*]"/>
+						</item>
+						<item>
+							<entity name="Ocean.Warm_surface_ocean_pH[*]"/>
+						</item>
+						<item>
+							<entity name="Sea_Level.AntIS_Radius[*]"/>
+						</item>
+						<item>
+							<entity name="Sea_Level.AntIS_Volume[*]"/>
+						</item>
+						<item>
+							<entity name="Sea_Level.Sea_level_anomaly_from_GrIS_DIS[*]"/>
+						</item>
+						<item>
+							<entity name="Sea_Level.Sea_level_anomaly_from_GrIS_SMB[*]"/>
+						</item>
+						<item>
+							<entity name="Sea_Level.Sea_level_anomaly_from_LWS[*]"/>
+						</item>
+						<item>
+							<entity name="Sea_Level.Sea_level_anomaly_from_mountain_glaciers[*]"/>
+						</item>
+						<item>
+							<entity name="Sea_Level.Sea_level_anomaly_from_thermal_expansion[*]"/>
+						</item>
+						<item>
+							<entity name='Terrestrial_Carbon_Balance."Commited_future_soil_carbon_loss_due_to_land-use_transitions"[*]'/>
+						</item>
+						<item>
+							<entity name="Terrestrial_Carbon_Balance.Cumulative_terrestrial_carbon_balance[*]"/>
+						</item>
+						<item>
+							<entity name="Terrestrial_Carbon_Balance.Peatland_carbon_balance[*]"/>
+						</item>
+						<item>
+							<entity name="Cropland_Carbon_Balance.Cumulative_cropland_carbon_balance[*]"/>
+						</item>
+						<item>
+							<entity name="Forest_carbon_balance.Cumulative_Forest_carbon_balance[*]"/>
+						</item>
+						<item>
+							<entity name="Grassland_carbon_balance.Cumulative_grassland_carbon_balance[*]"/>
+						</item>
+						<item>
+							<entity name="Forest.Mature_forest_aboveground_biomass[*]"/>
+						</item>
+						<item>
+							<entity name="Forest.Young_forest_aboveground_biomass[*]"/>
+						</item>
+						<item>
+							<entity name="Land_Use.Cropland[*]"/>
+						</item>
+						<item>
+							<entity name="Land_Use.Degraded_Land[*]"/>
+						</item>
+						<item>
+							<entity name="Land_Use.Grassland[*]"/>
+						</item>
+						<item>
+							<entity name="Land_Use.Mature_Forest[*]"/>
+						</item>
+						<item>
+							<entity name="Land_Use.Young_Forest[*]"/>
+						</item>
+						<item>
+							<entity name="cropland_soil_carbon.fast_soil_carbon_cropland[*]"/>
+						</item>
+						<item>
+							<entity name="cropland_soil_carbon.slow_soil_carbon_cropland[*]"/>
+						</item>
+						<item>
+							<entity name="degraded_land_soil_carbon.fast_soil_carbon_degraded_land[*]"/>
+						</item>
+						<item>
+							<entity name="degraded_land_soil_carbon.slow_soil_carbon_degraded_land[*]"/>
+						</item>
+						<item>
+							<entity name="forest_soil_carbon.fast_soil_carbon_mature_forest[*]"/>
+						</item>
+						<item>
+							<entity name="forest_soil_carbon.fast_soil_carbon_young_forest[*]"/>
+						</item>
+						<item>
+							<entity name="forest_soil_carbon.slow_soil_carbon_mature_forest[*]"/>
+						</item>
+						<item>
+							<entity name="forest_soil_carbon.slow_soil_carbon_young_forest[*]"/>
+						</item>
+						<item>
+							<entity name="grassland_soil_carbon.fast_soil_carbon_grassland[*]"/>
+						</item>
+						<item>
+							<entity name="grassland_soil_carbon.slow_soil_carbon_grassland[*]"/>
 						</item>
 					</table>
 				</stacked_container>
