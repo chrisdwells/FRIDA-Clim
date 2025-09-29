@@ -62,11 +62,11 @@ variable_stock_list = [
     "Sea Level.Sea level anomaly from mountain glaciers",
     "Sea Level.Sea level anomaly from thermal expansion",
     "Terrestrial Carbon Balance.Commited future soil carbon loss due to land-use transitions",
-    "Terrestrial Carbon Balance.Cumulative terrestrial carbon balance",
+    # "Terrestrial Carbon Balance.Cumulative terrestrial carbon balance",
     # "Terrestrial Carbon Balance.Peatland carbon balance",
-    "Cropland Carbon Balance.Cumulative cropland carbon balance",
-    "Forest carbon balance.Cumulative Forest carbon balance",
-    "Grassland carbon balance.Cumulative grassland carbon balance",
+    # "Cropland Carbon Balance.Cumulative cropland carbon balance",
+    # "Forest carbon balance.Cumulative Forest carbon balance",
+    # "Grassland carbon balance.Cumulative grassland carbon balance",
     "Forest.Mature forest aboveground biomass",
     "Forest.Young forest aboveground biomass",
     "Land Use.Cropland",
@@ -142,7 +142,7 @@ df_combined_cols = list(df_combined.keys())
 
 df_combined_newcols = [x.replace('[1]', '[*]') if isinstance(x, str) else x for x in df_combined_cols]
 df_combined_newcols_df = pd.DataFrame(df_combined.values, columns=df_combined_newcols)
-df_combined_newcols_df = df_combined_newcols_df.drop(['Run'], axis=1)
+df_combined_newcols_df = df_combined_newcols_df.drop(['Run', 'Crop.crop yield 1980 reference[*]'], axis=1)
 
 df_combined_newcols_df.to_csv(
     f"../{calibration}/data/constraining/frida_iam_inputs_{output_ensemble_size}_from_{samples}_1980_inits_params.csv",
