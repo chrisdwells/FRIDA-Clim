@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
+import matplotlib.pyplot as plt
 
 # combine parameter sets and the 1980 stocks to generate the full set of 
 # inputs to FRIDA IAM. This should only be done for the IAM calibration ie frida_iam
@@ -134,10 +135,46 @@ for n_i in np.arange(output_ensemble_size):
     row.append(np.mean(df_temperature[f'="Run {n_i+1}: Energy Balance Model.Land & Ocean Surface Temperature[1]"'
                  ].loc[(df_temperature['Year'] >= 1850) & (df_temperature['Year'] <= 1900)].values))
     
+    
     df_variable_inits_out.loc[n_i] = row
     
+# need to set the normal mature forest biomass
+
+df_posterior_params['Forest.Normal mature forest aboveground biomass per area[1]'
+                    ] = df_posterior_params['Forest.Initial Mature forest aboveground biomass[1]'
+                    ]/df_posterior_params['Land Use.Initial Mature Forest[1]']
+
+# don't want the 1750 stocks of these in for the IAM as the 1980 values are needed instead                                              
+
+stocks_1750_to_remove = [
+     'Ocean.Initial Cold surface ocean carbon reservoir[1]',
+     'Ocean.Initial Cold surface ocean pH[1]',
+     'Ocean.Initial Deep ocean ocean carbon reservoir[1]',
+     'Ocean.Initial Intermediate depth ocean carbon reservoir[1]',
+     'Ocean.Initial Warm surface ocean carbon reservoir[1]',
+     'Ocean.Initial Warm surface ocean pH[1]',
+     'Terrestrial Carbon Balance.Initial Commited future soil carbon loss due to land-use transitions[1]',
+     'Forest.Initial Mature forest aboveground biomass[1]',
+     'Forest.Initial Young forest aboveground biomass[1]',
+     'Land Use.Initial Mature Forest[1]',
+     'Land Use.Initial Young Forest[1]',
+     'cropland soil carbon.Initial fast soil carbon cropland[1]',
+     'cropland soil carbon.Initial slow soil carbon cropland[1]',
+     'degraded land soil carbon.Initial fast soil carbon degraded land[1]',
+     'degraded land soil carbon.Initial slow soil carbon degraded land[1]',
+     'forest soil carbon.Initial fast soil carbon mature forest[1]',
+     'forest soil carbon.Initial fast soil carbon young forest[1]',
+     'forest soil carbon.Initial slow soil carbon mature forest[1]',
+     'forest soil carbon.Initial slow soil carbon young forest[1]',
+     'grassland soil carbon.Initial fast soil carbon grassland[1]',
+     'grassland soil carbon.Initial slow soil carbon grassland[1]']
+    
+df_posterior_params = df_posterior_params.drop(stocks_1750_to_remove, axis=1)
+
 df_combined = pd.concat([df_posterior_params, df_variable_inits_out], axis=1)
 
+
+#%%
 df_combined_cols = list(df_combined.keys())
 
 df_combined_newcols = [x.replace('[1]', '[*]') if isinstance(x, str) else x for x in df_combined_cols]
@@ -165,3 +202,31 @@ df_constant_inits_out.to_csv(
     f"../{calibration}/data/constraining/frida_iam_inputs_{output_ensemble_size}_from_{samples}_1980_constant_stocks.csv",
     index=False,
 )
+
+#%%
+
+# find median member wrt observations
+years = np.arange(1980, 2023, 1)
+df_temp_obs = pd.read_csv("../data/external/forcing/annual_averages.csv")
+
+gmst = df_temp_obs["gmst"].loc[(df_temp_obs['time'] >= 1980) 
+                               & (df_temp_obs['time'] < 2023)].values
+
+
+temp_1980_2022 = df_temperature.loc[(df_temperature['Year']>=1980) & (df_temperature['Year']<2023)].drop(columns='Year').values
+
+temp_pi = np.average(df_temperature.loc[(df_temperature['Year']>=1850) & (df_temperature['Year']<=1900)
+                                    ].drop(columns='Year').values, axis=0)
+
+temp_hist_offset = temp_1980_2022 - temp_pi
+
+errors = np.mean((temp_hist_offset.T - gmst) ** 2, axis=1)
+best_idx = np.argmin(errors)
+
+plt.plot(years, temp_hist_offset, color='grey')
+plt.plot(years, temp_hist_offset[:,1], color='grey', label='Ensemble')
+
+plt.plot(years, gmst, color='black', label='Obs')
+plt.plot(years, temp_hist_offset[:,best_idx], color='orange', label=f'Member {best_idx+1}')
+plt.legend()
+plt.ylabel('GMST cf 1850-1900 (K)')
