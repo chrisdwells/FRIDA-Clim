@@ -91,10 +91,10 @@
 		<export frequency="on_demand" resource="r../calibration/data/spinup_output/Spinup_output_tests_1000.csv" precomputed="false" isee:format="numbers">
 			<table name="Spinup tests" use_settings="true"/>
 		</export>
-		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_stocks.csv"/>
-		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_npp_initial_values.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_wood_biomass_ssp245.csv"/>
-		<import isee:overwrite="false" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_spinup_misc_constants.csv"/>
+		<import enabled="false" frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_stocks.csv"/>
+		<import enabled="false" frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_npp_initial_values.csv"/>
+		<import enabled="false" isee:overwrite="false" isee:timevarying="true" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_land_wood_biomass_ssp245.csv"/>
+		<import enabled="false" isee:overwrite="false" resource="r../frida_clim_processing/data/processed_for_frida/frida_clim_spinup_misc_constants.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
 		<isee:sensi_specs name="Sensitivity" method="external" path="r../calibration/data/spinup_input/spinup_params_1000.csv">
@@ -108,7 +108,6 @@
 			<isee:variable type="adhoc" name="Ocean.Reference_strength_of_biological_carbon_pump_in_high_latitude_ocean[1]"/>
 			<isee:variable type="adhoc" name="Ocean.High_latitude_carbon_pump_transfer_efficiency[1]"/>
 			<isee:variable type="adhoc" name="Forest.Young_mature_forest_biomass_ratio[1]"/>
-			<isee:variable type="adhoc" name="Crop.normal_harvest_index_for_food_crops[1]"/>
 			<isee:variable type="adhoc" name="Crop.sensitivity_of_effect_of_crop_yield_on_harvest_index[1]"/>
 			<isee:variable type="adhoc" name="Crop.crop_yield_1980_reference[1]"/>
 			<isee:variable type="adhoc" name="Crop.harvest_index_for_feed_crops[1]"/>
@@ -453,6 +452,8 @@
 				<format scale_by="auto"/>
 				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -672,6 +673,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.UNIT_GtC_per_PCal" from="Crop.UNIT_GtC_per_PCal_crop"/>
 				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
 				<connect to="Terrestrial_Carbon_Balance.cutting" from="Forest.cutting"/>
@@ -920,7 +923,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="8" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>

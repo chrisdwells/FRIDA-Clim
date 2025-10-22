@@ -227,7 +227,7 @@
 	</model_units>
 	<model name="Climate">
 		<variables>
-			<module name="Sea Level" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/calibration/frida_iam/FRIDA-Clim_priors_Modules/Sea Level.itmx">
+			<module name="Sea Level" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_ChrisRepo/calibration/frida_iam/FRIDA-Clim_priors_Modules/Sea Level.itmx">
 				<format scale_by="auto"/>
 				<connect to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
 				<connect2 to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
@@ -249,7 +249,7 @@
 				<connect2 to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 			</module>
 			<module name="Ocean" isee:label="Ocean
-Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/calibration/frida_iam/FRIDA-Clim_priors_Modules/Ocean.itmx">
+Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_ChrisRepo/calibration/frida_iam/FRIDA-Clim_priors_Modules/Ocean.itmx">
 				<format scale_by="auto"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
@@ -314,6 +314,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="CO2_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -429,6 +431,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Ocean.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Ocean.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
@@ -438,7 +442,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 			</module>
-			<module name="Emissions" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/calibration/frida_iam/FRIDA-Clim_priors_Modules/Emissions.itmx">
+			<module name="Emissions" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_ChrisRepo/calibration/frida_iam/FRIDA-Clim_priors_Modules/Emissions.itmx">
 				<format scale_by="auto"/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
@@ -500,7 +504,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 			</module>
 			<module name="Forcing" isee:label="Radiative
-Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/calibration/frida_iam/FRIDA-Clim_priors_Modules/Forcing.itmx">
+Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_ChrisRepo/calibration/frida_iam/FRIDA-Clim_priors_Modules/Forcing.itmx">
 				<format scale_by="auto"/>
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
@@ -675,6 +679,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass" from="Forest.forest_aboveground_biomass"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
@@ -735,8 +741,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Terrestrial_Carbon_Balance.young_forest_net_primary_production" from="Forest.young_forest_net_primary_production"/>
 				<connect to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect2 to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
-				<connect to="Cropland_Carbon_Balance.crop_residue_other_use_1" from="Crop.crop_residue_other_use"/>
-				<connect2 to="Cropland_Carbon_Balance.crop_residue_other_use_1" from="Crop.crop_residue_other_use"/>
+				<connect to="Cropland_Carbon_Balance.crop_residue_other_use" from="Crop.crop_residue_other_use"/>
+				<connect2 to="Cropland_Carbon_Balance.crop_residue_other_use" from="Crop.crop_residue_other_use"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
@@ -869,7 +875,7 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="3" isee:scroll_x="107.5" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="3" isee:scroll_x="107.5" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4111,26 +4117,19 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<inflow>Terrestrial_carbon_balance</inflow>
 				<units>GtC</units>
 			</stock>
-			<aux name="crop residue other use" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>GtC/Year</units>
-			</aux>
 			<aux name="Terrestrial carbon loss">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>crop_production_GtC + litter_emissions_GtC + soil_carbon_emissions_GtC + timber + animal_grazing + crop_residue_other_use</eqn>
+				<eqn>crop_production_GtC + litter_emissions_GtC + soil_carbon_emissions_GtC + timber + animal_grazing + crop_residue_other_use + Forest_burned_biomass_emissions</eqn>
 				<units>GtC/Year</units>
 			</aux>
 			<module name="Cropland Carbon Balance" isee:label="">
 				<format scale_by="auto"/>
 				<connect to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect2 to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
-				<connect to="Cropland_Carbon_Balance.crop_residue_other_use_1" from="Crop.crop_residue_other_use"/>
-				<connect2 to="Cropland_Carbon_Balance.crop_residue_other_use_1" from="Crop.crop_residue_other_use"/>
+				<connect to="Cropland_Carbon_Balance.crop_residue_other_use" from="Crop.crop_residue_other_use"/>
+				<connect2 to="Cropland_Carbon_Balance.crop_residue_other_use" from="Crop.crop_residue_other_use"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
@@ -4581,6 +4580,20 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mha</units>
 			</aux>
+			<aux name="crop residue other use" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="Forest burned biomass emissions" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -4630,7 +4643,7 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="3" isee:scroll_y="898.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="3" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4775,11 +4788,6 @@ Should only ever be varied with Initial Committed Soil Carbon Emissions from Lan
 				<connector uid="20" angle="302.838">
 					<from>Cumulative_terrestrial_carbon_balance</from>
 					<to>Terrestrial_carbon_balance_over_time</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="651.333" y="373.667" name="crop residue other use"/>
-				<connector uid="21" angle="310.601">
-					<from>crop_residue_other_use</from>
-					<to>Terrestrial_carbon_loss</to>
 				</connector>
 				<aux x="847.333" y="521.667" name="Terrestrial carbon loss"/>
 				<connector uid="22" angle="221.873">
@@ -5063,6 +5071,16 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<aux font_style="italic" font_weight="bold" x="1405" y="635.5" name="Forest Land 1"/>
 				<aux font_style="italic" font_weight="bold" x="1563.04" y="624.167" name="gross forest land use loss 1"/>
 				<aux font_style="italic" font_weight="bold" x="1727.92" y="635.5" name="gross grassland land use loss 1"/>
+				<aux font_style="italic" font_weight="bold" x="657.5" y="388.75" name="crop residue other use"/>
+				<connector uid="79" angle="331.699">
+					<from>crop_residue_other_use</from>
+					<to>Terrestrial_carbon_loss</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="840" y="300" name="Forest burned biomass emissions"/>
+				<connector uid="80" angle="286.928">
+					<from>Forest_burned_biomass_emissions</from>
+					<to>Terrestrial_carbon_loss</to>
+				</connector>
 				<alias font_style="italic" uid="77" x="2410.67" y="308.833" width="18" height="18">
 					<of>Young_forest_soil_carbon_per_area</of>
 				</alias>
@@ -5095,13 +5113,6 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>PCal/year</units>
 			</aux>
-			<aux name="crop residue other use 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>GtC/Year</units>
-			</aux>
 			<aux name="cropland input">
 				<dimensions>
 					<dim name="Run"/>
@@ -5113,7 +5124,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>crop_production*UNIT_GtC_per_PCal_1+crop_residue_other_use_1+litter_emissions_cropland_GtC+soil_carbon_emissions_cropland_GtC+fast_soil_carbon_cropland_to_degraded_land+slow_soil_carbon_cropland_to_degraded_land+fast_soil_carbon_cropland_to_forest+slow_soil_carbon_cropland_to_forest+fast_soil_carbon_cropland_to_grassland+slow_soil_carbon_cropland_to_grassland</eqn>
+				<eqn>crop_production*UNIT_GtC_per_PCal_1+crop_residue_other_use+litter_emissions_cropland_GtC+soil_carbon_emissions_cropland_GtC+fast_soil_carbon_cropland_to_degraded_land+slow_soil_carbon_cropland_to_degraded_land+fast_soil_carbon_cropland_to_forest+slow_soil_carbon_cropland_to_forest+fast_soil_carbon_cropland_to_grassland+slow_soil_carbon_cropland_to_grassland</eqn>
 				<units>GtC/Year</units>
 			</aux>
 			<flow name="Cropland carbon balance">
@@ -5216,6 +5227,13 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>GtC/Year</units>
 			</aux>
+			<aux name="crop residue other use" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -5265,7 +5283,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="41" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="41" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5307,7 +5325,6 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<aux font_style="italic" font_weight="bold" x="146" y="330.833" name="cropland net primary production 1"/>
 				<aux font_style="italic" font_weight="bold" x="372" y="120.833" name="UNIT GtC per PCal 1"/>
 				<aux font_style="italic" font_weight="bold" x="466" y="56" name="crop production"/>
-				<aux font_style="italic" font_weight="bold" x="627" y="35" name="crop residue other use 1"/>
 				<aux x="348" y="420" name="cropland input"/>
 				<connector uid="1" angle="4.76308">
 					<from>cropland_net_primary_production_1</from>
@@ -5320,10 +5337,6 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				</connector>
 				<connector uid="3" angle="276.34">
 					<from>crop_production</from>
-					<to>cropland_output</to>
-				</connector>
-				<connector uid="4" angle="216.573">
-					<from>crop_residue_other_use_1</from>
 					<to>cropland_output</to>
 				</connector>
 				<flow x="589.75" y="544.833" name="Cropland carbon balance">
@@ -5399,6 +5412,11 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				</connector>
 				<connector uid="18" angle="135">
 					<from>slow_soil_carbon_cropland_to_grassland</from>
+					<to>cropland_output</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="563" y="20" name="crop residue other use"/>
+				<connector uid="19" angle="275.042">
+					<from>crop_residue_other_use</from>
 					<to>cropland_output</to>
 				</connector>
 			</view>
