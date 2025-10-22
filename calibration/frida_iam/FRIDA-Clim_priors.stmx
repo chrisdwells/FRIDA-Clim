@@ -574,6 +574,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
+				<connect to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
+				<connect2 to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
@@ -600,6 +602,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
+				<connect to="Terrestrial_Carbon_Balance.Normal_mature_forest_aboveground_biomass_per_area" from="Forest.Normal_mature_forest_aboveground_biomass_per_area"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Normal_mature_forest_aboveground_biomass_per_area" from="Forest.Normal_mature_forest_aboveground_biomass_per_area"/>
 				<connect to="Terrestrial_Carbon_Balance.slow_soil_carbon_emissions_young_forest" from="forest_soil_carbon.slow_soil_carbon_emissions_young_forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.slow_soil_carbon_emissions_young_forest" from="forest_soil_carbon.slow_soil_carbon_emissions_young_forest"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_balance_cropland" from="cropland_soil_carbon.soil_carbon_balance_cropland"/>
@@ -626,6 +630,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.UNIT_GtC_per_PCal" from="Crop.UNIT_GtC_per_PCal_crop"/>
 				<connect to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
+				<connect to="Terrestrial_Carbon_Balance.Young_forest_aboveground_biomass_per_area" from="Forest.Young_forest_aboveground_biomass_per_area"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Young_forest_aboveground_biomass_per_area" from="Forest.Young_forest_aboveground_biomass_per_area"/>
 				<connect to="Terrestrial_Carbon_Balance.young_forest_growth" from="Forest.young_forest_growth"/>
 				<connect2 to="Terrestrial_Carbon_Balance.young_forest_growth" from="Forest.young_forest_growth"/>
 				<connect to="Terrestrial_Carbon_Balance.young_forest_net_primary_production" from="Forest.young_forest_net_primary_production"/>
@@ -757,10 +763,14 @@
 				<connect2 to="Forest_carbon_balance.mature_forest_net_primary_production_1" from="Forest.mature_forest_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
+				<connect to="Terrestrial_Carbon_Balance.Normal_mature_forest_aboveground_biomass_per_area" from="Forest.Normal_mature_forest_aboveground_biomass_per_area"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Normal_mature_forest_aboveground_biomass_per_area" from="Forest.Normal_mature_forest_aboveground_biomass_per_area"/>
 				<connect to="Forest_carbon_balance.timber_1" from="Forest.timber"/>
 				<connect2 to="Forest_carbon_balance.timber_1" from="Forest.timber"/>
 				<connect to="Terrestrial_Carbon_Balance.timber" from="Forest.timber"/>
 				<connect2 to="Terrestrial_Carbon_Balance.timber" from="Forest.timber"/>
+				<connect to="Terrestrial_Carbon_Balance.Young_forest_aboveground_biomass_per_area" from="Forest.Young_forest_aboveground_biomass_per_area"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Young_forest_aboveground_biomass_per_area" from="Forest.Young_forest_aboveground_biomass_per_area"/>
 				<connect to="Terrestrial_Carbon_Balance.young_forest_growth" from="Forest.young_forest_growth"/>
 				<connect2 to="Terrestrial_Carbon_Balance.young_forest_growth" from="Forest.young_forest_growth"/>
 				<connect to="Forest_carbon_balance.young_forest_net_primary_production_1" from="Forest.young_forest_net_primary_production"/>
@@ -797,6 +807,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.Cropland" from="Land_Use.Cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.fallowing_cropland" from="Land_Use.fallowing_cropland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.fallowing_cropland" from="Land_Use.fallowing_cropland"/>
+				<connect to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
+				<connect2 to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>

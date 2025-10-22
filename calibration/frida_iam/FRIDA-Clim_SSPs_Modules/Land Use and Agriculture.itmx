@@ -323,6 +323,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="forest_soil_carbon.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect2 to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
+				<connect to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
+				<connect2 to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="degraded_land_soil_carbon.forresting_degraded_land" from="Land_Use.foresting_degraded_land"/>
@@ -631,10 +633,14 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
 				<connect to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest_from_cutting"/>
 				<connect2 to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest_from_cutting"/>
+				<connect to="Terrestrial_Carbon_Balance.Normal_mature_forest_aboveground_biomass_per_area" from="Forest.Normal_mature_forest_aboveground_biomass_per_area"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Normal_mature_forest_aboveground_biomass_per_area" from="Forest.Normal_mature_forest_aboveground_biomass_per_area"/>
 				<connect to="Forest_carbon_balance.timber_1" from="Forest.timber"/>
 				<connect2 to="Forest_carbon_balance.timber_1" from="Forest.timber"/>
 				<connect to="Terrestrial_Carbon_Balance.timber" from="Forest.timber"/>
 				<connect2 to="Terrestrial_Carbon_Balance.timber" from="Forest.timber"/>
+				<connect to="Terrestrial_Carbon_Balance.Young_forest_aboveground_biomass_per_area" from="Forest.Young_forest_aboveground_biomass_per_area"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Young_forest_aboveground_biomass_per_area" from="Forest.Young_forest_aboveground_biomass_per_area"/>
 				<connect to="forest_soil_carbon.Young_forest_biomass_burning_to_soil" from="Forest.Young_forest_biomass_burning_to_soil"/>
 				<connect2 to="forest_soil_carbon.Young_forest_biomass_burning_to_soil" from="Forest.Young_forest_biomass_burning_to_soil"/>
 				<connect to="Terrestrial_Carbon_Balance.young_forest_growth" from="Forest.young_forest_growth"/>
@@ -5664,7 +5670,7 @@ Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2
 				<eqn>Mature_forest_aboveground_biomass/Mature_Forest</eqn>
 				<units>GtC/Mha</units>
 			</aux>
-			<aux name="Young forest aboveground\nbiomass per area">
+			<aux name="Young forest aboveground\nbiomass per area" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -5693,7 +5699,7 @@ Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2
 				<eqn>(1.0 - Mature_forest_aboveground_biomass_per_area/Maximum_mature_forest_aboveground_biomass_per_area)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Normal mature forest\naboveground biomass per area">
+			<aux name="Normal mature forest\naboveground biomass per area" access="output" isee:autocreated="true">
 				<doc>https://doi.org/10.1890/1051-0761(2001)011[1395:NPPACA]2.0.CO;2</doc>
 				<dimensions>
 					<dim name="Run"/>
