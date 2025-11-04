@@ -5,8 +5,11 @@
 		<name>Land Use and Agriculture</name>
 		<uuid>fe807591-4e3d-4e2c-b464-70ec4fb12094</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.1.1" isee:build_number="3772" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
+	<ai_information>
+		<status verified="false"/>
+	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
 		<stop>2100</stop>
@@ -2862,315 +2865,6 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<eqn>(crop_residue_production/INIT(crop_residue_production))^sensitivity_of_effect_of_crop_residue_production_on_field_fraction[selected_climate_case]</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="normal crop residue on field fraction">
-				<doc>${External Parameter}
-Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert, M., ... &amp; Popp, A. (2022). Management-induced changes in soil organic carbon on global croplands. Biogeosciences, 19(21), 5125-5149. https://doi.org/10.5194/bg-19-5125-2022</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.44</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.44</eqn>
-				</element>
-				<range min="0.35" max="0.5"/>
-				<units>dmnl</units>
-			</aux>
 			<aux name="sustainable residue\non field fraction">
 				<doc>${External Parameter}
 Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert, M., ... &amp; Popp, A. (2022). Management-induced changes in soil organic carbon on global croplands. Biogeosciences, 19(21), 5125-5149. https://doi.org/10.5194/bg-19-5125-2022</doc>
@@ -3484,316 +3178,7 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MINSOFT(crop_residue_on_field_init_fraction * effect_of_crop_residue_production_on_field_fraction,  sustainable_residue_on_field_fraction[selected_climate_case], tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction)-mass_to_coverage[selected_climate_case]</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="mass to coverage">
-				<doc>${Assumption}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.1</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.1</eqn>
-				</element>
-				<range min="0.05" max="0.15"/>
+				<eqn>1-EXP(-((crop_residue_litter*sustainable_farming_fraction)/Cropland)*mass_to_coverage[selected_climate_case])</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="sustainable farming fraction">
@@ -4117,7 +3502,7 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>normal_crop_residue_on_field_fraction[selected_climate_case]*(1-sustainable_farming_fraction) + sustainable_residue_on_field_fraction[selected_climate_case] * sustainable_farming_fraction</eqn>
+				<eqn>conventional_residue_on_field_fraction[selected_climate_case]*(1-sustainable_farming_fraction) + sustainable_residue_on_field_fraction[selected_climate_case] * sustainable_farming_fraction</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="crop residue on\nfield fraction">
@@ -4126,6 +3511,624 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>MINSOFT(crop_residue_on_field_init_fraction * (1/ effect_of_crop_residue_production_on_field_fraction),  sustainable_residue_on_field_fraction[selected_climate_case], tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction)</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="mass to coverage">
+				<doc>${Assumption}
+</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>978</eqn>
+				</element>
+				<range min="889" max="1556"/>
+				<units>Mha/GtC</units>
+			</aux>
+			<aux name="conventional residue\non field fraction">
+				<doc>${External Parameter}
+Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert, M., ... &amp; Popp, A. (2022). Management-induced changes in soil organic carbon on global croplands. Biogeosciences, 19(21), 5125-5149. https://doi.org/10.5194/bg-19-5125-2022</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.38</eqn>
+				</element>
+				<range min="0.3" max="0.45"/>
 				<units>dmnl</units>
 			</aux>
 		</variables>
@@ -4177,7 +4180,7 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1646" isee:scroll_y="481" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1646" isee:scroll_y="421" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4355,51 +4358,25 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				</connector>
 				<aux x="2595.93" y="1035.84" name="sensitivity of effect of crop\nresidue production\non field fraction"/>
 				<aux label_side="right" label_angle="315" x="2397.25" y="1100.84" name="effect of crop residue\nproduction on field fraction"/>
-				<connector uid="240" angle="198.116">
-					<from>sensitivity_of_effect_of_crop_residue_production_on_field_fraction</from>
-					<to>effect_of_crop_residue_production_on_field_fraction</to>
-				</connector>
-				<aux x="2637.57" y="922.711" name="normal crop residue on field fraction"/>
-				<aux x="2298.67" y="807.753" name="sustainable residue\non field fraction"/>
+				<aux x="2697.67" y="852.753" name="sustainable residue\non field fraction"/>
 				<aux x="2476" y="766.629" name="Residue coverage"/>
-				<aux x="2345" y="706.139" name="mass to coverage"/>
-				<connector uid="241" angle="307.74">
-					<from>mass_to_coverage</from>
-					<to>Residue_coverage</to>
-				</connector>
-				<connector uid="242" angle="23.4911">
-					<from>sustainable_residue_on_field_fraction</from>
-					<to>Residue_coverage</to>
-				</connector>
 				<aux x="2613.93" y="766.629" name="sustainable farming fraction"/>
-				<aux x="2522.16" y="675.202" name="historical sustainable farming fraction"/>
-				<connector uid="243" angle="315.107">
+				<aux x="2662.16" y="681.202" name="historical sustainable farming fraction"/>
+				<connector uid="243" angle="240.552">
 					<from>historical_sustainable_farming_fraction</from>
 					<to>sustainable_farming_fraction</to>
 				</connector>
 				<aux label_side="bottom" x="2489.5" y="973.84" name="crop residue on\nfield init fraction"/>
 				<aux x="2339.5" y="956.62" name="crop residue on\nfield fraction"/>
-				<connector uid="244" angle="180.005">
-					<from>normal_crop_residue_on_field_fraction</from>
-					<to>crop_residue_on_field_init_fraction</to>
-				</connector>
-				<connector uid="245" angle="73.2694">
-					<from>crop_residue_on_field_init_fraction</from>
-					<to>Residue_coverage</to>
-				</connector>
 				<connector uid="246" angle="287.635">
 					<from>sustainable_farming_fraction</from>
 					<to>crop_residue_on_field_init_fraction</to>
 				</connector>
-				<connector uid="247" angle="63.7851">
-					<from>effect_of_crop_residue_production_on_field_fraction</from>
-					<to>Residue_coverage</to>
-				</connector>
-				<connector uid="248" angle="322.886">
+				<connector uid="248" angle="201.751">
 					<from>sustainable_residue_on_field_fraction</from>
 					<to>crop_residue_on_field_fraction</to>
 				</connector>
-				<connector uid="249" angle="358.819">
+				<connector uid="249" angle="231.706">
 					<from>sustainable_residue_on_field_fraction</from>
 					<to>crop_residue_on_field_init_fraction</to>
 				</connector>
@@ -4407,37 +4384,37 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 					<from>effect_of_crop_residue_production_on_field_fraction</from>
 					<to>crop_residue_on_field_fraction</to>
 				</connector>
-				<connector uid="251" angle="128.245">
+				<connector uid="251" angle="167.624">
 					<from>crop_residue_on_field_init_fraction</from>
 					<to>crop_residue_on_field_fraction</to>
 				</connector>
-				<connector uid="252" angle="304.509">
+				<connector uid="252" angle="242.933">
 					<from>
 						<alias uid="253"/>
 					</from>
 					<to>Residue_coverage</to>
 				</connector>
-				<connector uid="254" angle="22.9321">
+				<connector uid="254" angle="351.515">
 					<from>
 						<alias uid="253"/>
 					</from>
 					<to>sustainable_farming_fraction</to>
 				</connector>
-				<connector uid="255" angle="317.643">
+				<connector uid="255" angle="11.11">
 					<from>
-						<alias uid="253"/>
+						<alias uid="269"/>
 					</from>
 					<to>crop_residue_on_field_init_fraction</to>
 				</connector>
-				<connector uid="256" angle="288.97">
+				<connector uid="256" angle="313.762">
 					<from>
-						<alias uid="253"/>
+						<alias uid="269"/>
 					</from>
 					<to>effect_of_crop_residue_production_on_field_fraction</to>
 				</connector>
-				<connector uid="257" angle="265.236">
+				<connector uid="257" angle="67.6158">
 					<from>
-						<alias uid="253"/>
+						<alias uid="269"/>
 					</from>
 					<to>crop_residue_on_field_fraction</to>
 				</connector>
@@ -4457,8 +4434,32 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 					<from>tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction</from>
 					<to>crop_residue_on_field_fraction</to>
 				</connector>
-				<connector uid="262" angle="10.4774">
-					<from>tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction</from>
+				<aux x="2357.36" y="691.687" name="mass to coverage"/>
+				<aux label_side="right" x="2687.97" y="959.67" name="conventional residue\non field fraction"/>
+				<connector uid="240" angle="198.116">
+					<from>sensitivity_of_effect_of_crop_residue_production_on_field_fraction</from>
+					<to>effect_of_crop_residue_production_on_field_fraction</to>
+				</connector>
+				<connector uid="264" angle="32.0102">
+					<from>crop_residue_litter</from>
+					<to>Residue_coverage</to>
+				</connector>
+				<connector uid="265" angle="334.091">
+					<from>mass_to_coverage</from>
+					<to>Residue_coverage</to>
+				</connector>
+				<connector uid="266" angle="332.04">
+					<from>
+						<alias uid="263"/>
+					</from>
+					<to>Residue_coverage</to>
+				</connector>
+				<connector uid="267" angle="174.909">
+					<from>conventional_residue_on_field_fraction</from>
+					<to>crop_residue_on_field_init_fraction</to>
+				</connector>
+				<connector uid="268" angle="166.496">
+					<from>sustainable_farming_fraction</from>
 					<to>Residue_coverage</to>
 				</connector>
 				<alias color="blue" background="white" font_style="italic" uid="231" x="2057.67" y="1480.17" width="18" height="18">
@@ -4468,10 +4469,13 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<alias font_style="italic" uid="233" x="2122.67" y="1456" width="18" height="18">
 					<of>fraction_of_crop_production_for_feed</of>
 				</alias>
-				<alias uid="263" x="2675.79" y="1085.36" width="45" height="35">
+				<alias uid="263" x="2329.79" y="602.36" width="45" height="35">
 					<of>Cropland</of>
 				</alias>
-				<alias font_style="italic" font_weight="bold" uid="253" x="2397" y="610" width="18" height="18">
+				<alias font_style="italic" font_weight="bold" uid="253" x="2542" y="610.86" width="18" height="18">
+					<of>selected_climate_case</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="269" x="2326" y="1026.84" width="18" height="18">
 					<of>selected_climate_case</of>
 				</alias>
 			</view>

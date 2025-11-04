@@ -179,7 +179,7 @@ df_combined_cols = list(df_combined.keys())
 
 df_combined_newcols = [x.replace('[1]', '[*]') if isinstance(x, str) else x for x in df_combined_cols]
 df_combined_newcols_df = pd.DataFrame(df_combined.values, columns=df_combined_newcols)
-df_combined_newcols_df = df_combined_newcols_df.drop(['Run', 'Crop.crop yield 1980 reference[*]'], axis=1)
+df_combined_newcols_df = df_combined_newcols_df.drop(['Run', 'Crop.crop yield 1980 reference[*]', 'Forest.forest aboveground biomass 1750[*]'], axis=1)
 
 df_combined_newcols_df.to_csv(
     f"../{calibration}/data/constraining/frida_iam_inputs_{output_ensemble_size}_from_{samples}_1980_inits_params.csv",
