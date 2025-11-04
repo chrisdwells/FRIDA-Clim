@@ -78,6 +78,14 @@ land_variables = {
     "Grass.STA grass net primary production parameter[1]":    [0.1, 0.15],
     "Grass.STA squared grass net primary production parameter[1]":   [-0.05, -0.01],
     "Crop.harvest index for energy crops[1]":[0.6, 0.95],
+    
+    # including new fire ones
+    "Land Use.counterfactual aka no climate change mean burned area in 1980[1]" : [400, 500],
+    "Land Use.reference fraction of cropland burned out of total burned area[1]" : [0.032,0.0459],
+    "Land Use.reference fraction of forest burned out of total burned area[1]" : [0.0264,0.0499],
+    "Forest.fraction biomass remaining after burning[1]" : [0.05,0.2],
+    "forest soil carbon.fraction burning to slow[1]" : [0.2, 0.5],
+    
     }
 
 land_param_dict = {}
