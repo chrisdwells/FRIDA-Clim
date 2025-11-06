@@ -5,8 +5,11 @@
 		<name>Climate</name>
 		<uuid>6b3172a7-ef66-4feb-8f28-f439698b1c18</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.1.1" isee:build_number="3772" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
+	<ai_information>
+		<status verified="false"/>
+	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
 		<stop>2130</stop>
@@ -689,10 +692,6 @@ Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA_Clim/FRIDA-Clim_Chr
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
-				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
@@ -4421,36 +4420,18 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="forresting cropland" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha/year</units>
-			</aux>
-			<aux name="foresting grassland" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha/year</units>
-			</aux>
 			<aux name="Estimated soil carbon loss\nfrom converting grassland">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(foresting_grassland)*(Grassland_soil_carbon_per_area-Young_forest_soil_carbon_per_area)
-+
-clearing_grassland*(Grassland_soil_carbon_per_area-Cropland_soil_carbon_per_area)</eqn>
+				<eqn>clearing_grassland*(Grassland_soil_carbon_per_area-Cropland_soil_carbon_per_area)</eqn>
 				<units>GtC/Year</units>
 			</aux>
 			<aux name="Estimated soil carbon loss\nfrom converting cropland">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(forresting_cropland)*(Cropland_soil_carbon_per_area-Young_forest_soil_carbon_per_area)
-+
-fallowing_cropland*(Cropland_soil_carbon_per_area-Grassland_soil_carbon_per_area)</eqn>
+				<eqn>fallowing_cropland*(Cropland_soil_carbon_per_area-Grassland_soil_carbon_per_area)</eqn>
 				<units>GtC/Year</units>
 			</aux>
 			<aux name="Estimated soil carbon loss\nfrom converting mature forest">
@@ -5575,15 +5556,9 @@ Should only ever be varied with soil carbon adaptation time scales  This paramet
 				<aux font_style="italic" font_weight="bold" x="2663.67" y="436.667" name="clearing forests\nfor crops"/>
 				<aux font_style="italic" font_weight="bold" x="2720.67" y="709.667" name="fallowing cropland"/>
 				<aux font_style="italic" font_weight="bold" x="2788.67" y="963.67" name="clearing grassland"/>
-				<aux font_style="italic" font_weight="bold" x="2558.67" y="679.542" name="forresting cropland"/>
-				<aux font_style="italic" font_weight="bold" x="2525.67" y="945.67" name="foresting grassland"/>
 				<aux x="2617.67" y="886.542" name="Estimated soil carbon loss\nfrom converting grassland"/>
 				<connector uid="41" angle="341.98">
 					<from>Grassland_soil_carbon_per_area</from>
-					<to>Estimated_soil_carbon_loss_from_converting_grassland</to>
-				</connector>
-				<connector uid="43" angle="59.1636">
-					<from>foresting_grassland</from>
 					<to>Estimated_soil_carbon_loss_from_converting_grassland</to>
 				</connector>
 				<connector uid="44" angle="175.553">
@@ -5594,15 +5569,7 @@ Should only ever be varied with soil carbon adaptation time scales  This paramet
 					<from>Cropland_soil_carbon_per_area</from>
 					<to>Estimated_soil_carbon_loss_from_converting_grassland</to>
 				</connector>
-				<connector uid="46" angle="11.4564">
-					<from>Young_forest_soil_carbon_per_area</from>
-					<to>Estimated_soil_carbon_loss_from_converting_grassland</to>
-				</connector>
 				<aux x="2608.67" y="747.542" name="Estimated soil carbon loss\nfrom converting cropland"/>
-				<connector uid="48" angle="325.702">
-					<from>forresting_cropland</from>
-					<to>Estimated_soil_carbon_loss_from_converting_cropland</to>
-				</connector>
 				<connector uid="49" angle="198.684">
 					<from>fallowing_cropland</from>
 					<to>Estimated_soil_carbon_loss_from_converting_cropland</to>
@@ -5613,10 +5580,6 @@ Should only ever be varied with soil carbon adaptation time scales  This paramet
 				</connector>
 				<connector uid="51" angle="5.46402">
 					<from>Grassland_soil_carbon_per_area</from>
-					<to>Estimated_soil_carbon_loss_from_converting_cropland</to>
-				</connector>
-				<connector uid="52" angle="29.9984">
-					<from>Young_forest_soil_carbon_per_area</from>
 					<to>Estimated_soil_carbon_loss_from_converting_cropland</to>
 				</connector>
 				<aux x="2609.67" y="549.917" name="Estimated soil carbon loss\nfrom converting mature forest"/>

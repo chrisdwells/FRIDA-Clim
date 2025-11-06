@@ -5,8 +5,11 @@
 		<name>FRIDA-Clim_spinup</name>
 		<uuid>3924aef6-b823-4f30-a097-790a6cd89080</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.1.1" isee:build_number="3772" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
+	<ai_information>
+		<status verified="false"/>
+	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>Simulation_Start</start>
 		<stop>Simulation_End</stop>
@@ -516,10 +519,6 @@
 				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
-				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
@@ -737,10 +736,6 @@
 				<connect2 to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
-				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
@@ -935,7 +930,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="8" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1095,7 +1090,7 @@ Lorem ipsum dolor sit amet</text_box>
 		</views>
 	</model>
 	<isee:user_controlled>
-		<ent name="Simulation End" preserve="true"/>
+		<ent name="Simulation End" preserve="true" lock="false"/>
 	</isee:user_controlled>
 	<macro name="INFLATION_IMPACT_GROWTH_RATE">
 		<eqn>trend in input</eqn>
