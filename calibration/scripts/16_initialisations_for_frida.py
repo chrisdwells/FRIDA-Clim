@@ -12,7 +12,6 @@ load_dotenv()
 samples = int(os.getenv("PRIOR_SAMPLES"))
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
 calibration = os.getenv("CALIBRATION")
-calibration = "frida_iam"
 
 # load parameter sets
 
@@ -85,6 +84,7 @@ variable_stock_list = [
     "forest soil carbon.slow soil carbon young forest",
     "grassland soil carbon.fast soil carbon grassland",
     "grassland soil carbon.slow soil carbon grassland",
+    "Terrestrial Carbon Balance.Committed future carbon gains from young forests entering the mature forest type",
                     ]
 
 offset_1993_stocks = [

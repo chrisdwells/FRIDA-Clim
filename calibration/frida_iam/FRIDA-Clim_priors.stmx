@@ -5,11 +5,8 @@
 		<name>FRIDA-Clim_priors</name>
 		<uuid>f70d8701-d8ac-480a-a1ab-2de3e450aaee</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.1.1" isee:build_number="3772" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
-	<ai_information>
-		<status verified="false"/>
-	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>Simulation_Start</start>
 		<stop>Simulation_End</stop>
@@ -49,41 +46,41 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export enabled="false" frequency="on_demand" resource="r../data/priors_output/priors_land.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/priors_output/priors_land.csv" precomputed="false" isee:format="numbers">
 			<table name="Land variables timeseries" use_settings="true"/>
 		</export>
-		<export enabled="false" frequency="on_demand" resource="r../data/priors_output/priors_temperature.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/priors_output/priors_temperature.csv" precomputed="false" isee:format="numbers">
 			<table name="Surface Temperature timeseries" use_settings="true"/>
 		</export>
-		<export enabled="false" frequency="on_demand" resource="r../data/priors_output/priors_aerosols.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/priors_output/priors_aerosols.csv" precomputed="false" isee:format="numbers">
 			<table name="Aerosol Forcings" use_settings="true"/>
 		</export>
-		<export enabled="false" frequency="on_demand" resource="r../data/priors_output/priors_CO2.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/priors_output/priors_CO2.csv" precomputed="false" isee:format="numbers">
 			<table name="CO2 Concentration" use_settings="true"/>
 		</export>
-		<export enabled="false" frequency="on_demand" resource="r../data/priors_output/priors_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/priors_output/priors_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
 			<table name="Ocean CO2 Flux" use_settings="true"/>
 		</export>
-		<export enabled="false" frequency="on_demand" resource="r../data/priors_output/priors_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/priors_output/priors_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
 			<table name="OHC" use_settings="true"/>
 		</export>
-		<export enabled="false" frequency="on_demand" resource="r../data/priors_output/priors_NPP_2000.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/priors_output/priors_NPP_2000.csv" precomputed="false" isee:format="numbers">
 			<table name="NPP 2000" use_settings="true"/>
 		</export>
-		<export enabled="false" frequency="on_demand" resource="r../data/priors_output/priors_NPP_2011.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="r../data/priors_output/priors_NPP_2011.csv" precomputed="false" isee:format="numbers">
 			<table name="NPP 2011" use_settings="true"/>
 		</export>
-		<import enabled="false" frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv"/>
-		<import enabled="false" isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_transitions_hist.csv"/>
-		<import enabled="false" isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_wood_biomass_hist.csv"/>
-		<import enabled="false" isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/forcings_frida_iam.csv"/>
-		<import enabled="false" frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_npp_initial_values.csv"/>
-		<import enabled="false" isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/population.csv"/>
-		<import enabled="false" isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/crop_production.csv"/>
-		<import enabled="false" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/external/baseline_values.csv"/>
+		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_transitions_hist.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_wood_biomass_hist.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/forcings_frida_iam.csv"/>
+		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_npp_initial_values.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/population.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/crop_production.csv"/>
+		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/external/baseline_values.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Climate Sensitivity" method="external">
+		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/calibration/data/priors_input/priors_inputs_30000.csv">
 			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"[1]'/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean[1]"/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean[1]"/>
@@ -158,6 +155,7 @@
 			<isee:variable type="adhoc" name="grassland_soil_carbon.Initial_fast_soil_carbon_grassland[1]"/>
 			<isee:variable type="adhoc" name="grassland_soil_carbon.Initial_slow_soil_carbon_grassland[1]"/>
 			<isee:variable type="adhoc" name='Terrestrial_Carbon_Balance."Initial_Commited_future_soil_carbon_loss_due_to_land-use_transitions"[1]'/>
+			<isee:variable type="adhoc" name="Terrestrial_Carbon_Balance.Initial_Committed_future_carbon_gains_from_young_forests_entering_the_mature_forest_type[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Depth_of_warm_surface_ocean_layer[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Thickness_of_intermediate_ocean_layer[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Depth_of_cold_surface_ocean_layer[1]"/>
@@ -1027,7 +1025,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="107.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="107.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>

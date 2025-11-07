@@ -329,12 +329,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="degraded_land_soil_carbon.forresting_degraded_land" from="Land_Use.foresting_degraded_land"/>
 				<connect to="grassland_soil_carbon.forresting_grassland" from="Land_Use.foresting_grassland"/>
 				<connect2 to="grassland_soil_carbon.forresting_grassland" from="Land_Use.foresting_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.foresting_grassland" from="Land_Use.foresting_grassland"/>
 				<connect to="cropland_soil_carbon.forresting_cropland" from="Land_Use.forresting_cropland"/>
 				<connect2 to="cropland_soil_carbon.forresting_cropland" from="Land_Use.forresting_cropland"/>
-				<connect to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forresting_cropland" from="Land_Use.forresting_cropland"/>
 				<connect to="Grass.Grassland_1" from="Land_Use.Grassland"/>
 				<connect2 to="Grass.Grassland_1" from="Land_Use.Grassland"/>
 				<connect to="grassland_soil_carbon.Grassland" from="Land_Use.Grassland"/>

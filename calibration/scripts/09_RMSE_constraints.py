@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
+import copy
 
 # run the priors (FRIDA-clim_priors.stmx) before this.
 
@@ -135,17 +136,16 @@ plt.ylabel('Flux 2005-14')
 
 
 #%%
-import copy
 
 accept_new = copy.deepcopy(accept_both)
 
 calib_vars = {
-    "Terrestrial Carbon Balance.Terrestrial net primary production[1]":["NPP_2000", 2000, 10],
-    "Crop.cropland net primary production[1]":["NPP_2011", 2011, 3],    
-    "Terrestrial Carbon Balance.forest regrowth carbon uptake[1]":["land", "1980-2022", 0.4],
-    "Terrestrial Carbon Balance.deforestation carbon loss[1]":["land", "1980-2022", 0.5],
+    "Terrestrial Carbon Balance.Terrestrial net primary production[1]":["NPP_2000", 2000, 13],
+    "Crop.cropland net primary production[1]":["NPP_2011", 2011, 4],    
+    "Terrestrial Carbon Balance.forest regrowth carbon uptake[1]":["land", "1980-2022", 0.5],
+    "Terrestrial Carbon Balance.deforestation carbon loss[1]":["land", "1980-2022", 1],
     "Terrestrial Carbon Balance.Terrestrial carbon balance[1]":["land", "1980-2022", 1.5],
-    "Emissions.CO2 Emissions from Food and Land Use[1]":["land", "1980-2022", 3000], #MtCO2
+    "Emissions.CO2 Emissions from Food and Land Use[1]":["land", "1980-2022", 4000], #MtCO2
     }
 
 df_obs = pd.read_csv("../data/external/Calibration Data.csv")

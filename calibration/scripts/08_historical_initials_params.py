@@ -184,6 +184,7 @@ variable_stock_list = [
     "grassland soil carbon.fast soil carbon grassland[1]",
     "grassland soil carbon.slow soil carbon grassland[1]",
     "Terrestrial Carbon Balance.Commited future soil carbon loss due to land-use transitions[1]",
+    "Terrestrial Carbon Balance.Committed future carbon gains from young forests entering the mature forest type[1]",
                     ]
 
 stocks_dict = {}
