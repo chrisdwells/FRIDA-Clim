@@ -46,7 +46,7 @@ def plot_reversibility(axs, df, x, color, var, varname, units='', cumul=False, f
     axs.set_xlabel('Cumul. CO2 emissions (GtC)')
     axs.set_ylabel(units)
 
-def plot_dist(axs, arr, x1, x2, varname, units):
+def plot_dist(axs, arr, x1, x2, varname, xunits, yunits):
     
     var_dist = scipy.stats.gaussian_kde(arr)
     xs = np.linspace(x1, x2, 100)
@@ -54,7 +54,8 @@ def plot_dist(axs, arr, x1, x2, varname, units):
     axs.plot(xs, var_dist(xs), label=varname)
     
     axs.set_title(varname)
-    axs.set_xlabel(units)
+    axs.set_xlabel(xunits)
+    axs.set_ylabel(yunits)
 
 def carbon_budget_plot(df, axs, xlim, legend=False):
     
@@ -345,20 +346,20 @@ for s_i, scen in enumerate(scens.keys()):
 df_flat10 = pd.read_csv(f'../{calibration}/data/flat10_output/flat10_output.csv')
 gmst_flat10 = loaddata(df_flat10, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
 t100 = np.mean(gmst_flat10[91:110,:], axis=0)
-plot_dist(ax[2,0], t100, 0.7, 2.5, 'T100yr', 'K')
+plot_dist(ax[2,0], t100, 0.7, 2.5, 'T100yr', 'K', 'Probability Density')
 ax[2,0].legend()
 
 df_zec = pd.read_csv(f'../{calibration}/data/flat10_output/flat10-zec_output.csv')
 gmst_zec = loaddata(df_zec, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
 zec50 = np.mean(gmst_zec[141:160,:], axis=0) - np.mean(gmst_zec[91:110,:], axis=0)
-plot_dist(ax[2,1], zec50, -1.0, 0.2, 'ZEC50', 'K')
+plot_dist(ax[2,1], zec50, -1.0, 0.2, 'ZEC50', 'K', 'Probability Density')
 
 
 zec100 = np.mean(gmst_zec[191:210,:], axis=0) - np.mean(gmst_zec[91:110,:], axis=0)
-plot_dist(ax[2,1], zec100, -1.0, 0.2, 'ZEC100', 'K')
+plot_dist(ax[2,1], zec100, -1.0, 0.2, 'ZEC100', 'K', 'Probability Density')
 
 zec300 = np.mean(gmst_zec[391:410,:], axis=0) - np.mean(gmst_zec[91:110,:], axis=0)
-plot_dist(ax[2,1], zec300, -1.0, 0.2, 'ZEC300', 'K')
+plot_dist(ax[2,1], zec300, -1.0, 0.2, 'ZEC300', 'K', 'Probability Density')
 
 
 ax[2,1].set_title('ZEC50, ZEC100, ZEC300')
@@ -368,16 +369,16 @@ df_cdr = pd.read_csv(f'../{calibration}/data/flat10_output/flat10-cdr_output.csv
 gmst_cdr = loaddata(df_cdr, 500, output_ensemble_size, "Energy Balance Model.Land & Ocean Surface Temperature[1]")
 peak_idxs = np.argmax(gmst_cdr, axis=0)
 tPW = df_cdr['Year'][peak_idxs] - 150
-plot_dist(ax[2,2], tPW, -35, 10, 't-PW', 'Years')
+plot_dist(ax[2,2], tPW, -35, 10, 't-PW', 'Years', 'Probability Density')
 ax[2,2].legend()
 
 
 tnz = np.mean(gmst_cdr[141:160,:], axis=0) - np.mean(gmst_flat10[116:135,:], axis=0)
-plot_dist(ax[2,3], tnz, -1, 0.2, 'TNZ', 'K')    
+plot_dist(ax[2,3], tnz, -1, 0.2, 'TNZ', 'K', 'Probability Density')    
 tr0 = np.mean(gmst_cdr[301:320,:], axis=0)
-plot_dist(ax[2,3], tr0, -1, 0.2, 'TR0', 'K')    
+plot_dist(ax[2,3], tr0, -1, 0.2, 'TR0', 'K', 'Probability Density')    
 tr1000 = np.mean(gmst_cdr[191:210,:], axis=0) - np.mean(gmst_flat10[91:110,:], axis=0)
-plot_dist(ax[2,3], tr1000, -1, 0.2, 'TR1000', 'K')
+plot_dist(ax[2,3], tr1000, -1, 0.2, 'TR1000', 'K', 'Probability Density')
 ax[2,3].set_title('TNZ, TR0, TR1000')
 ax[2,3].legend()
 
