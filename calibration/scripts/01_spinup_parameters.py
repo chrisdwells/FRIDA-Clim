@@ -57,6 +57,12 @@ spinup_variables = {
     
     "Land Use.Initial young forest area[1]":[50, 300],
     
+    "Crop.historical sustainable farming fraction[1]" : [0.05,0.2],
+    "Crop.mass to coverage[1]" : [0.05,0.15],
+    "Crop.normal crop residue on field fraction[1]" : [0.35,0.5],
+    "Crop.sustainable residue on field fraction[1]" : [0.65,0.85],
+    "Terrestrial Carbon Balance.Forest carbon adaptation time[1]" : [10,50],
+
     }
 
 param_dict = {}

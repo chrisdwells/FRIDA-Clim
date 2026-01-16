@@ -78,6 +78,19 @@ land_variables = {
     "Grass.STA grass net primary production parameter[1]":    [0.1, 0.15],
     "Grass.STA squared grass net primary production parameter[1]":   [-0.05, -0.01],
     "Crop.harvest index for energy crops[1]":[0.6, 0.95],
+    
+    # including new fire ones
+    "Land Use.counterfactual aka no climate change mean burned area in 1980[1]" : [400, 500],
+    "Land Use.reference fraction of cropland burned out of total burned area[1]" : [0.032,0.0459],
+    "Land Use.reference fraction of forest burned out of total burned area[1]" : [0.0264,0.0499],
+    "Forest.fraction biomass remaining after burning[1]" : [0.05,0.2],
+    "forest soil carbon.fraction burning to slow[1]" : [0.2, 0.5],
+    # and sustainable farming ones
+    "Crop.historical sustainable farming fraction[1]":[0.05,0.2],
+    "Crop.mass to coverage[1]" : [889,1556],
+    "Crop.conventional residue on field fraction[1]" : [0.3,0.45],
+    "Crop.sustainable residue on field fraction[1]" : [0.65,0.85],
+    "Terrestrial Carbon Balance.Forest carbon adaptation time[1]" : [10,50],
     }
 
 land_param_dict = {}
@@ -171,6 +184,7 @@ variable_stock_list = [
     "grassland soil carbon.fast soil carbon grassland[1]",
     "grassland soil carbon.slow soil carbon grassland[1]",
     "Terrestrial Carbon Balance.Commited future soil carbon loss due to land-use transitions[1]",
+    "Terrestrial Carbon Balance.Committed future carbon gains from young forests entering the mature forest type[1]",
                     ]
 
 stocks_dict = {}
@@ -213,6 +227,9 @@ for i in np.arange(spinup_samples):
 
 idxs = idxs[~np.isnan(idxs)]
 n_kept = idxs.shape[0]
+
+print(f'Kept {n_kept} out of {spinup_samples}')
+
 n_repeats = int(np.ceil(samples/n_kept))
 
 # filter by idx 

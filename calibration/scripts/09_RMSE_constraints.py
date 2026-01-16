@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
+import copy
 
 # run the priors (FRIDA-clim_priors.stmx) before this.
 
@@ -26,7 +27,6 @@ weights = np.ones(52)
 weights[0] = 0.5
 weights[-1] = 0.5
 
-npp_2000_obs = 59.22
 
 #%%
 
@@ -40,7 +40,7 @@ df_temp_obs = pd.read_csv("../data/external/forcing/annual_averages.csv")
 gmst = df_temp_obs["gmst"].loc[(df_temp_obs['time'] > 1850) 
                                & (df_temp_obs['time'] < 2023)].values
 
-time = df_temp_obs["time"].loc[(df_temp_obs['time'] > 1850) 
+time_temp = df_temp_obs["time"].loc[(df_temp_obs['time'] > 1850) 
                                & (df_temp_obs['time'] < 2023)].values
 
 
@@ -137,48 +137,85 @@ plt.ylabel('Flux 2005-14')
 
 #%%
 
-df_npp = pd.read_csv(f"../{calibration}/data/priors_output/priors_NPP.csv")
+accept_new = copy.deepcopy(accept_both)
 
-if '="Calibration Data: Terrestrial Carbon Balance.Terrestrial net primary production[1]"' in df_npp.keys(): # this occured once - not sure why
-    df_npp = df_npp.drop(['="Calibration Data: Terrestrial Carbon Balance.Terrestrial net primary production[1]"'], axis=1)
+calib_vars = {
+    "Terrestrial Carbon Balance.Terrestrial net primary production[1]":["NPP_2000", 2000, 13],
+    "Crop.cropland net primary production[1]":["NPP_2011", 2011, 4],    
+    "Terrestrial Carbon Balance.forest regrowth carbon uptake[1]":["land", "1980-2022", 0.5],
+    "Terrestrial Carbon Balance.deforestation carbon loss[1]":["land", "1980-2022", 1],
+    "Terrestrial Carbon Balance.Terrestrial carbon balance[1]":["land", "1980-2022", 1.5],
+    "Emissions.CO2 Emissions from Food and Land Use[1]":["land", "1980-2022", 4000], #MtCO2
+    }
 
-npp_2000 = np.full(samples, np.nan)
-for i in np.arange(samples):
-    npp_2000[i] = df_npp[f'="Run {i+1}: Terrestrial Carbon Balance.Terrestrial net primary production[1]"']
+df_obs = pd.read_csv("../data/external/Calibration Data.csv")
+df_obs_t = df_obs.set_index(df_obs.columns[0]).T
 
-# npp_grass_2000 = np.full(samples, np.nan)
-# for i in np.arange(samples):
-#     npp_grass_2000[i] = df_npp[f'="Run {i+1}: Grass.grassland net primary production[1]"']
+for calib_var in calib_vars.keys():
+    fname = calib_vars[calib_var][0]
+    time = calib_vars[calib_var][1]
+    tol = calib_vars[calib_var][2]
 
-npp_constraint = npp_2000_obs    
+    df_priors = pd.read_csv(f"../{calibration}/data/priors_output/priors_{fname}.csv")
 
-accept_npp = np.abs(npp_2000[:] -  npp_constraint) < 10
+    if time == "1980-2022":
+        nt = 43
+    else:
+        nt = 1
+        
+    data_priors = np.full((samples, nt), np.nan)
+    for i in np.arange(samples):
+        data_priors[i,:] = df_priors[f'="Run {i+1}: {calib_var}"']
+        
+    if time == "1980-2022":
+        data_obs = df_obs_t[calib_var]["1980":"2022"].values
+    else:
+        data_obs = [df_obs_t[calib_var][str(time)]]
 
-n_pass_npp = np.sum(accept_npp)
+    
+    rmse_var = np.zeros((samples))
+    
+    for i in range(samples):
+        rmse_var[i] = rmse(
+            data_obs,
+            data_priors[i,:],
+        )
+        
+    accept_var = rmse_var < tol
+    accept_new = np.logical_and(accept_new, accept_var)
 
-print("Passing NPP constraint:",n_pass_npp)
-valid_npp = np.arange(samples, dtype=int)[accept_npp]
+    print(f"Passing inc {calib_var}:",accept_new.sum())
+    
+    if time == "1980-2022":
+        fig = plt.figure()
+        plt.plot(np.arange(1980, 2023, 1), np.percentile(data_priors.T, 50, axis=1),
+                 color='C0', label='priors')
+        plt.fill_between(np.arange(1980, 2023, 1), np.percentile(data_priors.T, 5, axis=1),
+                 np.percentile(data_priors.T, 95, axis=1), color='C0', alpha=0.3)
 
-valid_inc_npp = np.intersect1d(valid_both,valid_npp)
+        plt.plot(np.arange(1980, 2023, 1), np.percentile(data_priors[accept_new,:].T, 50, axis=1),
+                 color='C1', label='constrained')
+        plt.fill_between(np.arange(1980, 2023, 1), np.percentile(data_priors[accept_new,:].T, 5, axis=1),
+                 np.percentile(data_priors[accept_new,:].T, 95, axis=1), color='C1', alpha=0.3)
+        
+        plt.plot(np.arange(1980, 2023, 1), data_obs, color='black', label='Obs')
+        plt.legend()
+        plt.title(f'{calib_var}')
 
-n_pass_inc_npp = valid_inc_npp.shape[0]
-
-print("Passing inc NPP:",n_pass_inc_npp)
-
-accept_inc_npp = np.logical_and(accept_both, accept_npp)
+    
 
 #%%
 
 fig, axs = plt.subplots(5, 2, figsize=(15, 15))
 
-axs[0,0].fill_between(time, np.percentile(temp_hist_offset, 84, axis=1), 
+axs[0,0].fill_between(time_temp, np.percentile(temp_hist_offset, 84, axis=1), 
               np.percentile(temp_hist_offset, 16, axis=1), color="#000000", alpha=0.2,
               label = '16-84 %ile')
 
-axs[0,0].plot(time, np.median(temp_hist_offset, axis=1), 
+axs[0,0].plot(time_temp, np.median(temp_hist_offset, axis=1), 
               color="#000000", label='Median')
 
-axs[0,0].plot(time, gmst, label='AR6 obs')
+axs[0,0].plot(time_temp, gmst, label='AR6 obs')
 
 axs[0,0].legend(loc = 'upper left')
 axs[0,0].set_ylabel('deg C')
@@ -204,14 +241,14 @@ axs[0,1].set_title(f'All priors: {samples}')
 
 
 
-axs[1,0].fill_between(time, np.percentile(temp_hist_offset[:, accept_temp], 84, axis=1), 
+axs[1,0].fill_between(time_temp, np.percentile(temp_hist_offset[:, accept_temp], 84, axis=1), 
               np.percentile(temp_hist_offset[:, accept_temp], 16, axis=1), color="#000000", alpha=0.2,
               label = '16-84 %ile')
 
-axs[1,0].plot(time, np.median(temp_hist_offset[:, accept_temp], axis=1), 
+axs[1,0].plot(time_temp, np.median(temp_hist_offset[:, accept_temp], axis=1), 
               color="#000000", label='Median')
 
-axs[1,0].plot(time, gmst, label='AR6 obs')
+axs[1,0].plot(time_temp, gmst, label='AR6 obs')
 
 axs[1,0].legend()
 axs[1,0].set_ylabel('deg C')
@@ -236,14 +273,14 @@ axs[1,1].set_title(f'Passing temp: {n_pass_temp}')
 
 
 
-axs[2,0].fill_between(time, np.percentile(temp_hist_offset[:, accept_flux], 84, axis=1), 
+axs[2,0].fill_between(time_temp, np.percentile(temp_hist_offset[:, accept_flux], 84, axis=1), 
               np.percentile(temp_hist_offset[:, accept_flux], 16, axis=1), color="#000000", alpha=0.2,
               label = '16-84 %ile')
 
-axs[2,0].plot(time, np.median(temp_hist_offset[:, accept_flux], axis=1), 
+axs[2,0].plot(time_temp, np.median(temp_hist_offset[:, accept_flux], axis=1), 
               color="#000000", label='Median')
 
-axs[2,0].plot(time, gmst, label='AR6 obs')
+axs[2,0].plot(time_temp, gmst, label='AR6 obs')
 
 axs[2,0].legend()
 axs[2,0].set_ylabel('deg C')
@@ -269,14 +306,14 @@ axs[2,1].set_title(f'Passing flux: {n_pass_flux}')
 
 
 
-axs[3,0].fill_between(time, np.percentile(temp_hist_offset[:, accept_both], 84, axis=1), 
+axs[3,0].fill_between(time_temp, np.percentile(temp_hist_offset[:, accept_both], 84, axis=1), 
               np.percentile(temp_hist_offset[:, accept_both], 16, axis=1), color="#000000", alpha=0.2,
               label = '16-84 %ile')
 
-axs[3,0].plot(time, np.median(temp_hist_offset[:, accept_both], axis=1), 
+axs[3,0].plot(time_temp, np.median(temp_hist_offset[:, accept_both], axis=1), 
               color="#000000", label='Median')
 
-axs[3,0].plot(time, gmst, label='AR6 obs')
+axs[3,0].plot(time_temp, gmst, label='AR6 obs')
 
 axs[3,0].legend()
 axs[3,0].set_ylabel('deg C')
@@ -300,26 +337,26 @@ axs[3,1].set_title(f'Passing both: {n_pass_both}')
 
 
 
-axs[4,0].fill_between(time, np.percentile(temp_hist_offset[:, accept_inc_npp], 84, axis=1), 
-              np.percentile(temp_hist_offset[:, accept_inc_npp], 16, axis=1), color="#000000", alpha=0.2,
+axs[4,0].fill_between(time_temp, np.percentile(temp_hist_offset[:, accept_new], 84, axis=1), 
+              np.percentile(temp_hist_offset[:, accept_new], 16, axis=1), color="#000000", alpha=0.2,
               label = '16-84 %ile')
 
-axs[4,0].plot(time, np.median(temp_hist_offset[:, accept_inc_npp], axis=1), 
+axs[4,0].plot(time_temp, np.median(temp_hist_offset[:, accept_new], axis=1), 
              color="#000000", label='Median')
 
-axs[4,0].plot(time, gmst, label='AR6 obs')
+axs[4,0].plot(time_temp, gmst, label='AR6 obs')
 
 axs[4,0].legend()
 axs[4,0].set_ylabel('deg C')
-axs[4,0].set_title(f'Passing inc NPP 2000: {n_pass_inc_npp}')
+axs[4,0].set_title(f'Passing inc carbon: {accept_new.sum()}')
 
 
 
-axs[4,1].fill_between(df_ocean_hist["Year"], np.percentile(flux_hist[:, accept_inc_npp], 84, axis=1), 
-              np.percentile(flux_hist[:, accept_inc_npp], 16, axis=1), color="#000000", alpha=0.2,
+axs[4,1].fill_between(df_ocean_hist["Year"], np.percentile(flux_hist[:, accept_new], 84, axis=1), 
+              np.percentile(flux_hist[:, accept_new], 16, axis=1), color="#000000", alpha=0.2,
               label = '16-84 %ile')
 
-axs[4,1].plot(df_ocean_hist["Year"], np.median(flux_hist[:, accept_inc_npp], axis=1), 
+axs[4,1].plot(df_ocean_hist["Year"], np.median(flux_hist[:, accept_new], axis=1), 
               color="#000000", label='Median')
 
 # axs[4,1].plot(df_ocean_hist["Year"], flux)
@@ -328,7 +365,7 @@ axs[4,1].plot(df_ocean_hist_crop["Year"], flux_for_rmse, label='GCB obs')
 axs[4,1].legend()
 axs[4,1].set_ylabel('GtC/yr')
 
-axs[4,1].set_title(f'Passing inc NPP 2000: {n_pass_inc_npp}')
+axs[4,1].set_title(f'Passing inc carbon: {accept_new.sum()}')
 
 for i in np.arange(5):
     for j in np.arange(2):
@@ -345,76 +382,12 @@ plt.savefig(
 )
 
 #%%
-# import scipy.stats
 
-# npp_priors = scipy.stats.gaussian_kde(npp_2000)
+valid_all = np.arange(samples, dtype=int)[accept_new]
 
-
-# plt.plot(np.linspace(40, 75, 1000), npp_priors(np.linspace(40, 75, 1000)))
-# plt.axvline(x=npp_2000_obs)
-# plt.axvline(x=npp_2000_obs-10, linestyle='--')
-# plt.axvline(x=npp_2000_obs+10, linestyle='--')
-# plt.title('NPP')
-
-
-#%%
 np.savetxt(
     f"../{calibration}/data/constraining/runids_rmse_pass.csv",
-    valid_inc_npp.astype(int),
+    valid_all.astype(int),
     fmt="%d",
 )
 
-#%%
-
-
-df_land = pd.read_csv(f"../{calibration}/data/priors_output/priors_land.csv")
-
-gcb = pd.read_csv("../data/external/gcp_v2023_co2_1750-2022.csv")
-
-land_sink_obs = gcb['land sink'].values[:273]
-
-tcb_obs = gcb['terrestrial carbon balance'].values[:273]
-
-gcb_time = 1750 + np.arange(273)
-
-tcb_data = np.full((273, samples), np.nan)
-for i in np.arange(samples):
-    tcb_data[:,i] = df_land[f'="Run {i+1}: Terrestrial Carbon Balance.Terrestrial carbon balance[1]"']
-
-landsink_data = np.full((273, samples), np.nan)
-for i in np.arange(samples):
-    landsink_data[:,i] = df_land[f'="Run {i+1}: Terrestrial Carbon Balance.Terrestrial carbon balance[1]"'] + df_land[
-                                f'="Run {i+1}: Emissions.CO2 Emissions from Food and Land Use[1]"']/3670 # MtCO2 to GtC
-        #%%
-
-fig, axs = plt.subplots(1, 2, figsize=(12, 5))
-    
-
-axs[0].fill_between(gcb_time, np.percentile(tcb_data[:, accept_inc_npp], 84, axis=1), 
-              np.percentile(tcb_data[:, accept_inc_npp], 16, axis=1), color="#000000", alpha=0.2,
-              label = '16-84 %ile')
-
-axs[0].plot(gcb_time, np.median(tcb_data[:, accept_inc_npp], axis=1), 
-             color="#000000", label='Median')
-
-axs[0].plot(gcb_time, tcb_obs, label='GCB')
-
-axs[0].legend()
-axs[0].set_ylabel('GtC')
-axs[0].set_title('TCB')
-
-
-axs[1].fill_between(gcb_time, np.percentile(landsink_data[:, accept_inc_npp], 84, axis=1), 
-              np.percentile(landsink_data[:, accept_inc_npp], 16, axis=1), color="#000000", alpha=0.2,
-              label = '16-84 %ile')
-
-axs[1].plot(gcb_time, np.median(landsink_data[:, accept_inc_npp], axis=1), 
-             color="#000000", label='Median')
-
-axs[1].plot(gcb_time, land_sink_obs, label='GCB')
-
-axs[1].legend()
-axs[1].set_ylabel('GtC')
-axs[1].set_title('Land sink')
-
-plt.tight_layout()

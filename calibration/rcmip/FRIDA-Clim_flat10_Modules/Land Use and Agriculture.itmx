@@ -5,8 +5,11 @@
 		<name>Land Use and Agriculture</name>
 		<uuid>fe807591-4e3d-4e2c-b464-70ec4fb12094</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.1.1" isee:build_number="3772" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
+	<ai_information>
+		<status verified="false"/>
+	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
 		<stop>2100</stop>
@@ -277,6 +280,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 			</stock>
 			<module name="Land Use" isee:label="">
 				<format scale_by="auto"/>
+				<connect to="forest_soil_carbon.burned_mature_forest" from="Land_Use.burned_mature_forest"/>
+				<connect2 to="forest_soil_carbon.burned_mature_forest" from="Land_Use.burned_mature_forest"/>
 				<connect to="forest_soil_carbon.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect2 to="forest_soil_carbon.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="Forest.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
@@ -303,8 +308,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Terrestrial_Carbon_Balance.Cropland" from="Land_Use.Cropland"/>
 				<connect to="forest_soil_carbon.cutting" from="Land_Use.cutting"/>
 				<connect2 to="forest_soil_carbon.cutting" from="Land_Use.cutting"/>
-				<connect to="Forest.cutting_1" from="Land_Use.cutting"/>
-				<connect2 to="Forest.cutting_1" from="Land_Use.cutting"/>
 				<connect to="degraded_land_soil_carbon.Degraded_Land" from="Land_Use.Degraded_Land"/>
 				<connect2 to="degraded_land_soil_carbon.Degraded_Land" from="Land_Use.Degraded_Land"/>
 				<connect to="cropland_soil_carbon.degraded_land_from_crops" from="Land_Use.degraded_land_from_crops"/>
@@ -319,6 +322,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="forest_soil_carbon.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect2 to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
+				<connect to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
+				<connect2 to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect to="degraded_land_soil_carbon.forresting_degraded_land" from="Land_Use.foresting_degraded_land"/>
@@ -339,6 +344,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Grassland" from="Land_Use.Grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
+				<connect to="Grass.grassland_burned_due_to_cc_area" from="Land_Use.grassland_burned_due_to_cc_area"/>
+				<connect2 to="Grass.grassland_burned_due_to_cc_area" from="Land_Use.grassland_burned_due_to_cc_area"/>
 				<connect to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
 				<connect2 to="Terrestrial_Carbon_Balance.gross_forest_land_use_loss_1" from="Land_Use.gross_forest_land_use_loss"/>
 				<connect to="Terrestrial_Carbon_Balance.gross_grassland_land_use_loss_1" from="Land_Use.gross_grassland_land_use_loss"/>
@@ -351,6 +358,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect to="Terrestrial_Carbon_Balance.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Mature_Forest" from="Land_Use.Mature_Forest"/>
+				<connect to="Forest.mature_forest_burned_due_t_o_cc" from="Land_Use.mature_forest_burned_due_t_o_cc"/>
+				<connect2 to="Forest.mature_forest_burned_due_t_o_cc" from="Land_Use.mature_forest_burned_due_t_o_cc"/>
 				<connect to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect to="Forest.Young_Forest" from="Land_Use.Young_Forest"/>
@@ -359,14 +368,18 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Recovering_Forest" from="Land_Use.Young_Forest"/>
 				<connect to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
+				<connect to="Forest.young_forest_burned_due_to_cc" from="Land_Use.young_forest_burned_due_to_cc"/>
+				<connect2 to="Forest.young_forest_burned_due_to_cc" from="Land_Use.young_forest_burned_due_to_cc"/>
 				<connect to="forest_soil_carbon.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect2 to="forest_soil_carbon.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect2 to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
-				<connect to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest"/>
-				<connect2 to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest"/>
+				<connect to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest_from_cutting"/>
+				<connect2 to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest_from_cutting"/>
 				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 			</module>
 			<stock name="Grassland" access="input">
 				<dimensions>
@@ -497,6 +510,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_mature_forest" from="forest_soil_carbon.soil_carbon_mature_forest"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_young_forest" from="forest_soil_carbon.soil_carbon_young_forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_young_forest" from="forest_soil_carbon.soil_carbon_young_forest"/>
+				<connect to="forest_soil_carbon.burned_mature_forest" from="Land_Use.burned_mature_forest"/>
+				<connect2 to="forest_soil_carbon.burned_mature_forest" from="Land_Use.burned_mature_forest"/>
 				<connect to="forest_soil_carbon.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect2 to="forest_soil_carbon.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="forest_soil_carbon.clearing_forests_for_crops" from="Land_Use.clearing_forests_for_crops"/>
@@ -507,12 +522,16 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="forest_soil_carbon.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="forest_soil_carbon.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect2 to="forest_soil_carbon.Mature_Forest" from="Land_Use.Mature_Forest"/>
+				<connect to="forest_soil_carbon.Mature_forest_biomass_burning_to_soil" from="Forest.Mature_forest_biomass_burning_to_soil"/>
+				<connect2 to="forest_soil_carbon.Mature_forest_biomass_burning_to_soil" from="Forest.Mature_forest_biomass_burning_to_soil"/>
 				<connect to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect2 to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
+				<connect to="forest_soil_carbon.Young_forest_biomass_burning_to_soil" from="Forest.Young_forest_biomass_burning_to_soil"/>
+				<connect2 to="forest_soil_carbon.Young_forest_biomass_burning_to_soil" from="Forest.Young_forest_biomass_burning_to_soil"/>
 				<connect to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
 				<connect2 to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
 				<connect to="forest_soil_carbon.young_forest_share" from="Land_Use.young_forest_share"/>
@@ -582,6 +601,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Grass.grassland_burned_due_to_cc_area" from="Land_Use.grassland_burned_due_to_cc_area"/>
+				<connect2 to="Grass.grassland_burned_due_to_cc_area" from="Land_Use.grassland_burned_due_to_cc_area"/>
 				<connect to="Grass.Grassland_1" from="Land_Use.Grassland"/>
 				<connect2 to="Grass.Grassland_1" from="Land_Use.Grassland"/>
 				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -601,18 +622,28 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest_carbon_balance.forest_aboveground_biomass_balance_1" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
+				<connect to="forest_soil_carbon.Mature_forest_biomass_burning_to_soil" from="Forest.Mature_forest_biomass_burning_to_soil"/>
+				<connect2 to="forest_soil_carbon.Mature_forest_biomass_burning_to_soil" from="Forest.Mature_forest_biomass_burning_to_soil"/>
 				<connect to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect2 to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect to="Forest_carbon_balance.mature_forest_net_primary_production_1" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Forest_carbon_balance.mature_forest_net_primary_production_1" from="Forest.mature_forest_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
-				<connect to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest"/>
-				<connect2 to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest"/>
+				<connect to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest_from_cutting"/>
+				<connect2 to="Land_Use.mature_to_young_forest" from="Forest.mature_to_young_forest_from_cutting"/>
+				<connect to="Terrestrial_Carbon_Balance.Normal_mature_forest_aboveground_biomass_per_area" from="Forest.Normal_mature_forest_aboveground_biomass_per_area"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Normal_mature_forest_aboveground_biomass_per_area" from="Forest.Normal_mature_forest_aboveground_biomass_per_area"/>
 				<connect to="Forest_carbon_balance.timber_1" from="Forest.timber"/>
 				<connect2 to="Forest_carbon_balance.timber_1" from="Forest.timber"/>
 				<connect to="Terrestrial_Carbon_Balance.timber" from="Forest.timber"/>
 				<connect2 to="Terrestrial_Carbon_Balance.timber" from="Forest.timber"/>
+				<connect to="Terrestrial_Carbon_Balance.Young_forest_aboveground_biomass_per_area" from="Forest.Young_forest_aboveground_biomass_per_area"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Young_forest_aboveground_biomass_per_area" from="Forest.Young_forest_aboveground_biomass_per_area"/>
+				<connect to="forest_soil_carbon.Young_forest_biomass_burning_to_soil" from="Forest.Young_forest_biomass_burning_to_soil"/>
+				<connect2 to="forest_soil_carbon.Young_forest_biomass_burning_to_soil" from="Forest.Young_forest_biomass_burning_to_soil"/>
 				<connect to="Terrestrial_Carbon_Balance.young_forest_growth" from="Forest.young_forest_growth"/>
 				<connect2 to="Terrestrial_Carbon_Balance.young_forest_growth" from="Forest.young_forest_growth"/>
 				<connect to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
@@ -627,18 +658,22 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="Forest.clearing_forests_for_crops_1" from="Land_Use.clearing_forests_for_crops"/>
 				<connect2 to="Forest.clearing_forests_for_crops_1" from="Land_Use.clearing_forests_for_crops"/>
-				<connect to="Forest.cutting_1" from="Land_Use.cutting"/>
-				<connect2 to="Forest.cutting_1" from="Land_Use.cutting"/>
 				<connect to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect2 to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Forest.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect2 to="Forest.Mature_Forest" from="Land_Use.Mature_Forest"/>
+				<connect to="Forest.mature_forest_burned_due_t_o_cc" from="Land_Use.mature_forest_burned_due_t_o_cc"/>
+				<connect2 to="Forest.mature_forest_burned_due_t_o_cc" from="Land_Use.mature_forest_burned_due_t_o_cc"/>
 				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Forest.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Forest.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="Forest.Young_Forest" from="Land_Use.Young_Forest"/>
+				<connect to="Forest.young_forest_burned_due_to_cc" from="Land_Use.young_forest_burned_due_to_cc"/>
+				<connect2 to="Forest.young_forest_burned_due_to_cc" from="Land_Use.young_forest_burned_due_to_cc"/>
 				<connect to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect2 to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
 			</module>
@@ -812,6 +847,10 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 					<from>Grass</from>
 					<to>Soil</to>
 				</connector>
+				<connector uid="102" isee:thickness="2" angle="351.296" isee:autocreated="true">
+					<from>Land_Use</from>
+					<to>Grass</to>
+				</connector>
 			</view>
 		</views>
 	</model>
@@ -848,13 +887,6 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<eqn>crop_residue_production*crop_residue_on_field_fraction</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="crop residue on field fraction">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>MINSOFT(normal_crop_residue_on_field_fraction*effect_of_crop_residue_production_on_field_fraction, max_crop_residue_on_field_fraction, tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction)</eqn>
-				<units>dmnl</units>
-			</aux>
 			<stock name="Cropland" access="output" throughput="true" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
@@ -878,328 +910,6 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<eqn>crop_residue_production*(1-crop_residue_on_field_fraction)</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="sensitivity of effect of crop\nresidue production on field fraction">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.477631121199209</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.01</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.01</eqn>
-				</element>
-				<range min="0" max="0.75"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="effect of crop residue\nproduction on field fraction">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>(crop_residue_production/INIT(crop_residue_production))^sensitivity_of_effect_of_crop_residue_production_on_field_fraction[selected_climate_case[Run]]</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="normal crop residue on field fraction">
-				<doc>${External Parameter}
-Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert, M., ... &amp; Popp, A. (2022). Management-induced changes in soil organic carbon on global croplands. Biogeosciences, 19(21), 5125-5149. https://doi.org/10.5194/bg-19-5125-2022</doc>
-				<eqn>0.44</eqn>
-				<units>dmnl</units>
-			</aux>
 			<aux name="tolerance of the cap on harvest index and residue on field fraction">
 				<doc>${Internal Calibration Parameter}
 </doc>
@@ -1210,12 +920,6 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 					<eqn>0.0488017706603499</eqn>
 				</element>
 				<range min="0.03" max="0.08"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="max crop residue on field fraction">
-				<doc>${External Parameter}
-Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert, M., ... &amp; Popp, A. (2022). Management-induced changes in soil organic carbon on global croplands. Biogeosciences, 19(21), 5125-5149. https://doi.org/10.5194/bg-19-5125-2022</doc>
-				<eqn>.6</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="crop production exogenous" access="output">
@@ -2845,6 +2549,1588 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
+			<aux name="sensitivity of effect of crop\nresidue production\non field fraction">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.559909570253009</eqn>
+				</element>
+				<range min="0" max="0.75"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="effect of crop residue\nproduction on field fraction">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>(crop_residue_production/INIT(crop_residue_production))^sensitivity_of_effect_of_crop_residue_production_on_field_fraction[selected_climate_case]</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="sustainable residue\non field fraction">
+				<doc>${External Parameter}
+Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert, M., ... &amp; Popp, A. (2022). Management-induced changes in soil organic carbon on global croplands. Biogeosciences, 19(21), 5125-5149. https://doi.org/10.5194/bg-19-5125-2022</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.75</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.75</eqn>
+				</element>
+				<range min="0.65" max="0.85"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Residue coverage" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>1-EXP(-((crop_residue_litter*sustainable_farming_fraction)/Cropland)*mass_to_coverage[selected_climate_case])</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="sustainable farming fraction">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>historical_sustainable_farming_fraction[selected_climate_case]</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="historical sustainable farming fraction">
+				<doc>${Assumption}
+</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.15</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.15</eqn>
+				</element>
+				<range min="0.1" max="0.2"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="crop residue on\nfield init fraction">
+				<doc>static crop fraction of residues that is initialized (independently of increasing/decreasing overall crop production)</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>conventional_residue_on_field_fraction[selected_climate_case]*(1-sustainable_farming_fraction) + sustainable_residue_on_field_fraction[selected_climate_case] * sustainable_farming_fraction</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="crop residue on\nfield fraction">
+				<doc>crop fraction of residues compared to the changing (increasing/decreasing) overall production</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>MINSOFT(crop_residue_on_field_init_fraction * (1/ effect_of_crop_residue_production_on_field_fraction),  sustainable_residue_on_field_fraction[selected_climate_case], tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction)</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="mass to coverage">
+				<doc>${Assumption}
+</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>978</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>978</eqn>
+				</element>
+				<range min="889" max="1556"/>
+				<units>Mha/GtC</units>
+			</aux>
+			<aux name="conventional residue\non field fraction">
+				<doc>${External Parameter}
+Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert, M., ... &amp; Popp, A. (2022). Management-induced changes in soil organic carbon on global croplands. Biogeosciences, 19(21), 5125-5149. https://doi.org/10.5194/bg-19-5125-2022</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.38</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.38</eqn>
+				</element>
+				<range min="0.3" max="0.45"/>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -2894,7 +4180,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1120" isee:scroll_y="858.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1812.5" isee:scroll_y="508.333" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2945,11 +4231,6 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 					<to>crop_residue_production</to>
 				</connector>
 				<aux x="2179.33" y="977.67" name="crop residue litter"/>
-				<aux label_side="bottom" x="2271" y="1030.67" name="crop residue on field fraction"/>
-				<connector uid="6" angle="149.965">
-					<from>crop_residue_on_field_fraction</from>
-					<to>crop_residue_litter</to>
-				</connector>
 				<connector uid="7" angle="14.3253">
 					<from>crop_residue_production</from>
 					<to>crop_residue_litter</to>
@@ -2973,42 +4254,10 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 					<from>crop_residue_production</from>
 					<to>crop_residue_other_use</to>
 				</connector>
-				<connector uid="61" angle="194.319">
-					<from>crop_residue_on_field_fraction</from>
-					<to>crop_residue_other_use</to>
-				</connector>
-				<aux x="2480.93" y="1068.84" name="sensitivity of effect of crop\nresidue production on field fraction"/>
-				<aux label_side="right" label_angle="315" x="2282.25" y="1133.84" name="effect of crop residue\nproduction on field fraction"/>
-				<connector uid="67" angle="340.067">
-					<from>crop_residue_production</from>
-					<to>effect_of_crop_residue_production_on_field_fraction</to>
-				</connector>
-				<connector uid="68" angle="198.116">
-					<from>sensitivity_of_effect_of_crop_residue_production_on_field_fraction</from>
-					<to>effect_of_crop_residue_production_on_field_fraction</to>
-				</connector>
-				<connector uid="69" angle="76.8034">
-					<from>effect_of_crop_residue_production_on_field_fraction</from>
-					<to>crop_residue_on_field_fraction</to>
-				</connector>
-				<aux x="2370.43" y="972.14" name="normal crop residue on field fraction"/>
-				<connector uid="70" angle="199.502">
-					<from>normal_crop_residue_on_field_fraction</from>
-					<to>crop_residue_on_field_fraction</to>
-				</connector>
 				<stacked_container uid="143" x="2519" y="1226.71" width="405.714" height="350.857">
 					<graph width="405.714" height="350.857" type="time_series" isee:points_only="true" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true"/>
 				</stacked_container>
 				<aux x="1912.34" y="1402.67" name="tolerance of the cap on harvest index and residue on field fraction"/>
-				<connector uid="189" angle="46.0457">
-					<from>tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction</from>
-					<to>crop_residue_on_field_fraction</to>
-				</connector>
-				<aux x="2275.71" y="915.667" name="max crop residue on field fraction"/>
-				<connector uid="190" angle="251.524">
-					<from>max_crop_residue_on_field_fraction</from>
-					<to>crop_residue_on_field_fraction</to>
-				</connector>
 				<aux label_side="bottom" x="1625.66" y="1171.5" name="crop production exogenous"/>
 				<aux x="1572.33" y="1327.5" name="crop yield"/>
 				<connector uid="204" angle="330.939">
@@ -3107,19 +4356,124 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 					<from>selected_climate_case</from>
 					<to>effect_of_crop_yield_on_harvest_index</to>
 				</connector>
-				<connector uid="239" angle="45.6384">
-					<from>selected_climate_case</from>
+				<aux x="2411.1" y="1203.17" name="sensitivity of effect of crop\nresidue production\non field fraction"/>
+				<aux label_side="right" label_angle="315" x="2400.75" y="1112.34" name="effect of crop residue\nproduction on field fraction"/>
+				<connector uid="240" angle="96.4985">
+					<from>sensitivity_of_effect_of_crop_residue_production_on_field_fraction</from>
 					<to>effect_of_crop_residue_production_on_field_fraction</to>
 				</connector>
-				<alias font_style="italic" font_weight="bold" uid="77" x="2560.79" y="1118.36" width="45" height="35">
-					<of>Cropland</of>
-				</alias>
+				<aux x="2697.17" y="915.667" name="sustainable residue\non field fraction"/>
+				<aux x="2479.5" y="778.129" name="Residue coverage"/>
+				<aux x="2617.43" y="778.129" name="sustainable farming fraction"/>
+				<aux x="2525.66" y="686.702" name="historical sustainable farming fraction"/>
+				<connector uid="243" angle="315.107">
+					<from>historical_sustainable_farming_fraction</from>
+					<to>sustainable_farming_fraction</to>
+				</connector>
+				<aux label_side="bottom" x="2493" y="985.34" name="crop residue on\nfield init fraction"/>
+				<aux x="2343" y="968.12" name="crop residue on\nfield fraction"/>
+				<connector uid="246" angle="287.635">
+					<from>sustainable_farming_fraction</from>
+					<to>crop_residue_on_field_init_fraction</to>
+				</connector>
+				<connector uid="248" angle="196.043">
+					<from>sustainable_residue_on_field_fraction</from>
+					<to>crop_residue_on_field_fraction</to>
+				</connector>
+				<connector uid="249" angle="198.842">
+					<from>sustainable_residue_on_field_fraction</from>
+					<to>crop_residue_on_field_init_fraction</to>
+				</connector>
+				<connector uid="250" angle="79.6328">
+					<from>effect_of_crop_residue_production_on_field_fraction</from>
+					<to>crop_residue_on_field_fraction</to>
+				</connector>
+				<connector uid="251" angle="177.284">
+					<from>crop_residue_on_field_init_fraction</from>
+					<to>crop_residue_on_field_fraction</to>
+				</connector>
+				<connector uid="252" angle="132.971">
+					<from>
+						<alias uid="253"/>
+					</from>
+					<to>Residue_coverage</to>
+				</connector>
+				<connector uid="254" angle="53.7493">
+					<from>
+						<alias uid="253"/>
+					</from>
+					<to>sustainable_farming_fraction</to>
+				</connector>
+				<connector uid="255" angle="238.695">
+					<from>
+						<alias uid="253"/>
+					</from>
+					<to>crop_residue_on_field_init_fraction</to>
+				</connector>
+				<connector uid="256" angle="226.515">
+					<from>
+						<alias uid="253"/>
+					</from>
+					<to>crop_residue_on_field_fraction</to>
+				</connector>
+				<connector uid="257" angle="289.654">
+					<from>
+						<alias uid="253"/>
+					</from>
+					<to>effect_of_crop_residue_production_on_field_fraction</to>
+				</connector>
+				<connector uid="258" angle="160.216">
+					<from>crop_residue_on_field_fraction</from>
+					<to>crop_residue_litter</to>
+				</connector>
+				<connector uid="259" angle="176.001">
+					<from>crop_residue_on_field_fraction</from>
+					<to>crop_residue_other_use</to>
+				</connector>
+				<connector uid="260" angle="344.864">
+					<from>crop_residue_production</from>
+					<to>effect_of_crop_residue_production_on_field_fraction</to>
+				</connector>
+				<connector uid="261" angle="33.2588">
+					<from>tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction</from>
+					<to>crop_residue_on_field_fraction</to>
+				</connector>
+				<aux x="2327.36" y="723.687" name="mass to coverage"/>
+				<aux label_side="right" x="2690.8" y="1009.62" name="conventional residue\non field fraction"/>
+				<connector uid="264" angle="309.745">
+					<from>
+						<alias uid="263"/>
+					</from>
+					<to>Residue_coverage</to>
+				</connector>
+				<connector uid="265" angle="328.956">
+					<from>mass_to_coverage</from>
+					<to>Residue_coverage</to>
+				</connector>
+				<connector uid="266" angle="168.202">
+					<from>sustainable_farming_fraction</from>
+					<to>Residue_coverage</to>
+				</connector>
+				<connector uid="267" angle="173.002">
+					<from>conventional_residue_on_field_fraction</from>
+					<to>crop_residue_on_field_init_fraction</to>
+				</connector>
+				<connector uid="268" angle="40.2927">
+					<from>crop_residue_litter</from>
+					<to>Residue_coverage</to>
+				</connector>
 				<alias color="blue" background="white" font_style="italic" uid="231" x="2057.67" y="1480.17" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>fraction_of_crop_production_for_energy</of>
 				</alias>
 				<alias font_style="italic" uid="233" x="2122.67" y="1456" width="18" height="18">
 					<of>fraction_of_crop_production_for_feed</of>
+				</alias>
+				<alias uid="263" x="2352" y="634.36" width="45" height="35">
+					<of>Cropland</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="253" x="2529.33" y="877" width="18" height="18">
+					<of>selected_climate_case</of>
 				</alias>
 			</view>
 		</views>
@@ -4195,6 +5549,7 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<inflow>Mature_forest_growth</inflow>
 				<outflow>cutting</outflow>
 				<outflow>clearing</outflow>
+				<outflow>mature_forest_biomass_burning</outflow>
 				<non_negative/>
 				<units>GtC</units>
 			</stock>
@@ -4272,16 +5627,10 @@ Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2
 				<format precision="full"/>
 				<inflow>young_forest_growth</inflow>
 				<outflow>maturing</outflow>
+				<outflow>young_forest_biomass_burning</outflow>
 				<non_negative/>
 				<units>GtC</units>
 			</stock>
-			<aux name="cutting 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>Mha/Year</units>
-			</aux>
 			<flow name="cutting" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
@@ -4311,7 +5660,7 @@ Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2
 				<eqn>Mature_forest_aboveground_biomass/Mature_Forest</eqn>
 				<units>GtC/Mha</units>
 			</aux>
-			<aux name="Young forest aboveground\nbiomass per area">
+			<aux name="Young forest aboveground\nbiomass per area" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -4340,7 +5689,7 @@ Value of 546.9907432 for 1980: from https://doi.org/10.5194/essd-13-3927-2021, 2
 				<eqn>(1.0 - Mature_forest_aboveground_biomass_per_area/Maximum_mature_forest_aboveground_biomass_per_area)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Normal mature forest\naboveground biomass per area">
+			<aux name="Normal mature forest\naboveground biomass per area" access="output" isee:autocreated="true">
 				<doc>https://doi.org/10.1890/1051-0761(2001)011[1395:NPPACA]2.0.CO;2</doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -5027,7 +6376,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>0</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="mature to young forest" access="output" isee:autocreated="true">
+			<aux name="mature to young forest from cutting" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -5657,6 +7006,371 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>25</eqn>
 				<units>year</units>
 			</aux>
+			<flow name="young forest biomass burning">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Young_forest_aboveground_biomass_per_area*young_forest_burned_due_to_cc</eqn>
+				<units>GtC/Year</units>
+			</flow>
+			<flow name="mature forest biomass burning">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>mature_forest_burned_due_t_o_cc*Mature_forest_aboveground_biomass_per_area</eqn>
+				<units>GtC/Year</units>
+			</flow>
+			<aux name="fraction biomass remaining after burning">
+				<doc>${Assumption}
+Neeed to look up </doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>.1</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>.1</eqn>
+				</element>
+				<range min="0.05" max="0.2"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Young forest biomass burning to soil" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>young_forest_biomass_burning*fraction_biomass_remaining_after_burning[selected_climate_case_1]</eqn>
+				<units>GtC/year</units>
+			</aux>
+			<aux name="Mature forest biomass burning to soil" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>mature_forest_biomass_burning*fraction_biomass_remaining_after_burning[selected_climate_case_1]</eqn>
+				<units>GtC/year</units>
+			</aux>
+			<aux name="Forest burned biomass emissions" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>(young_forest_biomass_burning+mature_forest_biomass_burning) * (1-fraction_biomass_remaining_after_burning[selected_climate_case_1])</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="mature forest\nburned due t\no cc" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="young forest\nburned due\nto cc" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="selected climate case 1" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -5706,7 +7420,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="701.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="615" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5899,8 +7613,8 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>mature_forest_net_primary_production</from>
 					<to>mature_forest_litter</to>
 				</connector>
-				<aux x="1444" y="266.667" name="timber"/>
-				<connector uid="31" angle="41.3723">
+				<aux x="1463.54" y="333" name="timber"/>
+				<connector uid="31" angle="19.1107">
 					<from>clearing</from>
 					<to>timber</to>
 				</connector>
@@ -5929,18 +7643,18 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>Young_forest_aboveground_biomass</from>
 					<to>forest_aboveground_biomass</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1152.57" y="346.333" name="cutting 1"/>
-				<flow x="1256" y="302.417" name="cutting">
+				<flow x="1395.5" y="259.167" name="cutting">
 					<pts>
-						<pt x="1256" y="393.833"/>
-						<pt x="1256" y="190"/>
+						<pt x="1273.33" y="393.833"/>
+						<pt x="1273.33" y="259.167"/>
+						<pt x="1541.67" y="259.167"/>
 					</pts>
 				</flow>
-				<connector uid="38" angle="40.4604">
+				<connector uid="38" angle="342.355">
 					<from>cutting</from>
 					<to>timber</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="904.571" y="44.2857" name="young forest share"/>
+				<aux font_style="italic" font_weight="bold" x="672.071" y="70.119" name="young forest share"/>
 				<aux font_style="italic" font_weight="bold" x="1718.86" y="363" name="clearing forests\nfor crops 1"/>
 				<connector uid="43" angle="164.634">
 					<from>clearing_forests_for_crops_1</from>
@@ -5968,8 +7682,8 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>Mature_forest_aboveground_biomass_per_area</from>
 					<to>clearing</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="1062.89" y="333" name="forest completing\nrecovery"/>
-				<connector uid="50" angle="310.086">
+				<aux font_style="italic" font_weight="bold" label_side="top" x="1128.82" y="505.571" name="forest completing\nrecovery"/>
+				<connector uid="50" angle="90">
 					<from>forest_completing_recovery</from>
 					<to>maturing</to>
 				</connector>
@@ -6081,22 +7795,22 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>minimum_fraction_of_1750_tree_primary_production</from>
 					<to>tree_net_primary_production</to>
 				</connector>
-				<aux x="1186" y="256.333" name="cutting exogenous"/>
-				<connector uid="83" angle="5.94686">
+				<aux x="1481.54" y="193.786" name="cutting exogenous"/>
+				<connector uid="83" angle="256.536">
 					<from>cutting_exogenous</from>
 					<to>cutting</to>
 				</connector>
-				<aux x="1342" y="221.119" name="mature to young forest"/>
-				<connector uid="84" angle="68.39">
+				<aux x="1358.75" y="357.786" name="mature to young forest from cutting"/>
+				<connector uid="84" angle="274.562">
 					<from>cutting</from>
-					<to>mature_to_young_forest</to>
+					<to>mature_to_young_forest_from_cutting</to>
 				</connector>
-				<connector uid="85" angle="118.597">
+				<connector uid="85" angle="115">
 					<from>Mature_forest_aboveground_biomass_per_area</from>
-					<to>mature_to_young_forest</to>
+					<to>mature_to_young_forest_from_cutting</to>
 				</connector>
-				<aux x="1013.64" y="148" name="Initial Young forest\naboveground biomass"/>
-				<aux x="1138.64" y="148" name="Initial Mature forest\naboveground biomass"/>
+				<aux x="371.14" y="46.3333" name="Initial Young forest\naboveground biomass"/>
+				<aux x="496.14" y="46.3333" name="Initial Mature forest\naboveground biomass"/>
 				<aux font_style="italic" font_weight="bold" x="1096.25" y="1276.25" name="selected climate case"/>
 				<connector uid="86" angle="53.8539">
 					<from>selected_climate_case</from>
@@ -6146,6 +7860,81 @@ Limits for extreme conditions in no feedback cases</doc>
 				<connector uid="97" angle="303.625">
 					<from>Mature_forest_aboveground_biomass_adaptation_time</from>
 					<to>Maximum_mature_forest_aboveground_biomass_per_area</to>
+				</connector>
+				<flow x="1015.83" y="315.583" name="young forest biomass burning">
+					<pts>
+						<pt x="1015.83" y="393.833"/>
+						<pt x="1015.83" y="228.333"/>
+					</pts>
+				</flow>
+				<flow x="1240.83" y="321" name="mature forest biomass burning">
+					<pts>
+						<pt x="1240.83" y="393.833"/>
+						<pt x="1240.83" y="239.167"/>
+					</pts>
+				</flow>
+				<aux x="1111.5" y="128" name="fraction biomass remaining after burning"/>
+				<aux x="981" y="87" name="Young forest biomass burning to soil"/>
+				<aux x="1197" y="87" name="Mature forest biomass burning to soil"/>
+				<connector uid="98" angle="144.885">
+					<from>fraction_biomass_remaining_after_burning</from>
+					<to>Young_forest_biomass_burning_to_soil</to>
+				</connector>
+				<connector uid="99" angle="4.91098">
+					<from>fraction_biomass_remaining_after_burning</from>
+					<to>Mature_forest_biomass_burning_to_soil</to>
+				</connector>
+				<aux x="1118.5" y="41" name="Forest burned biomass emissions"/>
+				<connector uid="100" angle="71.2883">
+					<from>fraction_biomass_remaining_after_burning</from>
+					<to>Forest_burned_biomass_emissions</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1162.5" y="309.167" name="mature forest\nburned due t\no cc"/>
+				<aux font_style="italic" font_weight="bold" x="1070" y="280.833" name="young forest\nburned due\nto cc"/>
+				<aux font_style="italic" font_weight="bold" x="959.167" y="35" name="selected climate case 1"/>
+				<connector uid="101" angle="312.769">
+					<from>selected_climate_case_1</from>
+					<to>Young_forest_biomass_burning_to_soil</to>
+				</connector>
+				<connector uid="102" angle="341.565">
+					<from>selected_climate_case_1</from>
+					<to>Forest_burned_biomass_emissions</to>
+				</connector>
+				<connector uid="103" angle="330.945">
+					<from>selected_climate_case_1</from>
+					<to>Mature_forest_biomass_burning_to_soil</to>
+				</connector>
+				<connector uid="104" angle="338.667">
+					<from>Young_forest_aboveground_biomass_per_area</from>
+					<to>young_forest_biomass_burning</to>
+				</connector>
+				<connector uid="105" angle="222.769">
+					<from>young_forest_burned_due_to_cc</from>
+					<to>young_forest_biomass_burning</to>
+				</connector>
+				<connector uid="106" angle="6.17018">
+					<from>mature_forest_burned_due_t_o_cc</from>
+					<to>mature_forest_biomass_burning</to>
+				</connector>
+				<connector uid="107" angle="109.518">
+					<from>Mature_forest_aboveground_biomass_per_area</from>
+					<to>mature_forest_biomass_burning</to>
+				</connector>
+				<connector uid="108" angle="103.548">
+					<from>mature_forest_biomass_burning</from>
+					<to>Mature_forest_biomass_burning_to_soil</to>
+				</connector>
+				<connector uid="109" angle="122.237">
+					<from>mature_forest_biomass_burning</from>
+					<to>Forest_burned_biomass_emissions</to>
+				</connector>
+				<connector uid="110" angle="77.0246">
+					<from>young_forest_biomass_burning</from>
+					<to>Young_forest_biomass_burning_to_soil</to>
+				</connector>
+				<connector uid="111" angle="80.9571">
+					<from>young_forest_biomass_burning</from>
+					<to>Forest_burned_biomass_emissions</to>
 				</connector>
 				<alias font_style="italic" uid="15" x="646.75" y="1135.33" width="18" height="18">
 					<of>tree_net_primary_production_in_1750</of>
@@ -7178,7 +8967,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Grassland_1*grass_net_primary_production</eqn>
+				<eqn>Usable_grassland*grass_net_primary_production</eqn>
 				<units>GtC/Year</units>
 			</aux>
 			<stock name="Grassland 1" access="input">
@@ -7220,6 +9009,26 @@ Limits for extreme conditions in no feedback cases</doc>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
+			</aux>
+			<aux name="Usable grassland">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Grassland_1-grassland_burned_due_to_cc_area*Amount_of_time_grassland_is_not_usable_due_to_burned</eqn>
+				<units>Mha</units>
+			</aux>
+			<aux name="Amount of time grassland is not usable due to burned">
+				<doc>${No Sensi}
+</doc>
+				<eqn>1</eqn>
+				<units>Year</units>
+			</aux>
+			<aux name="grassland\nburned due to cc\narea" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mha/year</units>
 			</aux>
 		</variables>
 		<views>
@@ -7270,7 +9079,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7395,10 +9204,6 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>change_in_grass_net_primary_production_from_CO2</to>
 				</connector>
 				<stock font_style="italic" font_weight="bold" x="427" y="175.5" name="Grassland 1"/>
-				<connector uid="20" angle="30.6507">
-					<from>Grassland_1</from>
-					<to>grassland_net_primary_production</to>
-				</connector>
 				<aux font_style="italic" font_weight="bold" x="440" y="832" name="Surface Temperature Anomaly"/>
 				<connector uid="21" angle="0">
 					<from>Surface_Temperature_Anomaly</from>
@@ -7460,6 +9265,25 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>selected_climate_case</from>
 					<to>change_in_grass_net_primary_production_from_STA</to>
 				</connector>
+				<aux x="637.5" y="118" name="Usable grassland"/>
+				<aux x="689.25" y="28" name="Amount of time grassland is not usable due to burned"/>
+				<connector uid="47" angle="258.69">
+					<from>Amount_of_time_grassland_is_not_usable_due_to_burned</from>
+					<to>Usable_grassland</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="497" y="74" name="grassland\nburned due to cc\narea"/>
+				<connector uid="48" angle="15.5241">
+					<from>Grassland_1</from>
+					<to>Usable_grassland</to>
+				</connector>
+				<connector uid="49" angle="356.055">
+					<from>grassland_burned_due_to_cc_area</from>
+					<to>Usable_grassland</to>
+				</connector>
+				<connector uid="50" angle="270.796">
+					<from>Usable_grassland</from>
+					<to>grassland_net_primary_production</to>
+				</connector>
 				<alias font_style="italic" uid="15" x="212" y="563.167" width="18" height="18">
 					<of>grass_net_primary_production_in_1750</of>
 				</alias>
@@ -7520,6 +9344,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<outflow>clearing_forests_for_crops</outflow>
 				<outflow>clearing_forest_for_grassland</outflow>
 				<outflow>cutting</outflow>
+				<outflow>burned_mature_forest</outflow>
 				<units>Mha</units>
 			</stock>
 			<flow name="clearing forests\nfor crops" access="output">
@@ -7590,6 +9415,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<inflow>foresting_degraded_land</inflow>
 				<inflow>forresting_cropland</inflow>
 				<inflow>cutting</inflow>
+				<inflow>burned_mature_forest</inflow>
 				<outflow>forest_completing_recovery</outflow>
 				<non_negative/>
 				<units>Mha</units>
@@ -8724,6 +10550,1063 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
+			<aux name="total overburned area\npercent due to climate\nchange">
+				<doc>refer to Fig 3 Supplementary global Burton et al 2024</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>parameter_a*Surface_Temperature_Anomaly^2 + parameter_b*Surface_Temperature_Anomaly + parameter_c</eqn>
+				<units>percent</units>
+			</aux>
+			<aux name="parameter a">
+				<doc>${Climate Impact Parameter}
+Values derived from Burton et al 2024, catherines github for derivation. </doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>-0.13265891</eqn>
+				<units>percent/deg C^2</units>
+			</aux>
+			<aux name="parameter b">
+				<doc>${Climate Impact Parameter}
+Values derived from Burton et al 2024, catherines github for derivation. </doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>11.5377111</eqn>
+				<units>percent/(deg C)</units>
+			</aux>
+			<aux name="parameter c">
+				<doc>${Climate Impact Parameter}
+Values derived from Burton et al 2024, catherines github for derivation. </doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0.61357145</eqn>
+				<units>percent</units>
+			</aux>
+			<aux name="counterfactual aka no climate change\nmean burned area in 1980">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>455.230456543096</eqn>
+				</element>
+				<range min="400" max="500"/>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="global burned area\ndue to climate change">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>total_overburned_area_percent_due_to_climate_change/unit_percent *counterfactual_aka_no_climate_change_mean_burned_area_in_1980[selected_climate_case] 
+
+{does this need to also be added to the counterfactual? }</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="fraction of grassland\nburned out of\ntotal burned area">
+				<doc>Derived from OurWorldInData</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>1 - fraction_of_forest_burned_out_of_total_burned_area - fraction_of_cropland_burned_out_of_total_burned_area</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="grassland\nburned due to cc\narea" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>global_burned_area_due_to_climate_change*fraction_of_grassland_burned_out_of_total_burned_area</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="reference fraction of\ncropland\nburned out of\ntotal\nburned area">
+				<doc>Derived from OurWorldInData</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.038786054</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.038786054</eqn>
+				</element>
+				<range min="0.032" max="0.0459"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="cropland\nburned due\nto cc" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>global_burned_area_due_to_climate_change*fraction_of_cropland_burned_out_of_total_burned_area</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="forest\nburned\ndue to cc">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>global_burned_area_due_to_climate_change*fraction_of_forest_burned_out_of_total_burned_area</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="reference fraction of\nforest\nburned out of total\nburned area">
+				<doc>Derived from OurWorldInData</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.03995564</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.03995564</eqn>
+				</element>
+				<range min="0.0264" max="0.0499"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="mature forest\nburned due t\no cc" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{mature forest/total forest *forest overburned area} 
+forest_burned_due_to_cc*fraction_of_mature_forest_out_of_total_forest</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="young forest\nburned due\nto cc" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{young forest/total forest *forest overburned area} forest_burned_due_to_cc*fraction_of_young_forest_out_of_total_forest</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="fraction of young\nforest out of total forest">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Young_Forest[1] / (Mature_Forest[1]+Young_Forest[1])</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="fraction of mature\nforest out of total forest">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Mature_Forest[1] /(Young_Forest[1]+Mature_Forest[1])</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="unit percent">
+				<eqn>100</eqn>
+				<units>percent</units>
+			</aux>
+			<aux name="fraction of cropland burned out of total burned area">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>reference_fraction_of_cropland_burned_out_of_total_burned_area[selected_climate_case]*Cropland/INIT(Cropland)</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="fraction of forest burned\nout of total burned area">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>reference_fraction_of_forest_burned_out_of_total_burned_area[selected_climate_case]*Forest_Land/INIT(Forest_Land)</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Surface Temperature Anomaly" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>deg C</units>
+			</aux>
+			<flow name="burned mature forest" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>mature_forest_burned_due_t_o_cc</eqn>
+				<units>Mha/year</units>
+			</flow>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -8773,7 +11656,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="290" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="396.875" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -8901,12 +11784,12 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 						<pt x="1118.75" y="400"/>
 					</pts>
 				</flow>
-				<flow x="995.75" y="22" name="cutting">
+				<flow x="1014.38" y="70.583" name="cutting">
 					<pts>
-						<pt x="752" y="90.583"/>
-						<pt x="752" y="22"/>
-						<pt x="1239.5" y="22"/>
-						<pt x="1239.5" y="355"/>
+						<pt x="810.625" y="90.583"/>
+						<pt x="810.625" y="70.583"/>
+						<pt x="1218.13" y="70.583"/>
+						<pt x="1218.13" y="355"/>
 					</pts>
 				</flow>
 				<aux x="1581.5" y="160" name="young forest share"/>
@@ -9006,8 +11889,8 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					<from>clearing_forests_for_crops_exogenous</from>
 					<to>clearing_forests_for_crops</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="941.25" y="55" name="mature to young forest"/>
-				<connector uid="103" angle="19.0388">
+				<aux font_style="italic" font_weight="bold" x="941.25" y="88.583" name="mature to young forest"/>
+				<connector uid="103" angle="1.67235">
 					<from>mature_to_young_forest</from>
 					<to>cutting</to>
 				</connector>
@@ -9061,10 +11944,185 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 					</from>
 					<to>Initial_Grassland</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1065.42" y="70" name="selected climate case"/>
-				<connector uid="122" angle="260.246">
+				<aux font_style="italic" font_weight="bold" x="941.25" y="169.917" name="selected climate case"/>
+				<connector uid="122" angle="51.4541">
 					<from>selected_climate_case</from>
 					<to>forest_completing_recovery</to>
+				</connector>
+				<aux label_side="top" x="1249.09" y="1088.34" name="total overburned area\npercent due to climate\nchange"/>
+				<aux x="1179.09" y="1135.42" name="parameter a"/>
+				<aux x="1249.09" y="1135.42" name="parameter b"/>
+				<aux x="1311.59" y="1135.42" name="parameter c"/>
+				<connector uid="123" angle="58.8468">
+					<from>parameter_a</from>
+					<to>total_overburned_area_percent_due_to_climate_change</to>
+				</connector>
+				<connector uid="124" angle="114.325">
+					<from>parameter_c</from>
+					<to>total_overburned_area_percent_due_to_climate_change</to>
+				</connector>
+				<connector uid="125" angle="90">
+					<from>parameter_b</from>
+					<to>total_overburned_area_percent_due_to_climate_change</to>
+				</connector>
+				<text_box uid="126" x="837.75" y="940.17" width="260" height="139.17">Gives the total overburned area percent as a function of gmsta, from original overburned area percent by  burton et al 2024; counterfactual mean based on isimip3a data of 7 models used in burton et al; land type fractions based on ourworldindata
+
+get four outputs: grassland, crop, forest young, forest mature burned area in Mha due to cc</text_box>
+				<aux label_side="bottom" x="1093.42" y="1211.34" name="counterfactual aka no climate change\nmean burned area in 1980"/>
+				<aux x="1261.09" y="1232.92" name="global burned area\ndue to climate change"/>
+				<connector uid="127" angle="352.666">
+					<from>counterfactual_aka_no_climate_change_mean_burned_area_in_1980</from>
+					<to>global_burned_area_due_to_climate_change</to>
+				</connector>
+				<aux label_side="bottom" x="1131" y="1400.17" name="fraction of grassland\nburned out of\ntotal burned area"/>
+				<aux x="1137.09" y="1321.42" name="grassland\nburned due to cc\narea"/>
+				<aux label_side="bottom" x="1036.92" y="1508.17" name="reference fraction of\ncropland\nburned out of\ntotal\nburned area"/>
+				<aux label_side="bottom" x="1264.09" y="1324.92" name="cropland\nburned due\nto cc"/>
+				<connector uid="128" angle="215.516">
+					<from>global_burned_area_due_to_climate_change</from>
+					<to>grassland_burned_due_to_cc_area</to>
+				</connector>
+				<connector uid="129" angle="271.868">
+					<from>global_burned_area_due_to_climate_change</from>
+					<to>cropland_burned_due_to_cc</to>
+				</connector>
+				<aux x="1479.92" y="1339.42" name="forest\nburned\ndue to cc"/>
+				<connector uid="130" angle="334.049">
+					<from>global_burned_area_due_to_climate_change</from>
+					<to>forest_burned_due_to_cc</to>
+				</connector>
+				<aux label_side="bottom" x="1036.92" y="1623" name="reference fraction of\nforest\nburned out of total\nburned area"/>
+				<connector uid="131" angle="85.5779">
+					<from>fraction_of_grassland_burned_out_of_total_burned_area</from>
+					<to>grassland_burned_due_to_cc_area</to>
+				</connector>
+				<connector uid="132" angle="292.719">
+					<from>total_overburned_area_percent_due_to_climate_change</from>
+					<to>global_burned_area_due_to_climate_change</to>
+				</connector>
+				<aux label_side="bottom" x="1530.92" y="1465.17" name="mature forest\nburned due t\no cc"/>
+				<aux x="1465.42" y="1465.17" name="young forest\nburned due\nto cc"/>
+				<aux x="1380.92" y="1563.17" name="fraction of young\nforest out of total forest"/>
+				<aux x="1622.67" y="1559.17" name="fraction of mature\nforest out of total forest"/>
+				<connector uid="133" angle="114.311">
+					<from>
+						<alias uid="134"/>
+					</from>
+					<to>fraction_of_young_forest_out_of_total_forest</to>
+				</connector>
+				<connector uid="135" angle="146.802">
+					<from>
+						<alias uid="136"/>
+					</from>
+					<to>fraction_of_young_forest_out_of_total_forest</to>
+				</connector>
+				<connector uid="137" angle="73.393">
+					<from>
+						<alias uid="136"/>
+					</from>
+					<to>fraction_of_mature_forest_out_of_total_forest</to>
+				</connector>
+				<connector uid="138" angle="37.6262">
+					<from>
+						<alias uid="134"/>
+					</from>
+					<to>fraction_of_mature_forest_out_of_total_forest</to>
+				</connector>
+				<connector uid="139" angle="55.8403">
+					<from>fraction_of_young_forest_out_of_total_forest</from>
+					<to>young_forest_burned_due_to_cc</to>
+				</connector>
+				<connector uid="140" angle="128.199">
+					<from>fraction_of_mature_forest_out_of_total_forest</from>
+					<to>mature_forest_burned_due_t_o_cc</to>
+				</connector>
+				<connector uid="141" angle="269.119">
+					<from>forest_burned_due_to_cc</from>
+					<to>young_forest_burned_due_to_cc</to>
+				</connector>
+				<connector uid="142" angle="287.835">
+					<from>forest_burned_due_to_cc</from>
+					<to>mature_forest_burned_due_t_o_cc</to>
+				</connector>
+				<aux x="1355.92" y="1218.67" name="unit percent"/>
+				<connector uid="143" angle="188.546">
+					<from>unit_percent</from>
+					<to>global_burned_area_due_to_climate_change</to>
+				</connector>
+				<connector uid="144" angle="73.5347">
+					<from>
+						<alias uid="145"/>
+					</from>
+					<to>global_burned_area_due_to_climate_change</to>
+				</connector>
+				<aux x="1179.09" y="1508.17" name="fraction of cropland burned out of total burned area"/>
+				<aux x="1174.09" y="1623" name="fraction of forest burned\nout of total burned area"/>
+				<connector uid="146" angle="59.3051">
+					<from>fraction_of_cropland_burned_out_of_total_burned_area</from>
+					<to>cropland_burned_due_to_cc</to>
+				</connector>
+				<connector uid="147" angle="59.7534">
+					<from>fraction_of_forest_burned_out_of_total_burned_area</from>
+					<to>forest_burned_due_to_cc</to>
+				</connector>
+				<connector uid="148" angle="0">
+					<from>reference_fraction_of_forest_burned_out_of_total_burned_area</from>
+					<to>fraction_of_forest_burned_out_of_total_burned_area</to>
+				</connector>
+				<connector uid="149" angle="0">
+					<from>reference_fraction_of_cropland_burned_out_of_total_burned_area</from>
+					<to>fraction_of_cropland_burned_out_of_total_burned_area</to>
+				</connector>
+				<connector uid="150" angle="104.142">
+					<from>fraction_of_cropland_burned_out_of_total_burned_area</from>
+					<to>fraction_of_grassland_burned_out_of_total_burned_area</to>
+				</connector>
+				<connector uid="151" angle="107.581">
+					<from>fraction_of_forest_burned_out_of_total_burned_area</from>
+					<to>fraction_of_grassland_burned_out_of_total_burned_area</to>
+				</connector>
+				<connector uid="152" angle="14.8287">
+					<from>
+						<alias uid="145"/>
+					</from>
+					<to>fraction_of_cropland_burned_out_of_total_burned_area</to>
+				</connector>
+				<connector uid="153" angle="332.892">
+					<from>
+						<alias uid="145"/>
+					</from>
+					<to>fraction_of_forest_burned_out_of_total_burned_area</to>
+				</connector>
+				<connector uid="154" angle="61.8214">
+					<from>
+						<alias uid="155"/>
+					</from>
+					<to>fraction_of_forest_burned_out_of_total_burned_area</to>
+				</connector>
+				<connector uid="156" angle="59.4594">
+					<from>
+						<alias uid="157"/>
+					</from>
+					<to>fraction_of_cropland_burned_out_of_total_burned_area</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1243.75" y="932.5" name="Surface Temperature Anomaly"/>
+				<connector uid="158" angle="282.265">
+					<from>Surface_Temperature_Anomaly</from>
+					<to>total_overburned_area_percent_due_to_climate_change</to>
+				</connector>
+				<flow x="1010.63" y="25" name="burned mature forest">
+					<pts>
+						<pt x="766.875" y="90.583"/>
+						<pt x="766.875" y="25"/>
+						<pt x="1254.38" y="25"/>
+						<pt x="1254.38" y="355"/>
+					</pts>
+				</flow>
+				<connector uid="159" angle="8.1301">
+					<from>
+						<alias uid="160"/>
+					</from>
+					<to>burned_mature_forest</to>
 				</connector>
 				<alias font_style="italic" uid="80" x="1551.5" y="35.5" width="45" height="35">
 					<of>Mature_Forest</of>
@@ -9080,6 +12138,24 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				</alias>
 				<alias font_style="italic" uid="120" x="541.833" y="823.5" width="18" height="18">
 					<of>Initial_Total_Forest_Area</of>
+				</alias>
+				<alias font_style="italic" uid="136" x="1533.42" y="1644.42" width="150" height="90">
+					<of>Young_Forest</of>
+				</alias>
+				<alias font_style="italic" uid="134" x="1340.92" y="1644.42" width="150" height="90">
+					<of>Mature_Forest</of>
+				</alias>
+				<alias label_side="bottom" uid="145" x="981.34" y="1423" width="18" height="18">
+					<of>selected_climate_case</of>
+				</alias>
+				<alias font_style="italic" uid="155" x="1076" y="1766" width="18" height="18">
+					<of>Forest_Land</of>
+				</alias>
+				<alias font_style="italic" label_side="center" uid="157" x="1169.09" y="1752" width="80" height="46">
+					<of>Cropland</of>
+				</alias>
+				<alias font_style="italic" uid="160" x="894.75" y="41.625" width="18" height="18">
+					<of>mature_forest_burned_due_t_o_cc</of>
 				</alias>
 			</view>
 		</views>
@@ -9376,6 +12452,8 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_mature_forest" from="forest_soil_carbon.soil_carbon_mature_forest"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_young_forest" from="forest_soil_carbon.soil_carbon_young_forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_young_forest" from="forest_soil_carbon.soil_carbon_young_forest"/>
+				<connect to="forest_soil_carbon.burned_mature_forest" from="Land_Use.burned_mature_forest"/>
+				<connect2 to="forest_soil_carbon.burned_mature_forest" from="Land_Use.burned_mature_forest"/>
 				<connect to="forest_soil_carbon.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect2 to="forest_soil_carbon.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="forest_soil_carbon.clearing_forests_for_crops" from="Land_Use.clearing_forests_for_crops"/>
@@ -9400,6 +12478,8 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<connect2 to="forest_soil_carbon.litter_input_share_slow_soil_carbon_1" from="soil_carbon_decay.mature_forest_litter_input_share_slow_soil_carbon"/>
 				<connect to="forest_soil_carbon.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect2 to="forest_soil_carbon.Mature_Forest" from="Land_Use.Mature_Forest"/>
+				<connect to="forest_soil_carbon.Mature_forest_biomass_burning_to_soil" from="Forest.Mature_forest_biomass_burning_to_soil"/>
+				<connect2 to="forest_soil_carbon.Mature_forest_biomass_burning_to_soil" from="Forest.Mature_forest_biomass_burning_to_soil"/>
 				<connect to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect2 to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -9412,6 +12492,8 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<connect2 to="forest_soil_carbon.slow_soil_carbon_grassland_to_forest" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_forest"/>
 				<connect to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
+				<connect to="forest_soil_carbon.Young_forest_biomass_burning_to_soil" from="Forest.Young_forest_biomass_burning_to_soil"/>
+				<connect2 to="forest_soil_carbon.Young_forest_biomass_burning_to_soil" from="Forest.Young_forest_biomass_burning_to_soil"/>
 				<connect to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
 				<connect2 to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
 				<connect to="forest_soil_carbon.young_forest_litter_input_share_slow_soil_carbon" from="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon"/>
@@ -9511,7 +12593,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="738.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="465" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -12585,6 +15667,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<eqn>Initial_fast_soil_carbon_young_forest[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_fast_soil_carbon_young_forest</inflow>
 				<inflow>Fast_soil_carbon_to_young_forests_from_land_use_transitions</inflow>
+				<inflow>forest_biomass_burning_to_fast_soil</inflow>
 				<outflow>maturing_fast_soil_carbon</outflow>
 				<outflow>fast_soil_carbon_emissions_young_forest</outflow>
 				<non_negative/>
@@ -12656,6 +15739,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<eqn>Initial_slow_soil_carbon_young_forest[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_slow_soil_carbon_young_forest</inflow>
 				<inflow>Slow_soil_carbon_to_young_forests_from_land_use_transitions</inflow>
+				<inflow>forest_biomass_burning_to_slow_soil</inflow>
 				<outflow>maturing_slow_soil_carbon</outflow>
 				<outflow>slow_soil_carbon_emissions_young_forest</outflow>
 				<non_negative/>
@@ -12794,7 +15878,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>cutting/Mature_Forest</eqn>
+				<eqn>(cutting+burned_mature_forest)/Mature_Forest</eqn>
 				<units>1/year</units>
 			</aux>
 			<aux name="fast soil carbon\nforest to young forest">
@@ -14167,6 +17251,362 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
+			<aux name="burned mature forest" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="Mature forest biomass burning to soil" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/year</units>
+			</aux>
+			<aux name="Young forest biomass burning to soil" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/year</units>
+			</aux>
+			<flow name="forest biomass burning to slow soil">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Burning_forest_biomass_to_soil*fraction_burning_to_slow[selected_climate_case]</eqn>
+				<units>GtC/Year</units>
+			</flow>
+			<flow name="forest biomass burning to fast soil">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Burning_forest_biomass_to_soil*fraction_burning_to_fast</eqn>
+				<units>GtC/Year</units>
+			</flow>
+			<aux name="fraction burning to slow">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.3</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.3</eqn>
+				</element>
+				<range min="0.2" max="0.5"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="fraction burning to fast">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>1-fraction_burning_to_slow[selected_climate_case]</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Burning forest biomass to soil">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Young_forest_biomass_burning_to_soil+Mature_forest_biomass_burning_to_soil</eqn>
+				<units>GtC/year</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -14216,7 +17656,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="300" isee:scroll_y="225" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="337" isee:scroll_y="394" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -14352,10 +17792,10 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<to>fast_soil_carbon_emissions_mature_forest</to>
 				</connector>
 				<stock x="1212.33" y="495.75" name="fast soil carbon young forest"/>
-				<flow x="1218.75" y="586.125" name="litter input fast soil carbon young forest">
+				<flow x="1197.67" y="586.125" name="litter input fast soil carbon young forest">
 					<pts>
-						<pt x="1218.75" y="659"/>
-						<pt x="1218.75" y="513.25"/>
+						<pt x="1197.67" y="659"/>
+						<pt x="1197.67" y="513.25"/>
 					</pts>
 				</flow>
 				<flow x="1115.42" y="495.75" name="maturing fast soil carbon">
@@ -14403,7 +17843,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<from>decay_rate_litter_carbon_1</from>
 					<to>litter_emissions_young_forest_GtC</to>
 				</connector>
-				<connector uid="23" angle="124.997">
+				<connector uid="23" angle="128.248">
 					<from>litter_to_soil_carbon_young_forest</from>
 					<to>litter_input_fast_soil_carbon_young_forest</to>
 				</connector>
@@ -14414,13 +17854,13 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 						<pt x="1004.67" y="1258.26"/>
 					</pts>
 				</flow>
-				<flow label_side="top" x="1199.17" y="1156.22" name="litter input slow soil\ncarbon young forest">
+				<flow label_side="top" x="1181" y="1156.22" name="litter input slow soil\ncarbon young forest">
 					<pts>
-						<pt x="1199.17" y="1071.67"/>
-						<pt x="1199.17" y="1240.76"/>
+						<pt x="1181" y="1071.67"/>
+						<pt x="1181" y="1240.76"/>
 					</pts>
 				</flow>
-				<connector uid="24" angle="240.533">
+				<connector uid="24" angle="238.205">
 					<from>litter_to_soil_carbon_young_forest</from>
 					<to>litter_input_slow_soil_carbon_young_forest</to>
 				</connector>
@@ -14555,13 +17995,13 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<from>slow_soil_carbon_degraded_land_to_forest</from>
 					<to>forest_landuse_slow_soil_carbon_input</to>
 				</connector>
-				<aux x="631" y="370.125" name="fraction forest to young forest"/>
-				<connector uid="54" angle="216.51">
+				<aux x="625.5" y="374" name="fraction forest to young forest"/>
+				<connector uid="54" angle="216.488">
 					<from>Mature_Forest</from>
 					<to>fraction_forest_to_young_forest</to>
 				</connector>
 				<aux x="710.628" y="414" name="fast soil carbon\nforest to young forest"/>
-				<connector uid="55" angle="331.145">
+				<connector uid="55" angle="334.832">
 					<from>fraction_forest_to_young_forest</from>
 					<to>fast_soil_carbon_forest_to_young_forest</to>
 				</connector>
@@ -14589,7 +18029,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<to>slow_soil_carbon_out_of_mature_forest_from_land_use_transitions</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="554.666" y="291.667" name="cutting"/>
-				<connector uid="62" angle="314.214">
+				<connector uid="62" angle="310.707">
 					<from>cutting</from>
 					<to>fraction_forest_to_young_forest</to>
 				</connector>
@@ -14646,11 +18086,11 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				</connector>
 				<aux x="1952.5" y="48.0837" name="Young forest soil carbon reduction factor"/>
 				<aux font_style="italic" font_weight="bold" x="1446.59" y="864.25" name="young forest litter input share slow soil\ncarbon"/>
-				<connector uid="78" angle="129.324">
+				<connector uid="78" angle="131.828">
 					<from>young_forest_litter_input_share_slow_soil_carbon</from>
 					<to>litter_input_fast_soil_carbon_young_forest</to>
 				</connector>
-				<connector uid="79" angle="229.721">
+				<connector uid="79" angle="227.708">
 					<from>young_forest_litter_input_share_slow_soil_carbon</from>
 					<to>litter_input_slow_soil_carbon_young_forest</to>
 				</connector>
@@ -14764,7 +18204,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<from>selected_climate_case</from>
 					<to>litter_input_fast_soil_carbon_mature_forest</to>
 				</connector>
-				<connector uid="102" angle="51.0369">
+				<connector uid="102" angle="55.8262">
 					<from>selected_climate_case</from>
 					<to>litter_input_fast_soil_carbon_young_forest</to>
 				</connector>
@@ -14772,7 +18212,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<from>selected_climate_case</from>
 					<to>litter_input_slow_soil_carbon_mature_forest</to>
 				</connector>
-				<connector uid="104" angle="305.666">
+				<connector uid="104" angle="303.695">
 					<from>selected_climate_case</from>
 					<to>litter_input_slow_soil_carbon_young_forest</to>
 				</connector>
@@ -14783,6 +18223,64 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<connector uid="106" angle="178.819">
 					<from>Young_Forest_fast_soil_carbon_per_area</from>
 					<to>maturing_fast_soil_carbon</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="503.333" y="415" name="burned mature forest"/>
+				<connector uid="107" angle="4.89607">
+					<from>burned_mature_forest</from>
+					<to>fraction_forest_to_young_forest</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1656.67" y="1128.33" name="Mature forest biomass burning to soil"/>
+				<aux font_style="italic" font_weight="bold" x="1656.67" y="1028.33" name="Young forest biomass burning to soil"/>
+				<flow x="1216" y="1146.38" name="forest biomass burning to slow soil">
+					<pts>
+						<pt x="1216" y="1043"/>
+						<pt x="1216" y="1240.76"/>
+					</pts>
+				</flow>
+				<flow x="1229" y="594.125" name="forest biomass burning to fast soil">
+					<pts>
+						<pt x="1229" y="684"/>
+						<pt x="1229" y="513.25"/>
+					</pts>
+				</flow>
+				<aux x="1464.78" y="1111.68" name="fraction burning to slow"/>
+				<aux x="1504.64" y="1059.71" name="fraction burning to fast"/>
+				<connector uid="108" angle="37.3906">
+					<from>fraction_burning_to_slow</from>
+					<to>fraction_burning_to_fast</to>
+				</connector>
+				<aux x="1540.46" y="1121.86" name="Burning forest biomass to soil"/>
+				<connector uid="109" angle="214.992">
+					<from>Young_forest_biomass_burning_to_soil</from>
+					<to>Burning_forest_biomass_to_soil</to>
+				</connector>
+				<connector uid="110" angle="172.304">
+					<from>Mature_forest_biomass_burning_to_soil</from>
+					<to>Burning_forest_biomass_to_soil</to>
+				</connector>
+				<connector uid="111" angle="308.166">
+					<from>selected_climate_case</from>
+					<to>fraction_burning_to_fast</to>
+				</connector>
+				<connector uid="112" angle="199.284">
+					<from>fraction_burning_to_slow</from>
+					<to>forest_biomass_burning_to_slow_soil</to>
+				</connector>
+				<connector uid="113" angle="207.124">
+					<from>Burning_forest_biomass_to_soil</from>
+					<to>forest_biomass_burning_to_slow_soil</to>
+				</connector>
+				<connector uid="114" angle="146.896">
+					<from>Burning_forest_biomass_to_soil</from>
+					<to>forest_biomass_burning_to_fast_soil</to>
+				</connector>
+				<connector uid="115" angle="131.073">
+					<from>fraction_burning_to_fast</from>
+					<to>forest_biomass_burning_to_fast_soil</to>
+				</connector>
+				<connector uid="116" angle="307.531">
+					<from>selected_climate_case</from>
+					<to>forest_biomass_burning_to_slow_soil</to>
 				</connector>
 				<alias font_style="italic" uid="66" x="1359.17" y="221.917" width="18" height="18">
 					<of>fast_soil_carbon_forest_to_young_forest</of>
