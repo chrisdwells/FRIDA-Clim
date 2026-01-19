@@ -8,3 +8,4 @@ calibration/data/priors_input/*
 calibration/*/data/priors_output/*
 calibration/*/data/ssps_output/*
 calibration/*/data/flat10_output/*
+calibration/scripts/misc_analysis/data/*csv
