@@ -2,8 +2,8 @@
 <xmile version="1.0" xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" xmlns:isee="http://iseesystems.com/XMILE">
 	<header>
 		<smile version="1.0" namespace="std, isee" uses_arrays="1" uses_submodels=""/>
-		<name>FRIDA-Clim_spinup</name>
-		<uuid>3924aef6-b823-4f30-a097-790a6cd89080</uuid>
+		<name>FRIDA-Clim_priors</name>
+		<uuid>f70d8701-d8ac-480a-a1ab-2de3e450aaee</uuid>
 		<vendor>isee systems, inc.</vendor>
 		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
@@ -13,43 +13,10 @@
 		<dt reciprocal="true">8</dt>
 	</sim_specs>
 	<dimensions>
-		<dim name="ClimateCase" size="1000"/>
-		<dim name="Coastal_Protection_level">
-			<elem name="insufficient"/>
-			<elem name="well_protected"/>
-		</dim>
-		<dim name="ColdMortalityImpactCase" size="11"/>
-		<dim name="CropImpactsCase" size="11"/>
-		<dim name="EnergySource">
-			<elem name="Coal_fuel_extraction"/>
-			<elem name="Coal_energy_conversion"/>
-			<elem name="Oil_fuel_extraction"/>
-			<elem name="Oil_energy_conversion"/>
-			<elem name="Gas_fuel_extraction"/>
-			<elem name="Gas_energy_conversion"/>
-			<elem name="Hydropower"/>
-			<elem name="Nuclear"/>
-			<elem name="Bio"/>
-			<elem name="Solar"/>
-			<elem name="Wind"/>
-		</dim>
-		<dim name="EnergySupplyHydroDamage" size="11"/>
-		<dim name="EnergySupplyThermoDamage" size="11"/>
-		<dim name="ExtremesExposureImpactCase" size="11"/>
-		<dim name="FossilFuelTypes">
-			<elem name="Gas"/>
-			<elem name="Oil"/>
-			<elem name="Coal"/>
-		</dim>
+		<dim name="ClimateCase" size="100"/>
 		<dim name="Future_Decades" size="9"/>
 		<dim name="Historical_5yr_time_steps" size="9"/>
 		<dim name="Historical_Decades" size="4"/>
-		<dim name="HotMortalityImpactCase" size="11"/>
-		<dim name="labouExposureLevel">
-			<elem name="No_Exposure"/>
-			<elem name="Low_Exposure"/>
-			<elem name="High_Exposure"/>
-		</dim>
 		<dim name="PCTILE">
 			<elem name="Low"/>
 			<elem name="P25"/>
@@ -57,12 +24,6 @@
 			<elem name="P75"/>
 			<elem name="High"/>
 		</dim>
-		<dim name="PopCohortLen10" size="10"/>
-		<dim name="PopCohortLen19" size="19"/>
-		<dim name="PopCohortLen20" size="20"/>
-		<dim name="PopCohortLen25" size="25"/>
-		<dim name="PopCohortLen5" size="5"/>
-		<dim name="Renewable_Age_Group" size="7"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
 	<isee:prefs saved_runs="2" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
@@ -85,19 +46,119 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="r../rcmip3_processing/data/spinup_output/Spinup_output_1000.csv" precomputed="false" isee:format="numbers">
-			<table name="Spinup outputs" use_settings="true"/>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_land.csv" precomputed="false" isee:format="numbers">
+			<table name="Land variables timeseries" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="r../rcmip3_processing/data/spinup_output/Spinup_output_tests_1000.csv" precomputed="false" isee:format="numbers">
-			<table name="Spinup tests" use_settings="true"/>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_temperature.csv" precomputed="false" isee:format="numbers">
+			<table name="Surface Temperature timeseries" use_settings="true"/>
 		</export>
-		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv"/>
-		<import frequency="on_demand" isee:overwrite="true" resource="r../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_npp_initial_values.csv"/>
-		<import isee:overwrite="false" resource="r../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_spinup_misc_constants.csv"/>
-		<import frequency="on_demand" isee:overwrite="true" resource="r../rcmip3_processing/data/processed_for_frida/piControl_CO2_1750.csv"/>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_aerosols.csv" precomputed="false" isee:format="numbers">
+			<table name="Aerosol Forcings" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_CO2.csv" precomputed="false" isee:format="numbers">
+			<table name="CO2 Concentration" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_ocean_CO2_flux.csv" precomputed="false" isee:format="numbers">
+			<table name="Ocean CO2 Flux" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
+			<table name="OHC" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_SLR.csv" precomputed="false" isee:format="numbers">
+			<table name="SLR" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_NPP_2000.csv" precomputed="false" isee:format="numbers">
+			<table name="NPP 2000" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_NPP_2011.csv" precomputed="false" isee:format="numbers">
+			<table name="NPP 2011" use_settings="true"/>
+		</export>
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_output/priors_aerosols_baseline.csv" precomputed="false" isee:format="numbers">
+			<table name="Aerosol Forcings baseline" use_settings="true"/>
+		</export>
+		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_transitions_hist.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_wood_biomass_hist.csv"/>
+		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_npp_initial_values.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/population.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/frida_clim_processing/data/processed_for_frida/priors_inputs/crop_production.csv"/>
+		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/baseline_emissions.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/anthro_inputs_hist.csv"/>
+		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/CO2_1750.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/natural_forcings.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Sensitivity" method="external" path="r../rcmip3_processing/data/spinup_input/spinup_params_1000.csv">
+		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/priors_input/priors_inputs_5000.csv">
+			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"[1]'/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean[1]"/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean[1]"/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Deep_Ocean_Heat_Uptake_Efficacy_Factor[1]"/>
+			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Transfer_Coefficient_between_Land_&amp;_Ocean_Surface_and_Space"[1]'/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Transfer_Coefficient_between_Surface_and_Thermocline_Ocean[1]"/>
+			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Transfer_Coefficient_between_Thermocline_Ocean_and_Deep_Ocean[1]"/>
+			<isee:variable type="adhoc" name="Aerosol_Forcing.Scaling_Aerosol_Cloud_Interactions_Effective_Radiative_Forcing_scaling_factor[1]"/>
+			<isee:variable type="adhoc" name="Aerosol_Forcing.Logarithmic_Aerosol_Cloud_Interactions_Effective_Radiative_Forcing_scaling_factor[1]"/>
+			<isee:variable type="adhoc" name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Radiation_Interactions_per_unit_SO2_Emissions[1]"/>
+			<isee:variable type="adhoc" name="CH4_Forcing.Calibration_scaling_of_CH4_forcing[1]"/>
+			<isee:variable type="adhoc" name="N2O_Forcing.Calibration_scaling_of_N2O_forcing[1]"/>
+			<isee:variable type="adhoc" name="Minor_GHGs_Forcing.Calibration_scaling_of_Minor_GHG_forcing[1]"/>
+			<isee:variable type="adhoc" name="Stratospheric_Water_Vapour_Forcing.Calibration_scaling_of_Stratospheric_H2O_forcing[1]"/>
+			<isee:variable type="adhoc" name="BC_on_Snow_Forcing.Calibration_scaling_of_Black_Carbon_on_Snow_forcing[1]"/>
+			<isee:variable type="adhoc" name="Land_Use_Forcing.Calibration_scaling_of_Albedo_forcing[1]"/>
+			<isee:variable type="adhoc" name="Land_Use_Forcing.Calibration_scaling_of_Irrigation_forcing[1]"/>
+			<isee:variable type="adhoc" name="Natural_Forcing.Calibration_scaling_of_Volcano_forcing[1]"/>
+			<isee:variable type="adhoc" name="CO2_Forcing.Calibration_scaling_of_CO2_forcing[1]"/>
+			<isee:variable type="adhoc" name="Natural_Forcing.Amplitude_of_Effective_Radiative_Forcing_from_Solar_Output_Variations[1]"/>
+			<isee:variable type="adhoc" name="Natural_Forcing.Linear_trend_in_Effective_Radiative_Forcing_from_Solar_Output_Variations[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_CH4_concentration_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_N2O_concentration_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_Montreal_gases_equivalent_effective_stratospheric_chlorine_concentration_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_CO_emissions_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_VOC_emissions_change[1]"/>
+			<isee:variable type="adhoc" name="Ozone_Forcing.Ozone_forcing_per_unit_NOx_emissions_change[1]"/>
+			<isee:variable type="adhoc" name="Forest.CO2_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_maximum_aboveground_biomass_per_area_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_squared_maximum_aboveground_biomass_per_area_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_squared_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Forest.STA_tree_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.CO2_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.STA_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Grass.STA_squared_grass_net_primary_production_parameter[1]"/>
+			<isee:variable type="adhoc" name="Crop.harvest_index_for_energy_crops[1]"/>
+			<isee:variable type="adhoc" name="Land_Use.counterfactual_aka_no_climate_change_mean_burned_area_in_1980[1]"/>
+			<isee:variable type="adhoc" name="Land_Use.reference_fraction_of_cropland_burned_out_of_total_burned_area[1]"/>
+			<isee:variable type="adhoc" name="Land_Use.reference_fraction_of_forest_burned_out_of_total_burned_area[1]"/>
+			<isee:variable type="adhoc" name="Forest.fraction_biomass_remaining_after_burning[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.fraction_burning_to_slow[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Warm_surface_ocean_alkalinity_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Cold_surface_ocean_alkalinity_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.High_latitude_carbon_pump_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Warm_surface_ocean_temperature_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Cold_surface_ocean_temperature_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Warm_surface_ocean_salinity_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Cold_surface_ocean_salinity_sensitivity_to_global_T_anomaly[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Cold_surface_ocean_carbon_reservoir[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Cold_surface_ocean_pH[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Deep_ocean_ocean_carbon_reservoir[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Intermediate_depth_ocean_carbon_reservoir[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Warm_surface_ocean_carbon_reservoir[1]"/>
+			<isee:variable type="adhoc" name="Ocean.Initial_Warm_surface_ocean_pH[1]"/>
+			<isee:variable type="adhoc" name="Forest.Initial_Mature_forest_aboveground_biomass[1]"/>
+			<isee:variable type="adhoc" name="Forest.Initial_Young_forest_aboveground_biomass[1]"/>
+			<isee:variable type="adhoc" name="Land_Use.Initial_Mature_Forest[1]"/>
+			<isee:variable type="adhoc" name="Land_Use.Initial_Young_Forest[1]"/>
+			<isee:variable type="adhoc" name="cropland_soil_carbon.Initial_fast_soil_carbon_cropland[1]"/>
+			<isee:variable type="adhoc" name="cropland_soil_carbon.Initial_slow_soil_carbon_cropland[1]"/>
+			<isee:variable type="adhoc" name="degraded_land_soil_carbon.Initial_fast_soil_carbon_degraded_land[1]"/>
+			<isee:variable type="adhoc" name="degraded_land_soil_carbon.Initial_slow_soil_carbon_degraded_land[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_fast_soil_carbon_mature_forest[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_fast_soil_carbon_young_forest[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_slow_soil_carbon_mature_forest[1]"/>
+			<isee:variable type="adhoc" name="forest_soil_carbon.Initial_slow_soil_carbon_young_forest[1]"/>
+			<isee:variable type="adhoc" name="grassland_soil_carbon.Initial_fast_soil_carbon_grassland[1]"/>
+			<isee:variable type="adhoc" name="grassland_soil_carbon.Initial_slow_soil_carbon_grassland[1]"/>
+			<isee:variable type="adhoc" name='Terrestrial_Carbon_Balance."Initial_Commited_future_soil_carbon_loss_due_to_land-use_transitions"[1]'/>
+			<isee:variable type="adhoc" name="Terrestrial_Carbon_Balance.Initial_committed_future_carbon_gains_from_young_forests_entering_the_mature_forest_type[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Depth_of_warm_surface_ocean_layer[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Thickness_of_intermediate_ocean_layer[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Depth_of_cold_surface_ocean_layer[1]"/>
@@ -107,7 +168,6 @@
 			<isee:variable type="adhoc" name="Ocean.Reference_strength_of_biological_carbon_pump_in_low_latitude_ocean[1]"/>
 			<isee:variable type="adhoc" name="Ocean.Reference_strength_of_biological_carbon_pump_in_high_latitude_ocean[1]"/>
 			<isee:variable type="adhoc" name="Ocean.High_latitude_carbon_pump_transfer_efficiency[1]"/>
-			<isee:variable type="adhoc" name="Forest.Young_mature_forest_biomass_ratio[1]"/>
 			<isee:variable type="adhoc" name="Crop.normal_harvest_index_for_food_crops[1]"/>
 			<isee:variable type="adhoc" name="Crop.sensitivity_of_effect_of_crop_yield_on_harvest_index[1]"/>
 			<isee:variable type="adhoc" name="Crop.crop_yield_1980_reference[1]"/>
@@ -127,7 +187,6 @@
 			<isee:variable type="adhoc" name="Forest.tree_net_primary_production_in_1750[1]"/>
 			<isee:variable type="adhoc" name="Grass.grass_net_primary_production_in_1750[1]"/>
 			<isee:variable type="adhoc" name="Forest.forest_aboveground_biomass_1750[1]"/>
-			<isee:variable type="adhoc" name="Land_Use.Initial_young_forest_area[1]"/>
 			<isee:variable type="adhoc" name="Crop.historical_sustainable_farming_fraction[1]"/>
 			<isee:variable type="adhoc" name="Crop.mass_to_coverage[1]"/>
 			<isee:variable type="adhoc" name="Crop.conventional_residue_on_field_fraction[1]"/>
@@ -152,8 +211,10 @@
 			<isee:payoff name="Energy Demand" action="min"/>
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Carbon Balance Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" maxiter="0">
-			<isee:parameter name="Forest.STA_squared_maximum_aboveground_biomass_per_area_parameter[1]" scaling="1000"/>
-			<isee:parameter name="Forest.STA_maximum_aboveground_biomass_per_area_parameter[1]" scaling="1000"/>
+			<isee:parameter name="Land_Use.normal_average_time_cropland_in_use[1]" scaling="0.1"/>
+			<isee:parameter name="cropland_soil_carbon.initial_cropland_soil_carbon[1]"/>
+			<isee:parameter name="Terrestrial_Carbon_Balance.Global_peatland_carbon_uptake_rate[1]" scaling="100"/>
+			<isee:parameter name="forest_soil_carbon.Young_forest_soil_carbon_reduction_factor[1]" scaling="100"/>
 			<isee:payoff name="Carbon Balance Payoff" action="min"/>
 			<isee:payoff name="Land Use and Agriculture Payoff" action="min" inactive="true"/>
 		</isee:optimizer_specs>
@@ -161,6 +222,9 @@
 			<isee:payoff name="Concrete Payoff" action="min"/>
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Land Use and Agriculture Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" maxiter="0">
+			<isee:parameter name="Land_Use.normal_average_time_cropland_in_use[1]" scaling="0.1"/>
+			<isee:parameter name="Land_Use.sensitivity_of_crop_land_use_time_to_cropland_size[1]"/>
+			<isee:parameter name="Crop.tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction[1]" scaling="1000"/>
 			<isee:payoff name="Land Use and Agriculture Payoff" action="min"/>
 		</isee:optimizer_specs>
 		<isee:optimizer_specs name="Economy Calibration" method="Powell" use_additional_starts_file="false" additional_starts="0" report_interval="1" confidence_range="0" tolerance="0.000001" maxiter="0">
@@ -183,8 +247,8 @@
 		</isee:optimizer_specs>
 	</isee:optimizer_specs_list>
 	<isee:payoff_specs_list>
-		<isee:payoff_specs name="Population Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="Land Use and Agriculture Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1">
+		<isee:payoff_specs name="Population Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="Land Use and Agriculture Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data">
 			<isee:payoff_element name="Crop.crop_production[1]" weight="0.00000921212558175261">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
@@ -213,24 +277,24 @@
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 		</isee:payoff_specs>
-		<isee:payoff_specs name="Emissions Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1">
+		<isee:payoff_specs name="Emissions Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data">
 			<isee:payoff_element name="Emissions.CO2_Emissions_from_Food_and_Land_Use[1]" weight="0.00000100943">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 		</isee:payoff_specs>
-		<isee:payoff_specs name="Literacy Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="Behavioral Change Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1">
+		<isee:payoff_specs name="Literacy Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="Behavioral Change Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data">
 			<isee:payoff_element name="Crop.crop_production[1]" weight="0.00000798751726359918">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 		</isee:payoff_specs>
-		<isee:payoff_specs name="Energy Demand" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="Ocean C cycle payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1">
+		<isee:payoff_specs name="Energy Demand" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="Ocean C cycle payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data">
 			<isee:payoff_element name="Ocean.Air_sea_co2_flux[1]" weight="40.8029">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 		</isee:payoff_specs>
-		<isee:payoff_specs name="Carbon Balance Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1">
+		<isee:payoff_specs name="Carbon Balance Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data">
 			<isee:payoff_element name="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance[1]" weight="1.68442">
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
@@ -253,13 +317,13 @@
 				<isee:time_range type="terminal_value"/>
 			</isee:payoff_element>
 		</isee:payoff_specs>
-		<isee:payoff_specs name="Concrete Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="Economic Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="Employment Sector Shares" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="Real GDP" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="Energy Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="Econ &amp; Energy Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
-		<isee:payoff_specs name="SDG 10.1.1" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="-1"/>
+		<isee:payoff_specs name="Concrete Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="Economic Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="Employment Sector Shares" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="Real GDP" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="Energy Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="Econ &amp; Energy Payoff" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
+		<isee:payoff_specs name="SDG 10.1.1" calibration="true" recompute_weights="true" compare_tolerance="0" compare_type="ls" compare_run="Calibration Data"/>
 	</isee:payoff_specs_list>
 	<model_units>
 		<unit name="Gh">
@@ -453,12 +517,10 @@
 	</model_units>
 	<model>
 		<variables>
-			<module name="Climate" isee:label="" url="r../FRIDA-Clim_spinup_Modules/Climate.itmx">
+			<module name="Climate" isee:label="" url="r../FRIDA-Clim_priors_Modules/Climate.itmx">
 				<format scale_by="auto"/>
 				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
-				<connect2 to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -467,6 +529,8 @@
 				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Forest.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -475,12 +539,26 @@
 				<connect2 to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect2 to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
-				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
-				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
-				<connect to="soil_carbon_decay.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
-				<connect2 to="soil_carbon_decay.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
+				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
+				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
+				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
+				<connect2 to="Sea_Level.SWITCH_population_is_input" from="SWITCH_population_is_input"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
@@ -513,12 +591,12 @@
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass" from="Forest.forest_aboveground_biomass"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_Land_1" from="Land_Use.Forest_Land"/>
-				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Terrestrial_Carbon_Balance.Grassland" from="Land_Use.Grassland"/>
@@ -660,8 +738,10 @@
 				<connect to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 			</module>
-			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../FRIDA-Clim_spinup_Modules/Land Use and Agriculture.itmx">
+			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../FRIDA-Clim_priors_Modules/Land Use and Agriculture.itmx">
 				<format scale_by="auto"/>
+				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect2 to="Cropland_Carbon_Balance.crop_production" from="Crop.crop_production"/>
 				<connect to="Terrestrial_Carbon_Balance.crop_production_1" from="Crop.crop_production"/>
@@ -680,8 +760,6 @@
 				<connect2 to="Terrestrial_Carbon_Balance.UNIT_GtC_per_PCal" from="Crop.UNIT_GtC_per_PCal_crop"/>
 				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
-				<connect2 to="Crop.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
 				<connect to="Terrestrial_Carbon_Balance.cutting" from="Forest.cutting"/>
@@ -692,6 +770,8 @@
 				<connect2 to="Forest_carbon_balance.forest_aboveground_biomass_balance_1" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
 				<connect2 to="Terrestrial_Carbon_Balance.forest_aboveground_biomass_balance" from="Forest.forest_aboveground_biomass_balance"/>
+				<connect to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
+				<connect2 to="Terrestrial_Carbon_Balance.Forest_burned_biomass_emissions" from="Forest.Forest_burned_biomass_emissions"/>
 				<connect to="Forest_carbon_balance.mature_forest_net_primary_production_1" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Forest_carbon_balance.mature_forest_net_primary_production_1" from="Forest.mature_forest_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
@@ -710,10 +790,14 @@
 				<connect2 to="Forest_carbon_balance.young_forest_net_primary_production_1" from="Forest.young_forest_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.young_forest_net_primary_production" from="Forest.young_forest_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.young_forest_net_primary_production" from="Forest.young_forest_net_primary_production"/>
+				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
-				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Ocean.Surface_Temperature_Anomaly"/>
+				<connect to="Forest.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
+				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grassland_carbon_balance.animal_grazing_1" from="Grass.animal_grazing"/>
 				<connect2 to="Grassland_carbon_balance.animal_grazing_1" from="Grass.animal_grazing"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
@@ -722,8 +806,12 @@
 				<connect2 to="Grassland_carbon_balance.grassland_net_primary_production_1" from="Grass.grassland_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
+				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect2 to="Terrestrial_Carbon_Balance.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing_forests_for_crops" from="Land_Use.clearing_forests_for_crops"/>
@@ -750,6 +838,8 @@
 				<connect2 to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
@@ -798,8 +888,6 @@
 				<connect2 to="Forest_carbon_balance.forest_landuse_fast_soil_carbon_input" from="forest_soil_carbon.forest_landuse_fast_soil_carbon_input"/>
 				<connect to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.initial_forest_soil_carbon"/>
 				<connect to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
@@ -858,10 +946,10 @@
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_grassland" from="grassland_soil_carbon.soil_carbon_grassland"/>
 				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
+				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="soil_carbon_decay.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
-				<connect2 to="soil_carbon_decay.Surface_Temperature_Anomaly" from="Ocean.Surface_Temperature_Anomaly"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_emissions_GtC" from="soil_carbon_emissions.gross_soil_carbon_emissions_GtC"/>
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_emissions_GtC" from="soil_carbon_emissions.gross_soil_carbon_emissions_GtC"/>
 				<connect to="Terrestrial_Carbon_Balance.litter_emissions_GtC" from="soil_carbon_emissions.litter_emissions_GtC"/>
@@ -870,18 +958,30 @@
 			<aux name="Simulation End">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
-				<eqn>10000</eqn>
+				<eqn>2023</eqn>
 				<format precision="1"/>
 				<range min="2023" max="2200"/>
 				<units>years</units>
 			</aux>
+			<module name="CCS" isee:label="">
+				<format scale_by="auto"/>
+				<connect to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+			</module>
+			<module name="Government\nRegulations" isee:label="">
+				<format scale_by="auto"/>
+			</module>
 			<aux name="Simulation Start">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
-				<eqn>0</eqn>
+				<eqn>1750</eqn>
 				<format precision="1"/>
 				<range min="2023" max="2200"/>
 				<units>years</units>
+			</aux>
+			<aux name="SWITCH population is input">
+				<eqn>0</eqn>
+				<units>1</units>
 			</aux>
 		</variables>
 		<views>
@@ -932,7 +1032,7 @@ This is what determines when the model stops calculating</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="8" isee:scroll_x="330" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -970,8 +1070,8 @@ This is what determines when the model stops calculating</doc>
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<module label_side="center" x="248.222" y="260.25" name="Climate"/>
-				<module label_side="center" x="248.222" y="127.75" name="Land Use\nand\nAgriculture"/>
+				<module label_side="center" x="406" y="190.25" name="Climate"/>
+				<module label_side="center" x="406" y="57.75" name="Land Use\nand\nAgriculture"/>
 				<connector uid="110" isee:thickness="2" angle="75.6773">
 					<from>Climate</from>
 					<to>Land_Use_and_Agriculture</to>
@@ -980,52 +1080,76 @@ This is what determines when the model stops calculating</doc>
 					<from>Land_Use_and_Agriculture</from>
 					<to>Climate</to>
 				</connector>
-				<aux x="369.278" y="209.556" name="Simulation End"/>
-				<aux x="369.278" y="151.444" name="Simulation Start"/>
-				<stacked_container uid="112" x="486.778" y="425.111" minimized="true">
-					<table isee:start_time="10000" isee:stop_time="10000" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="Spinup outputs" isee:mark_for_export="true">
+				<aux x="769.5" y="35.6667" name="Simulation End"/>
+				<module label_side="center" x="401.667" y="335.167" name="CCS"/>
+				<module label_side="center" x="642.833" y="197.167" name="Government\nRegulations"/>
+				<connector uid="175" isee:thickness="2" angle="293.287" isee:autocreated="true">
+					<from>Climate</from>
+					<to>CCS</to>
+				</connector>
+				<aux x="663.167" y="38.6667" name="Simulation Start"/>
+				<aux x="663.167" y="114.444" name="SWITCH population is input"/>
+				<connector uid="176" angle="221.424" isee:autocreated="true">
+					<from>SWITCH_population_is_input</from>
+					<to>Climate</to>
+				</connector>
+				<stacked_container uid="177" x="832.056" y="433.25" minimized="true" name="Surface Temperature timeseries">
+					<table interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="Surface Temperature timeseries" isee:mark_for_export="true" title="Surface Temperature timeseries">
 						<item type="time"/>
 						<item>
-							<entity name="Ocean.Cold_surface_ocean_carbon_reservoir[*]"/>
+							<entity name='Energy_Balance_Model."Land_&amp;_Ocean_Surface_Temperature"[*]'/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="178" x="989.584" y="433.25" minimized="true" name="Ocean CO2 Flux">
+					<table isee:start_time="1781" interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="Ocean CO2 Flux" isee:mark_for_export="true" title="Ocean CO2 Flux">
+						<item type="time"/>
+						<item>
+							<entity name="Ocean.Air_sea_co2_flux[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="179" x="946.17" y="308.25" width="317.5" height="250" minimized="true" name="Aerosol Forcings">
+					<table isee:start_time="2005" isee:stop_time="2014" interval="1" report_balances="beginning" report_flows="summed" width="317.5" height="250" comparative="true" isee:export_name="Aerosol Forcings" isee:mark_for_export="true" title="Aerosol Forcings">
+						<item type="time"/>
+						<item>
+							<entity name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Cloud_Interactions[*]"/>
 						</item>
 						<item>
-							<entity name="Ocean.Cold_surface_ocean_pH[*]"/>
+							<entity name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Radiation_Interactions[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="180" x="832.056" y="509.587" minimized="true" name="CO2 Concentration">
+					<table isee:start_time="2014" isee:stop_time="2023" interval="1" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="CO2 Concentration" isee:mark_for_export="true" title="CO2 Concentration">
+						<item type="time"/>
+						<item>
+							<entity name="CO2_Forcing.Atmospheric_CO2_Concentration[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="181" x="989.584" y="513.753" minimized="true" name="OHC">
+					<table isee:start_time="1971" isee:stop_time="2020" interval="49" report_balances="beginning" report_flows="summed" width="350" height="250" comparative="true" isee:export_name="OHC" isee:mark_for_export="true" title="OHC">
+						<item type="time"/>
+						<item>
+							<entity name="Energy_Balance_Model.ocean_heat_content_change[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="182" x="1115.83" y="513.753" minimized="true" name="Soil carbon">
+					<table isee:start_time="2022" isee:stop_time="2022" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" title="Soil carbon">
+						<item type="time"/>
+						<item>
+							<entity name="grassland_soil_carbon.slow_soil_carbon_grassland[*]"/>
 						</item>
 						<item>
-							<entity name="Ocean.Deep_ocean_ocean_carbon_reservoir[*]"/>
+							<entity name="grassland_soil_carbon.fast_soil_carbon_grassland[*]"/>
 						</item>
 						<item>
-							<entity name="Ocean.Intermediate_depth_ocean_carbon_reservoir[*]"/>
+							<entity name="forest_soil_carbon.slow_soil_carbon_young_forest[*]"/>
 						</item>
 						<item>
-							<entity name="Ocean.Warm_surface_ocean_carbon_reservoir[*]"/>
-						</item>
-						<item>
-							<entity name="Ocean.Warm_surface_ocean_pH[*]"/>
-						</item>
-						<item>
-							<entity name="Forest.Mature_forest_aboveground_biomass[*]"/>
-						</item>
-						<item>
-							<entity name="Forest.Young_forest_aboveground_biomass[*]"/>
-						</item>
-						<item>
-							<entity name="Land_Use.Mature_Forest[*]"/>
-						</item>
-						<item>
-							<entity name="Land_Use.Young_Forest[*]"/>
-						</item>
-						<item>
-							<entity name="cropland_soil_carbon.fast_soil_carbon_cropland[*]"/>
-						</item>
-						<item>
-							<entity name="cropland_soil_carbon.slow_soil_carbon_cropland[*]"/>
-						</item>
-						<item>
-							<entity name="degraded_land_soil_carbon.fast_soil_carbon_degraded_land[*]"/>
-						</item>
-						<item>
-							<entity name="degraded_land_soil_carbon.slow_soil_carbon_degraded_land[*]"/>
+							<entity name="forest_soil_carbon.slow_soil_carbon_mature_forest[*]"/>
 						</item>
 						<item>
 							<entity name="forest_soil_carbon.fast_soil_carbon_mature_forest[*]"/>
@@ -1034,30 +1158,74 @@ This is what determines when the model stops calculating</doc>
 							<entity name="forest_soil_carbon.fast_soil_carbon_young_forest[*]"/>
 						</item>
 						<item>
-							<entity name="forest_soil_carbon.slow_soil_carbon_mature_forest[*]"/>
+							<entity name="degraded_land_soil_carbon.slow_soil_carbon_degraded_land[*]"/>
 						</item>
 						<item>
-							<entity name="forest_soil_carbon.slow_soil_carbon_young_forest[*]"/>
+							<entity name="degraded_land_soil_carbon.fast_soil_carbon_degraded_land[*]"/>
 						</item>
 						<item>
-							<entity name="grassland_soil_carbon.fast_soil_carbon_grassland[*]"/>
+							<entity name="cropland_soil_carbon.slow_soil_carbon_cropland[*]"/>
 						</item>
 						<item>
-							<entity name="grassland_soil_carbon.slow_soil_carbon_grassland[*]"/>
-						</item>
-						<item>
-							<entity name='Terrestrial_Carbon_Balance."Commited_future_soil_carbon_loss_due_to_land-use_transitions"[*]'/>
-						</item>
-						<item>
-							<entity name="Terrestrial_Carbon_Balance.Committed_future_carbon_gains_from_young_forests_entering_the_mature_forest_type[*]"/>
+							<entity name="cropland_soil_carbon.fast_soil_carbon_cropland[*]"/>
 						</item>
 					</table>
 				</stacked_container>
-				<stacked_container uid="113" x="599" y="428.444" minimized="true">
-					<table isee:start_time="7980" isee:stop_time="8000" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="Spinup tests" isee:mark_for_export="true">
+				<stacked_container uid="183" x="1248.75" y="433.25" minimized="true" name="Land variables timeseries">
+					<table isee:start_time="1980" isee:stop_time="2023" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="Land variables timeseries" isee:mark_for_export="true" title="Land variables timeseries">
 						<item type="time"/>
 						<item>
-							<entity name="Ocean.Air_sea_co2_flux[*]"/>
+							<entity name="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance[*]"/>
+						</item>
+						<item>
+							<entity name="Emissions.CO2_Emissions_from_Food_and_Land_Use[*]"/>
+						</item>
+						<item>
+							<entity name="Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake[*]"/>
+						</item>
+						<item>
+							<entity name="Terrestrial_Carbon_Balance.deforestation_carbon_loss[*]"/>
+						</item>
+						<item>
+							<entity name="Emissions.land_carbon_sink[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="184" x="1242.08" y="509.587" minimized="true" name="Sea Level Rise">
+					<table width="350" height="250" comparative="true" isee:export_name="SLR" isee:mark_for_export="true" title="SLR">
+						<item type="time"/>
+						<item>
+							<entity name="Sea_Level.Total_global_sea_level_anomaly[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="185" x="1347.92" y="513.753" minimized="true" name="NPP 2000">
+					<table isee:start_time="2000" isee:stop_time="2000" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="NPP 2000" isee:mark_for_export="true" title="NPP 2000">
+						<item type="time"/>
+						<item>
+							<entity name="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production[*]"/>
+						</item>
+						<item>
+							<entity name="Grass.grassland_net_primary_production[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="186" x="1369.17" y="433.25" minimized="true" name="NPP 2011">
+					<table isee:start_time="2011" isee:stop_time="2011" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="NPP 2011" isee:mark_for_export="true" title="NPP 2011">
+						<item type="time"/>
+						<item>
+							<entity name="Crop.cropland_net_primary_production[*]"/>
+						</item>
+					</table>
+				</stacked_container>
+				<stacked_container uid="187" x="940.83" y="237.417" width="317.5" height="250" minimized="true" name="Aerosol Forcings baseline">
+					<table isee:start_time="1850" isee:stop_time="1900" interval="1" report_balances="beginning" report_flows="summed" width="317.5" height="250" comparative="true" isee:export_name="Aerosol Forcings baseline" isee:mark_for_export="true" title="Aerosol Forcings baseline">
+						<item type="time"/>
+						<item>
+							<entity name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Cloud_Interactions[*]"/>
+						</item>
+						<item>
+							<entity name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Radiation_Interactions[*]"/>
 						</item>
 					</table>
 				</stacked_container>
@@ -1091,9 +1259,424 @@ Lorem ipsum dolor sit amet</text_box>
 			<isee:stories/>
 		</views>
 	</model>
-	<isee:user_controlled>
-		<ent name="Simulation End" preserve="true"/>
-	</isee:user_controlled>
+	<model name="CCS">
+		<variables>
+			<stock name="stored CO2">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0</eqn>
+				<inflow>Storing_CO2</inflow>
+				<outflow>CO2_Emissions_from_Leakage</outflow>
+				<non_negative/>
+				<units>MtCO2</units>
+			</stock>
+			<flow name="Storing CO2">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0</eqn>
+				<non_negative/>
+				<units>MtCO2/Year</units>
+			</flow>
+			<flow name="CO2 Emissions from Leakage" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>stored_CO2_leakage_rate*stored_CO2</eqn>
+				<non_negative/>
+				<units>MtCO2/Year</units>
+			</flow>
+			<aux name="stored CO2 leakage rate">
+				<doc>${Internal Calibration Parameter,No Sensi}
+</doc>
+				<eqn>0</eqn>
+				<units>dmnl/year</units>
+			</aux>
+			<aux name="stored Carbon">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>stored_CO2 / UNIT_GtC_to_MtCO2</eqn>
+				<units>GtC</units>
+			</aux>
+			<aux name="UNIT GtC to MtCO2" access="input">
+				<eqn>3670</eqn>
+				<units>MtCO2/GtC</units>
+			</aux>
+		</variables>
+		<views>
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:scroll_x="511.25" isee:scroll_y="82.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
+						<shape type="rectangle" width="45" height="35"/>
+					</stock>
+					<flow color="blue" background="white" font_color="blue" font_size="11pt" label_side="bottom">
+						<shape type="circle" radius="18"/>
+					</flow>
+					<isee:placeholder color="#228B22" background="white" font_color="#228B22" font_size="11pt" label_side="bottom"/>
+					<module color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
+						<shape type="rectangle" width="67" height="55"/>
+					</module>
+					<aux color="blue" background="white" font_color="blue" font_size="11pt" label_side="bottom">
+						<shape type="circle" radius="18"/>
+					</aux>
+					<group color="red" background="white" font_color="red" font_size="11pt"/>
+					<connector color="#FF007F" background="white" font_color="#FF007F" font_size="9pt" isee:thickness="1"/>
+					<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+					<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+					<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+					<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+						<isee:series_styles>
+							<isee:series_style color="blue" thickness="1"/>
+							<isee:series_style color="red" thickness="1"/>
+							<isee:series_style color="fuchsia" thickness="1"/>
+							<isee:series_style color="#008F44" thickness="1"/>
+							<isee:series_style color="#FF7F00" thickness="1"/>
+							<isee:series_style color="#7F00FF" thickness="1"/>
+							<isee:series_style color="#0CA0FF" thickness="1"/>
+							<isee:series_style color="lime" thickness="1"/>
+							<isee:series_style color="#FF007F" thickness="1"/>
+							<isee:series_style color="aqua" thickness="1"/>
+							<isee:series_style color="#F586FF" thickness="1"/>
+							<isee:series_style color="black" thickness="1"/>
+							<isee:series_style color="#C8C8C8" thickness="1"/>
+						</isee:series_styles>
+					</graph>
+					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				</style>
+				<stock x="1041.67" y="240" name="stored CO2"/>
+				<flow x="941.252" y="240" name="Storing CO2">
+					<pts>
+						<pt x="863.333" y="240"/>
+						<pt x="1019.17" y="240"/>
+					</pts>
+				</flow>
+				<flow x="1154.67" y="240" name="CO2 Emissions from Leakage">
+					<pts>
+						<pt x="1064.17" y="240"/>
+						<pt x="1269.17" y="240"/>
+					</pts>
+				</flow>
+				<aux x="1153.42" y="156.667" name="stored CO2 leakage rate"/>
+				<connector uid="10" angle="270.859">
+					<from>stored_CO2_leakage_rate</from>
+					<to>CO2_Emissions_from_Leakage</to>
+				</connector>
+				<connector uid="11" angle="26.5651">
+					<from>stored_CO2</from>
+					<to>CO2_Emissions_from_Leakage</to>
+				</connector>
+				<aux x="1041.67" y="314.167" name="stored Carbon"/>
+				<connector uid="16" angle="275.389">
+					<from>stored_CO2</from>
+					<to>stored_Carbon</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1041.67" y="404.167" name="UNIT GtC to MtCO2"/>
+				<connector uid="22" angle="66.6645">
+					<from>UNIT_GtC_to_MtCO2</from>
+					<to>stored_Carbon</to>
+				</connector>
+			</view>
+		</views>
+	</model>
+	<model name="Government_Regulations">
+		<variables>
+			<aux name="forestation policy" access="output" isee:autocreated="true">
+				<doc>${Policy}
+To determine the maximum afforestation rate per year, the distribution of all scenarios described in the AR6 report for the variable Land Cover|Forest|Afforestation and Reforestation was used as a basis 
+Based on this distribution, the median values ​​within the 90% quantile range were calculated for each year
+Since the afforestation value is cumulative over time, the maximum afforestation per year was computed as the average annual rate, using 2010 and 2100 as the starting and ending years, respectively. This calculation resulted in a value of 9 Mha/year.
+Williams et al. (2024) estimates a potential of 215 million hectares for natural tropical forest regeneration over 30 years, which corresponds to an average annual rate of  ~7 Mha/year. This aligns reasonably well with the 9 Mha/year rate derived from the AR6 report, indicating some level of consistency between the findings
+
+Source: 
+https://data.ece.iiasa.ac.at/ar6/#/login?redirect=%2Fworkspaces
+https://www.nature.com/articles/s41586-024-08106-4
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="0" max="9"/>
+					<ypts>0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="switch animal product\nefficiency policy" access="output">
+				<doc>${Policy}
+</doc>
+				<eqn>0</eqn>
+				<format precision="1" scale_by="auto"/>
+				<range min="0" max="1"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="animal product\nefficiency policy" access="output">
+				<doc>${Policy}
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="0" max="0.3"/>
+					<ypts>0.249,0.249,0.249,0.249,0.249,0.249,0.249,0.249,0.249</ypts>
+				</gf>
+				<units>dmnl</units>
+			</aux>
+			<aux name="switch irrigation fraction policy" access="output">
+				<doc>${Policy}
+</doc>
+				<eqn>0</eqn>
+				<format precision="1" scale_by="auto"/>
+				<range min="0" max="1"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="irrigation fraction policy" access="output">
+				<doc>${Policy}
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="0" max="1"/>
+					<ypts>0.239,0.239,0.239,0.239,0.239,0.239,0.239,0.239,0.239</ypts>
+				</gf>
+				<units>dmnl</units>
+			</aux>
+			<aux name="switch non agricultural\nwater use policy" access="output">
+				<doc>${Policy}
+</doc>
+				<eqn>0</eqn>
+				<format precision="1" scale_by="auto"/>
+				<range min="0" max="1"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="non agricultural\nwater use policy" access="output">
+				<doc>${Policy}
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="150000000" max="173500000"/>
+					<ypts>173500000,173500000,173500000,173500000,173500000,173500000,173500000,173500000,173500000</ypts>
+				</gf>
+				<units>m^3/Mp/year</units>
+			</aux>
+			<aux name="irrigation efficiency multiplier" access="output">
+				<doc>${Policy}
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="0.5" max="1.5"/>
+					<ypts>1,1,1,1,1,1,1,1,1</ypts>
+				</gf>
+				<units>dmnl</units>
+			</aux>
+			<aux name="share of coal emissions stored" access="output" isee:autocreated="true">
+				<doc>${Policy}
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="0" max="1"/>
+					<ypts>0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>dmnl</units>
+			</aux>
+			<aux name="share of oil\nemissions stored" access="output" isee:autocreated="true">
+				<doc>${Policy}
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="0" max="1"/>
+					<ypts>0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>dmnl</units>
+			</aux>
+			<aux name="share of gas\nemissions stored" access="output" isee:autocreated="true">
+				<doc>${Policy}
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="0" max="1"/>
+					<ypts>0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>dmnl</units>
+			</aux>
+			<aux name="share of biofuel\nemissions stored" access="output" isee:autocreated="true">
+				<doc>${Policy}
+</doc>
+				<eqn>TIME</eqn>
+				<gf>
+					<xscale min="2020" max="2100"/>
+					<yscale min="0" max="1"/>
+					<ypts>0,0,0,0,0,0,0,0,0</ypts>
+				</gf>
+				<units>dmnl</units>
+			</aux>
+			<isee:placeholder name="share of emissions stored" isee:derived_units="true">
+				<eqn>Government_Regulations.share_of_coal_emissions_stored{Coal} + Government_Regulations.share_of_oil_emissions_stored{Oil} + Government_Regulations.share_of_gas_emissions_stored{Gas} + Government_Regulations.share_of_biofuel_emissions_stored{Biofuel}</eqn>
+				<units>dmnl</units>
+			</isee:placeholder>
+			<aux name="start year" access="output">
+				<doc>${Policy}
+</doc>
+				<eqn>2025</eqn>
+				<format precision="full"/>
+				<units>Year</units>
+			</aux>
+		</variables>
+		<views>
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#0075FF" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="4" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
+						<shape type="rectangle" width="45" height="35"/>
+					</stock>
+					<flow color="blue" background="white" font_color="blue" font_size="11pt" label_side="bottom">
+						<shape type="circle" radius="18"/>
+					</flow>
+					<isee:placeholder color="#228B22" background="white" font_color="#228B22" font_size="11pt" label_side="bottom"/>
+					<module color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
+						<shape type="rectangle" width="67" height="55"/>
+					</module>
+					<aux color="blue" background="white" font_color="blue" font_size="11pt" label_side="bottom">
+						<shape type="circle" radius="18"/>
+					</aux>
+					<group color="red" background="white" font_color="red" font_size="11pt"/>
+					<connector color="#FF007F" background="white" font_color="#FF007F" font_size="9pt" isee:thickness="1"/>
+					<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+					<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+					<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+					<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+						<isee:series_styles>
+							<isee:series_style color="blue" thickness="1"/>
+							<isee:series_style color="red" thickness="1"/>
+							<isee:series_style color="fuchsia" thickness="1"/>
+							<isee:series_style color="#008F44" thickness="1"/>
+							<isee:series_style color="#FF7F00" thickness="1"/>
+							<isee:series_style color="#7F00FF" thickness="1"/>
+							<isee:series_style color="#0CA0FF" thickness="1"/>
+							<isee:series_style color="lime" thickness="1"/>
+							<isee:series_style color="#FF007F" thickness="1"/>
+							<isee:series_style color="aqua" thickness="1"/>
+							<isee:series_style color="#F586FF" thickness="1"/>
+							<isee:series_style color="black" thickness="1"/>
+							<isee:series_style color="#C8C8C8" thickness="1"/>
+						</isee:series_styles>
+					</graph>
+					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				</style>
+				<aux x="185.501" y="213" name="forestation policy"/>
+				<aux x="312.083" y="303.097" name="switch animal product\nefficiency policy"/>
+				<aux label_side="bottom" x="185.501" y="345.83" name="animal product\nefficiency policy"/>
+				<aux x="312.917" y="373.097" name="switch irrigation fraction policy"/>
+				<aux label_side="bottom" x="185.501" y="421.43" name="irrigation fraction policy"/>
+				<aux x="317.917" y="447.267" name="switch non agricultural\nwater use policy"/>
+				<aux label_side="bottom" x="185.501" y="479.6" name="non agricultural\nwater use policy"/>
+				<aux label_side="bottom" x="185.501" y="274.93" name="irrigation efficiency multiplier"/>
+				<text_box uid="9" x="540.83" y="20.9933" width="192.5" height="26.3333">CCS of emissions from Energy</text_box>
+				<aux x="618.33" y="68.2533" name="share of coal emissions stored"/>
+				<aux x="619.17" y="128" name="share of oil\nemissions stored"/>
+				<aux x="619.17" y="185.61" name="share of gas\nemissions stored"/>
+				<aux x="619.17" y="245.143" name="share of biofuel\nemissions stored"/>
+				<isee:placeholder x="612.5" y="350" name="share of emissions stored"/>
+				<aux x="153.111" y="40.75" name="start year"/>
+			</view>
+		</views>
+	</model>
 	<macro name="INFLATION_IMPACT_GROWTH_RATE">
 		<eqn>trend in input</eqn>
 		<parm>input</parm>

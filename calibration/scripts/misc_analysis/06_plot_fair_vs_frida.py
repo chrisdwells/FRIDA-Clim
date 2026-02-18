@@ -139,6 +139,7 @@ for s_i, scen in enumerate(scens_plot):
     color=colors_pd.loc[
             colors_pd['name'] == ssps[scen]]['color'].values[0]
 
+    ax[0,s_i].set_title(scen)
 
     ax[0,s_i].axhline(0, color='grey', linestyle = '--')
     ax[0,s_i].set_ylim([-1, 13])
@@ -160,6 +161,7 @@ for s_i, scen in enumerate(scens_plot):
                            linewidth=0, alpha=0.2, hatch='//')
     
 
+    ax[1,s_i].set_title(scen)
 
     ax[1,s_i].axhline(0, color='grey', linestyle = '--')
     ax[1,s_i].set_ylim([-1, 13])
@@ -193,13 +195,13 @@ handles.append(mpatches.Patch(facecolor='grey', edgecolor='grey', linewidth=0, a
 ax[0, 0].legend(handles=handles, ncol=1, fontsize=10)
 
 
-handles = []
-for s_i, scen in enumerate(scens_plot):
-    color=colors_pd.loc[
-            colors_pd['name'] == ssps[scen]]['color'].values[0]
-    handles.append(Line2D([0], [0], label=scen, color=color))
+# handles = []
+# for s_i, scen in enumerate(scens_plot):
+#     color=colors_pd.loc[
+#             colors_pd['name'] == ssps[scen]]['color'].values[0]
+#     handles.append(Line2D([0], [0], label=scen, color=color))
 
-ax[1, 0].legend(handles=handles, ncol=1, fontsize=10)
+# ax[1, 0].legend(handles=handles, ncol=1, fontsize=10)
     
 plt.suptitle('GMST response in FRIDA-Clim and FaIR under varying CO2 concentration in same EBM (top), identical forcings in separate EBMs (bottom)')
 plt.tight_layout()

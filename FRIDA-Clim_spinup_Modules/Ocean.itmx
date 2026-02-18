@@ -40017,18 +40017,12 @@
 				<eqn>0</eqn>
 				<units>deg C</units>
 			</aux>
-			<aux name="Atmospheric CO2 Concentration 1750" access="output" isee:autocreated="true">
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<eqn>278</eqn>
+			<aux name="Atmospheric CO2\nConcentration 1750" access="output" isee:autocreated="true">
+				<eqn>284.316998799642</eqn>
 				<units>ppm</units>
 			</aux>
 			<aux name="Atmospheric CO2 Concentration">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>Atmospheric_CO2_Concentration_1750[selected_climate_case_5[Run]]</eqn>
+				<eqn>Atmospheric_CO2_Concentration_1750</eqn>
 				<units>ppm</units>
 			</aux>
 			<aux name="Amount of carbon in the\nwarm surface ocean in spinup">
@@ -49211,13 +49205,6 @@
 				<eqn>Ocean_volume-Volume_of_warm_surface_ocean_reservoir-Volume_of_cold_surface_ocean_reservoir-Volume_of_intermediate_ocean_reservoir</eqn>
 				<units>metre^3</units>
 			</aux>
-			<aux name="selected climate case 5" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>dmnl</units>
-			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -49267,7 +49254,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="4" isee:scroll_x="1140" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="4" isee:scroll_x="825" isee:scroll_y="750" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -50158,7 +50145,7 @@
 					<from>Surface_Temperature_Anomaly</from>
 					<to>Cold_surface_ocean_salinity_unitless</to>
 				</connector>
-				<aux x="1359.97" y="977.5" name="Atmospheric CO2 Concentration 1750"/>
+				<aux x="1359.97" y="977.5" name="Atmospheric CO2\nConcentration 1750"/>
 				<connector uid="266" angle="269.243">
 					<from>Surface_Temperature_Anomaly</from>
 					<to>Cold_surface_ocean_carbon_export_to_intermediate_ocean</to>
@@ -50443,11 +50430,6 @@ These need to fit with the initial values of the surface carbon reservoirs.</tex
 						<alias uid="352"/>
 					</from>
 					<to>DIC_concentration_in_cold_surface_layer</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="1446.67" y="1027.08" name="selected climate case 5"/>
-				<connector uid="354" angle="194.931">
-					<from>selected_climate_case_5</from>
-					<to>Atmospheric_CO2_Concentration</to>
 				</connector>
 				<alias font_style="italic" uid="8" x="1391.67" y="1669.33" width="18" height="18">
 					<of>Ocean_overturning_strength</of>

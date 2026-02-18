@@ -24,7 +24,7 @@ csv_list = ['aerosol_cloud', 'aerosol_radiation', 'carbon_cycle',
 df_in = pd.DataFrame()
 
 for csv in csv_list:
-    df_csv = pd.read_csv(f"../data/external/samples_for_priors/{csv}_{samples}.csv")
+    df_csv = pd.read_csv(f"../../data/external/samples_for_priors/{csv}_{samples}.csv")
     df_in = pd.concat([df_in, df_csv], axis=1)
     
 fair_data_dict = {}
@@ -85,12 +85,8 @@ land_variables = {
     "Land Use.reference fraction of forest burned out of total burned area[1]" : [0.0264,0.0499],
     "Forest.fraction biomass remaining after burning[1]" : [0.05,0.2],
     "forest soil carbon.fraction burning to slow[1]" : [0.2, 0.5],
-    # don't need sustainable farming ones as in spinup
-    # "Crop.historical sustainable farming fraction[1]":[0.05,0.2],
-    # "Crop.mass to coverage[1]" : [889,1556],
-    # "Crop.conventional residue on field fraction[1]" : [0.3,0.45],
-    # "Crop.sustainable residue on field fraction[1]" : [0.65,0.85],
-    # "Terrestrial Carbon Balance.Forest carbon adaptation time[1]" : [10,50],
+    # don't need the new sustainable farming ones as they're in spinup
+
     }
 
 land_param_dict = {}
@@ -115,8 +111,6 @@ df_land = pd.DataFrame(land_param_dict, columns=land_param_dict.keys())
 df_params = pd.concat([df_fair_data, df_land], axis=1)
 
 #%%
-
-
 
 # ocean temperature-linked parameters; again taken from calibrate-FRIDA-climate
 
@@ -160,7 +154,7 @@ df_params = pd.concat([df_params, df_ocean_priors], axis=1)
 
 # process stocks from spinup
 
-df_spinup_output = pd.read_csv(f'../data/spinup_output/Spinup_output_{spinup_samples}.csv')
+df_spinup_output = pd.read_csv(f'../../data/spinup_output/Spinup_output_{spinup_samples}.csv')
 
 variable_stock_list = [
     "Ocean.Cold surface ocean carbon reservoir[1]",
@@ -205,7 +199,7 @@ for var in variable_stock_list:
 df_spinup_stocks = pd.DataFrame(data=stocks_dict, columns=stocks_dict.keys())
 
 # bring in spinup parameters
-df_spinup_params = pd.read_csv(f"../data/spinup_input/spinup_params_{spinup_samples}.csv")
+df_spinup_params = pd.read_csv(f"../../data/spinup_input/spinup_params_{spinup_samples}.csv")
 
 df_spinup = pd.concat([df_spinup_stocks, df_spinup_params], axis=1)
 
@@ -214,10 +208,8 @@ df_spinup= df_spinup.drop(columns=[
     'Land Use.Initial young forest area[1]'
     ])
 
-
-
 # apply test(s) to make sure equilibrium is reached in the spinup
-df_spinup_tests = pd.read_csv(f'../data/spinup_output/Spinup_output_tests_{spinup_samples}.csv')
+df_spinup_tests = pd.read_csv(f'../../data/spinup_output/Spinup_output_tests_{spinup_samples}.csv')
 
 idxs = np.full(spinup_samples, np.nan)
 
@@ -249,7 +241,6 @@ df_run = df_combined["Run"].iloc[:,0]
 df_combined = df_combined.drop(columns='Run')
 df_combined = pd.concat([df_run, df_combined], axis=1)
 
-
 full_vars_list = list(set(fair_vars_to_frida.values())) + list(land_param_dict.keys()) + list(param_dict.keys()) + list(df_spinup.keys())
 full_vars_list = list(filter(lambda a: a != 'Run', full_vars_list))
 full_vars_list.sort()
@@ -260,12 +251,8 @@ combined_list.sort()
 
 assert full_vars_list == combined_list
 
-df_combined = df_combined.rename(columns={
-    "Ocean.Atmospheric CO2 Concentration 1750[1]": "CO2 Forcing.Atmospheric CO2 Concentration 1750[1]",
-    })
-
 df_combined.to_csv(
-    f"../data/priors_input/priors_inputs_{samples}.csv",
+    f"../../data/priors_input/priors_inputs_{samples}.csv",
     index=False,
 )
 
