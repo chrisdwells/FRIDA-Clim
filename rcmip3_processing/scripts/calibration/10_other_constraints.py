@@ -88,13 +88,10 @@ for i in np.arange(samples):
 faer_in = fari_in + faci_in
 
 # and keep ECS, TCR
-# df_ecs_tcr = pd.read_csv(f"../../data/external/samples_for_priors/ecs_tcs_{samples}.csv")
-# ecs_in = df_ecs_tcr['ecs']
-# tcr_in = df_ecs_tcr['tcr']
+df_ecs_tcr = pd.read_csv(f"../../data/external/samples_for_priors/ecs_tcs_{samples}.csv")
+ecs_in = df_ecs_tcr['ecs']
+tcr_in = df_ecs_tcr['tcr']
 
-df_ecs_tcr = pd.read_csv("../../data/external/samples_for_priors/ecs_tcs_100000.csv")
-ecs_in = df_ecs_tcr['ecs'][:samples]
-tcr_in = df_ecs_tcr['tcr'][:samples]
 
 # ensure shape is as we expect
 assert temp_in.shape == (samples,)
@@ -122,7 +119,7 @@ def opt(x, q05_desired, q50_desired, q95_desired):
 constraints = [
     'Global Mean Surface Temperature (GMST)',
     'Ocean Heat Content|Global|Total',
-    # 'Atmospheric Concentrations|CO2',
+    'Atmospheric Concentrations|CO2',
     'Carbon Flux to Oceans',
     'Carbon Flux to Land',
     'Effective Radiative Forcing|Aerosols',
@@ -187,7 +184,7 @@ accepted = pd.DataFrame(
      
     'Global Mean Surface Temperature (GMST)': temp_in[valid_temp_flux],
     'Ocean Heat Content|Global|Total': ohc_in[valid_temp_flux],
-    # 'Atmospheric Concentrations|CO2': co2_in[valid_temp_flux],
+    'Atmospheric Concentrations|CO2': co2_in[valid_temp_flux],
     'Carbon Flux to Oceans': ocean_co2_in[valid_temp_flux],
     'Carbon Flux to Land': land_co2_in[valid_temp_flux],
     'Effective Radiative Forcing|Aerosols': faer_in[valid_temp_flux],
@@ -329,11 +326,11 @@ prior_ohc = scipy.stats.gaussian_kde(ohc_in)
 post1_ohc = scipy.stats.gaussian_kde(ohc_in[valid_temp_flux])
 post2_ohc = scipy.stats.gaussian_kde(draws[0]['Ocean Heat Content|Global|Total'])
 
-# target_co2 = scipy.stats.gaussian_kde(samples_dict['Atmospheric Concentrations|CO2'])
-# prior_co2 = scipy.stats.gaussian_kde(co2_in)
-# post1_co2 = scipy.stats.gaussian_kde(co2_in[valid_temp_flux])
-# post2_co2 = scipy.stats.gaussian_kde(draws[0]['Atmospheric Concentrations|CO2'])
-# post2_co2 = scipy.stats.gaussian_kde(co2_in[draws[0].index])
+target_co2 = scipy.stats.gaussian_kde(samples_dict['Atmospheric Concentrations|CO2'])
+prior_co2 = scipy.stats.gaussian_kde(co2_in)
+post1_co2 = scipy.stats.gaussian_kde(co2_in[valid_temp_flux])
+post2_co2 = scipy.stats.gaussian_kde(draws[0]['Atmospheric Concentrations|CO2'])
+post2_co2 = scipy.stats.gaussian_kde(co2_in[draws[0].index])
 
 target_oce_flux = scipy.stats.gaussian_kde(samples_dict['Carbon Flux to Oceans'])
 prior_oce_flux = scipy.stats.gaussian_kde(ocean_co2_in)
@@ -410,8 +407,8 @@ dist_plot(ax[0,0], 0.5, 1.3, target_temp, prior_temp, post1_temp, post2_temp,
 dist_plot(ax[0,1], 0, 800, target_ohc, prior_ohc, post1_ohc, post2_ohc,
           [0, 0.006], "Ocean heat content change", "ZJ, 2020 minus 1971", 'OHC')
     
-# dist_plot(ax[0,2], 400, 450, target_co2, prior_co2, post1_co2, post2_co2,
-#           [0, 0.3], "CO$_2$ concentration", "ppm, 2014-2023", 'CO2')
+dist_plot(ax[0,2], 400, 450, target_co2, prior_co2, post1_co2, post2_co2,
+          [0, 0.3], "CO$_2$ concentration", "ppm, 2014-2023", 'CO2')
     
 dist_plot(ax[1,0], -3, 0, target_aer, prior_aer, post1_aer, post2_aer,
           [0, 1], "Aerosol ERF", "W m$^{-2}$, 2005-2014 minus 1850-1900", 'Aerosol')
@@ -440,9 +437,9 @@ ax[2,2].legend(handles=legend_elements)
 
 fig.tight_layout()
 
-# plt.savefig(
-#     "../../plots/constraints.png"
-# )
+plt.savefig(
+    "../../calibration/plots/constraints.png"
+)
 
 #%%
 

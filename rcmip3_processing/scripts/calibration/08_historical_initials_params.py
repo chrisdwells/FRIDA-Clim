@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 import numpy as np
 import scipy.stats
+import shutil
 
 # this collates the input parameters for the priors - so we take the ocean
 # parameters (on ocean_samples) and the FaIR ones (on samples), and combine
@@ -255,4 +256,36 @@ df_combined.to_csv(
     f"../../data/priors_input/priors_inputs_{samples}.csv",
     index=False,
 )
+
+#%%
+
+# finally, copy over the input files if needed, so the model can be shared
+# without breaking the links - files need to be in /Data. Move all except
+# the time-dependent anthro forcing
+
+files_to_copy = [
+    '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv',
+    '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_transitions_hist.csv',
+    '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_wood_biomass_hist.csv',
+    '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_npp_initial_values.csv',
+    '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/population.csv',
+    '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/crop_production.csv',
+    '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv',
+    '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv',
+    '../../data/processed_for_frida/baseline_emissions.csv',
+    '../../data/processed_for_frida/CO2_1750.csv',
+    '../../data/processed_for_frida/natural_forcings.csv',
+    ]
+
+target_dir = '../../calibration/Data/'
+
+for f in files_to_copy:
+    
+    fname = os.path.basename(f)
+
+    fout = os.path.join(target_dir, fname)
+
+    if not os.path.exists(fout):
+        shutil.copy(f, fout)
+
 

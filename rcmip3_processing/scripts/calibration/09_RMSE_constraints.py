@@ -19,7 +19,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
-samples = 5000
 
 calibration = os.getenv("CALIBRATION")
 
