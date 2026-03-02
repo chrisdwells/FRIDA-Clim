@@ -18,8 +18,9 @@ from matplotlib.lines import Line2D
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
-output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
 
+output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
+output_ensemble_size=70
 calibration = os.getenv("CALIBRATION")
 
 NINETY_TO_ONESIGMA = scipy.stats.norm.ppf(0.95)
@@ -32,9 +33,7 @@ input_ensemble_size = len(valid_temp_flux)
 
 assert input_ensemble_size > output_ensemble_size
 
-
 # need to manipulate temperature so do differently to others
-
 df_temp = pd.read_csv("../../data/priors_output/priors_temperature.csv")
 
 # GMST now 2014-2023 cf 1850-1900
@@ -48,7 +47,8 @@ df_ohc = pd.read_csv("../../data/priors_output/priors_ocean_heat_content.csv")
 ohc_data = np.full((2, samples), np.nan)
 for i in np.arange(samples):
     ohc_data[:,i] = df_ohc[f'="Run {i+1}: Energy Balance Model.ocean heat content change[1]"']
-ohc_in = (ohc_data[1,:] - ohc_data[0,:])*1000 # units
+# 1000 for units; 0.91 to convert N (what we actual have here) to OHC as per protocol
+ohc_in = 0.91*(ohc_data[1,:] - ohc_data[0,:])*1000 
 
 # CO2 2014-2023 average now
 df_co2 = pd.read_csv("../../data/priors_output/priors_CO2.csv")
@@ -65,6 +65,7 @@ for i in np.arange(samples):
     
 # land carbon flux 2014-2023 average
 df_land_co2 = pd.read_csv("../../data/priors_output/priors_land.csv")
+df_land_co2 = df_land_co2.loc[(df_land_co2['Year']>=2014) & (df_land_co2['Year']<=2023)]
 land_co2_in = np.full(samples, np.nan)
 for i in np.arange(samples):
     land_co2_in[i] = np.mean(df_land_co2[f'="Run {i+1}: Emissions.land carbon sink[1]"'])
@@ -91,7 +92,6 @@ faer_in = fari_in + faci_in
 df_ecs_tcr = pd.read_csv(f"../../data/external/samples_for_priors/ecs_tcs_{samples}.csv")
 ecs_in = df_ecs_tcr['ecs']
 tcr_in = df_ecs_tcr['tcr']
-
 
 # ensure shape is as we expect
 assert temp_in.shape == (samples,)
@@ -123,8 +123,8 @@ constraints = [
     'Carbon Flux to Oceans',
     'Carbon Flux to Land',
     'Effective Radiative Forcing|Aerosols',
-    'ERFaci',
-    'ERFari',
+    # 'ERFaci',
+    # 'ERFari',
     'ECS',
     'TCR',
         ]
@@ -163,12 +163,12 @@ samples_dict["ECS"] = scipy.stats.skewnorm.rvs(
 samples_dict["TCR"] = scipy.stats.norm.rvs(
     loc=1.8, scale=0.6 / NINETY_TO_ONESIGMA, size=10**5, random_state=18196
 )
-samples_dict["ERFari"] = scipy.stats.norm.rvs(
-    loc=-0.3, scale=0.3 / NINETY_TO_ONESIGMA, size=10**5, random_state=70173
-)
-samples_dict["ERFaci"] = scipy.stats.norm.rvs(
-    loc=-1.0, scale=0.7 / NINETY_TO_ONESIGMA, size=10**5, random_state=91123
-)
+# samples_dict["ERFari"] = scipy.stats.norm.rvs(
+#     loc=-0.3, scale=0.3 / NINETY_TO_ONESIGMA, size=10**5, random_state=70173
+# )
+# samples_dict["ERFaci"] = scipy.stats.norm.rvs(
+#     loc=-1.0, scale=0.7 / NINETY_TO_ONESIGMA, size=10**5, random_state=91123
+# )
 
 
 ar_distributions = {}
@@ -188,8 +188,8 @@ accepted = pd.DataFrame(
     'Carbon Flux to Oceans': ocean_co2_in[valid_temp_flux],
     'Carbon Flux to Land': land_co2_in[valid_temp_flux],
     'Effective Radiative Forcing|Aerosols': faer_in[valid_temp_flux],
-    'ERFaci': faci_in[valid_temp_flux],
-    'ERFari': fari_in[valid_temp_flux],
+    # 'ERFaci': faci_in[valid_temp_flux],
+    # 'ERFari': fari_in[valid_temp_flux],
     'ECS': ecs_in[valid_temp_flux],
     'TCR': tcr_in[valid_temp_flux],
     },
@@ -401,13 +401,13 @@ def dist_plot(axs, start, stop, target, priors, post1, post2, ylims, title, unit
     dict_distributions[dist_name]['xlim'] = [start, stop]
 
 
-dist_plot(ax[0,0], 0.5, 1.3, target_temp, prior_temp, post1_temp, post2_temp,
-          [0, 5], "Temperature anomaly", "°C, 2003-2022 minus 1850-1900", 'Temp')
+dist_plot(ax[0,0], 0.8, 2.0, target_temp, prior_temp, post1_temp, post2_temp,
+          [0, 5], "Temperature anomaly", "°C, 2014-2022 minus 1850-1900", 'Temp')
     
 dist_plot(ax[0,1], 0, 800, target_ohc, prior_ohc, post1_ohc, post2_ohc,
           [0, 0.006], "Ocean heat content change", "ZJ, 2020 minus 1971", 'OHC')
     
-dist_plot(ax[0,2], 400, 450, target_co2, prior_co2, post1_co2, post2_co2,
+dist_plot(ax[0,2], 400, 420, target_co2, prior_co2, post1_co2, post2_co2,
           [0, 0.3], "CO$_2$ concentration", "ppm, 2014-2023", 'CO2')
     
 dist_plot(ax[1,0], -3, 0, target_aer, prior_aer, post1_aer, post2_aer,
@@ -441,32 +441,22 @@ plt.savefig(
     "../../calibration/plots/constraints.png"
 )
 
-#%%
-
-# move these to the validation script
-print("Constrained, reweighted parameters:")
-print("ECS:", np.percentile(draws[0]["ECS"], (5, 50, 95)))
-print(
-    "CO2 concentration 2022:", np.percentile(draws[0]['Atmospheric Concentrations|CO2'], (5, 50, 95))
-)
-print(
-    "temperature 2003-2022 rel. 1850-1900:",
-    np.percentile(draws[0]['Global Mean Surface Temperature (GMST)'], (5, 50, 95)),
-)
-print(
-    "Aerosol ERF 2005-2014 rel. 1750:",
-    np.percentile(draws[0]['Effective Radiative Forcing|Aerosols'], (5, 50, 95)),
-)
-print(
-    "OHC change 2020 rel. 1971*:", np.percentile(draws[0]['Ocean Heat Content|Global|Total'] * 0.91, (16, 50, 84))
-)
-
-print("*likely range")
 
 #%%
-df_temp_obs = pd.read_csv("../data/external/forcing/annual_averages.csv")
-gmst = df_temp_obs["gmst"].loc[(df_temp_obs['time'] > 1850) 
-                               & (df_temp_obs['time'] < 2023)].values
+
+df_obs = pd.read_csv(
+    '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles/rcmip_phase3_processed_constraining_data_v1.0.0.csv')
+
+df_obs = df_obs.reset_index(drop=True)
+years_obs = [col for col in df_obs.columns if str(col).isdigit()]
+gmst = df_obs.loc[df_obs["Variable"] == "Global Mean Surface Temperature (GMST)"][years_obs]
+
+gmst_series = gmst[years_obs].iloc[0]
+gmst_series.index = gmst_series.index.astype(int)
+
+gmst = gmst_series.to_numpy()
+time_temp = gmst_series.index.to_numpy()
+
 
 temp_hist = df_temp.loc[(df_temp['Year']>=1850) & (df_temp['Year']<=2020)].drop(columns='Year').values
 temp_hist_offset = temp_hist - temp_pi
@@ -500,7 +490,7 @@ ax[0].plot(
     color="#000000",
 )
 
-ax[0].plot(np.arange(1850.5, 2023), gmst, color="b", label="Observations")
+ax[0].plot(time_temp, gmst, color="b", label="Observations")
 
 ax[0].legend(frameon=False, loc="upper left")
 
@@ -514,17 +504,13 @@ ax[0].set_title("Temperature anomaly: posterior")
 
 plt.tight_layout()
 plt.savefig(
-    f"../../plots/final_reweighted_temp.png"
+    "../../calibration/plots/final_reweighted_temp.png"
 )
-
-
-
-# plt.close()
 
 #%%
 
 np.savetxt(
-    f"../../data/constraining/runids_rmse_reweighted_pass.csv",
+    "../../data/constraining/runids_rmse_reweighted_pass.csv",
     sorted(draws[0].index),
     fmt="%d",
 )
@@ -534,6 +520,6 @@ np.savetxt(
 draws[0].to_csv(f'../../data/constraining/draws_{output_ensemble_size}.csv')
 
 
-with open(f'../../data/constraining/distributions.pickle', 'wb') as handle:
+with open('../../data/constraining/distributions.pickle', 'wb') as handle:
     pickle.dump(dict_distributions, handle, protocol=pickle.HIGHEST_PROTOCOL)
 

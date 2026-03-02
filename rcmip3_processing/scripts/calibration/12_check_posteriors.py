@@ -7,53 +7,58 @@ import matplotlib.pyplot as plt
 import scipy.optimize
 import scipy.stats
 
+# update variable definitions for RCMIP3
+
 # Check distribution of 100 members when ran in FRIDA-Clim matches
 # the calibration result
 
 load_dotenv()
 
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
-calibration = os.getenv("CALIBRATION")
 
-draws_in = pd.read_csv(f'../{calibration}/data/constraining/draws_{output_ensemble_size}.csv')
+draws_in = pd.read_csv(f'../../data/constraining/draws_{output_ensemble_size}.csv')
 
-with open(f'../{calibration}/data/constraining/distributions.pickle', 'rb') as handle:
+with open('../../data/constraining/distributions.pickle', 'rb') as handle:
     dict_distributions = pickle.load(handle)
 
-temp_posteriors = pd.read_csv(f'../{calibration}/data/posteriors_output/posteriors_temperature.csv')
+temp_posteriors = pd.read_csv('../../data/posteriors_output/posteriors_temperature.csv')
 
 
 temp_pi = np.average(temp_posteriors.loc[(temp_posteriors['Year']>=1850) & (temp_posteriors['Year']<=1900)].drop(columns='Year').values, axis=0)
-temp_pd = np.average(temp_posteriors.loc[(temp_posteriors['Year']>=2003) & (temp_posteriors['Year']<=2022)].drop(columns='Year').values, axis=0)
+temp_pd = np.average(temp_posteriors.loc[(temp_posteriors['Year']>=2014) & (temp_posteriors['Year']<=2023)].drop(columns='Year').values, axis=0)
 
 temp_in = temp_pd - temp_pi
 
 
-#%%
-df_ohc = pd.read_csv(f'../{calibration}/data/posteriors_output/posteriors_ocean_heat_content.csv')
+df_ohc = pd.read_csv('../../data/posteriors_output/posteriors_ocean_heat_content.csv')
 
 ohc_data = df_ohc.drop(columns='Year').values
 
 ohc_in = (ohc_data[1,:] - ohc_data[0,:])*1000 # units
 
-
-df_aer = pd.read_csv(f"../{calibration}/data/posteriors_output/posteriors_aerosols.csv")
+df_aer = pd.read_csv("../../data/posteriors_output/posteriors_aerosols.csv")
+df_aer_baseline = pd.read_csv("../../data/posteriors_output/posteriors_aerosols_baseline.csv")
 
 faci_in = np.full(output_ensemble_size, np.nan)
 fari_in = np.full(output_ensemble_size, np.nan)
-
 for i in np.arange(output_ensemble_size):
     faci_in[i] = np.mean(df_aer[
-    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'])
-    
+    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'] - np.mean(
+        df_aer_baseline[f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'])        
+        )
     fari_in[i] = np.mean(df_aer[
-    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"'])
-
+    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"'] - np.mean(
+        df_aer_baseline[f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"']) 
+        )
+        
 faer_in = fari_in + faci_in
 
-df_co2 = pd.read_csv(f"../{calibration}/data/posteriors_output/posteriors_CO2.csv")
-co2_in = df_co2.drop(columns='Year').values[0,:]
 
+df_co2 = pd.read_csv("../../data/posteriors_output/posteriors_CO2.csv")
+co2_in = np.full(output_ensemble_size, np.nan)
+for i in np.arange(output_ensemble_size):
+    co2_in[i] = np.mean(df_co2[f'="Run {i+1}: CO2 Forcing.Atmospheric CO2 Concentration[1]"'])
+    
 
 colors = {"prior": "#207F6E", "post1": "#684C94", "post2": "#EE696B", "target": "black", "post check": "orange"}
 
@@ -290,5 +295,5 @@ ax[1, 1].set_xlabel("ZJ, 2020 minus 1971")
 plt.tight_layout()
 
 plt.savefig(
-    f"../{calibration}/plots/check_posteriors.png"
+    "../../calibration/plots/check_posteriors.png"
 )

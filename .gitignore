@@ -14,3 +14,6 @@ rcmip3_processing/calibration/FRIDA-Clim_priors.isdb
 rcmip3_processing/data/priors_input/*
 rcmip3_processing/data/priors_output/*
 rcmip3_processing/data/external/samples_for_priors/*
+rcmip3_processing/data/frida_clim_output/*
+rcmip3_processing/data/processed_rcmip/*
+rcmip3_processingmodels/*isdb
