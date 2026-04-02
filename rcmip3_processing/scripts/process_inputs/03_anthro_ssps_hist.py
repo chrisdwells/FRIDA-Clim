@@ -4,15 +4,22 @@ import numpy as np
 from fair import FAIR
 from fair.io import read_properties
 from fair.interface import fill, initialise
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # makes the csvs with anthropogenic forcings for hist and the ssps - emissions,
 # including HFCs via HFC134a-eq, plus Montreal gas ERF and effect on EESC.
 
 
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
+
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 outdir = '../../data/processed_for_frida'
 
-data_in = pd.read_csv(f'{indir}/rcmip_phase3_emissions_v1.0.0.csv')
+data_in = pd.read_csv(f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv')
 
 start_year = 1750
 end_year = 2500
@@ -125,9 +132,9 @@ f.define_species(species, properties)
 f.allocate()
 f.fill_species_configs()
 
-f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_v1.0.0.csv',
-                  concentration_file=f'{indir}/rcmip_phase3_concentrations_v1.0.0.csv',
-                  forcing_file=f'{indir}/rcmip_phase3_forcing_v1.0.0.csv')
+f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv',
+                  concentration_file=f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv',
+                  forcing_file=f'{indir}/rcmip_phase3_forcing_{rcmip_version}.csv')
 
 
 initialise(f.concentration, f.species_configs['baseline_concentration'])
@@ -268,9 +275,9 @@ f.define_species(species, properties)
 f.allocate()
 f.fill_species_configs()
 
-f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_v1.0.0.csv',
-                  concentration_file=f'{indir}/rcmip_phase3_concentrations_v1.0.0.csv',
-                  forcing_file=f'{indir}/rcmip_phase3_forcing_v1.0.0.csv')
+f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv',
+                  concentration_file=f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv',
+                  forcing_file=f'{indir}/rcmip_phase3_forcing_{rcmip_version}.csv')
 
 
 initialise(f.concentration, f.species_configs['baseline_concentration'])

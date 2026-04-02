@@ -17,3 +17,5 @@ rcmip3_processing/data/external/samples_for_priors/*
 rcmip3_processing/data/frida_clim_output/*
 rcmip3_processing/data/processed_rcmip/*
 rcmip3_processingmodels/*isdb
+scenariomip_files/
+RCMIP3_protocol_bundle_*/

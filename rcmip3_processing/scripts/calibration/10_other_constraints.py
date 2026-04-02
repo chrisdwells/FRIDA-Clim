@@ -18,6 +18,10 @@ from matplotlib.lines import Line2D
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
 output_ensemble_size=70
@@ -70,21 +74,16 @@ land_co2_in = np.full(samples, np.nan)
 for i in np.arange(samples):
     land_co2_in[i] = np.mean(df_land_co2[f'="Run {i+1}: Emissions.land carbon sink[1]"'])
     
-# aerosol still 2005-2014 but now cf 1850-1900 
+# aerosol still 2005-2014
 df_aer = pd.read_csv("../../data/priors_output/priors_aerosols.csv")
-df_aer_baseline = pd.read_csv("../../data/priors_output/priors_aerosols_baseline.csv")
 
 faci_in = np.full(samples, np.nan)
 fari_in = np.full(samples, np.nan)
 for i in np.arange(samples):
     faci_in[i] = np.mean(df_aer[
-    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'] - np.mean(
-        df_aer_baseline[f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'])        
-        )
+    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'])
     fari_in[i] = np.mean(df_aer[
-    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"'] - np.mean(
-        df_aer_baseline[f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"']) 
-        )
+    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"'])
         
 faer_in = fari_in + faci_in
 
@@ -133,7 +132,7 @@ samples_dict = {}
 
 # pull in RCMIP values for these 6
 df_rcmip_constraints = pd.read_csv(
-    '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles/rcmip_phase3_constraint_targets_with_uncertainty_v1.0.0.csv')
+    f'{indir}/rcmip_phase3_constraint_targets_with_uncertainty_{rcmip_version}.csv')
 
 for c_i, constraint in enumerate(constraints):
     if constraint not in ['ERFaci', 'ERFari', 'ECS', 'TCR']:
@@ -445,7 +444,7 @@ plt.savefig(
 #%%
 
 df_obs = pd.read_csv(
-    '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles/rcmip_phase3_processed_constraining_data_v1.0.0.csv')
+    f'{indir}/rcmip_phase3_processed_constraining_data_{rcmip_version}.csv')
 
 df_obs = df_obs.reset_index(drop=True)
 years_obs = [col for col in df_obs.columns if str(col).isdigit()]

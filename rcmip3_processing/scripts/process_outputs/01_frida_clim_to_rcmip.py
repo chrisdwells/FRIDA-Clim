@@ -11,8 +11,13 @@ load_dotenv()
 
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
 
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
+
 # for the units label - we convert all to RCMIP units 
-df_vars = pd.read_csv('../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles/rcmip_phase3_protocol_v1.0.0_variable_definitions.csv')
+df_vars = pd.read_csv(f'{indir}/rcmip_phase3_protocol_{rcmip_version}_variable_definitions.csv')
 
 expts = ['esm-allGHG-hist']
 
@@ -112,10 +117,14 @@ rcmip_from_frida_dict = {
                                 signed(scale_units(load_frida("soil carbon decay.Total litter to soil carbon"), factor = GtC_to_MtCO2), -1.0),
                                 signed(scale_units(load_frida("Terrestrial Carbon Balance.Annual carbon uptake in peatlands"), factor = GtC_to_MtCO2), -1.0),
                                 ),
-    "Carbon Flux|Land|Product Decomposition": scale_units(load_frida("Forest.timber"), factor = GtC_to_MtCO2),      
-    "Carbon Flux|Land|Product Production": scale_units(load_frida("Forest.timber"), factor = GtC_to_MtCO2), 
-    "Carbon Flux|Land|Other": scale_units(load_frida("Forest.Forest burned biomass emissions"), factor = GtC_to_MtCO2), 
     
+    # dont want as no product pool?
+    # "Carbon Flux|Land|Product Decomposition": scale_units(load_frida("Forest.timber"), factor = GtC_to_MtCO2),      
+    # "Carbon Flux|Land|Product Production": scale_units(load_frida("Forest.timber"), factor = GtC_to_MtCO2), 
+    "Carbon Flux|Land|Other": add_many( 
+                            scale_units(load_frida("Forest.Forest burned biomass emissions"), factor = GtC_to_MtCO2), 
+                            scale_units(load_frida("Grass.animal grazing"), factor = GtC_to_MtCO2), 
+                                    ),
     "Carbon Flux|Ocean|Net surface to deep": add_many( 
                     scale_units(load_frida("Ocean.Downward transport of carbon via the overturning circulation"), factor = GtC_to_MtCO2),    
                     scale_units(load_frida("Ocean.Convective mixing of carbon between polar surface ocean and deep ocean"), factor = GtC_to_MtCO2),    

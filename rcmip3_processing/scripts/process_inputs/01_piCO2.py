@@ -1,9 +1,15 @@
 import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 outdir = '../../data/processed_for_frida'
 
-data_in = pd.read_csv(f'{indir}/rcmip_phase3_concentrations_v1.0.0.csv')
+data_in = pd.read_csv(f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv')
 
 pi_co2 = data_in[
     (data_in['Model'] == 'unspecified') &
@@ -15,7 +21,7 @@ pi_co2 = data_in[
     (data_in['Type'] == 'non-idealised') &
     (data_in['Priority'] == '1') &
     (data_in['Mip_Era'] == 'CMIP6') &
-    (data_in['Version'] == 'RCMIP Phase 3 v1.0.0')
+    (data_in['Version'] == f'RCMIP Phase 3 {rcmip_version}')
 ]['1750'].iloc[0]
 
 df_pi_co2_spinup = pd.DataFrame(

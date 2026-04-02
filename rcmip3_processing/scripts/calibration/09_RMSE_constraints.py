@@ -19,6 +19,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
 calibration = os.getenv("CALIBRATION")
 
@@ -32,7 +36,7 @@ weights[-1] = 0.5
 
 #%%
 df_obs = pd.read_csv(
-    '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles/rcmip_phase3_processed_constraining_data_v1.0.0.csv')
+    f'{indir}/rcmip_phase3_processed_constraining_data_{rcmip_version}.csv')
 
 df_obs = df_obs.reset_index(drop=True)
 

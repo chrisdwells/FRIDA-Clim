@@ -19,6 +19,10 @@ from scipy.optimize import curve_fit
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
 # now include temperature feedback
 Tobs = pd.read_csv("../../../calibration/data/external/forcing/AR6_GMST.csv", index_col=0).values
@@ -95,11 +99,10 @@ print("2014-1750 ozone ERF from Skeie:", o3total[264])
 print("2019-1750 ozone ERF from Skeie:", o3total[269])
 print("2014-1850 ozone ERF from Skeie:", o3total[264] - o3total[100])
 
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
 
-rcmip_emissions_file = f'{indir}/rcmip_phase3_emissions_v1.0.0.csv'
+rcmip_emissions_file = f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv'
 
-rcmip_concentration_file = f'{indir}/rcmip_phase3_concentrations_v1.0.0.csv'
+rcmip_concentration_file = f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv'
 
 df_emis = pd.read_csv(rcmip_emissions_file)
 df_conc = pd.read_csv(rcmip_concentration_file)

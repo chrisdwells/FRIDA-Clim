@@ -1,10 +1,15 @@
 import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
 
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 outdir = '../../data/processed_for_frida'
 
-data_in = pd.read_csv(f'{indir}/rcmip_phase3_forcing_v1.0.0.csv')
+data_in = pd.read_csv(f'{indir}/rcmip_phase3_forcing_{rcmip_version}.csv')
 
 forc_species_from_rcmip = {
     'Effective Radiative Forcing|Natural|Solar': 'Natural Forcing.Baseline Effective Radiative Forcing from Solar Output Variations',

@@ -27,6 +27,10 @@ from fair.energy_balance_model import (
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
 df = pd.read_csv(
     os.path.join(
@@ -193,7 +197,6 @@ print(
 
 
 spec_remove = ['Halon-1202', 'NOx aviation']
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
 
 f = FAIR()
 
@@ -217,9 +220,9 @@ f.define_species(species, properties)
 f.allocate()
 f.fill_species_configs()
 
-f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_v1.0.0.csv',
-                  concentration_file=f'{indir}/rcmip_phase3_concentrations_v1.0.0.csv',
-                  forcing_file=f'{indir}/rcmip_phase3_forcing_v1.0.0.csv')
+f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv',
+                  concentration_file=f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv',
+                  forcing_file=f'{indir}/rcmip_phase3_forcing_{rcmip_version}.csv')
 
 initialise(f.concentration, f.species_configs['baseline_concentration'])
 initialise(f.forcing, 0)

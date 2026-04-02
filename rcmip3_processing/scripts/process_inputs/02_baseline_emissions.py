@@ -1,6 +1,12 @@
 import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 outdir = '../../data/processed_for_frida'
 
 baseline_ems_species = {
@@ -12,7 +18,7 @@ baseline_ems_species = {
     'Emissions|VOC': 'Emissions.Baseline VOC Emissions',
 }
 
-data_in = pd.read_csv(f'{indir}/rcmip_phase3_emissions_v1.0.0.csv')
+data_in = pd.read_csv(f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv')
 
 ems_filtered = data_in[
     (data_in['Scenario'] == 'historical') &

@@ -15,6 +15,10 @@ from tqdm import tqdm
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
 files = glob.glob("../../../calibration/data/external/smith2023aerosol/*.csv")
 
@@ -49,9 +53,8 @@ for model in models:
     ari[model] = ari_temp / nruns
     aci[model] = aci_temp / nruns
 
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
 
-rcmip_emissions_file = f'{indir}/rcmip_phase3_emissions_v1.0.0.csv'
+rcmip_emissions_file = f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv'
 
 emis_df = pd.read_csv(rcmip_emissions_file)
 

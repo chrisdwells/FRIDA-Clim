@@ -14,12 +14,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
 
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
-
-rcmip_emissions_file = f'{indir}/rcmip_phase3_emissions_v1.0.0.csv'
-rcmip_concentration_file = f'{indir}/rcmip_phase3_concentrations_v1.0.0.csv'
+rcmip_emissions_file = f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv'
+rcmip_concentration_file = f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv'
 
 df_emis = pd.read_csv(rcmip_emissions_file)
 df_conc = pd.read_csv(rcmip_concentration_file)

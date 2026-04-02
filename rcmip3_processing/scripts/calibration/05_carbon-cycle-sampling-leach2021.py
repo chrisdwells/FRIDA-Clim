@@ -16,6 +16,10 @@ from fair.structure.units import compound_convert
 load_dotenv()
 
 samples = int(os.getenv("PRIOR_SAMPLES"))
+rcmip_version = os.getenv("RCMIP_VERSION")
+rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
 
 compound_convert["CO2"]["C"]
@@ -149,11 +153,9 @@ f.define_species(species, properties)
 f.allocate()
 f.fill_species_configs()
 
-indir = '../../../RCMIP3_protocol_bundle/RCMIP3_input_datafiles'
-
-f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_v1.0.0.csv',
-                  concentration_file=f'{indir}/rcmip_phase3_concentrations_v1.0.0.csv',
-                  forcing_file=f'{indir}/rcmip_phase3_forcing_v1.0.0.csv')
+f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv',
+                  concentration_file=f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv',
+                  forcing_file=f'{indir}/rcmip_phase3_forcing_{rcmip_version}.csv')
 
 fill(f.concentration, 729.2, specie="CH4")
 fill(f.concentration, 270.1, specie="N2O")

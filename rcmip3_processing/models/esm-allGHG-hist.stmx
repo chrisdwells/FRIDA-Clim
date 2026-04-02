@@ -1254,6 +1254,9 @@ This is what determines when the model stops calculating</doc>
 						<item>
 							<entity name="N2O_Forcing.Atmospheric_N2O_Concentration[*]"/>
 						</item>
+						<item>
+							<entity name="Grass.animal_grazing[*]"/>
+						</item>
 					</table>
 				</stacked_container>
 			</view>
