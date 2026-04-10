@@ -273,7 +273,7 @@ files_to_copy = [
     '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv',
     '../../../frida_clim_processing/data/processed_for_frida/priors_inputs/frida_clim_land_stocks.csv',
     '../../data/processed_for_frida/baseline_emissions.csv',
-    '../../data/processed_for_frida/CO2_1750.csv',
+    '../../data/processed_for_frida/concs_1750.csv',
     '../../data/processed_for_frida/natural_forcings.csv',
     ]
 

@@ -53,7 +53,7 @@
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/CO2_1750.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/constraining/frida_clim_inputs_100_from_30000_1750_inits.csv">
+		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/constraining/frida_clim_inputs_100_from_100000_1750_inits.csv">
 			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"[1]'/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean[1]"/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean[1]"/>

@@ -5,8 +5,11 @@
 		<name>FRIDA-Clim_posteriors</name>
 		<uuid>f70d8701-d8ac-480a-a1ab-2de3e450aaee</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.2.1" isee:build_number="3895" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
+	<ai_information>
+		<status verified="false"/>
+	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>Simulation_Start</start>
 		<stop>Simulation_End</stop>
@@ -27,6 +30,21 @@
 		<dim name="Run" size="1"/>
 	</dimensions>
 	<isee:prefs saved_runs="2" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+		<isee:tag_styles>
+			<isee:tag_style tag="Assumption"/>
+			<isee:tag_style tag="Calibrated Output"/>
+			<isee:tag_style tag="Climate Impact Parameter"/>
+			<isee:tag_style tag="Explanatory Variable"/>
+			<isee:tag_style tag="External Calibration Parameter"/>
+			<isee:tag_style tag="External Parameter"/>
+			<isee:tag_style tag="Interface"/>
+			<isee:tag_style tag="Internal Calibration Parameter"/>
+			<isee:tag_style tag="No Sensi"/>
+			<isee:tag_style tag="Output"/>
+			<isee:tag_style tag="Parameter"/>
+			<isee:tag_style tag="Policy"/>
+			<isee:tag_style tag="Unit"/>
+		</isee:tag_styles>
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -64,18 +82,6 @@
 		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/posteriors_output/posteriors_ocean_heat_content.csv" precomputed="false" isee:format="numbers">
 			<table name="OHC" use_settings="true"/>
 		</export>
-		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/posteriors_output/posteriors_SLR.csv" precomputed="false" isee:format="numbers">
-			<table name="SLR" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/posteriors_output/posteriors_NPP_2000.csv" precomputed="false" isee:format="numbers">
-			<table name="NPP 2000" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/posteriors_output/posteriors_NPP_2011.csv" precomputed="false" isee:format="numbers">
-			<table name="NPP 2011" use_settings="true"/>
-		</export>
-		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/posteriors_output/posteriors_aerosols_baseline.csv" precomputed="false" isee:format="numbers">
-			<table name="Aerosol Forcings baseline" use_settings="true"/>
-		</export>
 		<import frequency="on_demand" isee:overwrite="true" resource="r../Data/frida_clim_land_stocks.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/frida_clim_land_transitions_hist.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/frida_clim_land_wood_biomass_hist.csv"/>
@@ -83,12 +89,12 @@
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/population.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/crop_production.csv"/>
 		<import isee:overwrite="true" resource="r../Data/baseline_emissions.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/anthro_inputs_hist.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/esm-allGHG-hist.csv"/>
 		<import isee:overwrite="true" resource="r../Data/CO2_1750.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/natural_forcings.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/constraining/frida_clim_inputs_100_from_30000_1750_inits.csv">
+		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/constraining/frida_clim_inputs_100_from_100000_1750_inits.csv">
 			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"[1]'/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean[1]"/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean[1]"/>
@@ -1135,41 +1141,6 @@ This is what determines when the model stops calculating</doc>
 						</item>
 					</table>
 				</stacked_container>
-				<stacked_container uid="182" x="1115.83" y="513.753" minimized="true" name="Soil carbon">
-					<table isee:start_time="2022" isee:stop_time="2022" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" title="Soil carbon">
-						<item type="time"/>
-						<item>
-							<entity name="grassland_soil_carbon.slow_soil_carbon_grassland[*]"/>
-						</item>
-						<item>
-							<entity name="grassland_soil_carbon.fast_soil_carbon_grassland[*]"/>
-						</item>
-						<item>
-							<entity name="forest_soil_carbon.slow_soil_carbon_young_forest[*]"/>
-						</item>
-						<item>
-							<entity name="forest_soil_carbon.slow_soil_carbon_mature_forest[*]"/>
-						</item>
-						<item>
-							<entity name="forest_soil_carbon.fast_soil_carbon_mature_forest[*]"/>
-						</item>
-						<item>
-							<entity name="forest_soil_carbon.fast_soil_carbon_young_forest[*]"/>
-						</item>
-						<item>
-							<entity name="degraded_land_soil_carbon.slow_soil_carbon_degraded_land[*]"/>
-						</item>
-						<item>
-							<entity name="degraded_land_soil_carbon.fast_soil_carbon_degraded_land[*]"/>
-						</item>
-						<item>
-							<entity name="cropland_soil_carbon.slow_soil_carbon_cropland[*]"/>
-						</item>
-						<item>
-							<entity name="cropland_soil_carbon.fast_soil_carbon_cropland[*]"/>
-						</item>
-					</table>
-				</stacked_container>
 				<stacked_container uid="183" x="1248.75" y="433.25" minimized="true" name="Land variables timeseries">
 					<table isee:start_time="1980" isee:stop_time="2023" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="Land variables timeseries" isee:mark_for_export="true" title="Land variables timeseries">
 						<item type="time"/>
@@ -1187,44 +1158,6 @@ This is what determines when the model stops calculating</doc>
 						</item>
 						<item>
 							<entity name="Emissions.land_carbon_sink[*]"/>
-						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="184" x="1242.08" y="509.587" minimized="true" name="Sea Level Rise">
-					<table width="350" height="250" comparative="true" isee:export_name="SLR" isee:mark_for_export="true" title="SLR">
-						<item type="time"/>
-						<item>
-							<entity name="Sea_Level.Total_global_sea_level_anomaly[*]"/>
-						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="185" x="1347.92" y="513.753" minimized="true" name="NPP 2000">
-					<table isee:start_time="2000" isee:stop_time="2000" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="NPP 2000" isee:mark_for_export="true" title="NPP 2000">
-						<item type="time"/>
-						<item>
-							<entity name="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production[*]"/>
-						</item>
-						<item>
-							<entity name="Grass.grassland_net_primary_production[*]"/>
-						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="186" x="1369.17" y="433.25" minimized="true" name="NPP 2011">
-					<table isee:start_time="2011" isee:stop_time="2011" interval="1" report_balances="beginning" report_flows="instantaneous" width="350" height="250" comparative="true" isee:export_name="NPP 2011" isee:mark_for_export="true" title="NPP 2011">
-						<item type="time"/>
-						<item>
-							<entity name="Crop.cropland_net_primary_production[*]"/>
-						</item>
-					</table>
-				</stacked_container>
-				<stacked_container uid="187" x="940.83" y="237.417" width="317.5" height="250" minimized="true" name="Aerosol Forcings baseline">
-					<table isee:start_time="1850" isee:stop_time="1900" interval="1" report_balances="beginning" report_flows="summed" width="317.5" height="250" comparative="true" isee:export_name="Aerosol Forcings baseline" isee:mark_for_export="true" title="Aerosol Forcings baseline">
-						<item type="time"/>
-						<item>
-							<entity name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Cloud_Interactions[*]"/>
-						</item>
-						<item>
-							<entity name="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosol_Radiation_Interactions[*]"/>
 						</item>
 					</table>
 				</stacked_container>

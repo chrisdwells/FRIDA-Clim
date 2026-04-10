@@ -10,7 +10,6 @@ from matplotlib.lines import Line2D
 
 # for RCMIP3: bring in their 6 variables as before. 
 # Also, keep the aerosol components and ECS.
-# Subtract aerosol pi baseline (fix in main?).
 
 # Adapted from FaIR calibrate
 # for FRIDA, calculate ECS from the parameters.
@@ -24,8 +23,7 @@ rcmip_version_folder = rcmip_version.replace(".", "_").upper()
 indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
-output_ensemble_size=70
-calibration = os.getenv("CALIBRATION")
+calibration = os.getenv("CALIBRATION")          
 
 NINETY_TO_ONESIGMA = scipy.stats.norm.ppf(0.95)
 

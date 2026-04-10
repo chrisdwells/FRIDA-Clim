@@ -34,22 +34,17 @@ df_ohc = pd.read_csv('../../data/posteriors_output/posteriors_ocean_heat_content
 
 ohc_data = df_ohc.drop(columns='Year').values
 
-ohc_in = (ohc_data[1,:] - ohc_data[0,:])*1000 # units
+ohc_in = 0.91*(ohc_data[1,:] - ohc_data[0,:])*1000 # units
 
 df_aer = pd.read_csv("../../data/posteriors_output/posteriors_aerosols.csv")
-df_aer_baseline = pd.read_csv("../../data/posteriors_output/posteriors_aerosols_baseline.csv")
 
 faci_in = np.full(output_ensemble_size, np.nan)
 fari_in = np.full(output_ensemble_size, np.nan)
 for i in np.arange(output_ensemble_size):
     faci_in[i] = np.mean(df_aer[
-    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'] - np.mean(
-        df_aer_baseline[f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'])        
-        )
+    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Cloud Interactions[1]"'])
     fari_in[i] = np.mean(df_aer[
-    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"'] - np.mean(
-        df_aer_baseline[f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"']) 
-        )
+    f'="Run {i+1}: Aerosol Forcing.Effective Radiative Forcing from Aerosol Radiation Interactions[1]"'])
         
 faer_in = fari_in + faci_in
 
