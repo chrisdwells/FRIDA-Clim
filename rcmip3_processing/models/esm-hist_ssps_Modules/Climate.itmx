@@ -245,7 +245,7 @@
 	</model_units>
 	<model name="Climate">
 		<variables>
-			<module name="Sea Level" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/conc_hist_ssps_Modules/Sea Level.itmx">
+			<module name="Sea Level" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-hist_ssps_Modules/Sea Level.itmx">
 				<format scale_by="auto"/>
 				<connect to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
 				<connect2 to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
@@ -267,12 +267,12 @@
 				<connect2 to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 			</module>
 			<module name="Ocean" isee:label="Ocean
-Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/conc_hist_ssps_Modules/Ocean.itmx">
+Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-hist_ssps_Modules/Ocean.itmx">
 				<format scale_by="auto"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
-				<connect to="Ocean.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
-				<connect2 to="Ocean.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
+				<connect to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Ocean.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Ocean.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ocean.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
@@ -462,7 +462,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 			</module>
-			<module name="Emissions" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/conc_hist_ssps_Modules/Emissions.itmx">
+			<module name="Emissions" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-hist_ssps_Modules/Emissions.itmx">
 				<format scale_by="auto"/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
@@ -524,7 +524,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 			</module>
 			<module name="Forcing" isee:label="Radiative
-Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/conc_hist_ssps_Modules/Forcing.itmx">
+Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-hist_ssps_Modules/Forcing.itmx">
 				<format scale_by="auto"/>
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
@@ -570,12 +570,12 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="CH4_Forcing.UNIT_ppm_to_ppb" from="Climate_Units.UNIT_ppm_to_ppb"/>
 				<connect to="CH4_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
 				<connect2 to="CH4_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
-				<connect to="Forest.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
-				<connect2 to="Forest.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
-				<connect to="Grass.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
-				<connect2 to="Grass.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
-				<connect to="Ocean.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
-				<connect2 to="Ocean.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
+				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect to="CO2_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
@@ -600,8 +600,6 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
 				<connect to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect2 to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect to="Minor_GHGs_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
@@ -640,8 +638,6 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Natural_Forcing.selected_climate_case_2" from="Climate_Units.selected_climate_case"/>
 				<connect to="Natural_Forcing.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Natural_Forcing.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
-				<connect to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect to="Ozone_Forcing.Baseline_NOx_Emissions_1" from="Emissions.Baseline_NOx_Emissions"/>

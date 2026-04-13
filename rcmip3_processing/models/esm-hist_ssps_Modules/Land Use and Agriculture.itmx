@@ -412,6 +412,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Terrestrial_Carbon_Balance.crop_production_1" from="Crop.crop_production"/>
 				<connect to="cropland_soil_carbon.crop_residue_litter" from="Crop.crop_residue_litter"/>
 				<connect2 to="cropland_soil_carbon.crop_residue_litter" from="Crop.crop_residue_litter"/>
+				<connect to="soil_carbon_decay.crop_residue_litter" from="Crop.crop_residue_litter"/>
+				<connect2 to="soil_carbon_decay.crop_residue_litter" from="Crop.crop_residue_litter"/>
 				<connect to="Cropland_Carbon_Balance.crop_residue_other_use_1" from="Crop.crop_residue_other_use"/>
 				<connect2 to="Cropland_Carbon_Balance.crop_residue_other_use_1" from="Crop.crop_residue_other_use"/>
 				<connect to="Terrestrial_Carbon_Balance.crop_residue_other_use" from="Crop.crop_residue_other_use"/>
@@ -589,8 +591,16 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
+				<connect to="soil_carbon_decay.crop_residue_litter" from="Crop.crop_residue_litter"/>
+				<connect2 to="soil_carbon_decay.crop_residue_litter" from="Crop.crop_residue_litter"/>
+				<connect to="soil_carbon_decay.grassland_litter" from="Grass.grassland_litter"/>
+				<connect2 to="soil_carbon_decay.grassland_litter" from="Grass.grassland_litter"/>
+				<connect to="soil_carbon_decay.mature_forest_litter" from="Forest.mature_forest_litter"/>
+				<connect2 to="soil_carbon_decay.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="soil_carbon_decay.young_forest_litter" from="Forest.young_forest_litter"/>
+				<connect2 to="soil_carbon_decay.young_forest_litter" from="Forest.young_forest_litter"/>
 				<connect to="Terrestrial_Carbon_Balance.soil_carbon_emissions_GtC" from="soil_carbon_emissions.gross_soil_carbon_emissions_GtC"/>
 				<connect2 to="Terrestrial_Carbon_Balance.soil_carbon_emissions_GtC" from="soil_carbon_emissions.gross_soil_carbon_emissions_GtC"/>
 				<connect to="Terrestrial_Carbon_Balance.litter_emissions_GtC" from="soil_carbon_emissions.litter_emissions_GtC"/>
@@ -606,6 +616,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="degraded_land_soil_carbon.grass_net_primary_production" from="Grass.grass_net_primary_production"/>
 				<connect to="grassland_soil_carbon.grassland_litter" from="Grass.grassland_litter"/>
 				<connect2 to="grassland_soil_carbon.grassland_litter" from="Grass.grassland_litter"/>
+				<connect to="soil_carbon_decay.grassland_litter" from="Grass.grassland_litter"/>
+				<connect2 to="soil_carbon_decay.grassland_litter" from="Grass.grassland_litter"/>
 				<connect to="Grassland_carbon_balance.grassland_net_primary_production_1" from="Grass.grassland_net_primary_production"/>
 				<connect2 to="Grassland_carbon_balance.grassland_net_primary_production_1" from="Grass.grassland_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
@@ -639,6 +651,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="forest_soil_carbon.Mature_forest_biomass_burning_to_soil" from="Forest.Mature_forest_biomass_burning_to_soil"/>
 				<connect to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect2 to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
+				<connect to="soil_carbon_decay.mature_forest_litter" from="Forest.mature_forest_litter"/>
+				<connect2 to="soil_carbon_decay.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect to="Forest_carbon_balance.mature_forest_net_primary_production_1" from="Forest.mature_forest_net_primary_production"/>
 				<connect2 to="Forest_carbon_balance.mature_forest_net_primary_production_1" from="Forest.mature_forest_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.mature_forest_net_primary_production" from="Forest.mature_forest_net_primary_production"/>
@@ -659,6 +673,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Terrestrial_Carbon_Balance.young_forest_growth" from="Forest.young_forest_growth"/>
 				<connect to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
 				<connect2 to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
+				<connect to="soil_carbon_decay.young_forest_litter" from="Forest.young_forest_litter"/>
+				<connect2 to="soil_carbon_decay.young_forest_litter" from="Forest.young_forest_litter"/>
 				<connect to="Forest_carbon_balance.young_forest_net_primary_production_1" from="Forest.young_forest_net_primary_production"/>
 				<connect2 to="Forest_carbon_balance.young_forest_net_primary_production_1" from="Forest.young_forest_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.young_forest_net_primary_production" from="Forest.young_forest_net_primary_production"/>
@@ -737,7 +753,7 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_x="79.1667" isee:scroll_y="53.3333" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="2" isee:scroll_x="79.1667" isee:scroll_y="52.5" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -937,7 +953,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<doc>${Calibrated Output}
 Calibration data from:
 Food and Agriculture Organization of the United Nations (2023)</doc>
-				<eqn>0</eqn>
+				<eqn>0.272389443</eqn>
 				<units>GtC/year</units>
 			</aux>
 			<aux name="crop yield">
@@ -2530,27 +2546,11 @@ harvest_index_for_food_crops * (1 - fraction_of_crop_production_for_energy - fra
 				<units>1</units>
 			</aux>
 			<aux name="fraction of crop\nproduction for energy">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="1750" max="2021.99999999998"/>
-					<yscale min="0" max="0.05"/>
-					<ypts>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.00018,0.00045,0.00063,0.00081,0.00099,0.00117,0.00135,0.00162,0.0018,0.00206,0.00224,0.00251,0.00269,0.00296,0.00323,0.00341,0.00368,0.00377,0.00431,0.00476,0.00503,0.00548,0.00601,0.00664,0.00718,0.00736,0.00871,0.00916,0.02199,0.02289,0.02379,0.02567,0.0272,0.02756,0.02846,0.03052,0.0316,0.03294,0.03456,0.03609,0.03734,0.03878,0.04039,0.0412,0.04228,0.04282,0.04336,0.04425,0.044385,0.04497,0.04569,0.04605,0.04677,0.04731,0.04767,0.04785,0.04811,0.04847,0.04919</ypts>
-				</gf>
+				<eqn>0</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="fraction of crop\nproduction for feed">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>TIME</eqn>
-				<gf>
-					<xscale min="1750" max="2021.99999999998"/>
-					<yscale min="0" max="0.3"/>
-					<ypts>0.0221,0.0221,0.0226,0.0237,0.0245,0.0253,0.0275,0.0291,0.0299,0.0318,0.0334,0.035,0.0366,0.0377,0.0388,0.0397,0.0406,0.0415,0.0425,0.04335,0.0442,0.04525,0.0463,0.0474,0.0485,0.0493,0.0501,0.0512,0.0521,0.053,0.0539,0.05415,0.0544,0.0549,0.0571,0.0582,0.0592666666666667,0.0603333333333333,0.0614,0.06195,0.0625,0.0652,0.0668,0.067875,0.06895,0.070025,0.0711,0.0722,0.073,0.0738,0.0748666666666667,0.0759333333333333,0.077,0.0773,0.0776,0.0792,0.07975,0.0808,0.0835,0.0846,0.0883,0.08965,0.0921,0.09345,0.0948,0.0959,0.098,0.0999,0.1018,0.1034,0.105,0.10665,0.1083,0.10935,0.1131,0.1147,0.115966666666667,0.117233333333333,0.1185,0.1217,0.1228,0.1239,0.1266,0.1287,0.13005,0.133,0.1352,0.13625,0.1379,0.1411,0.1422,0.1476,0.14865,0.1513,0.1524,0.1551,0.1589,0.1605,0.1632,0.1648,0.1675,0.1691,0.1729,0.1745,0.1756,0.1783,0.1794,0.1815,0.1847,0.1853,0.1885,0.1901,0.1923,0.195,0.1971,0.1982,0.1998,0.2004,0.2031,0.2057,0.2068,0.209,0.2101,0.2117,0.2127,0.2144,0.2176,0.2181,0.2203,0.2219,0.2246,0.2262,0.2273,0.2289,0.23,0.2321,0.2338,0.2348,0.2359,0.2375,0.2391,0.2402,0.2413,0.2429,0.244,0.2451,0.2451,0.2467,0.2478,0.2488,0.2499,0.251,0.251,0.2526,0.2531,0.2548,0.2553,0.2564,0.2575,0.2575,0.2585,0.2596,0.2601,0.2612,0.2623,0.2628,0.2628,0.2634,0.2645,0.265,0.2666,0.2671,0.2677,0.2682,0.2693,0.2704,0.2709,0.272,0.2731,0.2736,0.2747,0.2758,0.2763,0.2768,0.2768,0.2768,0.2768,0.2758,0.2752,0.2752,0.2747,0.2747,0.2741,0.2741,0.2731,0.2731,0.2731,0.2725,0.2725,0.2715,0.2704,0.2698,0.2688,0.2671,0.2661,0.2639,0.2634,0.2618,0.2591,0.2575,0.2548,0.251,0.2483,0.2445,0.2429,0.237,0.2354,0.2262,0.2246,0.2214,0.2197,0.2004,0.1993,0.1982,0.1966,0.1944,0.1923,0.189,0.1864,0.1794,0.1777,0.175,0.1707,0.1675,0.1637,0.1605,0.1573,0.153,0.1497,0.1476,0.1454,0.1433,0.1427,0.1406,0.1384,0.1379,0.1368,0.1357,0.1346,0.1336,0.133,0.132,0.132,0.132,0.132,0.1293</ypts>
-				</gf>
+				<eqn>0.0221</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="selected climate case" access="input">
@@ -4191,7 +4191,7 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1646" isee:scroll_y="421" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="729" isee:scroll_y="643" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6387,7 +6387,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="cutting exogenous">
-				<eqn>0</eqn>
+				<eqn>0.142757016</eqn>
 				<units>GtC/Year</units>
 			</aux>
 			<aux name="mature to young forest from cutting" access="output" isee:autocreated="true">
@@ -7434,7 +7434,7 @@ Neeed to look up </doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="523.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="687" isee:scroll_y="883" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -9093,7 +9093,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="75" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -9857,27 +9857,27 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<units>Mha</units>
 			</aux>
 			<aux name="clearing forest\nfor grassland exogenous">
-				<eqn>0</eqn>
+				<eqn>0.1</eqn>
 				<units>Mha/year</units>
 			</aux>
 			<aux name="clearing grassland exogenous">
-				<eqn>0</eqn>
+				<eqn>0.5</eqn>
 				<units>Mha/year</units>
 			</aux>
 			<aux name="fallowing cropland exogenous">
+				<eqn>0.5</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="foresting grassland\nexogenous">
+				<eqn>0.1</eqn>
+				<units>Mha/year</units>
+			</aux>
+			<aux name="degraded\nland from grassland\nexogenous">
 				<eqn>0</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="foresting grassland exogenous">
-				<eqn>0</eqn>
-				<units>Mha/year</units>
-			</aux>
-			<aux name="degraded\nland from grassland exogenous">
-				<eqn>0</eqn>
-				<units>Mha/year</units>
-			</aux>
-			<aux name="forresting cropland exogenous">
-				<eqn>0</eqn>
+			<aux name="forresting cropland\nexogenous">
+				<eqn>0.5</eqn>
 				<units>Mha/year</units>
 			</aux>
 			<aux name="degraded\nland from crops exogenous">
@@ -9889,7 +9889,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<units>Mha/year</units>
 			</aux>
 			<aux name="clearing forests\nfor crops exogenous">
-				<eqn>0</eqn>
+				<eqn>0.5</eqn>
 				<units>Mha/year</units>
 			</aux>
 			<aux name="mature to young forest" access="input">
@@ -9943,612 +9943,14 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>4620.527325</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>4620.527325</eqn>
-				</element>
+				<eqn>4620.527325</eqn>
 				<units>Mha</units>
 			</aux>
 			<aux name="Initial Young Forest">
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>607.106045174</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>10</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>10</eqn>
-				</element>
+				<eqn>607.106045174</eqn>
 				<units>Mha</units>
 			</aux>
 			<aux name="Initial\nTotal Forest Area">
@@ -11670,7 +11072,7 @@ forest_burned_due_to_cc*fraction_of_mature_forest_out_of_total_forest</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="703.75" isee:scroll_y="872.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="142.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -11859,7 +11261,7 @@ forest_burned_due_to_cc*fraction_of_mature_forest_out_of_total_forest</eqn>
 					<to>effect_of_cropland_size_on_time_in_use</to>
 				</connector>
 				<aux x="941.25" y="536.833" name="Initial\nDegraded Land"/>
-				<aux x="326.667" y="359.333" name="clearing forest\nfor grassland exogenous"/>
+				<aux label_side="bottom" x="326.667" y="359.333" name="clearing forest\nfor grassland exogenous"/>
 				<connector uid="94" angle="315.114">
 					<from>clearing_forest_for_grassland_exogenous</from>
 					<to>clearing_forest_for_grassland</to>
@@ -11874,17 +11276,17 @@ forest_burned_due_to_cc*fraction_of_mature_forest_out_of_total_forest</eqn>
 					<from>fallowing_cropland_exogenous</from>
 					<to>fallowing_cropland</to>
 				</connector>
-				<aux x="1170" y="684.08" name="foresting grassland exogenous"/>
+				<aux x="1170" y="684.08" name="foresting grassland\nexogenous"/>
 				<connector uid="97" angle="59.9718">
 					<from>foresting_grassland_exogenous</from>
 					<to>foresting_grassland</to>
 				</connector>
-				<aux x="920" y="650.833" name="degraded\nland from grassland exogenous"/>
+				<aux x="920" y="650.833" name="degraded\nland from grassland\nexogenous"/>
 				<connector uid="98" angle="274.724">
 					<from>degraded_land_from_grassland_exogenous</from>
 					<to>degraded_land_from_grassland</to>
 				</connector>
-				<aux x="860.833" y="311.5" name="forresting cropland exogenous"/>
+				<aux x="860.833" y="311.5" name="forresting cropland\nexogenous"/>
 				<connector uid="99" angle="353.218">
 					<from>forresting_cropland_exogenous</from>
 					<to>forresting_cropland</to>
@@ -11894,7 +11296,7 @@ forest_burned_due_to_cc*fraction_of_mature_forest_out_of_total_forest</eqn>
 					<from>degraded_land_from_crops_exogenous</from>
 					<to>degraded_land_from_crops</to>
 				</connector>
-				<aux x="1272" y="547.04" name="foresting\ndegraded land exogenous"/>
+				<aux label_side="bottom" x="1272" y="547.04" name="foresting\ndegraded land exogenous"/>
 				<connector uid="101" angle="144.427">
 					<from>foresting_degraded_land_exogenous</from>
 					<to>foresting_degraded_land</to>
@@ -12072,7 +11474,7 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				</connector>
 				<aux x="1254.59" y="1534.67" name="fraction of cropland burned out of total burned area"/>
 				<aux x="1249.59" y="1649.5" name="fraction of forest burned\nout of total burned area"/>
-				<connector uid="146" angle="59.3051">
+				<connector uid="146" angle="65.1159">
 					<from>fraction_of_cropland_burned_out_of_total_burned_area</from>
 					<to>cropland_burned_due_to_cc</to>
 				</connector>
@@ -12215,8 +11617,28 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				<connect2 to="forest_soil_carbon.young_forest_litter_input_share_slow_soil_carbon" from="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
+				<connect to="soil_carbon_decay.crop_residue_litter" from="Crop.crop_residue_litter"/>
+				<connect2 to="soil_carbon_decay.crop_residue_litter" from="Crop.crop_residue_litter"/>
+				<connect to="soil_carbon_decay.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
+				<connect2 to="soil_carbon_decay.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
+				<connect to="soil_carbon_decay.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
+				<connect2 to="soil_carbon_decay.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
+				<connect to="soil_carbon_decay.degraded_land_litter_to_soil_carbon" from="degraded_land_soil_carbon.degraded_land_litter_to_soil_carbon"/>
+				<connect2 to="soil_carbon_decay.degraded_land_litter_to_soil_carbon" from="degraded_land_soil_carbon.degraded_land_litter_to_soil_carbon"/>
+				<connect to="soil_carbon_decay.grassland_litter" from="Grass.grassland_litter"/>
+				<connect2 to="soil_carbon_decay.grassland_litter" from="Grass.grassland_litter"/>
+				<connect to="soil_carbon_decay.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
+				<connect2 to="soil_carbon_decay.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
+				<connect to="soil_carbon_decay.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
+				<connect2 to="soil_carbon_decay.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
+				<connect to="soil_carbon_decay.litter_to_soil_carbon_mature_forest" from="forest_soil_carbon.litter_to_soil_carbon_mature_forest"/>
+				<connect2 to="soil_carbon_decay.litter_to_soil_carbon_mature_forest" from="forest_soil_carbon.litter_to_soil_carbon_mature_forest"/>
+				<connect to="soil_carbon_decay.mature_forest_litter" from="Forest.mature_forest_litter"/>
+				<connect2 to="soil_carbon_decay.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="soil_carbon_decay.young_forest_litter" from="Forest.young_forest_litter"/>
+				<connect2 to="soil_carbon_decay.young_forest_litter" from="Forest.young_forest_litter"/>
 			</module>
 			<module name="cropland soil carbon" isee:label="">
 				<format scale_by="auto"/>
@@ -12224,6 +11646,8 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
+				<connect to="soil_carbon_decay.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
+				<connect2 to="soil_carbon_decay.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
 				<connect to="soil_carbon_emissions.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
 				<connect2 to="soil_carbon_emissions.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
 				<connect to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
@@ -12313,6 +11737,8 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				<connect2 to="Grassland_carbon_balance.grassland_landuse_fast_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_fast_soil_carbon_input"/>
 				<connect to="Grassland_carbon_balance.grassland_landuse_slow_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Grassland_carbon_balance.grassland_landuse_slow_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_slow_soil_carbon_input"/>
+				<connect to="soil_carbon_decay.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
+				<connect2 to="soil_carbon_decay.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
 				<connect to="soil_carbon_emissions.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
 				<connect2 to="soil_carbon_emissions.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.initial_grassland_soil_carbon"/>
@@ -12435,10 +11861,14 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				<connect2 to="Forest_carbon_balance.litter_emissions_young_forest_GtC" from="forest_soil_carbon.litter_emissions_young_forest_GtC"/>
 				<connect to="soil_carbon_emissions.litter_emissions_young_forest_GtC" from="forest_soil_carbon.litter_emissions_young_forest_GtC"/>
 				<connect2 to="soil_carbon_emissions.litter_emissions_young_forest_GtC" from="forest_soil_carbon.litter_emissions_young_forest_GtC"/>
+				<connect to="soil_carbon_decay.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
+				<connect2 to="soil_carbon_decay.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
 				<connect to="soil_carbon_emissions.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
 				<connect2 to="soil_carbon_emissions.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
 				<connect to="Terrestrial_Carbon_Balance.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
 				<connect2 to="Terrestrial_Carbon_Balance.litter_to_soil_carbon_young_forest" from="forest_soil_carbon.litter_to_soil_carbon_young_forest"/>
+				<connect to="soil_carbon_decay.litter_to_soil_carbon_mature_forest" from="forest_soil_carbon.litter_to_soil_carbon_mature_forest"/>
+				<connect2 to="soil_carbon_decay.litter_to_soil_carbon_mature_forest" from="forest_soil_carbon.litter_to_soil_carbon_mature_forest"/>
 				<connect to="soil_carbon_emissions.litter_to_soil_carbon_mature_forest" from="forest_soil_carbon.litter_to_soil_carbon_mature_forest"/>
 				<connect2 to="soil_carbon_emissions.litter_to_soil_carbon_mature_forest" from="forest_soil_carbon.litter_to_soil_carbon_mature_forest"/>
 				<connect to="Terrestrial_Carbon_Balance.slow_soil_carbon_emissions_young_forest" from="forest_soil_carbon.slow_soil_carbon_emissions_young_forest"/>
@@ -12520,8 +11950,12 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				<format scale_by="auto"/>
 				<connect to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect2 to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
+				<connect to="soil_carbon_decay.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
+				<connect2 to="soil_carbon_decay.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
 				<connect to="Terrestrial_Carbon_Balance.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
 				<connect2 to="Terrestrial_Carbon_Balance.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
+				<connect to="soil_carbon_decay.degraded_land_litter_to_soil_carbon" from="degraded_land_soil_carbon.degraded_land_litter_to_soil_carbon"/>
+				<connect2 to="soil_carbon_decay.degraded_land_litter_to_soil_carbon" from="degraded_land_soil_carbon.degraded_land_litter_to_soil_carbon"/>
 				<connect to="soil_carbon_emissions.degraded_land_litter_to_soil_carbon" from="degraded_land_soil_carbon.degraded_land_litter_to_soil_carbon"/>
 				<connect2 to="soil_carbon_emissions.degraded_land_litter_to_soil_carbon" from="degraded_land_soil_carbon.degraded_land_litter_to_soil_carbon"/>
 				<connect to="forest_soil_carbon.fast_soil_carbon_degraded_land_to_forest" from="degraded_land_soil_carbon.fast_soil_carbon_degraded_land_to_forest"/>
@@ -12608,7 +12042,7 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="406.25" isee:scroll_y="82.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="406.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -12720,6 +12154,22 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				<connector uid="17" isee:thickness="2" angle="113.695" isee:autocreated="true">
 					<from>forest_soil_carbon</from>
 					<to>soil_carbon_emissions</to>
+				</connector>
+				<connector uid="18" isee:thickness="2" angle="324.871" isee:autocreated="true">
+					<from>cropland_soil_carbon</from>
+					<to>soil_carbon_decay</to>
+				</connector>
+				<connector uid="19" isee:thickness="2" angle="295.373" isee:autocreated="true">
+					<from>degraded_land_soil_carbon</from>
+					<to>soil_carbon_decay</to>
+				</connector>
+				<connector uid="20" isee:thickness="2" angle="297.706" isee:autocreated="true">
+					<from>forest_soil_carbon</from>
+					<to>soil_carbon_decay</to>
+				</connector>
+				<connector uid="21" isee:thickness="2" angle="265.418" isee:autocreated="true">
+					<from>grassland_soil_carbon</from>
+					<to>soil_carbon_decay</to>
 				</connector>
 			</view>
 		</views>
@@ -13689,7 +13139,7 @@ get four outputs: grassland, crop, forest young, forest mature burned area in Mh
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="1122" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="31" isee:scroll_y="50" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -19311,7 +18761,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="1625" isee:scroll_y="30" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="167.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -22517,6 +21967,99 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
+			<aux name="Total litter to soil carbon">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>SUM(cropland_litter_to_soil_carbon[*]) + SUM(degraded_land_litter_to_soil_carbon[*]) + SUM(litter_to_soil_carbon_mature_forest[*]) + SUM(litter_to_soil_carbon_young_forest[*]) + SUM(grassland_litter_to_soil_carbon_grassland[*])</eqn>
+				<isee:summing/>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="cropland litter to soil carbon" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="degraded land litter to soil\ncarbon" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="litter to soil carbon mature forest" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="litter to soil carbon\nyoung forest" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="grassland litter to soil carbon grassland" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="crop residue litter" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="mature forest litter" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="young forest litter" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="grassland litter" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="degraded land litter" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="Total litter">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>SUM(crop_residue_litter[*]) + SUM(mature_forest_litter[*]) + SUM(young_forest_litter[*]) + SUM(grassland_litter[*]) + SUM(degraded_land_litter[*])</eqn>
+				<isee:summing/>
+				<units>GtC/Year</units>
+			</aux>
+			<aux name="Total litter non-soil">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Total_litter - Total_litter_to_soil_carbon</eqn>
+				<units>GtC/Year</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -22566,7 +22109,7 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_y="251" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="573" isee:scroll_y="511" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -22676,6 +22219,27 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<connector uid="14" angle="91.3768">
 					<from>selected_climate_case</from>
 					<to>decay_rate_litter_carbon</to>
+				</connector>
+				<aux x="975" y="614.5" name="Total litter to soil carbon"/>
+				<aux font_style="italic" font_weight="bold" x="1122" y="457" name="cropland litter to soil carbon"/>
+				<aux font_style="italic" font_weight="bold" x="1125" y="524" name="degraded land litter to soil\ncarbon"/>
+				<aux font_style="italic" font_weight="bold" x="1132" y="589.167" name="litter to soil carbon mature forest"/>
+				<aux font_style="italic" font_weight="bold" x="1132" y="654" name="litter to soil carbon\nyoung forest"/>
+				<aux font_style="italic" font_weight="bold" x="1136" y="720" name="grassland litter to soil carbon grassland"/>
+				<aux font_style="italic" font_weight="bold" x="1135" y="851" name="crop residue litter"/>
+				<aux font_style="italic" font_weight="bold" x="1140" y="911" name="mature forest litter"/>
+				<aux font_style="italic" font_weight="bold" x="1140" y="974" name="young forest litter"/>
+				<aux font_style="italic" font_weight="bold" x="1140" y="1026" name="grassland litter"/>
+				<aux font_style="italic" font_weight="bold" x="1140" y="1085" name="degraded land litter"/>
+				<aux x="951" y="960" name="Total litter"/>
+				<aux x="891" y="782" name="Total litter non-soil"/>
+				<connector uid="15" angle="111.251">
+					<from>Total_litter</from>
+					<to>&quot;Total_litter_non-soil&quot;</to>
+				</connector>
+				<connector uid="16" angle="247.166">
+					<from>Total_litter_to_soil_carbon</from>
+					<to>&quot;Total_litter_non-soil&quot;</to>
 				</connector>
 			</view>
 		</views>
@@ -22858,7 +22422,7 @@ litter_to_soil_carbon_mature_forest + litter_to_soil_carbon_young_forest + grass
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="187.5" isee:scroll_y="1.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>

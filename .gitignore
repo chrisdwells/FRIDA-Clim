@@ -19,3 +19,6 @@ rcmip3_processing/data/processed_rcmip/*
 rcmip3_processingmodels/*isdb
 scenariomip_files/
 RCMIP3_protocol_bundle_*/
+rcmip3_processing/data/processed_for_frida/*scen*csv
+rcmip3_processing/data/frida_clim_output/*scen*csv
+rcmip3_processing/models/*scen*csv

@@ -313,6 +313,18 @@ draws.append((drawn_samples))
 
 #%%
 
+if np.count_nonzero(np.isnan(temp_in)) > 0:
+    nan_idx = np.isnan(temp_in)
+    temp_in = temp_in[~nan_idx]
+    ohc_in = ohc_in[~nan_idx]
+    co2_in = co2_in[~nan_idx]
+    ocean_co2_in = ocean_co2_in[~nan_idx]
+    land_co2_in = land_co2_in[~nan_idx]
+    faer_in = faer_in[~nan_idx]
+    ecs_in = ecs_in[~nan_idx]
+    tcr_in = tcr_in[~nan_idx]
+
+#%%
 target_temp = scipy.stats.gaussian_kde(samples_dict['Global Mean Surface Temperature (GMST)'])
 prior_temp = scipy.stats.gaussian_kde(temp_in)
 post1_temp = scipy.stats.gaussian_kde(temp_in[valid_temp_flux])
@@ -327,7 +339,6 @@ target_co2 = scipy.stats.gaussian_kde(samples_dict['Atmospheric Concentrations|C
 prior_co2 = scipy.stats.gaussian_kde(co2_in)
 post1_co2 = scipy.stats.gaussian_kde(co2_in[valid_temp_flux])
 post2_co2 = scipy.stats.gaussian_kde(draws[0]['Atmospheric Concentrations|CO2'])
-post2_co2 = scipy.stats.gaussian_kde(co2_in[draws[0].index])
 
 target_oce_flux = scipy.stats.gaussian_kde(samples_dict['Carbon Flux to Oceans'])
 prior_oce_flux = scipy.stats.gaussian_kde(ocean_co2_in)

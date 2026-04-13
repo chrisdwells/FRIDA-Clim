@@ -13,30 +13,21 @@ load_dotenv()
 # including HFCs via HFC134a-eq, plus Montreal gas ERF and effect on EESC.
 
 
-
 rcmip_version = os.getenv("RCMIP_VERSION")
 rcmip_version_folder = rcmip_version.replace(".", "_").upper()
 
-indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
+indir = '../../../scenariomip_files/rcmip-phase-3-scenariomip-main/ScenarioMIP'
 outdir = '../../data/processed_for_frida'
 
-data_in = pd.read_csv(f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv')
-conc_in = pd.read_csv(f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv')
+data_in = pd.read_csv(f'{indir}/rcmip_phase3_emissions_ScenarioMIP_{rcmip_version}.csv')
+conc_in = pd.read_csv(f'{indir}/rcmip_phase3_concentrations_ScenarioMIP_{rcmip_version}.csv')
 
 start_year = 1750
 end_year = 2500
 n_years = end_year - start_year + 1
 
-hist_end_year = 2023
-n_years_hist = hist_end_year - start_year + 1
-
-cmip6_hist_end_year = 2015
-n_years_cmip6_hist = cmip6_hist_end_year - start_year + 1
-
-ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434', 
-        'ssp460', 'ssp534-over', 'ssp585', 
-        'esm-allGHG-ssp370-lowNTCF', 'esm-allGHG-ssp370-lowCH4', 
-        'esm-allGHG-ssp370-lowNTCF-HighCH4']
+scens = ['scen7-H', 'scen7-HL', 'scen7-M', 'scen7-ML', 'scen7-L', 'scen7-VL', 
+         'scen7-LN', 'esm-allGHG-scen7-H-CH4L', 'esm-allGHG-scen7-L-CH4H']
 
 # Make the HFC emissions back-calculated from concentrations
 # Note this is a bit hacky - you have to use a modified version of fill_from.py (in utils/)
@@ -136,19 +127,19 @@ def process_df(df_in, years):
 spec_remove = ['Halon-1202', 'NOx aviation']
 
 scen_specific_specs_to_remove = {
-    'hist-GHG':['Solar', 'Volcanic'],
-    'hist-aer':['Solar', 'Volcanic', 'CH2Cl2', 'CHCl3', 'HFC-152a',
-                'HFC-236fa', 'HFC-365mfc', 'NF3', 'C3F8', 'C4F10', 'C5F12',
-                'C7F16', 'C8F18', 'c-C4F8', 'SO2F2'],
-    'hist-CO2':['Solar', 'Volcanic', 'CH2Cl2', 'CHCl3', 'HFC-152a',
-                'HFC-236fa', 'HFC-365mfc', 'NF3', 'C3F8', 'C4F10', 'C5F12',
-                'C7F16', 'C8F18', 'c-C4F8', 'SO2F2'],
-    'esm-allGHG-ssp370-lowNTCF':['Solar', 'Volcanic'],
-    'esm-allGHG-ssp370-lowCH4':['Solar', 'Volcanic'],
-    'esm-allGHG-ssp370-lowNTCF-HighCH4':['Solar', 'Volcanic'],
+    # 'hist-GHG':['Solar', 'Volcanic'],
+    # 'hist-aer':['Solar', 'Volcanic', 'CH2Cl2', 'CHCl3', 'HFC-152a',
+    #             'HFC-236fa', 'HFC-365mfc', 'NF3', 'C3F8', 'C4F10', 'C5F12',
+    #             'C7F16', 'C8F18', 'c-C4F8', 'SO2F2'],
+    # 'hist-CO2':['Solar', 'Volcanic', 'CH2Cl2', 'CHCl3', 'HFC-152a',
+    #             'HFC-236fa', 'HFC-365mfc', 'NF3', 'C3F8', 'C4F10', 'C5F12',
+    #             'C7F16', 'C8F18', 'c-C4F8', 'SO2F2'],
+    # 'esm-allGHG-ssp370-lowNTCF':['Solar', 'Volcanic'],
+    # 'esm-allGHG-ssp370-lowCH4':['Solar', 'Volcanic'],
+    # 'esm-allGHG-ssp370-lowNTCF-HighCH4':['Solar', 'Volcanic'],
     }
 
-for scen in ssps:
+for scen in scens:
         
     f = FAIR()
     f.define_time(start_year, end_year, 1)
@@ -171,9 +162,9 @@ for scen in ssps:
     f.allocate()
     f.fill_species_configs()
     
-    f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv',
-                      concentration_file=f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv',
-                      forcing_file=f'{indir}/rcmip_phase3_forcing_{rcmip_version}.csv')
+    f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_ScenarioMIP_{rcmip_version}.csv',
+                      concentration_file=f'{indir}/rcmip_phase3_concentrations_ScenarioMIP_{rcmip_version}.csv',
+                      forcing_file=f'{indir}/rcmip_phase3_forcing_ScenarioMIP_{rcmip_version}.csv')
     
     
     initialise(f.concentration, f.species_configs['baseline_concentration'])
@@ -270,16 +261,16 @@ for scen in ssps:
     df_ssp = df_ssp.rename(columns=ems_species)
 
     # (as we need to use the full name to get the rcmip data...)
-    if 'ssp370-low' in scen:
+    if 'CH4' in scen:
         scen = scen.replace("esm-allGHG-", "") 
 
     # output full ems-driven
     df_ssp.to_csv(f'{outdir}/esm-allGHG-{scen}.csv')
     
-    if 'ssp370-low' in scen:
+    if 'CH4' in scen:
         continue
     
-    # make with non-CO2 conc (ie CH4, N2O) for esm-ssp (except the ssp370 variants which are only allGHG)
+    # make with non-CO2 conc (ie CH4, N2O) for esm-ssp (except the CH4 variants which are only allGHG)
     df_ssp_nonCO2_conc = copy.deepcopy(df_ssp)
     
     df_ssp_nonCO2_conc = df_ssp_nonCO2_conc.drop(columns=[
@@ -318,180 +309,4 @@ for scen in ssps:
     
     df_ssp_ghg_conc['CO2 Forcing.Atmos CO2 exogenous'] = process_df(df_co2, year_cols)
     
-    df_ssp_ghg_conc.to_csv(f'{outdir}/{scen}.csv')
-
-#%%
-for scen in ['historical', 'historical-cmip6', 'hist-GHG', 'hist-aer', 'hist-CO2']:
-    
-    end_year = hist_end_year
-    hist_n_years = n_years_hist
-    if 'cmip6' in scen:
-        end_year = cmip6_hist_end_year
-        hist_n_years = n_years_cmip6_hist
-    
-    # historical - inputs slightly different to ssps so can't just crop them..
-    
-    # HFCs
-    
-    f = FAIR()
-    f.define_time(start_year, end_year, 1)
-    
-    f.define_scenarios([scen])
-    configs = ['test']
-    f.define_configs(configs)
-    
-    species, properties = read_properties()
-    
-    species = [s for s in species if s not in spec_remove]
-    if scen in scen_specific_specs_to_remove.keys():
-        species = [s for s in species if s not in scen_specific_specs_to_remove[scen]]
-        
-    for s in spec_remove:
-        properties.pop(s, None)
-    
-    f.define_species(species, properties)
-    
-    f.allocate()
-    f.fill_species_configs()
-    
-    f.fill_from_rcmip(emissions_file=f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv',
-                      concentration_file=f'{indir}/rcmip_phase3_concentrations_{rcmip_version}.csv',
-                      forcing_file=f'{indir}/rcmip_phase3_forcing_{rcmip_version}.csv')
-    
-    
-    initialise(f.concentration, f.species_configs['baseline_concentration'])
-    initialise(f.forcing, 0)
-    initialise(f.temperature, 0)
-    initialise(f.cumulative_emissions, 0)
-    initialise(f.airborne_emissions, 0)
-    
-    capacities = [4.22335014, 16.5073541, 86.1841127]
-    kappas = [1.31180598, 2.61194068, 0.92986733]
-    epsilon = 1.29020599
-    fill(f.climate_configs['ocean_heat_capacity'], capacities)
-    fill(f.climate_configs['ocean_heat_transfer'], kappas)
-    fill(f.climate_configs['deep_ocean_efficacy'], epsilon)
-    
-    f.run()
-    
-    
-    eesc = (
-        f.concentration
-        .sel(
-            config="test",
-            specie="Equivalent effective stratospheric chlorine"
-        )
-    )
-    
-    
-    species_list = f.species_configs.sel(config="test").specie.where(
-        (f.species_configs.sel(config="test").cl_atoms > 0) |
-        (f.species_configs.sel(config="test").br_atoms > 0),
-        drop=True
-    ).values.tolist()
-    
-    montreal_erf = f.forcing.sel(config="test", specie=species_list).sum(dim="specie")
-    
-    
-    df_hist = pd.DataFrame()
-    df_hist['Year'] = np.arange(start_year, end_year+1)
-    df_hist = df_hist.set_index('Year')
-    
-    # exclude these for hist-aer, co2 - set to the 1750 value of the previous ssp
-    # (this will probably fail if no ssps selected..)
-    if scen in ['hist-aer', 'hist-CO2']:
-        df_hist['Emissions.HFC134a eq Emissions'] = np.full(hist_n_years, 
-                    df_ssp['Emissions.HFC134a eq Emissions'].loc[df_ssp.index == 1750].values[0])
-        df_hist['Ozone Forcing.Montreal gases equivalent effective stratospheric chlorine'] = np.full(hist_n_years, 
-                    df_ssp['Ozone Forcing.Montreal gases equivalent effective stratospheric chlorine'].loc[df_ssp.index == 1750].values[0])
-        df_hist['Minor GHGs Forcing.Montreal Gases Effective Radiative Forcing'] = np.full(hist_n_years, 
-                    df_ssp['Minor GHGs Forcing.Montreal Gases Effective Radiative Forcing'].loc[df_ssp.index == 1750].values[0])
-
-    else:
-        # hfcs        
-        hfc134a_eq = np.zeros(hist_n_years)
-        for gas in f_gases:
-            hfc134a_eq = hfc134a_eq + f.concentration[:,f.scenarios.index(scen),
-                      0,f.species.index(gas)] * radeff[gas] / radeff['HFC-134a']
-            
-        hfc134a_eq_minus_baseline = hfc134a_eq.values - hfc134a_eq.values[0]
-        
-        new_ems = np.zeros(hist_n_years)
-        for i in range(1, hist_n_years):
-            new_ems[i] = (hfc134a_eq_minus_baseline[i] - hfc134a_eq_minus_baseline[i-1
-                               ]*decay_factor)/concentration_per_emission
-          
-        df_hist['Emissions.HFC134a eq Emissions'] = new_ems
-        
-        # Montreal
-        df_hist['Ozone Forcing.Montreal gases equivalent effective stratospheric chlorine'
-               ] = eesc.sel(scenario=scen).values
-        df_hist['Minor GHGs Forcing.Montreal Gases Effective Radiative Forcing'
-               ] = montreal_erf.sel(scenario=scen).values
-            
-    # Others
-    
-    ems_filtered = data_in[
-        (data_in['Scenario'] == scen) &
-        (data_in['Region'] == 'World') &
-        (data_in['Variable'].isin(ems_species.keys()))
-    ]
-        
-    
-    year_cols = [c for c in ems_filtered.columns if c.isdigit()]
-    
-    ems_df = process_df(ems_filtered, year_cols)
-    
-    df_hist = df_hist.join(ems_df)
-    df_hist = df_hist.rename(columns=ems_species)
-        
-
-    # make conc-driven first as hist-aer,ghg,co2 only have this
-    df_ghg_conc = copy.deepcopy(df_hist)
-    
-    df_ghg_conc = df_ghg_conc.drop(columns=[
-        'Emissions.CO2 Emissions from Fossil use',
-        'Emissions.Total CH4 Emissions',
-        'Emissions.Total N2O Emissions',
-        ])
-    
-    df_n2o = conc_in[
-        (conc_in['Scenario'] == scen) &
-        (conc_in['Region'] == 'World') &
-        (conc_in['Variable'] == 'Atmospheric Concentrations|N2O')
-    ]
-    df_ghg_conc['N2O Forcing.Atmos N2O exogenous'] = process_df(df_n2o, year_cols)
-    
-    df_ch4 = conc_in[
-        (conc_in['Scenario'] == scen) &
-        (conc_in['Region'] == 'World') &
-        (conc_in['Variable'] == 'Atmospheric Concentrations|CH4')
-    ]
-    df_ghg_conc['CH4 Forcing.Atmos CH4 exogenous'] = process_df(df_ch4, year_cols)
-    
-    df_co2 = conc_in[
-        (conc_in['Scenario'] == scen) &
-        (conc_in['Region'] == 'World') &
-        (conc_in['Variable'] == 'Atmospheric Concentrations|CO2')
-    ]
-    
-    df_ghg_conc['CO2 Forcing.Atmos CO2 exogenous'] = process_df(df_co2, year_cols)
-    
-    df_ghg_conc.to_csv(f'{outdir}/{scen}.csv')
-    
-    if scen in ['hist-GHG', 'hist-aer', 'hist-CO2']:
-        continue
-    
-    scen_name = scen.replace('historical', 'hist') # ems-driven historical are esm-hist...
-    
-    # output esm-allGHG
-    df_hist.to_csv(f'{outdir}/esm-allGHG-{scen_name}.csv')
-
-    # and process co2 ems version
-    df_nonCO2_conc = copy.deepcopy(df_hist)
-    df_nonCO2_conc['N2O Forcing.Atmos N2O exogenous'] = process_df(df_n2o, year_cols)
-    df_nonCO2_conc['CH4 Forcing.Atmos CH4 exogenous'] = process_df(df_ch4, year_cols)
-
-    df_nonCO2_conc.to_csv(f'{outdir}/esm-{scen_name}.csv')
-
-    
+    df_ssp_ghg_conc.to_csv(f'{outdir}/{scen}C.csv')

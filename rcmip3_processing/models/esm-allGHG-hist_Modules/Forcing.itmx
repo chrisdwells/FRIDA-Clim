@@ -5,8 +5,11 @@
 		<name>Forcing</name>
 		<uuid>3cef55e9-2351-4644-9b0e-7122365fd40e</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.2.1" isee:build_number="3895" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
+	<ai_information>
+		<status verified="false"/>
+	</ai_information>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
 		<stop>2130</stop>
@@ -17,6 +20,21 @@
 		<dim name="Run" size="1"/>
 	</dimensions>
 	<isee:prefs saved_runs="2" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
+		<isee:tag_styles>
+			<isee:tag_style tag="Assumption"/>
+			<isee:tag_style tag="Calibrated Output"/>
+			<isee:tag_style tag="Climate Impact Parameter"/>
+			<isee:tag_style tag="Explanatory Variable"/>
+			<isee:tag_style tag="External Calibration Parameter"/>
+			<isee:tag_style tag="External Parameter"/>
+			<isee:tag_style tag="Interface"/>
+			<isee:tag_style tag="Internal Calibration Parameter"/>
+			<isee:tag_style tag="No Sensi"/>
+			<isee:tag_style tag="Output"/>
+			<isee:tag_style tag="Parameter"/>
+			<isee:tag_style tag="Policy"/>
+			<isee:tag_style tag="Unit"/>
+		</isee:tag_styles>
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -648,7 +666,7 @@
 					<to>Calibration_scaling_of_Black_Carbon_on_Snow_forcing</to>
 				</connector>
 				<module x="768.417" y="460.334" name="Minor GHGs Forcing"/>
-				<module x="1190.25" y="455.251" name="Land Use Forcing"/>
+				<module x="1193.58" y="455.251" name="Land Use Forcing"/>
 				<module x="490.5" y="463.167" name="N2O Forcing"/>
 				<connector uid="7" angle="268.782">
 					<from>N2O_Forcing</from>
@@ -728,7 +746,7 @@
 					<to>Anthropogenic_Effective_Radiative_Forcing</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="1190.25" y="588.333" name="Total Land use forcing"/>
-				<connector uid="27" angle="270" isee:autocreated="true">
+				<connector uid="27" angle="268.565" isee:autocreated="true">
 					<from>Land_Use_Forcing</from>
 					<to>Total_Land_use_forcing</to>
 				</connector>
@@ -2351,7 +2369,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<units>g/mol</units>
 			</aux>
 			<aux name="Atmospheric CH4\nConcentration 1750" access="output" isee:autocreated="true">
-				<eqn>729.2</eqn>
+				<eqn>798.79926</eqn>
 				<units>ppb</units>
 			</aux>
 			<aux name="CH4 forcing adjustment due to\nfast tropospheric feedbacks">
@@ -3214,7 +3232,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 			<aux name="Atmospheric CO2\nConcentration 1750">
 				<doc>${External Parameter}
 </doc>
-				<eqn>284.316998799642</eqn>
+				<eqn>284.29727</eqn>
 				<units>ppm</units>
 			</aux>
 			<aux name="CO2 forcing adjustment due to\nfast tropospheric feedbacks">
@@ -5343,7 +5361,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<units>(W/metre^2)/sqrt_ppb</units>
 			</aux>
 			<aux name="Atmospheric N2O\nConcentration 1750" access="output" isee:autocreated="true">
-				<eqn>270.1</eqn>
+				<eqn>271.57</eqn>
 				<units>ppb</units>
 			</aux>
 			<aux name="Scale factor for N2O lifetime">

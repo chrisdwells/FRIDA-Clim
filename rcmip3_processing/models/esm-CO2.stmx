@@ -64,12 +64,12 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/frida_clim_output/esm-bell-750PgC.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/frida_clim_output/esm-pi-cdr-pulse.csv" precomputed="false" isee:format="numbers">
 			<table name="Outputs" use_settings="true"/>
 		</export>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/baseline_emissions.csv"/>
-		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/CO2_1750.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/esm-bell-750PgC.csv"/>
+		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/concs_1750.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/esm-pi-cdr-pulse.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
 		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/constraining/frida_clim_inputs_100_from_100000_1750_inits.csv">

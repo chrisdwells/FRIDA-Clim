@@ -9359,7 +9359,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>clearing_forests_for_crops_exogenous_pi</eqn>
+				<eqn>clearing_forests_for_crops_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/Year</units>
 			</flow>
@@ -9374,7 +9374,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>clearing_grassland_exogenous_pi</eqn>
+				<eqn>clearing_grassland_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -9382,7 +9382,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>fallowing_cropland_exogenous_pi</eqn>
+				<eqn>fallowing_cropland_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -9402,7 +9402,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>foresting_grassland_exogenous_pi</eqn>
+				<eqn>foresting_grassland_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -9410,7 +9410,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>clearing_forest_for_grassland_exogenous_pi</eqn>
+				<eqn>clearing_forest_for_grassland_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -9760,7 +9760,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>degraded_land_from_crops_exogenous_pi</eqn>
+				<eqn>degraded_land_from_crops_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -9768,7 +9768,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>degraded_land_from_grassland_exogenous_pi</eqn>
+				<eqn>degraded_land_from_grassland_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -9791,7 +9791,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>foresting_degraded_land_exogenous_pi</eqn>
+				<eqn>foresting_degraded_land_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -9799,7 +9799,7 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forresting_cropland_exogenous_pi</eqn>
+				<eqn>forresting_cropland_exogenous</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -9850,39 +9850,39 @@ Lambin EF, Meyfroidt P. 2011. Global land use change, economic globalization, an
 				<eqn>1.6388818359375</eqn>
 				<units>Mha</units>
 			</aux>
-			<aux name="clearing forest\nfor grassland exogenous pi">
+			<aux name="clearing forest\nfor grassland exogenous">
 				<eqn>0.1</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="clearing grassland exogenous pi">
+			<aux name="clearing grassland exogenous">
 				<eqn>0.5</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="fallowing cropland exogenous pi">
+			<aux name="fallowing cropland exogenous">
 				<eqn>0.5</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="foresting grassland exogenous pi">
+			<aux name="foresting grassland\nexogenous">
 				<eqn>0.1</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="degraded\nland from grassland exogenous pi">
+			<aux name="degraded\nland from grassland\nexogenous">
 				<eqn>0</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="forresting cropland exogenous pi">
+			<aux name="forresting cropland\nexogenous">
 				<eqn>0.5</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="degraded\nland from crops exogenous pi">
+			<aux name="degraded\nland from crops exogenous">
 				<eqn>0</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="foresting\ndegraded land exogenous pi">
+			<aux name="foresting\ndegraded land exogenous">
 				<eqn>0</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="clearing forests\nfor crops exogenous pi">
+			<aux name="clearing forests\nfor crops exogenous">
 				<eqn>0.5</eqn>
 				<units>Mha/year</units>
 			</aux>
@@ -11066,7 +11066,7 @@ forest_burned_due_to_cc*fraction_of_mature_forest_out_of_total_forest</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="433.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -11255,49 +11255,49 @@ forest_burned_due_to_cc*fraction_of_mature_forest_out_of_total_forest</eqn>
 					<to>effect_of_cropland_size_on_time_in_use</to>
 				</connector>
 				<aux x="941.25" y="536.833" name="Initial\nDegraded Land"/>
-				<aux label_side="bottom" x="326.667" y="359.333" name="clearing forest\nfor grassland exogenous pi"/>
+				<aux label_side="bottom" x="326.667" y="359.333" name="clearing forest\nfor grassland exogenous"/>
 				<connector uid="94" angle="315.114">
-					<from>clearing_forest_for_grassland_exogenous_pi</from>
+					<from>clearing_forest_for_grassland_exogenous</from>
 					<to>clearing_forest_for_grassland</to>
 				</connector>
-				<aux x="586.5" y="537.875" name="clearing grassland exogenous pi"/>
-				<aux x="842.833" y="593.04" name="fallowing cropland exogenous pi"/>
+				<aux x="586.5" y="537.875" name="clearing grassland exogenous"/>
+				<aux x="842.833" y="593.04" name="fallowing cropland exogenous"/>
 				<connector uid="95" angle="22.0985">
-					<from>clearing_grassland_exogenous_pi</from>
+					<from>clearing_grassland_exogenous</from>
 					<to>clearing_grassland</to>
 				</connector>
 				<connector uid="96" angle="124.933">
-					<from>fallowing_cropland_exogenous_pi</from>
+					<from>fallowing_cropland_exogenous</from>
 					<to>fallowing_cropland</to>
 				</connector>
-				<aux x="1170" y="684.08" name="foresting grassland exogenous pi"/>
+				<aux x="1170" y="684.08" name="foresting grassland\nexogenous"/>
 				<connector uid="97" angle="59.9718">
-					<from>foresting_grassland_exogenous_pi</from>
+					<from>foresting_grassland_exogenous</from>
 					<to>foresting_grassland</to>
 				</connector>
-				<aux x="920" y="650.833" name="degraded\nland from grassland exogenous pi"/>
+				<aux x="920" y="650.833" name="degraded\nland from grassland\nexogenous"/>
 				<connector uid="98" angle="274.724">
-					<from>degraded_land_from_grassland_exogenous_pi</from>
+					<from>degraded_land_from_grassland_exogenous</from>
 					<to>degraded_land_from_grassland</to>
 				</connector>
-				<aux x="860.833" y="311.5" name="forresting cropland exogenous pi"/>
+				<aux x="860.833" y="311.5" name="forresting cropland\nexogenous"/>
 				<connector uid="99" angle="353.218">
-					<from>forresting_cropland_exogenous_pi</from>
+					<from>forresting_cropland_exogenous</from>
 					<to>forresting_cropland</to>
 				</connector>
-				<aux x="860.833" y="475.667" name="degraded\nland from crops exogenous pi"/>
+				<aux x="860.833" y="475.667" name="degraded\nland from crops exogenous"/>
 				<connector uid="100" angle="19.7776">
-					<from>degraded_land_from_crops_exogenous_pi</from>
+					<from>degraded_land_from_crops_exogenous</from>
 					<to>degraded_land_from_crops</to>
 				</connector>
-				<aux x="1272" y="547.04" name="foresting\ndegraded land exogenous pi"/>
+				<aux x="1272" y="547.04" name="foresting\ndegraded land exogenous"/>
 				<connector uid="101" angle="144.427">
-					<from>foresting_degraded_land_exogenous_pi</from>
+					<from>foresting_degraded_land_exogenous</from>
 					<to>foresting_degraded_land</to>
 				</connector>
-				<aux x="693.5" y="261.791" name="clearing forests\nfor crops exogenous pi"/>
+				<aux x="693.5" y="261.791" name="clearing forests\nfor crops exogenous"/>
 				<connector uid="102" angle="20.0359">
-					<from>clearing_forests_for_crops_exogenous_pi</from>
+					<from>clearing_forests_for_crops_exogenous</from>
 					<to>clearing_forests_for_crops</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="941.25" y="95" name="mature to young forest"/>

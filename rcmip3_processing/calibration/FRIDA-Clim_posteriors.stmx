@@ -90,7 +90,7 @@
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/crop_production.csv"/>
 		<import isee:overwrite="true" resource="r../Data/baseline_emissions.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/esm-allGHG-hist.csv"/>
-		<import isee:overwrite="true" resource="r../Data/CO2_1750.csv"/>
+		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/concs_1750.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="r../Data/natural_forcings.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
