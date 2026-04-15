@@ -40,3 +40,25 @@ ems_df = pd.DataFrame(
 ems_df = ems_df.astype(float)
 
 ems_df.to_csv(f'{outdir}/baseline_emissions.csv', index=False)
+
+
+ems_filtered = data_in[
+    (data_in['Scenario'] == 'historical-cmip6') &
+    (data_in['Region'] == 'World')
+]
+
+values_1750 = [
+    ems_filtered.loc[
+        ems_filtered['Variable'] == var, '1750'
+    ].iloc[0]
+    for var in baseline_ems_species.keys()
+]
+
+ems_df = pd.DataFrame(
+    [values_1750],
+    columns=list(baseline_ems_species.values())
+)
+
+ems_df = ems_df.astype(float)
+
+ems_df.to_csv(f'{outdir}/baseline_emissions_cmip6.csv', index=False)

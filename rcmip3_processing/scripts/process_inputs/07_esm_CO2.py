@@ -13,7 +13,10 @@ outdir = '../../data/processed_for_frida'
 
 data_in = pd.read_csv(f'{indir}/rcmip_phase3_emissions_{rcmip_version}.csv')
 
-scens = ['esm-pi-cdr-pulse', 'esm-pi-CO2pulse', 'esm-bell-1000PgC', 'esm-bell-2000PgC', 'esm-bell-750PgC']
+scens = [#'esm-pi-cdr-pulse', 'esm-pi-CO2pulse', 'esm-bell-1000PgC', 'esm-bell-2000PgC', 'esm-bell-750PgC',
+         'esm-flat10', 'esm-flat10-zec', 'esm-flat10-cdr', 'esm-flat10-nz', 'esm-flat10-rev', 
+         'esm-flat7.5', 'esm-flat7.5-cdr', 'esm-flat7.5-zec', 'esm-flat7.5-nz', 'esm-flat7.5-rev', 
+         'esm-flat20', 'esm-flat20-cdr', 'esm-flat20-zec', 'esm-flat20-nz', 'esm-flat20-rev']
 
 #%%
 

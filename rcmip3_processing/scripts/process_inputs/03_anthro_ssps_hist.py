@@ -33,10 +33,14 @@ n_years_hist = hist_end_year - start_year + 1
 cmip6_hist_end_year = 2015
 n_years_cmip6_hist = cmip6_hist_end_year - start_year + 1
 
-ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434', 
-        'ssp460', 'ssp534-over', 'ssp585', 
-        'esm-allGHG-ssp370-lowNTCF', 'esm-allGHG-ssp370-lowCH4', 
-        'esm-allGHG-ssp370-lowNTCF-HighCH4']
+ssps = [#'ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434', 
+        # 'ssp460', 'ssp534-over', 'ssp585', 
+        # 'esm-allGHG-ssp370-lowNTCF', 'esm-allGHG-ssp370-lowCH4', 
+        # 'esm-allGHG-ssp370-lowNTCF-HighCH4',
+        # 'methanemip-TM-allGHG', 'methanemip-TM+BC-allGHG',
+        # 'esm-allGHG-ssp534-over-highCH4',
+        'esm-allGHG-ssp585-lowCH4',
+        ]
 
 # Make the HFC emissions back-calculated from concentrations
 # Note this is a bit hacky - you have to use a modified version of fill_from.py (in utils/)
@@ -146,6 +150,8 @@ scen_specific_specs_to_remove = {
     'esm-allGHG-ssp370-lowNTCF':['Solar', 'Volcanic'],
     'esm-allGHG-ssp370-lowCH4':['Solar', 'Volcanic'],
     'esm-allGHG-ssp370-lowNTCF-HighCH4':['Solar', 'Volcanic'],
+    'esm-allGHG-ssp534-over-highCH4':['Solar', 'Volcanic'],
+    'esm-allGHG-ssp585-lowCH4':['Solar', 'Volcanic'],
     }
 
 for scen in ssps:
@@ -162,7 +168,7 @@ for scen in ssps:
     species = [s for s in species if s not in spec_remove]
     if scen in scen_specific_specs_to_remove.keys():
         species = [s for s in species if s not in scen_specific_specs_to_remove[scen]]
-    
+        
     for s in spec_remove:
         properties.pop(s, None)
     
@@ -270,13 +276,18 @@ for scen in ssps:
     df_ssp = df_ssp.rename(columns=ems_species)
 
     # (as we need to use the full name to get the rcmip data...)
-    if 'ssp370-low' in scen:
+    if 'esm-allGHG-' in scen:
         scen = scen.replace("esm-allGHG-", "") 
+
+    # deal with methanemip - only allGHG
+    if 'methanemip' in scen:
+        df_ssp.to_csv(f'{outdir}/{scen}.csv')
+        continue
 
     # output full ems-driven
     df_ssp.to_csv(f'{outdir}/esm-allGHG-{scen}.csv')
     
-    if 'ssp370-low' in scen:
+    if 'ssp370-low' in scen or 'ssp534-over-highCH4' in scen or 'ssp585-lowCH4' in scen:
         continue
     
     # make with non-CO2 conc (ie CH4, N2O) for esm-ssp (except the ssp370 variants which are only allGHG)

@@ -2,7 +2,7 @@
 <xmile version="1.0" xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" xmlns:isee="http://iseesystems.com/XMILE">
 	<header>
 		<smile version="1.0" namespace="std, isee" uses_arrays="1" uses_submodels=""/>
-		<name>esm-allGHG-hist</name>
+		<name>esm-allGHG-hist_scen7</name>
 		<uuid>f70d8701-d8ac-480a-a1ab-2de3e450aaee</uuid>
 		<vendor>isee systems, inc.</vendor>
 		<product version="4.2.1" isee:build_number="3895" isee:saved_by_v1="true" lang="en">Stella Architect</product>
@@ -506,7 +506,7 @@
 	</model_units>
 	<model>
 		<variables>
-			<module name="Climate" isee:label="" url="r../esm-allGHG-hist_Modules/Climate.itmx">
+			<module name="Climate" isee:label="" url="r../esm-allGHG-hist_scen7_Modules/Climate.itmx">
 				<format scale_by="auto"/>
 				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -727,7 +727,7 @@
 				<connect to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 			</module>
-			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../esm-allGHG-hist_Modules/Land Use and Agriculture.itmx">
+			<module name="Land Use\nand\nAgriculture" isee:label="" url="r../esm-allGHG-hist_scen7_Modules/Land Use and Agriculture.itmx">
 				<format scale_by="auto"/>
 				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>

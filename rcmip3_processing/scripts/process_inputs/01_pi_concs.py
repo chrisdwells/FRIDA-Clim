@@ -49,3 +49,31 @@ df_pi = pd.DataFrame(
 )
 
 df_pi.to_csv(f"{outdir}/concs_1750.csv", index=False)
+
+# for cmip6 we don't have picontrol, but we know the picontrol value for
+# cmip7 isthe 1850 value in the historical, so we use that
+spec_names = []
+data_out = []
+for spec in baseline_species.keys():
+    pi = data_in[
+        (data_in['Model'] == 'unspecified') &
+        (data_in['Scenario'] == 'historical-cmip6') &
+        (data_in['Region'] == 'World') &
+        (data_in['Variable'] == f'Atmospheric Concentrations|{spec}') &
+        (data_in['Unit'] == baseline_species[spec]) &
+        (data_in['Activity_Id'] == 'input4MIPs') &
+        (data_in['Type'] == 'non-idealised') &
+        (data_in['Priority'] == '2') &
+        (data_in['Mip_Era'] == 'CMIP6') &
+        (data_in['Version'] == f'RCMIP Phase 3 {rcmip_version}')
+    ]['1850'].iloc[0]
+    
+    spec_names.append(f'{spec} Forcing.Atmospheric {spec} Concentration 1750')
+    data_out.append(f'{pi}')
+
+df_pi = pd.DataFrame(
+    [data_out],  
+    columns=spec_names
+)
+
+df_pi.to_csv(f"{outdir}/concs_1750_cmip6.csv", index=False)

@@ -650,6 +650,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Ozone_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect2 to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
+				<connect to="Ozone_Forcing.Switch_Ozone_GMST_feedback" from=".Switch_Ozone_GMST_feedback"/>
+				<connect2 to="Ozone_Forcing.Switch_Ozone_GMST_feedback" from=".Switch_Ozone_GMST_feedback"/>
 				<connect to="Ozone_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
 				<connect2 to="Ozone_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
 				<connect to="Ozone_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
@@ -951,12 +953,12 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				</connector>
 				<module label_side="center" x="550" y="316.919" name="Energy\nBalance\nModel"/>
 				<module label_side="center" x="273.5" y="314.833" name="Emissions"/>
-				<module label_side="center" x="371.332" y="313.586" name="Forcing"/>
-				<connector uid="19" isee:thickness="2" angle="157.142">
+				<module label_side="center" x="371.332" y="314.833" name="Forcing"/>
+				<connector uid="19" isee:thickness="2" angle="157.542">
 					<from>Energy_Balance_Model</from>
 					<to>Forcing</to>
 				</connector>
-				<connector uid="20" isee:thickness="2" angle="330.214">
+				<connector uid="20" isee:thickness="2" angle="330.614">
 					<from>Forcing</from>
 					<to>Energy_Balance_Model</to>
 				</connector>
@@ -972,20 +974,20 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 					<from>Climate_Units</from>
 					<to>Energy_Balance_Model</to>
 				</connector>
-				<connector uid="43" color="#F0F3F3" font_color="#F0F3F3" isee:thickness="1" angle="247.504" isee:autocreated="true">
+				<connector uid="43" color="#F0F3F3" font_color="#F0F3F3" isee:thickness="1" angle="247.605" isee:autocreated="true">
 					<from>Climate_Units</from>
 					<to>Forcing</to>
 				</connector>
-				<connector uid="44" isee:thickness="2" angle="21.4299" isee:autocreated="true">
+				<connector uid="44" isee:thickness="2" angle="21.7317" isee:autocreated="true">
 					<from>Forcing</from>
 					<to>Ocean</to>
 				</connector>
-				<connector uid="45" isee:thickness="2" angle="194.598" isee:autocreated="true">
+				<connector uid="45" isee:thickness="2" angle="194.9" isee:autocreated="true">
 					<from>Ocean</from>
 					<to>Forcing</to>
 				</connector>
 				<module label_side="center" x="136" y="313.586" name="Terrestrial\nCarbon\nBalance"/>
-				<connector uid="18" isee:thickness="2" angle="0.730272" isee:autocreated="true">
+				<connector uid="18" isee:thickness="2" angle="0" isee:autocreated="true">
 					<from>Emissions</from>
 					<to>Forcing</to>
 				</connector>

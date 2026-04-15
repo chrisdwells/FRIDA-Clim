@@ -654,6 +654,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Ozone_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect2 to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
+				<connect to="Ozone_Forcing.Switch_Ozone_GMST_feedback" from=".Switch_Ozone_GMST_feedback"/>
+				<connect2 to="Ozone_Forcing.Switch_Ozone_GMST_feedback" from=".Switch_Ozone_GMST_feedback"/>
 				<connect to="Ozone_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
 				<connect2 to="Ozone_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
 				<connect to="Ozone_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>

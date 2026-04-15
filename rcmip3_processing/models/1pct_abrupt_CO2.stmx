@@ -540,6 +540,8 @@
 				<connect2 to="Grass.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
 				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
+				<connect to="Ozone_Forcing.Switch_Ozone_GMST_feedback" from=".Switch_Ozone_GMST_feedback"/>
+				<connect2 to="Ozone_Forcing.Switch_Ozone_GMST_feedback" from="Switch_Ozone_GMST_feedback"/>
 				<connect to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 				<connect2 to="Sea_Level.SWITCH_population_is_input" from="SWITCH_population_is_input"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
@@ -966,6 +968,10 @@ This is what determines when the model stops calculating</doc>
 				<eqn>0</eqn>
 				<units>1</units>
 			</aux>
+			<aux name="Switch Ozone GMST feedback">
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -1267,6 +1273,11 @@ This is what determines when the model stops calculating</doc>
 						</item>
 					</table>
 				</stacked_container>
+				<aux x="483.75" y="399.25" name="Switch Ozone GMST feedback"/>
+				<connector uid="190" angle="135.406" isee:autocreated="true">
+					<from>Switch_Ozone_GMST_feedback</from>
+					<to>Climate</to>
+				</connector>
 			</view>
 			<view isee:template_view="template:1" isee:name="Landing Page without image" isee:original_design="Deluxe Prev-Next Blue Green Pastel" background="white" page_width="1066" page_height="600" home_view="true" type="interface">
 				<style>

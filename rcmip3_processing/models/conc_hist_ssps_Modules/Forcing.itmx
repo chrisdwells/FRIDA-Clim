@@ -361,8 +361,6 @@
 				<connect2 to="Natural_Forcing.selected_climate_case_2" from="Climate_Units.selected_climate_case"/>
 				<connect to="Natural_Forcing.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Natural_Forcing.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
-				<connect to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
 			</module>
 			<module name="BC on Snow Forcing" isee:label="">
 				<format scale_by="auto"/>
@@ -408,8 +406,6 @@
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
 			</module>
 			<module name="N2O Forcing" isee:label="">
 				<format scale_by="auto"/>
@@ -593,7 +589,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="219" isee:scroll_y="325" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="155" isee:scroll_y="411.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2373,7 +2369,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<units>g/mol</units>
 			</aux>
 			<aux name="Atmospheric CH4\nConcentration 1750" access="output" isee:autocreated="true">
-				<eqn>798.79926</eqn>
+				<eqn>808.249028523763</eqn>
 				<units>ppb</units>
 			</aux>
 			<aux name="CH4 forcing adjustment due to\nfast tropospheric feedbacks">
@@ -3203,7 +3199,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 			<aux name="Atmospheric CO2\nConcentration 1750">
 				<doc>${External Parameter}
 </doc>
-				<eqn>284.29727</eqn>
+				<eqn>284.316998799642</eqn>
 				<units>ppm</units>
 			</aux>
 			<aux name="CO2 forcing adjustment due to\nfast tropospheric feedbacks">
@@ -3878,8 +3874,8 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;Switch_natural,_land_forcings&quot;*(Irrigation_ERF*Calibration_scaling_of_Irrigation_forcing[selected_climate_case[Run]] +
-(Albedo - INIT(Albedo))*Land_Use_Forcing_per_change_in_Land_Use_albedo*Calibration_scaling_of_Albedo_forcing[selected_climate_case[Run]])</eqn>
+				<eqn>Irrigation_ERF*Calibration_scaling_of_Irrigation_forcing[selected_climate_case[Run]] +
+(Albedo - INIT(Albedo))*Land_Use_Forcing_per_change_in_Land_Use_albedo*Calibration_scaling_of_Albedo_forcing[selected_climate_case[Run]]</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="Calibration scaling\nof Albedo forcing">
@@ -4530,10 +4526,6 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<eqn>Irrigation_ERF*Calibration_scaling_of_Irrigation_forcing[selected_climate_case[Run]]</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
-			<aux name="Switch natural, land forcings" access="input">
-				<eqn>1</eqn>
-				<units>dmnl</units>
-			</aux>
 			<aux name="Irrigation ERF" access="output" isee:autocreated="true">
 				<eqn>TIME</eqn>
 				<gf>
@@ -4592,7 +4584,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:scroll_x="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4682,11 +4674,6 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<connector uid="28" angle="240.939">
 					<from>selected_climate_case</from>
 					<to>Irrigation_forcing</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="282" y="481" name="Switch natural, land forcings"/>
-				<connector uid="29" angle="70.56">
-					<from>&quot;Switch_natural,_land_forcings&quot;</from>
-					<to>Total_Land_use_forcing</to>
 				</connector>
 				<aux x="388.083" y="283.25" name="Irrigation ERF"/>
 				<connector uid="30" angle="288.606">
@@ -5368,7 +5355,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<units>(W/metre^2)/sqrt_ppb</units>
 			</aux>
 			<aux name="Atmospheric N2O\nConcentration 1750" access="output" isee:autocreated="true">
-				<eqn>271.57</eqn>
+				<eqn>273.02104695638</eqn>
 				<units>ppb</units>
 			</aux>
 			<aux name="Scale factor for N2O lifetime">
@@ -7055,7 +7042,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;Switch_natural,_land_forcings&quot;*(Effective_Radiative_Forcing_from_Solar_Output_Variations[Run] + Efficacy_Adjusted_Effective_Radiative_Forcing_from_Volcanoes[Run])</eqn>
+				<eqn>Effective_Radiative_Forcing_from_Solar_Output_Variations[Run] + Efficacy_Adjusted_Effective_Radiative_Forcing_from_Volcanoes[Run]</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="selected climate case 2" access="input">
@@ -7091,10 +7078,6 @@ Atmospheric_CO2_Concentration_1750</eqn>
 			<aux name="Baseline Effective Radiative\nForcing from Volcanoes" access="output" isee:autocreated="true">
 				<eqn>0</eqn>
 				<units>W/(metre^2)</units>
-			</aux>
-			<aux name="Switch natural, land forcings" access="input">
-				<eqn>1</eqn>
-				<units>dmnl</units>
 			</aux>
 		</variables>
 		<views>
@@ -7145,7 +7128,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_rows="2" isee:scroll_y="121" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7244,11 +7227,6 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<connector uid="12" angle="299.437">
 					<from>Baseline_Effective_Radiative_Forcing_from_Volcanoes</from>
 					<to>Effective_Radiative_Forcing_from_Volcanoes</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="579" y="585" name="Switch natural, land forcings"/>
-				<connector uid="13" angle="169.38">
-					<from>&quot;Switch_natural,_land_forcings&quot;</from>
-					<to>Effective_Radiative_Forcing_from_Natural_Sources</to>
 				</connector>
 			</view>
 		</views>
@@ -9243,7 +9221,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="130" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>

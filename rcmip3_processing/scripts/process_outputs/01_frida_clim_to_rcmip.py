@@ -2,6 +2,7 @@ import pandas as pd
 from dotenv import load_dotenv
 import os
 import numpy as np
+import glob
 
 load_dotenv()
 
@@ -19,8 +20,21 @@ indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_da
 # for the units label - we convert all to RCMIP units 
 df_vars = pd.read_csv(f'{indir}/rcmip_phase3_protocol_{rcmip_version}_variable_definitions.csv')
 
-expts = ['esm-allGHG-hist']
+csvs = glob.glob('../../data/frida_clim_output/*.csv')
 
+
+# expts = [os.path.basename(f) for f in csvs if 'process_' not in os.path.basename(f)]
+expts = ['1pctCO2']
+
+# build in exceptions - don't want CO2 or CH4 conc if it's conc-driven for that species
+skip_vars = {expt: [] for expt in expts}
+for expt in expts:
+    if 'allGHG' not in expt:
+        skip_vars[expt].append('Atmospheric Concentrations|CH4')
+    if 'esm' not in expt and 'methanemip' not in expt:
+        skip_vars[expt].append('Carbon Pool|Atmosphere')
+        skip_vars[expt].append('Atmospheric Concentrations|CO2')
+ 
 def load_frida(var):
     def process(df):
         var_out = np.full((len(df['Year']), output_ensemble_size), np.nan)
@@ -251,6 +265,9 @@ for expt in expts:
     df_in = pd.read_csv(f'../../data/frida_clim_output/{expt}.csv')
     years = df_in["Year"].tolist()
     for rcmip_var, process in rcmip_from_frida_dict.items():
+        if rcmip_var in skip_vars[expt]:
+            print(f'Skipping {rcmip_var} for {expt}')
+            continue
         arr = process(df_in)
         
         for i in range(output_ensemble_size):
@@ -271,4 +288,4 @@ for expt in expts:
 
 df_out = pd.DataFrame(all_rows)
 
-save_df_in_chunks(df_out, name="frida_rcmip", chunk_size_rows=10000)
+save_df_in_chunks(df_out, name="frida_rcmip_test", chunk_size_rows=10000)

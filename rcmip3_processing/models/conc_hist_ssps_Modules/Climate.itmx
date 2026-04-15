@@ -600,8 +600,6 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
 				<connect to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect2 to="Minor_GHGs_Forcing.HFC134a_eq_Emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect to="Minor_GHGs_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
@@ -640,8 +638,6 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="Natural_Forcing.selected_climate_case_2" from="Climate_Units.selected_climate_case"/>
 				<connect to="Natural_Forcing.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Natural_Forcing.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
-				<connect to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect to="Ozone_Forcing.Baseline_NOx_Emissions_1" from="Emissions.Baseline_NOx_Emissions"/>

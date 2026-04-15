@@ -47,3 +47,33 @@ forc_df = forc_df.rename(columns=forc_species_from_rcmip)
 
 forc_df.to_csv(f'{outdir}/natural_forcings.csv')
 
+
+forc_filtered = data_in[
+    (data_in['Scenario'] == 'ssp119') &
+    (data_in['Region'] == 'World') &
+    (data_in['Variable'].isin(forc_species_from_rcmip.keys()))
+]
+
+year_cols = [c for c in forc_filtered.columns if c.isdigit()]
+
+forc_long = forc_filtered.melt(
+    id_vars='Variable',
+    value_vars=year_cols,
+    var_name='Year',
+    value_name='Value'
+)
+
+forc_long['Year'] = forc_long['Year'].astype(int)
+forc_long
+forc_df = (
+    forc_long
+    .pivot(index='Year', columns='Variable', values='Value')
+    .sort_index()
+)
+
+forc_df = forc_df.loc[1750:2500]
+
+forc_df = forc_df.rename(columns=forc_species_from_rcmip)
+
+
+forc_df.to_csv(f'{outdir}/natural_forcings_cmip6.csv')

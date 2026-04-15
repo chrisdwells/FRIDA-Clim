@@ -328,6 +328,8 @@
 				<connect2 to="Ozone_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect2 to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
+				<connect to="Ozone_Forcing.Switch_Ozone_GMST_feedback" from=".Switch_Ozone_GMST_feedback"/>
+				<connect2 to="Ozone_Forcing.Switch_Ozone_GMST_feedback" from=".Switch_Ozone_GMST_feedback"/>
 				<connect to="Ozone_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
 				<connect2 to="Ozone_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
 				<connect to="Ozone_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
@@ -7887,7 +7889,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Ozone_Effective_Radiative_Forcing_without_Temperature_effect + Reduction_in_Ozone_Effective_Radiative_Forcing_per_unit_temperature_change*Surface_Temperature</eqn>
+				<eqn>Ozone_Effective_Radiative_Forcing_without_Temperature_effect + Reduction_in_Ozone_Effective_Radiative_Forcing_per_unit_temperature_change*Surface_Temperature*Switch_Ozone_GMST_feedback</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="Surface Temperature" access="input">
@@ -9821,6 +9823,10 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mt NOx/yr</units>
 			</aux>
+			<aux name="Switch Ozone GMST feedback" access="input">
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -10046,6 +10052,11 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<connector uid="28" angle="17.9548">
 					<from>Montreal_gases_equivalent_effective_stratospheric_chlorine_1750</from>
 					<to>Montreal_gases_equivalent_effective_stratospheric_chlorine</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="718.75" y="688.75" name="Switch Ozone GMST feedback"/>
+				<connector uid="29" angle="92.2026">
+					<from>Switch_Ozone_GMST_feedback</from>
+					<to>Ozone_Effective_Radiative_Forcing</to>
 				</connector>
 			</view>
 		</views>
