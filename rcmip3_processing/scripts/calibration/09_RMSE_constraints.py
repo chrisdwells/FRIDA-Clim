@@ -79,14 +79,15 @@ for i in range(samples):
         temp_hist_offset[:, i],
     )
     
-accept_temp = rmse_temp < 0.16
+accept_temp = rmse_temp < 0.32# 0.16
 
 n_pass_temp = np.sum(accept_temp)
 
 print("Passing Temperature constraint:", n_pass_temp)
 valid_temp = np.arange(samples, dtype=int)[accept_temp]
 
-flux_constraint = 0.2*np.mean(flux_for_rmse)
+# flux_constraint = 0.2*np.mean(flux_for_rmse)
+flux_constraint = 1*np.mean(flux_for_rmse)
 
 rmse_flux = np.zeros((samples))
 

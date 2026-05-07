@@ -64,14 +64,14 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/frida_clim_output/esm-1pct-brch-2000PgC.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/frida_clim_output/esm-1pct-brch-750PgC.csv" precomputed="false" isee:format="numbers">
 			<table name="Outputs" use_settings="true"/>
 		</export>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/baseline_emissions.csv"/>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/concs_1750.csv"/>
 	</data>
 	<isee:sensi_specs_list active_index="0">
-		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/esm_1pct_brch_2000PgC_inputs_100_from_100000_inits_params.csv">
+		<isee:sensi_specs name="Climate Sensitivity" method="external" path="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/esm_1pct_brch_750PgC_inputs_100_from_100000_inits_params.csv">
 			<isee:variable type="adhoc" name='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"[1]'/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean[1]"/>
 			<isee:variable type="adhoc" name="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean[1]"/>

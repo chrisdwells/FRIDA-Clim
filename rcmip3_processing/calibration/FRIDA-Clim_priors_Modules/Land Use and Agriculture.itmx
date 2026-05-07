@@ -4808,13 +4808,13 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 					<eqn>0.001</eqn>
 				</element>
 				<range min="0.0005" max="0.001"/>
-				<units>1/ppm</units>
+				<units>dmnl</units>
 			</aux>
 			<aux name="effect of CO2 on\ntree net primary production">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(Atmospheric_CO2_Concentration_1 - INIT(Atmospheric_CO2_Concentration_1))*CO2_tree_net_primary_production_parameter[selected_climate_case[Run]]</eqn>
+				<eqn>LN(Atmospheric_CO2_Concentration_1/INIT(Atmospheric_CO2_Concentration_1))*CO2_tree_net_primary_production_parameter[selected_climate_case[Run]]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="change in tree net\nprimary production from CO2">
@@ -7434,7 +7434,7 @@ Neeed to look up </doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="523.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="836.25" isee:scroll_y="827.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7475,7 +7475,7 @@ Neeed to look up </doc>
 				</style>
 				<aux label_side="left" x="988.89" y="943.167" name="tree net primary production"/>
 				<aux x="1420.63" y="1151.29" name="CO2 tree net primary\nproduction parameter"/>
-				<aux x="1267" y="1182.17" name="effect of CO2 on\ntree net primary production"/>
+				<aux label_side="bottom" x="1267" y="1182.17" name="effect of CO2 on\ntree net primary production"/>
 				<connector uid="1" angle="191.365">
 					<from>CO2_tree_net_primary_production_parameter</from>
 					<to>effect_of_CO2_on_tree_net_primary_production</to>
@@ -8284,13 +8284,13 @@ Neeed to look up </doc>
 					<eqn>0.000963654</eqn>
 				</element>
 				<range min="0.0005" max="0.001"/>
-				<units>1/ppm</units>
+				<units>dmnl</units>
 			</aux>
 			<aux name="effect of CO2 on\ngrass net primary production">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(Atmospheric_CO2_Concentration - INIT(Atmospheric_CO2_Concentration))*CO2_grass_net_primary_production_parameter[selected_climate_case[Run]]</eqn>
+				<eqn>LN(Atmospheric_CO2_Concentration/INIT(Atmospheric_CO2_Concentration))*CO2_grass_net_primary_production_parameter[selected_climate_case[Run]]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="change in grass net primary production from CO2">
@@ -9093,7 +9093,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="75" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="723" isee:scroll_y="340" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>

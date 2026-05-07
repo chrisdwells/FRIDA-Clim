@@ -64,12 +64,12 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/frida_clim_output/ssp585.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/frida_clim_output/scen7-LNC.csv" precomputed="false" isee:format="numbers">
 			<table name="Outputs" use_settings="true"/>
 		</export>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/baseline_emissions.csv"/>
-		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/concs_1750_cmip6.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/ssp585.csv"/>
+		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/concs_1750.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/hist-GHG.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/natural_forcings.csv"/>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/frida_clim_land_stocks.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/frida_clim_land_transitions_hist.csv"/>
@@ -951,7 +951,7 @@
 			<aux name="Simulation End">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
-				<eqn>2500</eqn>
+				<eqn>2022</eqn>
 				<format precision="1"/>
 				<range min="2023" max="2200"/>
 				<units>years</units>
@@ -977,7 +977,7 @@ This is what determines when the model stops calculating</doc>
 				<units>1</units>
 			</aux>
 			<aux name="Switch natural, land forcings">
-				<eqn>1</eqn>
+				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
 		</variables>

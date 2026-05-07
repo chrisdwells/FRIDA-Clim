@@ -68,14 +68,15 @@ df_fair_data = pd.DataFrame(data=fair_data_dict, columns=fair_data_dict.keys())
 #%%
 
 # for FRIDA-Clim, add the land variables
+# updated the CO2 tree, grass params for the new log functional form
 
 land_variables = {
-    "Forest.CO2 tree net primary production parameter[1]":     [0.0008, 0.0012],
+    "Forest.CO2 tree net primary production parameter[1]":     [0.1, 1.0], #[0.0008, 0.0012],
     "Forest.STA maximum aboveground biomass per area parameter[1]":      [0.3, 0.5],
     "Forest.STA squared maximum aboveground biomass per area parameter[1]":    [-0.05, -0.02],
     "Forest.STA squared tree net primary production parameter[1]":    [-0.05, -0.01],
     "Forest.STA tree net primary production parameter[1]":    [0.1, 0.15],
-    "Grass.CO2 grass net primary production parameter[1]":   [0.0008, 0.0012],
+    "Grass.CO2 grass net primary production parameter[1]":   [0.1, 1.0], #[0.0008, 0.0012],
     "Grass.STA grass net primary production parameter[1]":    [0.1, 0.15],
     "Grass.STA squared grass net primary production parameter[1]":   [-0.05, -0.01],
     "Crop.harvest index for energy crops[1]":[0.6, 0.95],
@@ -259,7 +260,7 @@ df_combined.to_csv(
 
 #%%
 
-# finally, copy over the input files if needed, so the model can be shared
+# finally, copy over the input files, so the model can be shared
 # without breaking the links - files need to be in /Data. Move all except
 # the time-dependent anthro forcing
 
@@ -280,12 +281,8 @@ files_to_copy = [
 target_dir = '../../calibration/Data/'
 
 for f in files_to_copy:
-    
     fname = os.path.basename(f)
-
     fout = os.path.join(target_dir, fname)
-
-    if not os.path.exists(fout):
-        shutil.copy(f, fout)
+    shutil.copy(f, fout)
 
 

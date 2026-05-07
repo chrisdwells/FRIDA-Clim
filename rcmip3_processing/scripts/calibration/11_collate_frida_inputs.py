@@ -19,7 +19,6 @@ runids = np.loadtxt(
 
 df_prior_params = pd.read_csv(f"../../data/priors_input/priors_inputs_{samples}.csv")
 
-
 df_posterior_params = pd.DataFrame(data=df_prior_params.values[runids], columns=df_prior_params.keys())
 
 df_posterior_params.to_csv(

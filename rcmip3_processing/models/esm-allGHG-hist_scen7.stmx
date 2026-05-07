@@ -64,7 +64,7 @@
 	<isee:number_format_extenders/>
 	<default_format scale_by="1"/>
 	<data>
-		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/frida_clim_output/esm-allGHG-hist.csv" precomputed="false" isee:format="numbers">
+		<export frequency="on_demand" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/frida_clim_output/esm-allGHG-scen7-HL.csv" precomputed="false" isee:format="numbers">
 			<table name="Outputs" use_settings="true"/>
 		</export>
 		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/frida_clim_land_stocks.csv"/>
@@ -73,7 +73,7 @@
 		<import frequency="on_demand" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/frida_clim_npp_initial_values.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/crop_production.csv"/>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/baseline_emissions.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/esm-allGHG-hist.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/esm-allGHG-scen7-HL.csv"/>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/concs_1750.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/natural_forcings.csv"/>
 	</data>
@@ -947,7 +947,7 @@
 			<aux name="Simulation End">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
-				<eqn>2100</eqn>
+				<eqn>2500</eqn>
 				<format precision="1"/>
 				<range min="2023" max="2200"/>
 				<units>years</units>

@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 import numpy as np
 import glob
+# import math
 
 load_dotenv()
 
@@ -22,10 +23,11 @@ df_vars = pd.read_csv(f'{indir}/rcmip_phase3_protocol_{rcmip_version}_variable_d
 
 csvs = glob.glob('../../data/frida_clim_output/*.csv')
 
+expts = [os.path.splitext(os.path.basename(f))[0] for f in csvs if 'process_' not in os.path.basename(f)]
+expts = [expt for expt in expts if '1pct' in expt or 'abrupt' in expt or 'brch' in expt]
 
-# expts = [os.path.basename(f) for f in csvs if 'process_' not in os.path.basename(f)]
-expts = ['1pctCO2']
-
+# expts = [expt for expt in expts if 'scen7' not in expt and 'methanemip' not in expt and 'esm-allGHG-piControl' not in expt and 'esm-allGHG-hist' not in expt]
+# expts = ['esm-allGHG-hist']
 # build in exceptions - don't want CO2 or CH4 conc if it's conc-driven for that species
 skip_vars = {expt: [] for expt in expts}
 for expt in expts:
@@ -103,7 +105,7 @@ def save_df_in_chunks(df, name, chunk_size_rows):
         
 GtC_to_MtCO2 = 3.664*1000
 MtCO2_per_ppm = 7800.3
-YJ_to_ZJ = 0.001
+YJ_to_ZJ = 1000
 HeatUptake_to_OHC = 0.91
 warm_ocean_frac = 0.85
 m_to_cm = 100
@@ -260,16 +262,22 @@ rcmip_from_frida_dict = {
 }
 
 
-all_rows = []   
+
 for expt in expts:
+    if os.path.exists(f"../../data/processed_rcmip/frida_rcmip_output_{expt}.csv"):
+        continue
+
+    all_rows = []
     df_in = pd.read_csv(f'../../data/frida_clim_output/{expt}.csv')
     years = df_in["Year"].tolist()
+
     for rcmip_var, process in rcmip_from_frida_dict.items():
         if rcmip_var in skip_vars[expt]:
             print(f'Skipping {rcmip_var} for {expt}')
             continue
+
         arr = process(df_in)
-        
+
         for i in range(output_ensemble_size):
             row = {
                 "climate_model": "FRIDA-Climv1.0.1",
@@ -277,15 +285,69 @@ for expt in expts:
                 "scenario": expt,
                 "region": "World",
                 "variable": rcmip_var,
-                "unit": df_vars.loc[df_vars["Variable"] == rcmip_var, 
-                            "Unit"].iloc[0],
-                "ensemble_member": i + 1
+                "unit": df_vars.loc[
+                    df_vars["Variable"] == rcmip_var, "Unit"
+                ].iloc[0],
+                "ensemble_member": i + 1,
             }
+
             for y_index, year in enumerate(years):
                 row[year] = arr[y_index, i]
 
             all_rows.append(row)
 
-df_out = pd.DataFrame(all_rows)
+    df_out = pd.DataFrame(all_rows)
+    
+    df_out.to_csv(f"../../data/processed_rcmip/frida_rcmip_output_{expt}.csv", index=False)
 
-save_df_in_chunks(df_out, name="frida_rcmip_test", chunk_size_rows=10000)
+#%%
+## prior code for doing in blocks - but rcmip wants 1 file per expt...
+
+# batch = 1
+# block_size = 10
+# n_blocks = math.ceil(len(expts) / block_size)
+
+# for block_idx in range(n_blocks):
+#     start = block_idx * block_size
+#     end = start + block_size
+#     expts_block = expts[start:end]
+
+#     print(f"Processing block {block_idx + 1}: expts {start}–{end - 1}")
+#     all_rows = []
+
+#     for expt in expts_block:
+#         df_in = pd.read_csv(f'../../data/frida_clim_output/{expt}.csv')
+#         years = df_in["Year"].tolist()
+
+#         for rcmip_var, process in rcmip_from_frida_dict.items():
+#             if rcmip_var in skip_vars[expt]:
+#                 print(f'Skipping {rcmip_var} for {expt}')
+#                 continue
+
+#             arr = process(df_in)
+
+#             for i in range(output_ensemble_size):
+#                 row = {
+#                     "climate_model": "FRIDA-Climv1.0.1",
+#                     "model": "undefined for now",
+#                     "scenario": expt,
+#                     "region": "World",
+#                     "variable": rcmip_var,
+#                     "unit": df_vars.loc[
+#                         df_vars["Variable"] == rcmip_var, "Unit"
+#                     ].iloc[0],
+#                     "ensemble_member": i + 1,
+#                 }
+
+#                 for y_index, year in enumerate(years):
+#                     row[year] = arr[y_index, i]
+
+#                 all_rows.append(row)
+
+#     df_out = pd.DataFrame(all_rows)
+
+#     save_df_in_chunks(
+#         df_out,
+#         name=f"frida_rcmip_batch{batch}_block{block_idx + 1}",
+#         chunk_size_rows=3000,
+#     )

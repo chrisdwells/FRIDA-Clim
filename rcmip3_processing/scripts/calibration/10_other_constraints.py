@@ -27,6 +27,11 @@ calibration = os.getenv("CALIBRATION")
 
 NINETY_TO_ONESIGMA = scipy.stats.norm.ppf(0.95)
 
+# valid_temp_flux = np.loadtxt(
+#     "../../data/constraining/runids_rmse_pass.csv",
+# ).astype(np.int64)
+
+
 valid_temp_flux = np.loadtxt(
     "../../data/constraining/runids_rmse_pass.csv",
 ).astype(np.int64)
@@ -87,8 +92,9 @@ faer_in = fari_in + faci_in
 
 # and keep ECS, TCR
 df_ecs_tcr = pd.read_csv(f"../../data/external/samples_for_priors/ecs_tcs_{samples}.csv")
-ecs_in = df_ecs_tcr['ecs']
-tcr_in = df_ecs_tcr['tcr']
+
+ecs_in = df_ecs_tcr['ecs'][:samples]
+tcr_in = df_ecs_tcr['tcr'][:samples]
 
 # ensure shape is as we expect
 assert temp_in.shape == (samples,)
@@ -134,10 +140,22 @@ df_rcmip_constraints = pd.read_csv(
 
 for c_i, constraint in enumerate(constraints):
     if constraint not in ['ERFaci', 'ERFari', 'ECS', 'TCR']:
+        scale = 1
+        if constraint == 'Atmospheric Concentrations|CO2':
+            scale = 1
+            co2_scale=scale
         df_con = df_rcmip_constraints.loc[df_rcmip_constraints["Variable"] == constraint]
         
+        # params = scipy.optimize.root(opt, [1, 1, 1], 
+        #          args=(df_con["Lower_bound"].values[0], df_con["Central_estimate"].values[0], df_con["Upper_bound"].values[0])).x
+        
+        lower_del = df_con["Central_estimate"].values[0] - df_con["Lower_bound"].values[0]
+        upper_del = df_con["Upper_bound"].values[0] - df_con["Central_estimate"].values[0]
+        
         params = scipy.optimize.root(opt, [1, 1, 1], 
-                 args=(df_con["Lower_bound"].values[0], df_con["Central_estimate"].values[0], df_con["Upper_bound"].values[0])).x
+                 args=(df_con["Central_estimate"].values[0] - scale*lower_del, 
+                       df_con["Central_estimate"].values[0], df_con["Central_estimate"].values[0] + scale*upper_del)).x
+        
         
         samples_dict[constraint] = scipy.stats.skewnorm.rvs(
             params[0],
@@ -214,7 +232,13 @@ def calculate_sample_weights(distributions, samples, niterations=50):
             if k == (niterations - 1):
                 weights_to_average.append(unique_code_weights[our_values_bin_idx])
 
-            weights *= unique_code_weights[our_values_bin_idx]
+            # try extra weighting GMST constraint to improve
+            # in default, we still just leave as 1 - didnt find a clear benefit
+            weight_scale = 1.0 
+            if unique_code == 'Global Mean Surface Temperature (GMST)':
+                weight_scale = 1.0
+            weights *= unique_code_weights[our_values_bin_idx] ** weight_scale
+
 
             gof = ((unique_code_weights[1:-1] - 1) ** 2).sum()
             gofs[-1].append(gof)
@@ -324,7 +348,7 @@ if np.count_nonzero(np.isnan(temp_in)) > 0:
     ecs_in = ecs_in[~nan_idx]
     tcr_in = tcr_in[~nan_idx]
 
-#%%
+
 target_temp = scipy.stats.gaussian_kde(samples_dict['Global Mean Surface Temperature (GMST)'])
 prior_temp = scipy.stats.gaussian_kde(temp_in)
 post1_temp = scipy.stats.gaussian_kde(temp_in[valid_temp_flux])
@@ -409,14 +433,18 @@ def dist_plot(axs, start, stop, target, priors, post1, post2, ylims, title, unit
     dict_distributions[dist_name]['xlim'] = [start, stop]
 
 
-dist_plot(ax[0,0], 0.8, 2.0, target_temp, prior_temp, post1_temp, post2_temp,
+dist_plot(ax[0,0], 0.5, 1.8, target_temp, prior_temp, post1_temp, post2_temp,
           [0, 5], "Temperature anomaly", "°C, 2014-2022 minus 1850-1900", 'Temp')
     
 dist_plot(ax[0,1], 0, 800, target_ohc, prior_ohc, post1_ohc, post2_ohc,
           [0, 0.006], "Ocean heat content change", "ZJ, 2020 minus 1971", 'OHC')
     
+
 dist_plot(ax[0,2], 400, 420, target_co2, prior_co2, post1_co2, post2_co2,
           [0, 0.3], "CO$_2$ concentration", "ppm, 2014-2023", 'CO2')
+    
+# dist_plot(ax[0,2], 410 - 10*co2_scale, 410 + 10*co2_scale, target_co2, prior_co2, post1_co2, post2_co2,
+#           [0, 0.3], "CO$_2$ concentration", "ppm, 2014-2023", 'CO2')
     
 dist_plot(ax[1,0], -3, 0, target_aer, prior_aer, post1_aer, post2_aer,
           [0, 1], "Aerosol ERF", "W m$^{-2}$, 2005-2014 minus 1850-1900", 'Aerosol')

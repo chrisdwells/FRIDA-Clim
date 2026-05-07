@@ -37,9 +37,9 @@ ssps = [#'ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434',
         # 'ssp460', 'ssp534-over', 'ssp585', 
         # 'esm-allGHG-ssp370-lowNTCF', 'esm-allGHG-ssp370-lowCH4', 
         # 'esm-allGHG-ssp370-lowNTCF-HighCH4',
-        # 'methanemip-TM-allGHG', 'methanemip-TM+BC-allGHG',
+        'methanemip-TM-allGHG', 'methanemip-TM+BC-allGHG',
         # 'esm-allGHG-ssp534-over-highCH4',
-        'esm-allGHG-ssp585-lowCH4',
+        # 'esm-allGHG-ssp585-lowCH4',
         ]
 
 # Make the HFC emissions back-calculated from concentrations
@@ -152,6 +152,8 @@ scen_specific_specs_to_remove = {
     'esm-allGHG-ssp370-lowNTCF-HighCH4':['Solar', 'Volcanic'],
     'esm-allGHG-ssp534-over-highCH4':['Solar', 'Volcanic'],
     'esm-allGHG-ssp585-lowCH4':['Solar', 'Volcanic'],
+    'methanemip-TM-allGHG':['Solar', 'Volcanic'],
+    'methanemip-TM+BC-allGHG':['Solar', 'Volcanic'],
     }
 
 for scen in ssps:
