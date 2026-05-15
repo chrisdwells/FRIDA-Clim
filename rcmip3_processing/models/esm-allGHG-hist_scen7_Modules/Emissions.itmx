@@ -298,19 +298,19 @@
 				<units>MtCO2/Year</units>
 			</aux>
 			<aux name="N2O Baseline Emissions" access="output">
-				<eqn>999.086659065713</eqn>
+				<eqn>999.096311544182</eqn>
 				<units>ktN2O/yr</units>
 			</aux>
 			<aux name="SO2 Baseline Emissions" access="output">
-				<eqn>2.29755041140102</eqn>
+				<eqn>2.29765864298516</eqn>
 				<units>MtSO2/yr</units>
 			</aux>
 			<aux name="CH4 Baseline Emissions" access="output">
-				<eqn>26.6237352006622</eqn>
+				<eqn>26.6240668095578</eqn>
 				<units>MtCH4/yr</units>
 			</aux>
 			<aux name="Baseline VOC Emissions" access="output" isee:autocreated="true">
-				<eqn>59.421024860105</eqn>
+				<eqn>59.4263662576475</eqn>
 				<units>Mt VOC/yr</units>
 			</aux>
 			<aux name="VOC Emissions" access="output" isee:autocreated="true">
@@ -318,7 +318,7 @@
 				<units>Mt VOC/yr</units>
 			</aux>
 			<aux name="Baseline CO Emissions" access="output" isee:autocreated="true">
-				<eqn>341.276039272199</eqn>
+				<eqn>341.323725296338</eqn>
 				<units>Mt CO/yr</units>
 			</aux>
 			<aux name="CO Emissions" access="output" isee:autocreated="true">
@@ -337,7 +337,7 @@
 				<units>Mt NOx/yr</units>
 			</aux>
 			<aux name="Baseline NOx Emissions" access="output" isee:autocreated="true">
-				<eqn>19.1961825967504</eqn>
+				<eqn>19.1965889642965</eqn>
 				<units>Mt NOx/yr</units>
 			</aux>
 			<aux name="CO2 Emissions from\nFossil use" access="output" isee:autocreated="true">

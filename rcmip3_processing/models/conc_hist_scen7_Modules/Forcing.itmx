@@ -328,6 +328,8 @@
 				<connect2 to="Ozone_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect2 to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
+				<connect to='Ozone_Forcing."Switch_natural,_land,_ozone_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
+				<connect2 to='Ozone_Forcing."Switch_natural,_land,_ozone_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
 				<connect to="Ozone_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
 				<connect2 to="Ozone_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
 				<connect to="Ozone_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
@@ -337,6 +339,8 @@
 				<format scale_by="auto"/>
 				<connect to="Forcing.Effective_Radiative_Forcing_from_Aerosols" from="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosols"/>
 				<connect2 to="Effective_Radiative_Forcing_from_Aerosols" from="Aerosol_Forcing.Effective_Radiative_Forcing_from_Aerosols"/>
+				<connect to='Aerosol_Forcing."Aerosol_hist-GHG,_CO2_switch"' from='."Aerosol_hist-GHG,_CO2_switch"'/>
+				<connect2 to='Aerosol_Forcing."Aerosol_hist-GHG,_CO2_switch"' from='."Aerosol_hist-GHG,_CO2_switch"'/>
 				<connect to="Aerosol_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Aerosol_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Aerosol_Forcing.SO2_Baseline_Emissions" from="Emissions.SO2_Baseline_Emissions"/>
@@ -361,13 +365,15 @@
 				<connect2 to="Natural_Forcing.selected_climate_case_2" from="Climate_Units.selected_climate_case"/>
 				<connect to="Natural_Forcing.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Natural_Forcing.selected_climate_case_3" from="Climate_Units.selected_climate_case"/>
-				<connect to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
+				<connect to='Natural_Forcing."Switch_natural,_land_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
+				<connect2 to='Natural_Forcing."Switch_natural,_land_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
 			</module>
 			<module name="BC on Snow Forcing" isee:label="">
 				<format scale_by="auto"/>
 				<connect to="Forcing.Calibration_scaling_of_Black_Carbon_on_Snow_forcing" from="BC_on_Snow_Forcing.Effective_Radiative_Forcing_of_Black_Carbon_on_Snow"/>
 				<connect2 to="Calibration_scaling_of_Black_Carbon_on_Snow_forcing" from="BC_on_Snow_Forcing.Effective_Radiative_Forcing_of_Black_Carbon_on_Snow"/>
+				<connect to='BC_on_Snow_Forcing."Aerosol_hist-GHG,_CO2_switch"' from='."Aerosol_hist-GHG,_CO2_switch"'/>
+				<connect2 to='BC_on_Snow_Forcing."Aerosol_hist-GHG,_CO2_switch"' from='."Aerosol_hist-GHG,_CO2_switch"'/>
 				<connect to="BC_on_Snow_Forcing.CO2_Emissions_from_Food_and_Land_Use" from="Emissions.CO2_Emissions_from_Food_and_Land_Use"/>
 				<connect2 to="BC_on_Snow_Forcing.CO2_Emissions_from_Food_and_Land_Use" from="Emissions.CO2_Emissions_from_Food_and_Land_Use"/>
 				<connect to="BC_on_Snow_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
@@ -408,8 +414,8 @@
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Land_Use_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
+				<connect to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
+				<connect2 to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
 			</module>
 			<module name="N2O Forcing" isee:label="">
 				<format scale_by="auto"/>
@@ -740,12 +746,12 @@
 					<from>Ozone_Forcing</from>
 					<to>CH4_Forcing</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="768.417" y="622.747" name="Minor GHGs Effective\nRadiative Forcing"/>
-				<connector uid="25" angle="270" isee:autocreated="true">
+				<aux font_style="italic" font_weight="bold" x="773.417" y="622.747" name="Minor GHGs Effective\nRadiative Forcing"/>
+				<connector uid="25" angle="271.763" isee:autocreated="true">
 					<from>Minor_GHGs_Forcing</from>
 					<to>Minor_GHGs_Effective_Radiative_Forcing</to>
 				</connector>
-				<connector uid="26" angle="242.248">
+				<connector uid="26" angle="241.178">
 					<from>Minor_GHGs_Effective_Radiative_Forcing</from>
 					<to>Anthropogenic_Effective_Radiative_Forcing</to>
 				</connector>
@@ -1720,8 +1726,12 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Effective_Radiative_Forcing_from_Aerosol_Radiation_Interactions + Effective_Radiative_Forcing_from_Aerosol_Cloud_Interactions</eqn>
+				<eqn>&quot;Aerosol_hist-GHG,_CO2_switch&quot;*(Effective_Radiative_Forcing_from_Aerosol_Radiation_Interactions + Effective_Radiative_Forcing_from_Aerosol_Cloud_Interactions)</eqn>
 				<units>W/(metre^2)</units>
+			</aux>
+			<aux name="Aerosol hist-GHG, CO2 switch" access="input">
+				<eqn>0</eqn>
+				<units>dmnl</units>
 			</aux>
 		</variables>
 		<views>
@@ -1864,6 +1874,11 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 					<from>selected_climate_case</from>
 					<to>Effective_Radiative_Forcing_from_Aerosol_Cloud_Interactions</to>
 				</connector>
+				<aux font_style="italic" font_weight="bold" x="476" y="463" name="Aerosol hist-GHG, CO2 switch"/>
+				<connector uid="13" angle="171.87">
+					<from>&quot;Aerosol_hist-GHG,_CO2_switch&quot;</from>
+					<to>Effective_Radiative_Forcing_from_Aerosols</to>
+				</connector>
 			</view>
 		</views>
 	</model>
@@ -1879,7 +1894,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(Effective_Radiative_Forcing_of_Black_Carbon_on_Snow_per_unit_SO2_Emissions*(DELAY(Total_SO2_Emissions_1,  0.5) - SO2_Baseline_Emissions_1) + Effective_Radiative_Forcing_of_Black_Carbon_on_Snow_per_unit_CO2_AFOLU_Emissions*(DELAY(CO2_Emissions_from_Food_and_Land_Use,  0.5)-CO2_AFOLU_Baseline_Emissions[Run])*UNIT_MtCO2_to_GtCO2_1)*Calibration_scaling_of_Black_Carbon_on_Snow_forcing[selected_climate_case_1[Run]]</eqn>
+				<eqn>&quot;Aerosol_hist-GHG,_CO2_switch&quot;*((Effective_Radiative_Forcing_of_Black_Carbon_on_Snow_per_unit_SO2_Emissions*(DELAY(Total_SO2_Emissions_1,  0.5) - SO2_Baseline_Emissions_1) + Effective_Radiative_Forcing_of_Black_Carbon_on_Snow_per_unit_CO2_AFOLU_Emissions*(DELAY(CO2_Emissions_from_Food_and_Land_Use,  0.5)-CO2_AFOLU_Baseline_Emissions[Run])*UNIT_MtCO2_to_GtCO2_1)*Calibration_scaling_of_Black_Carbon_on_Snow_forcing[selected_climate_case_1[Run]])</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="Effective\nRadiative Forcing of Black Carbon on Snow per unit CO2\nAFOLU Emissions">
@@ -2225,6 +2240,10 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>MtCO2/Year</units>
 			</aux>
+			<aux name="Aerosol hist-GHG, CO2 switch" access="input">
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -2363,6 +2382,11 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 					<from>CO2_Emissions_from_Food_and_Land_Use</from>
 					<to>CO2_AFOLU_Baseline_Emissions</to>
 				</connector>
+				<aux font_style="italic" font_weight="bold" x="440" y="465" name="Aerosol hist-GHG, CO2 switch"/>
+				<connector uid="12" angle="137.49">
+					<from>&quot;Aerosol_hist-GHG,_CO2_switch&quot;</from>
+					<to>Effective_Radiative_Forcing_of_Black_Carbon_on_Snow</to>
+				</connector>
 			</view>
 		</views>
 	</model>
@@ -2373,7 +2397,7 @@ Smith et al 2021 https://doi.org/10.1029/2020JD033622</doc>
 				<units>g/mol</units>
 			</aux>
 			<aux name="Atmospheric CH4\nConcentration 1750" access="output" isee:autocreated="true">
-				<eqn>798.79926</eqn>
+				<eqn>INIT(Atmos_CH4_exogenous)</eqn>
 				<units>ppb</units>
 			</aux>
 			<aux name="CH4 forcing adjustment due to\nfast tropospheric feedbacks">
@@ -3179,6 +3203,10 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Atmos_CH4_exogenous</from>
 					<to>Atmospheric_CH4_Concentration</to>
 				</connector>
+				<connector uid="46" angle="219.276">
+					<from>Atmos_CH4_exogenous</from>
+					<to>Atmospheric_CH4_Concentration_1750</to>
+				</connector>
 				<alias font_style="italic" uid="22" x="170.75" y="174.292" width="18" height="18">
 					<of>Atmospheric_CH4_Concentration</of>
 				</alias>
@@ -3203,7 +3231,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 			<aux name="Atmospheric CO2\nConcentration 1750">
 				<doc>${External Parameter}
 </doc>
-				<eqn>284.29727</eqn>
+				<eqn>INIT(Atmos_CO2_exogenous)</eqn>
 				<units>ppm</units>
 			</aux>
 			<aux name="CO2 forcing adjustment due to\nfast tropospheric feedbacks">
@@ -3701,7 +3729,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="190" isee:scroll_y="557" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="190" isee:scroll_y="197" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3862,6 +3890,10 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<connector uid="74" angle="296.859">
 					<from>CO2_conc_rad</from>
 					<to>CO2_Effective_Radiative_Forcing</to>
+				</connector>
+				<connector uid="75" angle="231.506">
+					<from>Atmos_CO2_exogenous</from>
+					<to>Atmospheric_CO2_Concentration_1750</to>
 				</connector>
 				<alias font_style="italic" font_weight="bold" uid="27" x="622.833" y="898.25" width="18" height="18">
 					<of>selected_climate_case_1</of>
@@ -4592,7 +4624,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:scroll_x="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5368,7 +5400,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<units>(W/metre^2)/sqrt_ppb</units>
 			</aux>
 			<aux name="Atmospheric N2O\nConcentration 1750" access="output" isee:autocreated="true">
-				<eqn>271.57</eqn>
+				<eqn>INIT(Atmos_N2O_exogenous)</eqn>
 				<units>ppb</units>
 			</aux>
 			<aux name="Scale factor for N2O lifetime">
@@ -5946,7 +5978,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<aux x="991.757" y="471.416" name="Molecular Weight of N2O"/>
 				<aux x="944.007" y="624.75" name="N2O forcing adjustment due to\nfast tropospheric feedbacks"/>
 				<aux x="663.257" y="639" name="N2O forcing\nsquare root parameter"/>
-				<aux x="782.667" y="624.75" name="Atmospheric N2O\nConcentration 1750"/>
+				<aux x="782.667" y="627.75" name="Atmospheric N2O\nConcentration 1750"/>
 				<aux label_side="bottom" x="534.414" y="531.749" name="Scale factor for N2O lifetime"/>
 				<aux x="465.414" y="580.166" name="N2O lifetime parameter 2"/>
 				<aux x="523.754" y="623.999" name="N2O lifetime parameter 3"/>
@@ -5985,7 +6017,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 					<from>Atmospheric_N2O_Concentration</from>
 					<to>N2O_Effective_Radiative_Forcing</to>
 				</connector>
-				<connector uid="9" angle="304.875">
+				<connector uid="9" angle="307.805">
 					<from>Atmospheric_N2O_Concentration_1750</from>
 					<to>N2O_Effective_Radiative_Forcing</to>
 				</connector>
@@ -6096,6 +6128,10 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<connector uid="35" angle="7.09367">
 					<from>Atmos_N2O_exogenous</from>
 					<to>Atmospheric_N2O_Concentration</to>
+				</connector>
+				<connector uid="36" angle="260.759">
+					<from>Atmos_N2O_exogenous</from>
+					<to>Atmospheric_N2O_Concentration_1750</to>
 				</connector>
 			</view>
 		</views>
@@ -7263,7 +7299,7 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Ozone_Effective_Radiative_Forcing_without_Temperature_effect + Reduction_in_Ozone_Effective_Radiative_Forcing_per_unit_temperature_change*Surface_Temperature</eqn>
+				<eqn>&quot;Switch_natural,_land,_ozone_forcings&quot;*(Ozone_Effective_Radiative_Forcing_without_Temperature_effect + Reduction_in_Ozone_Effective_Radiative_Forcing_per_unit_temperature_change*Surface_Temperature)</eqn>
 				<units>W/(metre^2)</units>
 			</aux>
 			<aux name="Surface Temperature" access="input">
@@ -9194,6 +9230,10 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mt NOx/yr</units>
 			</aux>
+			<aux name="Switch natural, land, ozone forcings" access="input">
+				<eqn>0</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -9419,6 +9459,11 @@ Atmospheric_CO2_Concentration_1750</eqn>
 				<connector uid="28" angle="17.9548">
 					<from>Montreal_gases_equivalent_effective_stratospheric_chlorine_1750</from>
 					<to>Montreal_gases_equivalent_effective_stratospheric_chlorine</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="717.5" y="635" name="Switch natural, land, ozone forcings"/>
+				<connector uid="29" angle="90">
+					<from>&quot;Switch_natural,_land,_ozone_forcings&quot;</from>
+					<to>Ozone_Effective_Radiative_Forcing</to>
 				</connector>
 			</view>
 		</views>

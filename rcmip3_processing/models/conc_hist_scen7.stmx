@@ -68,8 +68,8 @@
 			<table name="Outputs" use_settings="true"/>
 		</export>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/baseline_emissions.csv"/>
-		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/concs_1750.csv"/>
-		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/hist-GHG.csv"/>
+		<import enabled="false" isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/concs_1750.csv"/>
+		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/scen7-LNC.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/data/processed_for_frida/natural_forcings.csv"/>
 		<import isee:overwrite="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/frida_clim_land_stocks.csv"/>
 		<import isee:overwrite="false" isee:timevarying="true" resource="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/calibration/Data/frida_clim_land_transitions_hist.csv"/>
@@ -540,16 +540,22 @@
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Land_Use.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to='Aerosol_Forcing."Aerosol_hist-GHG,_CO2_switch"' from='."Aerosol_hist-GHG,_CO2_switch"'/>
+				<connect2 to='Aerosol_Forcing."Aerosol_hist-GHG,_CO2_switch"' from='"Aerosol_hist-GHG,_CO2_switch"'/>
+				<connect to='BC_on_Snow_Forcing."Aerosol_hist-GHG,_CO2_switch"' from='."Aerosol_hist-GHG,_CO2_switch"'/>
+				<connect2 to='BC_on_Snow_Forcing."Aerosol_hist-GHG,_CO2_switch"' from='"Aerosol_hist-GHG,_CO2_switch"'/>
 				<connect to="Forest.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
 				<connect2 to="Forest.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
 				<connect to="Grass.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
 				<connect2 to="Grass.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
 				<connect to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
 				<connect2 to="Land_Use_Forcing.Albedo" from="Land_Use_and_Agriculture.Albedo"/>
-				<connect to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='"Switch_natural,_land_forcings"'/>
-				<connect to='Natural_Forcing."Switch_natural,_land_forcings"' from='."Switch_natural,_land_forcings"'/>
-				<connect2 to='Natural_Forcing."Switch_natural,_land_forcings"' from='"Switch_natural,_land_forcings"'/>
+				<connect to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
+				<connect2 to='Land_Use_Forcing."Switch_natural,_land_forcings"' from='"DAMIP_switch_natural,_land,_ozone_forcings"'/>
+				<connect to='Natural_Forcing."Switch_natural,_land_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
+				<connect2 to='Natural_Forcing."Switch_natural,_land_forcings"' from='"DAMIP_switch_natural,_land,_ozone_forcings"'/>
+				<connect to='Ozone_Forcing."Switch_natural,_land,_ozone_forcings"' from='."DAMIP_switch_natural,_land,_ozone_forcings"'/>
+				<connect2 to='Ozone_Forcing."Switch_natural,_land,_ozone_forcings"' from='"DAMIP_switch_natural,_land,_ozone_forcings"'/>
 				<connect to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 				<connect2 to="Sea_Level.SWITCH_population_is_input" from="SWITCH_population_is_input"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
@@ -951,7 +957,7 @@
 			<aux name="Simulation End">
 				<doc>${No Sensi}
 This is what determines when the model stops calculating</doc>
-				<eqn>2022</eqn>
+				<eqn>2500</eqn>
 				<format precision="1"/>
 				<range min="2023" max="2200"/>
 				<units>years</units>
@@ -976,8 +982,12 @@ This is what determines when the model stops calculating</doc>
 				<eqn>0</eqn>
 				<units>1</units>
 			</aux>
-			<aux name="Switch natural, land forcings">
-				<eqn>0</eqn>
+			<aux name="DAMIP switch natural,\nland, ozone forcings">
+				<eqn>1</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Aerosol hist-GHG, CO2 switch" access="output" isee:autocreated="true">
+				<eqn>1</eqn>
 				<units>dmnl</units>
 			</aux>
 		</variables>
@@ -1278,9 +1288,14 @@ This is what determines when the model stops calculating</doc>
 						</item>
 					</table>
 				</stacked_container>
-				<aux x="386.25" y="512.5" name="Switch natural, land forcings"/>
+				<aux x="386.25" y="512.5" name="DAMIP switch natural,\nland, ozone forcings"/>
 				<connector uid="190" angle="111.493" isee:autocreated="true">
-					<from>&quot;Switch_natural,_land_forcings&quot;</from>
+					<from>&quot;DAMIP_switch_natural,_land,_ozone_forcings&quot;</from>
+					<to>Climate</to>
+				</connector>
+				<aux x="448.5" y="550.167" name="Aerosol hist-GHG, CO2 switch"/>
+				<connector uid="191" angle="121.734" isee:autocreated="true">
+					<from>&quot;Aerosol_hist-GHG,_CO2_switch&quot;</from>
 					<to>Climate</to>
 				</connector>
 			</view>

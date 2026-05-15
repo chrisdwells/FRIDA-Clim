@@ -8,13 +8,15 @@ import glob
 load_dotenv()
 
 # This processes the data from the RCMIP runs and converts to RCMIP format.
-# It collects the experiments together into 1 csv - we save in chunks, default
-# 10k rows which is maybe 40mb
+# We save 1 csv by expt now as this is what RCMIP expects - the 100mb file
+# limit doesn't seem to apply...
 
 output_ensemble_size = int(os.getenv("POSTERIOR_SAMPLES"))
 
 rcmip_version = os.getenv("RCMIP_VERSION")
 rcmip_version_folder = rcmip_version.replace(".", "_").upper()
+
+model_version = os.getenv("MODEL_VERSION")
 
 indir = f'../../../RCMIP3_protocol_bundle_{rcmip_version_folder}/RCMIP3_input_datafiles'
 
@@ -24,8 +26,8 @@ df_vars = pd.read_csv(f'{indir}/rcmip_phase3_protocol_{rcmip_version}_variable_d
 csvs = glob.glob('../../data/frida_clim_output/*.csv')
 
 expts = [os.path.splitext(os.path.basename(f))[0] for f in csvs if 'process_' not in os.path.basename(f)]
-expts = [expt for expt in expts if '1pct' in expt or 'abrupt' in expt or 'brch' in expt]
-
+# expts = [expt for expt in expts if '1pct' in expt or 'abrupt' in expt or 'brch' in expt]
+# expts = ['esm-1pct-brch-750PgC']
 # expts = [expt for expt in expts if 'scen7' not in expt and 'methanemip' not in expt and 'esm-allGHG-piControl' not in expt and 'esm-allGHG-hist' not in expt]
 # expts = ['esm-allGHG-hist']
 # build in exceptions - don't want CO2 or CH4 conc if it's conc-driven for that species
@@ -47,7 +49,7 @@ def load_frida(var):
     return process
 
 
-def load_frida_offset(var, y1, y2): # note we don't use this for gmst currently but here if needed
+def load_frida_offset(var, y1, y2): # note we don't use this for gmst currently but here if needed; use for ocean temp change.
     def process(df):
         var_out = np.full((len(df['Year']), output_ensemble_size), np.nan)
         for i in range(output_ensemble_size):
@@ -193,12 +195,12 @@ rcmip_from_frida_dict = {
     "Net Flux to Atmosphere|CO2": load_frida("CO2 Forcing.Annual change of atmospheric CO2"),
     "Emissions|CO2|Land Use Change": load_frida("Emissions.CO2 Emissions from Food and Land Use"),
     
-    "Natural Fluxes|CO2|Ocean": scale_units(load_frida("Ocean.Air sea co2 flux"), factor = GtC_to_MtCO2),
-    "Natural Fluxes|CO2|Land": scale_units(load_frida("Emissions.land carbon sink"), factor = GtC_to_MtCO2),      
+    "Natural Fluxes|CO2|Ocean": signed(scale_units(load_frida("Ocean.Air sea co2 flux"), factor = GtC_to_MtCO2), -1.0),
+    "Natural Fluxes|CO2|Land": signed(scale_units(load_frida("Emissions.land carbon sink"), factor = GtC_to_MtCO2),   -1.0),    
     
     "Natural Fluxes|CO2": add_many( 
-        scale_units(load_frida("Ocean.Air sea co2 flux"), factor = GtC_to_MtCO2),
-        scale_units(load_frida("Emissions.land carbon sink"), factor = GtC_to_MtCO2),    
+        signed(scale_units(load_frida("Ocean.Air sea co2 flux"), factor = GtC_to_MtCO2), -1.0),
+        signed(scale_units(load_frida("Emissions.land carbon sink"), factor = GtC_to_MtCO2), -1.0),
         ),
     
     "Effective Radiative Forcing": load_frida("Forcing.Total Effective Radiative Forcing"),
@@ -211,8 +213,8 @@ rcmip_from_frida_dict = {
 
     "Surface Air Temperature Change": load_frida("Energy Balance Model.Surface Temperature Anomaly"),
     "Surface Ocean Temperature Change": add_many( 
-                    scale_units(load_frida("Ocean.Warm surface ocean temperature"), factor = warm_ocean_frac),
-                    scale_units(load_frida("Ocean.Cold surface ocean temperature"), factor = (1 - warm_ocean_frac)),
+                    scale_units(load_frida_offset("Ocean.Warm surface ocean temperature", 170, 1750), factor = warm_ocean_frac),
+                    scale_units(load_frida_offset("Ocean.Cold surface ocean temperature", 1750, 1750), factor = (1 - warm_ocean_frac)),
         ),
     
     "Ocean pH": calc_pH(
@@ -280,7 +282,7 @@ for expt in expts:
 
         for i in range(output_ensemble_size):
             row = {
-                "climate_model": "FRIDA-Climv1.0.1",
+                "climate_model": model_version,
                 "model": "undefined for now",
                 "scenario": expt,
                 "region": "World",
@@ -351,3 +353,4 @@ for expt in expts:
 #         name=f"frida_rcmip_batch{batch}_block{block_idx + 1}",
 #         chunk_size_rows=3000,
 #     )
+
