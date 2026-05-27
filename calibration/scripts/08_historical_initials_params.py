@@ -85,12 +85,12 @@ land_variables = {
     "Land Use.reference fraction of forest burned out of total burned area[1]" : [0.0264,0.0499],
     "Forest.fraction biomass remaining after burning[1]" : [0.05,0.2],
     "forest soil carbon.fraction burning to slow[1]" : [0.2, 0.5],
-    # and sustainable farming ones
-    "Crop.historical sustainable farming fraction[1]":[0.05,0.2],
-    "Crop.mass to coverage[1]" : [889,1556],
-    "Crop.conventional residue on field fraction[1]" : [0.3,0.45],
-    "Crop.sustainable residue on field fraction[1]" : [0.65,0.85],
-    "Terrestrial Carbon Balance.Forest carbon adaptation time[1]" : [10,50],
+    # don't need sustainable farming ones as in spinup
+    # "Crop.historical sustainable farming fraction[1]":[0.05,0.2],
+    # "Crop.mass to coverage[1]" : [889,1556],
+    # "Crop.conventional residue on field fraction[1]" : [0.3,0.45],
+    # "Crop.sustainable residue on field fraction[1]" : [0.65,0.85],
+    # "Terrestrial Carbon Balance.Forest carbon adaptation time[1]" : [10,50],
     }
 
 land_param_dict = {}

@@ -9,3 +9,16 @@ calibration/*/data/priors_output/*
 calibration/*/data/ssps_output/*
 calibration/*/data/flat10_output/*
 calibration/scripts/misc_analysis/data/*csv
+RCMIP3_protocol_bundle/input_datafiles_generation/
+rcmip3_processing/calibration/FRIDA-Clim_priors.isdb
+rcmip3_processing/data/priors_input/*
+rcmip3_processing/data/priors_output/*
+rcmip3_processing/data/external/samples_for_priors/*
+rcmip3_processing/data/frida_clim_output/*
+rcmip3_processing/data/processed_rcmip/*
+rcmip3_processingmodels/*isdb
+scenariomip_files/
+RCMIP3_protocol_bundle_*/
+rcmip3_processing/data/processed_for_frida/*scen*csv
+rcmip3_processing/data/frida_clim_output/*scen*csv
+rcmip3_processing/models/*scen*csv
