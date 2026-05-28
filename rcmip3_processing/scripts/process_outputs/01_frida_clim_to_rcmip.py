@@ -25,11 +25,9 @@ df_vars = pd.read_csv(f'{indir}/rcmip_phase3_protocol_{rcmip_version}_variable_d
 
 csvs = glob.glob('../../data/frida_clim_output/*.csv')
 
+# default - choose all experiments
 expts = [os.path.splitext(os.path.basename(f))[0] for f in csvs if 'process_' not in os.path.basename(f)]
-# expts = [expt for expt in expts if '1pct' in expt or 'abrupt' in expt or 'brch' in expt]
-# expts = ['esm-1pct-brch-750PgC']
-# expts = [expt for expt in expts if 'scen7' not in expt and 'methanemip' not in expt and 'esm-allGHG-piControl' not in expt and 'esm-allGHG-hist' not in expt]
-# expts = ['esm-allGHG-hist']
+
 # build in exceptions - don't want CO2 or CH4 conc if it's conc-driven for that species
 skip_vars = {expt: [] for expt in expts}
 for expt in expts:
