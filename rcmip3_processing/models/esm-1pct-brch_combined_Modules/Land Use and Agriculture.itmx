@@ -5,7 +5,7 @@
 		<name>Land Use and Agriculture</name>
 		<uuid>fe807591-4e3d-4e2c-b464-70ec4fb12094</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.2.1" isee:build_number="3895" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.3.1" isee:build_number="3962" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -622,8 +622,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Grassland_carbon_balance.grassland_net_primary_production_1" from="Grass.grassland_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
 				<connect2 to="Terrestrial_Carbon_Balance.grassland_net_primary_production" from="Grass.grassland_net_primary_production"/>
-				<connect to="Grass.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
-				<connect2 to="Grass.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
 				<connect to="Grass.grassland_burned_due_to_cc_area" from="Land_Use.grassland_burned_due_to_cc_area"/>
 				<connect2 to="Grass.grassland_burned_due_to_cc_area" from="Land_Use.grassland_burned_due_to_cc_area"/>
 				<connect to="Grass.Grassland_1" from="Land_Use.Grassland"/>
@@ -632,6 +630,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Grass.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Grass.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 			</module>
 			<module name="Forest" isee:label="">
 				<format scale_by="auto"/>
@@ -683,8 +683,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="Forest.clearing_forests_for_crops_1" from="Land_Use.clearing_forests_for_crops"/>
 				<connect2 to="Forest.clearing_forests_for_crops_1" from="Land_Use.clearing_forests_for_crops"/>
-				<connect to="Forest.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
-				<connect2 to="Forest.CO2_conc_bgc" from="CO2_Forcing.CO2_conc_bgc"/>
 				<connect to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect2 to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Forest.Mature_Forest" from="Land_Use.Mature_Forest"/>
@@ -697,6 +695,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Forest.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Forest.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Forest.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="Forest.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect to="Forest.young_forest_burned_due_to_cc" from="Land_Use.young_forest_burned_due_to_cc"/>
@@ -4191,7 +4191,7 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1129" isee:scroll_y="757" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="729" isee:scroll_y="643" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4814,7 +4814,7 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>LN(CO2_conc_bgc/INIT(CO2_conc_bgc))*CO2_tree_net_primary_production_parameter[selected_climate_case[Run]]</eqn>
+				<eqn>LN(used_CO2_conc/INIT(used_CO2_conc))*CO2_tree_net_primary_production_parameter[selected_climate_case[Run]]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="change in tree net\nprimary production from CO2">
@@ -7378,7 +7378,10 @@ Neeed to look up </doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="CO2 conc bgc" access="input">
+			<aux name="used CO2 conc" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>ppm</units>
 			</aux>
@@ -7431,7 +7434,7 @@ Neeed to look up </doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="687" isee:scroll_y="718" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="529" isee:scroll_y="718" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7942,9 +7945,9 @@ Neeed to look up </doc>
 					<from>young_forest_biomass_burning</from>
 					<to>Forest_burned_biomass_emissions</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1318" y="1338.74" name="CO2 conc bgc"/>
-				<connector uid="112" angle="108.042">
-					<from>CO2_conc_bgc</from>
+				<aux font_style="italic" font_weight="bold" x="1446" y="1347" name="used CO2 conc"/>
+				<connector uid="112" angle="114.567">
+					<from>used_CO2_conc</from>
 					<to>effect_of_CO2_on_tree_net_primary_production</to>
 				</connector>
 				<alias font_style="italic" uid="15" x="646.75" y="1135.33" width="18" height="18">
@@ -8287,7 +8290,7 @@ Neeed to look up </doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>LN(CO2_conc_bgc/INIT(CO2_conc_bgc))*CO2_grass_net_primary_production_parameter[selected_climate_case[Run]]</eqn>
+				<eqn>LN(used_CO2_conc/INIT(used_CO2_conc))*CO2_grass_net_primary_production_parameter[selected_climate_case[Run]]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="change in grass net primary production from CO2">
@@ -9034,7 +9037,10 @@ Limits for extreme conditions in no feedback cases</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="CO2 conc bgc" access="input">
+			<aux name="used CO2 conc" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>ppm</units>
 			</aux>
@@ -9087,7 +9093,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="335" isee:scroll_y="171" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="177" isee:scroll_y="171" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -9287,9 +9293,9 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>Usable_grassland</from>
 					<to>grassland_net_primary_production</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1017" y="776.57" name="CO2 conc bgc"/>
-				<connector uid="51" angle="74.4553">
-					<from>CO2_conc_bgc</from>
+				<aux font_style="italic" font_weight="bold" x="1067" y="748" name="used CO2 conc"/>
+				<connector uid="51" angle="125.838">
+					<from>used_CO2_conc</from>
 					<to>effect_of_CO2_on_grass_net_primary_production</to>
 				</connector>
 				<alias font_style="italic" uid="15" x="212" y="563.167" width="18" height="18">

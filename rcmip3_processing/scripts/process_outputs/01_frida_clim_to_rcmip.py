@@ -26,8 +26,10 @@ df_vars = pd.read_csv(f'{indir}/rcmip_phase3_protocol_{rcmip_version}_variable_d
 csvs = glob.glob('../../data/frida_clim_output/*.csv')
 
 # default - choose all experiments
-expts = [os.path.splitext(os.path.basename(f))[0] for f in csvs if 'process_' not in os.path.basename(f)]
+# expts = [os.path.splitext(os.path.basename(f))[0] for f in csvs]
+expts = [os.path.splitext(os.path.basename(f))[0] for f in csvs if 'esm-1pct-brch-' in os.path.basename(f)]
 
+#%%
 # build in exceptions - don't want CO2 or CH4 conc if it's conc-driven for that species
 skip_vars = {expt: [] for expt in expts}
 for expt in expts:
@@ -36,6 +38,8 @@ for expt in expts:
     if 'esm' not in expt and 'methanemip' not in expt:
         skip_vars[expt].append('Carbon Pool|Atmosphere')
         skip_vars[expt].append('Atmospheric Concentrations|CO2')
+    if 'esm-1pct-brch' not in expt:
+        skip_vars[expt].append('Emissions|CO2')
  
 def load_frida(var):
     def process(df):
@@ -192,7 +196,8 @@ rcmip_from_frida_dict = {
     
     "Net Flux to Atmosphere|CO2": load_frida("CO2 Forcing.Annual change of atmospheric CO2"),
     "Emissions|CO2|Land Use Change": load_frida("Emissions.CO2 Emissions from Food and Land Use"),
-    
+    "Emissions|CO2": load_frida("CO2 Forcing.CO2 Emissions"),
+
     "Natural Fluxes|CO2|Ocean": signed(scale_units(load_frida("Ocean.Air sea co2 flux"), factor = GtC_to_MtCO2), -1.0),
     "Natural Fluxes|CO2|Land": signed(scale_units(load_frida("Emissions.land carbon sink"), factor = GtC_to_MtCO2),   -1.0),    
     
@@ -264,8 +269,8 @@ rcmip_from_frida_dict = {
 
 
 for expt in expts:
-    if os.path.exists(f"../../data/processed_rcmip/frida_rcmip_output_{expt}.csv"):
-        continue
+    # if os.path.exists(f"../../data/processed_rcmip/frida_rcmip_output_{expt}.csv"):
+    #     continue
 
     all_rows = []
     df_in = pd.read_csv(f'../../data/frida_clim_output/{expt}.csv')
@@ -277,7 +282,7 @@ for expt in expts:
             continue
 
         arr = process(df_in)
-
+        
         for i in range(output_ensemble_size):
             row = {
                 "climate_model": model_version,
@@ -299,56 +304,4 @@ for expt in expts:
     df_out = pd.DataFrame(all_rows)
     
     df_out.to_csv(f"../../data/processed_rcmip/frida_rcmip_output_{expt}.csv", index=False)
-
-#%%
-## prior code for doing in blocks - but rcmip wants 1 file per expt...
-
-# batch = 1
-# block_size = 10
-# n_blocks = math.ceil(len(expts) / block_size)
-
-# for block_idx in range(n_blocks):
-#     start = block_idx * block_size
-#     end = start + block_size
-#     expts_block = expts[start:end]
-
-#     print(f"Processing block {block_idx + 1}: expts {start}–{end - 1}")
-#     all_rows = []
-
-#     for expt in expts_block:
-#         df_in = pd.read_csv(f'../../data/frida_clim_output/{expt}.csv')
-#         years = df_in["Year"].tolist()
-
-#         for rcmip_var, process in rcmip_from_frida_dict.items():
-#             if rcmip_var in skip_vars[expt]:
-#                 print(f'Skipping {rcmip_var} for {expt}')
-#                 continue
-
-#             arr = process(df_in)
-
-#             for i in range(output_ensemble_size):
-#                 row = {
-#                     "climate_model": "FRIDA-Climv1.0.1",
-#                     "model": "undefined for now",
-#                     "scenario": expt,
-#                     "region": "World",
-#                     "variable": rcmip_var,
-#                     "unit": df_vars.loc[
-#                         df_vars["Variable"] == rcmip_var, "Unit"
-#                     ].iloc[0],
-#                     "ensemble_member": i + 1,
-#                 }
-
-#                 for y_index, year in enumerate(years):
-#                     row[year] = arr[y_index, i]
-
-#                 all_rows.append(row)
-
-#     df_out = pd.DataFrame(all_rows)
-
-#     save_df_in_chunks(
-#         df_out,
-#         name=f"frida_rcmip_batch{batch}_block{block_idx + 1}",
-#         chunk_size_rows=3000,
-#     )
 

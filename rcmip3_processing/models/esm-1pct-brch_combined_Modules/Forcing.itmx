@@ -5,7 +5,7 @@
 		<name>Forcing</name>
 		<uuid>3cef55e9-2351-4644-9b0e-7122365fd40e</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.2.1" isee:build_number="3895" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.3.1" isee:build_number="3962" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -442,16 +442,18 @@
 			</module>
 			<module name="CO2 Forcing" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Forest.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Forest.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Grass.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Grass.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Ocean.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Ocean.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Forcing.CO2_Effective_Radiative_Forcing" from="CO2_Forcing.CO2_Effective_Radiative_Forcing"/>
 				<connect2 to="CO2_Effective_Radiative_Forcing" from="CO2_Forcing.CO2_Effective_Radiative_Forcing"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
+				<connect to="CO2_Forcing.cumulative_emissions_cap" from=".cumulative_emissions_cap"/>
+				<connect2 to="CO2_Forcing.cumulative_emissions_cap" from=".cumulative_emissions_cap"/>
 				<connect to="CO2_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
 				<connect2 to="CO2_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
 				<connect to="CO2_Forcing.Molecular_Weight_of_Air" from="Climate_Units.Molecular_Weight_of_Air"/>
@@ -466,6 +468,8 @@
 				<connect2 to='CO2_Forcing."Total_CO2_Emissions_without_land-use"' from="Emissions.Total_CO2_Emissions"/>
 				<connect to="CO2_Forcing.UNIT_fraction_to_ppm" from="Climate_Units.UNIT_fraction_to_ppm"/>
 				<connect2 to="CO2_Forcing.UNIT_fraction_to_ppm" from="Climate_Units.UNIT_fraction_to_ppm"/>
+				<connect to="CO2_Forcing.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="CO2_Forcing.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="CO2_Forcing.UNIT_MtCO2_to_GtCO2" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect2 to="CO2_Forcing.UNIT_MtCO2_to_GtCO2" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect to="CO2_Forcing.UNIT_weight_ratio_of_CO2_over_C" from="Climate_Units.UNIT_weight_ratio_of_CO2_over_C"/>
@@ -591,7 +595,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="5" isee:scroll_y="110" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="222.5" isee:scroll_y="335" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2944,7 +2948,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="173" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3222,13 +3226,13 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<eqn>44.009</eqn>
 				<units>g/mol</units>
 			</aux>
-			<aux name="Atmospheric CO2 Concentration" access="output">
+			<aux name="used CO2 conc" access="output">
 				<doc>${Calibrated Output,Explanatory Variable}
 </doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Atmospheric_CO2_mass_anomaly_since_1750*UNIT_MtCO2_to_GtCO2/((Mass_of_the_Atmosphere/(UNIT_fraction_to_ppm*UNIT_GtCO2_to_kg))*(Molecular_Weight_of_CO2/Molecular_Weight_of_Air)) + Atmospheric_CO2_Concentration_1750</eqn>
+				<eqn>Atmos_CO2_exogenous</eqn>
 				<units>ppm</units>
 			</aux>
 			<aux name="Atmospheric CO2\nConcentration 1750">
@@ -3601,11 +3605,11 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Atmospheric_CO2_mass_anomaly_since_1750[selected_climate_case[Run]]</eqn>
-				<inflow>Annual_change_of_atmospheric_CO2</inflow>
+				<eqn>0</eqn>
+				<inflow>Annual_change_of_atmospheric_CO2_old</inflow>
 				<units>MtCO2</units>
 			</stock>
-			<flow name="Annual change of\natmospheric CO2">
+			<flow name="Annual change of\natmospheric CO2 old">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -3652,317 +3656,146 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Annual_change_of_atmospheric_CO2*UNIT_MtCO2_to_GtCO2/UNIT_weight_ratio_of_CO2_over_C</eqn>
+				<eqn>Annual_change_of_atmospheric_CO2_old*UNIT_MtCO2_to_GtCO2/UNIT_weight_ratio_of_CO2_over_C</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="Initial Atmospheric CO2\nmass anomaly since 1750">
-				<doc>${External Parameter,No Sensi}
-</doc>
+			<aux name="Atmos CO2 exogenous">
+				<eqn>NAN</eqn>
+				<units>ppm</units>
+			</aux>
+			<aux name="SWITCH ems-driven" access="output" isee:autocreated="true">
 				<dimensions>
-					<dim name="ClimateCase"/>
+					<dim name="Run"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>497040.373859</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>479817.743496</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>477097.547275</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>497775.422555</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>460510.118246</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>475192.787644</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>496756.002528</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>473511.266691</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>499520.77036</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>477668.350609</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>464090.853063</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>485949.722332</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>466956.204339</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>515186.902135</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>507582.84958</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>520419.694182</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>517861.12678</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>499171.706291</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>490891.505697</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>481849.667173</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>497950.798999</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>497874.321788</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>490754.393923</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>469973.829755</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>479866.473333</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>495639.586311</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>493636.051642</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>480393.702034</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>473826.875387</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>468746.440218</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>542731.073382</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>506616.924855</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>492544.362227</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>470468.925502</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>482928.061109</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>520990.468948</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>481905.057526</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>480993.082376</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>476513.63432</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>469777.078592</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>474196.56173</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>484928.589037</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>483578.160259</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>481079.97454</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>474830.477345</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>484202.071262</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>478616.839082</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>498866.50333</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>474424.28856</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>505273.416572</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>487144.39635</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>459556.203623</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>492901.715602</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>483267.645108</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>482733.931564</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>473765.94261</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>502545.563325</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>489836.930545</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>472971.215283</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>488915.637793</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>491830.149318</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>485360.063058</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>515536.344437</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>493950.871645</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>480112.330061</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>504726.481471</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>496492.792055</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>511742.492012</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>484067.588471</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>502177.981436</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>502450.079925</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>468163.485435</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>483706.389052</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>495316.577214</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>467583.634734</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>477297.897144</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>495173.772983</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>480959.034073</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>506117.421512</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>478944.184851</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>478602.494777</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>480569.739069</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>489592.334491</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>484025.645433</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>491372.130775</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>496040.802147</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>490696.035042</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>495667.906073</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>484558.637867</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>491129.600011</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>496072.226643</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>464451.619025</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>470377.92277</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>501289.051122</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>520538.700947</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>475352.952255</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>510651.844336</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>470505.690172</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>483481.835331</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>489245.252349</eqn>
-				</element>
+				<eqn>IF (actual_cumul_ems &lt; cumulative_emissions_cap) AND (PREVIOUS(SELF,  0)= 0)
+THEN
+0
+ELSE
+1</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="implied atmos CO2 anomaly">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>(Atmospheric_CO2_Concentration - INIT(Atmospheric_CO2_Concentration))/(UNIT_MtCO2_to_GtCO2/((Mass_of_the_Atmosphere/(UNIT_fraction_to_ppm*UNIT_GtCO2_to_kg))*(Molecular_Weight_of_CO2/Molecular_Weight_of_Air)))</eqn>
 				<units>MtCO2</units>
 			</aux>
+			<aux name="implied atmos CO2 change">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF TIME &lt; 1854
+THEN
+0
+ELSE
+atmos_trend*implied_atmos_CO2_anomaly</eqn>
+				<units>MtCO2/Year</units>
+			</aux>
+			<aux name="UNIT GtC to MtCO2" access="input">
+				<eqn>3670</eqn>
+				<units>MtCO2/GtC</units>
+			</aux>
+			<aux name="cumulative emissions cap" access="input">
+				<eqn>1000</eqn>
+				<units>GtC</units>
+			</aux>
+			<stock name="realised atmospheric CO2 mass anomaly">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0</eqn>
+				<inflow>realised_annual_change_of_atmospheric_CO2</inflow>
+				<units>MtCO2</units>
+			</stock>
+			<flow name="realised annual change of atmospheric CO2">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF &quot;SWITCH_ems-driven&quot;
+THEN
+Annual_change_of_atmospheric_CO2_old
+ELSE
+0</eqn>
+				<units>MtCO2/Year</units>
+			</flow>
+			<aux name="atmos CO2 at switch">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF &quot;SWITCH_ems-driven&quot; = 1
+THEN
+    IF PREVIOUS(&quot;SWITCH_ems-driven&quot;,  0) = 0
+    THEN used_CO2_conc
+    ELSE PREVIOUS(SELF,  0)
+ELSE
+    0</eqn>
+				<units>ppm</units>
+			</aux>
+			<aux name="Atmospheric CO2 Concentration" access="output" isee:autocreated="true">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF &quot;SWITCH_ems-driven&quot;
+THEN
+realised_atmospheric_CO2_mass_anomaly*UNIT_MtCO2_to_GtCO2/((Mass_of_the_Atmosphere/(UNIT_fraction_to_ppm*UNIT_GtCO2_to_kg))*(Molecular_Weight_of_CO2/Molecular_Weight_of_Air)) + atmos_CO2_at_switch
+ELSE
+Atmos_CO2_exogenous</eqn>
+				<units>ppm</units>
+			</aux>
+			<aux name="Annual change of\natmospheric CO2">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>implied_atmos_CO2_change</eqn>
+				<units>MtCO2/Year</units>
+			</aux>
+			<aux name="direct cumulative emissions">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>(implied_atmos_CO2_anomaly - Atmospheric_CO2_mass_anomaly_since_1750)/UNIT_GtC_to_MtCO2</eqn>
+				<units>GtC</units>
+			</aux>
+			<aux name="atmos trend">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>TREND(implied_atmos_CO2_anomaly,  1)</eqn>
+				<units>1/year</units>
+			</aux>
+			<aux name="ems trend">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>TREND(direct_cumulative_emissions,  1)</eqn>
+				<units>1/year</units>
+			</aux>
+			<stock name="actual cumul ems">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>0</eqn>
+				<inflow>CO2_Emissions</inflow>
+				<non_negative/>
+				<units>GtC</units>
+			</stock>
+			<flow name="CO2 Emissions">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>IF &quot;SWITCH_ems-driven&quot;
+THEN
+0
+ELSE
+IF TIME &lt; 1854
+THEN
+0
+ELSE
+direct_cumulative_emissions*ems_trend</eqn>
+				<non_negative/>
+				<units>GtC/Year</units>
+			</flow>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -4012,7 +3845,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="63.75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="456.25" isee:scroll_y="171.25" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4051,17 +3884,9 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<aux x="642.833" y="469.83" name="Molecular Weight of CO2"/>
-				<aux x="503.833" y="565.33" name="Atmospheric CO2 Concentration"/>
-				<connector uid="1" angle="214.491">
-					<from>Molecular_Weight_of_CO2</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
+				<aux x="611.833" y="330.83" name="Molecular Weight of CO2"/>
+				<aux x="407.583" y="467.5" name="used CO2 conc"/>
 				<aux x="420.333" y="662.8" name="Atmospheric CO2\nConcentration 1750"/>
-				<connector uid="2" angle="49.4125">
-					<from>Atmospheric_CO2_Concentration_1750</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
 				<aux x="575.083" y="680.8" name="CO2 forcing adjustment due to\nfast tropospheric feedbacks"/>
 				<aux x="407.583" y="719.52" name="CO2 forcing\nlogarithmic parameter"/>
 				<aux x="273.083" y="733.09" name="CO2 forcing\nsquare root parameter"/>
@@ -4074,19 +3899,11 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Atmospheric_CO2_Concentration_1750</from>
 					<to>CO2_Effective_Radiative_Forcing</to>
 				</connector>
-				<connector uid="12" angle="270">
-					<from>Atmospheric_CO2_Concentration</from>
-					<to>CO2_Effective_Radiative_Forcing</to>
-				</connector>
 				<connector uid="13" angle="249.373">
 					<from>CO2_forcing_adjustment_due_to_fast_tropospheric_feedbacks</from>
 					<to>CO2_Effective_Radiative_Forcing</to>
 				</connector>
-				<aux x="624.833" y="397.94" name="UNIT GtCO2 to kg"/>
-				<connector uid="15" angle="237.114">
-					<from>UNIT_GtCO2_to_kg</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
+				<aux x="593.833" y="258.94" name="UNIT GtCO2 to kg"/>
 				<aux x="365.583" y="781.34" name="CO2 forcing\nsquare root parameter squared"/>
 				<connector uid="16" angle="327.301">
 					<from>CO2_forcing_square_root_parameter_squared</from>
@@ -4097,74 +3914,52 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Calibration_scaling_of_CO2_forcing</from>
 					<to>CO2_Effective_Radiative_Forcing</to>
 				</connector>
-				<aux x="557.083" y="277.5" name="Molecular Weight of Air"/>
-				<connector uid="19" angle="259.519">
-					<from>Molecular_Weight_of_Air</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
-				<aux x="469.833" y="307.17" name="Mass of the Atmosphere"/>
-				<connector uid="20" angle="277.503">
-					<from>Mass_of_the_Atmosphere</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
-				<aux x="624.833" y="334.08" name="UNIT fraction to ppm"/>
-				<connector uid="21" angle="238.064">
-					<from>UNIT_fraction_to_ppm</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
-				<aux x="416.083" y="433.17" name="selected climate case 1"/>
+				<aux x="526.083" y="138.5" name="Molecular Weight of Air"/>
+				<aux x="438.833" y="168.17" name="Mass of the Atmosphere"/>
+				<aux x="593.833" y="195.08" name="UNIT fraction to ppm"/>
+				<aux x="385.083" y="294.17" name="selected climate case 1"/>
 				<connector uid="26" angle="205.145">
 					<from>
 						<alias uid="27"/>
 					</from>
 					<to>CO2_Effective_Radiative_Forcing</to>
 				</connector>
-				<stock x="966.83" y="333.917" name="Atmospheric CO2 mass\nanomaly since 1750"/>
-				<flow x="1078.47" y="336.834" name="Annual change of\natmospheric CO2">
+				<stock x="1143" y="255.834" name="Atmospheric CO2 mass\nanomaly since 1750"/>
+				<flow x="1255.05" y="255.834" name="Annual change of\natmospheric CO2 old">
 					<pts>
-						<pt x="1179.61" y="336.834"/>
-						<pt x="989.33" y="336.834"/>
+						<pt x="1356.61" y="255.834"/>
+						<pt x="1165.5" y="255.834"/>
 					</pts>
 				</flow>
-				<aux font_style="italic" font_weight="bold" x="1128.75" y="114.167" name="Air sea co2 flux 1"/>
-				<aux font_style="italic" font_weight="bold" x="1269.58" y="202.083" name="Total CO2 Emissions without land-use"/>
-				<connector uid="55" angle="286.314">
+				<aux font_style="italic" font_weight="bold" x="1305.75" y="33.167" name="Air sea co2 flux 1"/>
+				<aux font_style="italic" font_weight="bold" x="1446.58" y="121.083" name="Total CO2 Emissions without land-use"/>
+				<connector uid="55" angle="286.213">
 					<from>Air_sea_co2_flux_1</from>
-					<to>Annual_change_of_atmospheric_CO2</to>
+					<to>Annual_change_of_atmospheric_CO2_old</to>
 				</connector>
-				<connector uid="56" angle="226.872">
+				<connector uid="56" angle="226.814">
 					<from>&quot;Total_CO2_Emissions_without_land-use&quot;</from>
-					<to>Annual_change_of_atmospheric_CO2</to>
+					<to>Annual_change_of_atmospheric_CO2_old</to>
 				</connector>
-				<connector uid="57" angle="212.813">
-					<from>Atmospheric_CO2_mass_anomaly_since_1750</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" x="904" y="193.25" name="UNIT weight ratio of CO2 over C"/>
-				<connector uid="59" angle="6.75411">
+				<aux font_style="italic" font_weight="bold" x="1081" y="112.25" name="UNIT weight ratio of CO2 over C"/>
+				<connector uid="59" angle="6.68796">
 					<from>UNIT_weight_ratio_of_CO2_over_C</from>
-					<to>Annual_change_of_atmospheric_CO2</to>
+					<to>Annual_change_of_atmospheric_CO2_old</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="826.75" y="333.917" name="selected climate case"/>
-				<aux font_style="italic" font_weight="bold" x="1128.75" y="397.94" name="UNIT MtCO2 to GtCO2"/>
-				<connector uid="60" angle="293.427">
-					<from>
-						<alias uid="58"/>
-					</from>
-					<to>Atmospheric_CO2_Concentration</to>
-				</connector>
-				<connector uid="61" angle="154.449">
+				<aux font_style="italic" font_weight="bold" x="1003.75" y="252.917" name="selected climate case"/>
+				<aux font_style="italic" font_weight="bold" x="1305.75" y="316.94" name="UNIT MtCO2 to GtCO2"/>
+				<connector uid="61" angle="154.677">
 					<from>UNIT_MtCO2_to_GtCO2</from>
-					<to>Annual_change_of_atmospheric_CO2</to>
+					<to>Annual_change_of_atmospheric_CO2_old</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="992" y="132.167" name="Net land carbon flux"/>
-				<connector uid="63" angle="329.032">
+				<aux font_style="italic" font_weight="bold" x="1169" y="51.167" name="Net land carbon flux"/>
+				<connector uid="63" angle="328.934">
 					<from>Net_land_carbon_flux</from>
-					<to>Annual_change_of_atmospheric_CO2</to>
+					<to>Annual_change_of_atmospheric_CO2_old</to>
 				</connector>
-				<aux x="950" y="478" name="Atmospheric CO2 growth GtC"/>
-				<connector uid="64" angle="232.116">
-					<from>Annual_change_of_atmospheric_CO2</from>
+				<aux x="1127" y="397" name="Atmospheric CO2 growth GtC"/>
+				<connector uid="64" angle="227.788">
+					<from>Annual_change_of_atmospheric_CO2_old</from>
 					<to>Atmospheric_CO2_growth_GtC</to>
 				</connector>
 				<connector uid="65" angle="199.206">
@@ -4175,11 +3970,182 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>UNIT_weight_ratio_of_CO2_over_C</from>
 					<to>Atmospheric_CO2_growth_GtC</to>
 				</connector>
-				<aux x="806.75" y="236.25" name="Initial Atmospheric CO2\nmass anomaly since 1750"/>
+				<aux x="213.083" y="427.5" name="Atmos CO2 exogenous"/>
+				<connector uid="68" angle="348.379">
+					<from>Atmos_CO2_exogenous</from>
+					<to>used_CO2_conc</to>
+				</connector>
+				<aux label_side="bottom" x="1003.75" y="832.75" name="SWITCH ems-driven"/>
+				<aux x="837" y="554.33" name="implied atmos CO2 anomaly"/>
+				<connector uid="74" angle="231.86">
+					<from>UNIT_MtCO2_to_GtCO2</from>
+					<to>implied_atmos_CO2_anomaly</to>
+				</connector>
+				<connector uid="75" angle="340.877">
+					<from>Mass_of_the_Atmosphere</from>
+					<to>implied_atmos_CO2_anomaly</to>
+				</connector>
+				<connector uid="76" angle="329.093">
+					<from>UNIT_fraction_to_ppm</from>
+					<to>implied_atmos_CO2_anomaly</to>
+				</connector>
+				<connector uid="77" angle="334.462">
+					<from>UNIT_GtCO2_to_kg</from>
+					<to>implied_atmos_CO2_anomaly</to>
+				</connector>
+				<connector uid="78" angle="340.213">
+					<from>Molecular_Weight_of_CO2</from>
+					<to>implied_atmos_CO2_anomaly</to>
+				</connector>
+				<connector uid="79" angle="331.786">
+					<from>Molecular_Weight_of_Air</from>
+					<to>implied_atmos_CO2_anomaly</to>
+				</connector>
+				<aux x="899" y="640" name="implied atmos CO2 change"/>
+				<connector uid="80" angle="330.893">
+					<from>implied_atmos_CO2_anomaly</from>
+					<to>implied_atmos_CO2_change</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="805" y="747" name="UNIT GtC to MtCO2"/>
+				<aux font_style="italic" font_weight="bold" x="1078" y="884" name="cumulative emissions cap"/>
+				<connector uid="85" angle="170.385">
+					<from>cumulative_emissions_cap</from>
+					<to>&quot;SWITCH_ems-driven&quot;</to>
+				</connector>
+				<stock x="886.5" y="415" name="realised atmospheric CO2 mass anomaly"/>
+				<flow x="954.5" y="415" name="realised annual change of atmospheric CO2">
+					<pts>
+						<pt x="1012" y="415"/>
+						<pt x="909" y="415"/>
+					</pts>
+				</flow>
+				<connector uid="89" angle="195.829">
+					<from>Annual_change_of_atmospheric_CO2_old</from>
+					<to>realised_annual_change_of_atmospheric_CO2</to>
+				</connector>
+				<connector uid="90" angle="84.0661">
+					<from>&quot;SWITCH_ems-driven&quot;</from>
+					<to>realised_annual_change_of_atmospheric_CO2</to>
+				</connector>
+				<aux x="219" y="559.5" name="atmos CO2 at switch"/>
+				<connector uid="100" angle="141.445">
+					<from>&quot;SWITCH_ems-driven&quot;</from>
+					<to>atmos_CO2_at_switch</to>
+				</connector>
+				<connector uid="101" angle="206.005">
+					<from>used_CO2_conc</from>
+					<to>atmos_CO2_at_switch</to>
+				</connector>
+				<aux x="434.833" y="572.33" name="Atmospheric CO2 Concentration"/>
+				<connector uid="105" angle="334.756">
+					<from>atmos_CO2_at_switch</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="106" angle="176.065">
+					<from>realised_atmospheric_CO2_mass_anomaly</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="107" angle="130.927">
+					<from>&quot;SWITCH_ems-driven&quot;</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="108" angle="302.445">
+					<from>
+						<alias uid="58"/>
+					</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="109" angle="294.432">
+					<from>Mass_of_the_Atmosphere</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="110" angle="272.146">
+					<from>UNIT_fraction_to_ppm</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="111" angle="268.099">
+					<from>UNIT_GtCO2_to_kg</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="112" angle="258.761">
+					<from>Molecular_Weight_of_CO2</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="113" angle="283.122">
+					<from>Molecular_Weight_of_Air</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="114" angle="351.85">
+					<from>Atmos_CO2_exogenous</from>
+					<to>Atmospheric_CO2_Concentration</to>
+				</connector>
+				<connector uid="116" angle="283.047">
+					<from>Atmospheric_CO2_Concentration</from>
+					<to>CO2_Effective_Radiative_Forcing</to>
+				</connector>
+				<aux x="1191.83" y="554.33" name="Annual change of\natmospheric CO2"/>
+				<connector uid="117" angle="30.3434">
+					<from>implied_atmos_CO2_change</from>
+					<to>Annual_change_of_atmospheric_CO2</to>
+				</connector>
+				<connector uid="115" angle="2.56271">
+					<from>Atmospheric_CO2_Concentration</from>
+					<to>implied_atmos_CO2_anomaly</to>
+				</connector>
+				<aux x="1222.83" y="632.333" name="direct cumulative emissions"/>
+				<connector uid="134" angle="13.5707">
+					<from>implied_atmos_CO2_anomaly</from>
+					<to>direct_cumulative_emissions</to>
+				</connector>
+				<connector uid="135" angle="306.972">
+					<from>Atmospheric_CO2_mass_anomaly_since_1750</from>
+					<to>direct_cumulative_emissions</to>
+				</connector>
+				<connector uid="136" angle="36.4592">
+					<from>UNIT_GtC_to_MtCO2</from>
+					<to>direct_cumulative_emissions</to>
+				</connector>
+				<aux x="819.5" y="596.667" name="atmos trend"/>
+				<connector uid="133" angle="351.187">
+					<from>atmos_trend</from>
+					<to>implied_atmos_CO2_change</to>
+				</connector>
+				<connector uid="123" angle="251.611">
+					<from>implied_atmos_CO2_anomaly</from>
+					<to>atmos_trend</to>
+				</connector>
+				<aux x="1199.5" y="712" name="ems trend"/>
+				<connector uid="137" angle="287.755">
+					<from>direct_cumulative_emissions</from>
+					<to>ems_trend</to>
+				</connector>
+				<stock x="1384" y="731.083" name="actual cumul ems"/>
+				<flow x="1316.5" y="740.59" name="CO2 Emissions">
+					<pts>
+						<pt x="1271.5" y="740.59"/>
+						<pt x="1361.5" y="740.59"/>
+					</pts>
+				</flow>
+				<connector uid="138" angle="10.5077">
+					<from>ems_trend</from>
+					<to>CO2_Emissions</to>
+				</connector>
+				<connector uid="139" angle="334.707">
+					<from>direct_cumulative_emissions</from>
+					<to>CO2_Emissions</to>
+				</connector>
+				<connector uid="140" angle="218.424">
+					<from>actual_cumul_ems</from>
+					<to>&quot;SWITCH_ems-driven&quot;</to>
+				</connector>
+				<connector uid="141" angle="31.6163">
+					<from>&quot;SWITCH_ems-driven&quot;</from>
+					<to>CO2_Emissions</to>
+				</connector>
 				<alias font_style="italic" font_weight="bold" uid="27" x="630.833" y="797.25" width="18" height="18">
 					<of>selected_climate_case_1</of>
 				</alias>
-				<alias font_style="italic" font_weight="bold" uid="58" x="411.333" y="354.17" width="18" height="18">
+				<alias font_style="italic" font_weight="bold" uid="58" x="380.333" y="215.17" width="18" height="18">
 					<of>UNIT_MtCO2_to_GtCO2</of>
 				</alias>
 			</view>
@@ -6063,6 +6029,10 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				</element>
 				<units>Dimensionless</units>
 			</aux>
+			<aux name="Initial Cumulative\nN2O emissions">
+				<eqn>341127.234</eqn>
+				<units>KtN2O</units>
+			</aux>
 			<aux name="Surface Temperature" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -6115,7 +6085,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Cumulative_N2O_emissions[selected_climate_case[Run]]</eqn>
+				<eqn>Initial_Cumulative_N2O_emissions</eqn>
 				<inflow>N2O_emissions</inflow>
 				<units>KtN2O</units>
 			</stock>
@@ -6149,314 +6119,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 				</dimensions>
 				<eqn>Baseline_N2O_Lifetime*Scale_factor_for_N2O_lifetime</eqn>
 				<units>years</units>
-			</aux>
-			<aux name="Initial Cumulative\nN2O emissions">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>2128.18926411</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>2147.98438708</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>2132.33129517</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>2140.38201295</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>2145.56885645</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>2150.41589983</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>2158.23848678</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>2135.16478992</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>2140.6995467</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>2139.12987392</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>2145.38373674</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>2150.32757849</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>2138.13491303</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>2144.02661133</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>2133.1823534</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>2138.12021113</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>2145.4629514</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>2127.05471599</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>2145.75313725</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>2125.87721243</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>2150.04284872</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>2141.58216889</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>2142.42776128</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>2132.54712871</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>2146.04281561</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>2144.8402144</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>2150.81777583</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>2149.21549128</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>2142.14715446</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>2138.90734586</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>2132.94430537</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>2145.62896865</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>2154.21231517</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>2134.09356295</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>2138.04083893</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>2134.4411453</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>2139.33732818</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>2152.12302664</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>2147.10253328</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>2135.5760861</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>2139.40685309</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>2139.81409699</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>2140.45891122</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>2151.21418448</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>2138.4992316</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>2143.69827048</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>2139.97306536</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>2133.21857778</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>2126.00532969</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>2138.93921519</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>2128.54153093</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>2132.88747598</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>2138.27576682</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>2152.22231077</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>2136.35034106</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>2131.26588447</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>2131.41209859</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>2142.59320144</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>2142.96057412</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>2149.39554975</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>2137.58756999</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>2138.33266936</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>2149.6744159</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>2144.33329046</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>2142.48150674</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>2151.47933074</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>2140.96923719</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>2149.52412666</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>2143.53771184</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>2154.08571499</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>2144.57190098</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>2150.06122007</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>2142.50332643</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>2148.82325401</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>2142.62285648</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>2144.43929645</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>2150.75383838</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>2153.63031598</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>2146.36617597</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>2138.48380263</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>2137.78367658</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>2139.05714404</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>2160.92625491</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>2134.6375037</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>2153.21817305</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>2137.62631365</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>2137.94517024</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>2147.65734156</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>2137.42832839</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>2127.73276217</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>2147.31872979</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>2131.75358711</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>2141.94213985</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>2140.91632985</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>2154.8341166</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>2142.62206092</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>2153.58902963</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>2138.25143859</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>2154.33810466</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>2130.96739568</eqn>
-				</element>
-				<units>ktN2O</units>
 			</aux>
 		</variables>
 		<views>
@@ -6625,6 +6287,7 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Calibration_scaling_of_N2O_forcing</from>
 					<to>N2O_Effective_Radiative_Forcing</to>
 				</connector>
+				<aux x="168.327" y="198.521" name="Initial Cumulative\nN2O emissions"/>
 				<aux font_style="italic" font_weight="bold" x="325.827" y="659.5" name="Surface Temperature"/>
 				<connector uid="16" angle="139.365">
 					<from>Surface_Temperature</from>
@@ -6731,7 +6394,6 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Baseline_N2O_Lifetime</from>
 					<to>N2O_Lifetime</to>
 				</connector>
-				<aux x="101.33" y="259.813" name="Initial Cumulative\nN2O emissions"/>
 			</view>
 		</views>
 	</model>
@@ -10053,8 +9715,8 @@ LN(1 + (Montreal_gases_equivalent_effective_stratospheric_chlorine - Montreal_ga
 					<from>Montreal_gases_equivalent_effective_stratospheric_chlorine_1750</from>
 					<to>Montreal_gases_equivalent_effective_stratospheric_chlorine</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="718.75" y="688.75" name="Switch Ozone GMST feedback"/>
-				<connector uid="29" angle="92.2026">
+				<aux font_style="italic" font_weight="bold" x="731.25" y="650" name="Switch Ozone GMST feedback"/>
+				<connector uid="29" angle="135">
 					<from>Switch_Ozone_GMST_feedback</from>
 					<to>Ozone_Effective_Radiative_Forcing</to>
 				</connector>

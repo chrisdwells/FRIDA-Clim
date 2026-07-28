@@ -5,7 +5,7 @@
 		<name>Climate</name>
 		<uuid>6b3172a7-ef66-4feb-8f28-f439698b1c18</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.2.1" isee:build_number="3895" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.3.1" isee:build_number="3962" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -245,7 +245,7 @@
 	</model_units>
 	<model name="Climate">
 		<variables>
-			<module name="Sea Level" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-1pct-brch_Modules/Sea Level.itmx">
+			<module name="Sea Level" isee:label="" url="C:/Users/earcwel/OneDrive - University of Leeds/Research info/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-1pct-brch_combined_Modules/Sea Level.itmx">
 				<format scale_by="auto"/>
 				<connect to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
 				<connect2 to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
@@ -267,12 +267,10 @@
 				<connect2 to="Sea_Level.SWITCH_population_is_input" from=".SWITCH_population_is_input"/>
 			</module>
 			<module name="Ocean" isee:label="Ocean
-Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-1pct-brch_Modules/Ocean.itmx">
+Carbon" url="C:/Users/earcwel/OneDrive - University of Leeds/Research info/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-1pct-brch_combined_Modules/Ocean.itmx">
 				<format scale_by="auto"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
-				<connect to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Ocean.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Ocean.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Ocean.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
@@ -299,6 +297,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Ocean.UNIT_Seconds_per_year_1" from="Climate_Units.UNIT_Seconds_per_year"/>
 				<connect to="Ocean.UNIT_Sv_to_Cubic_metre" from="Climate_Units.UNIT_Sv_to_Cubic_metre"/>
 				<connect2 to="Ocean.UNIT_Sv_to_Cubic_metre" from="Climate_Units.UNIT_Sv_to_Cubic_metre"/>
+				<connect to="Ocean.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Ocean.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 			</module>
 			<module name="Climate Units" isee:label="">
 				<format scale_by="auto"/>
@@ -398,6 +398,8 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Ocean.UNIT_GtC_to_kmol_1" from="Climate_Units.UNIT_GtC_to_kmol"/>
 				<connect to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect2 to="CCS.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect to="CO2_Forcing.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="CO2_Forcing.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect2 to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="Ocean.UNIT_Kelvin_at_0_deg_C_unitless" from="Climate_Units.UNIT_Kelvin_at_0_deg_C_unitless"/>
@@ -462,7 +464,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 			</module>
-			<module name="Emissions" isee:label="" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-1pct-brch_Modules/Emissions.itmx">
+			<module name="Emissions" isee:label="" url="C:/Users/earcwel/OneDrive - University of Leeds/Research info/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-1pct-brch_combined_Modules/Emissions.itmx">
 				<format scale_by="auto"/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
@@ -524,7 +526,7 @@ Carbon" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRI
 				<connect2 to="Emissions.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 			</module>
 			<module name="Forcing" isee:label="Radiative
-Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-1pct-brch_Modules/Forcing.itmx">
+Forcing" url="C:/Users/earcwel/OneDrive - University of Leeds/Research info/WorldTransPostdoc/Github/chrisdwells/FRIDA-Clim/rcmip3_processing/models/esm-1pct-brch_combined_Modules/Forcing.itmx">
 				<format scale_by="auto"/>
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
@@ -570,14 +572,16 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to="CH4_Forcing.UNIT_ppm_to_ppb" from="Climate_Units.UNIT_ppm_to_ppb"/>
 				<connect to="CH4_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
 				<connect2 to="CH4_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
-				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Forest.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Forest.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Grass.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Grass.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Ocean.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Ocean.used_CO2_conc" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
+				<connect to="CO2_Forcing.cumulative_emissions_cap" from=".cumulative_emissions_cap"/>
+				<connect2 to="CO2_Forcing.cumulative_emissions_cap" from=".cumulative_emissions_cap"/>
 				<connect to="CO2_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
 				<connect2 to="CO2_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
 				<connect to="CO2_Forcing.Molecular_Weight_of_Air" from="Climate_Units.Molecular_Weight_of_Air"/>
@@ -592,6 +596,8 @@ Forcing" url="C:/Users/earcwel/Documents/WorldTransPostdoc/Github/chrisdwells/FR
 				<connect2 to='CO2_Forcing."Total_CO2_Emissions_without_land-use"' from="Emissions.Total_CO2_Emissions"/>
 				<connect to="CO2_Forcing.UNIT_fraction_to_ppm" from="Climate_Units.UNIT_fraction_to_ppm"/>
 				<connect2 to="CO2_Forcing.UNIT_fraction_to_ppm" from="Climate_Units.UNIT_fraction_to_ppm"/>
+				<connect to="CO2_Forcing.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
+				<connect2 to="CO2_Forcing.UNIT_GtC_to_MtCO2" from="Climate_Units.UNIT_GtC_to_MtCO2"/>
 				<connect to="CO2_Forcing.UNIT_MtCO2_to_GtCO2" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect2 to="CO2_Forcing.UNIT_MtCO2_to_GtCO2" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect to="CO2_Forcing.UNIT_weight_ratio_of_CO2_over_C" from="Climate_Units.UNIT_weight_ratio_of_CO2_over_C"/>
@@ -1310,7 +1316,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<aux x="998" y="99" name="selected hot\nmortality impact case"/>
 				<aux x="620" y="177" name="selected extremes exposure\ndamages case"/>
 				<aux x="772" y="177" name="selected crops\ndamages case"/>
-				<aux x="264" y="414" name="UNIT GtC to MtCO2"/>
+				<aux label_side="bottom" x="264" y="414" name="UNIT GtC to MtCO2"/>
 			</view>
 		</views>
 	</model>
@@ -1341,7 +1347,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Deep_Ocean_Temperature[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<outflow>Change_in_Deep_Ocean_Temperature</outflow>
 				<units>K</units>
 			</stock>
@@ -1349,7 +1355,7 @@ This variable is unitless to avoid units issues with parameters in the downstrea
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_Thermocline_Ocean_Temperature[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<outflow>Change_in_Thermocline_Ocean_Temperature</outflow>
 				<units>K</units>
 			</stock>
@@ -3532,7 +3538,7 @@ kappa3 in Cummins et al 2020 https://doi.org/10.1175/JCLI-D-19-0589.1</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;Initial_Land_&amp;_Ocean_Surface_Temperature&quot;[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<outflow>&quot;Change_in_Land_&amp;_Ocean_Surface_Temperature&quot;</outflow>
 				<units>K</units>
 			</stock>
@@ -3618,7 +3624,7 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_ocean_heat_content_change[selected_climate_case[Run]]</eqn>
+				<eqn>0</eqn>
 				<inflow>ocean_heat_flow</inflow>
 				<units>YJ</units>
 			</stock>
@@ -3629,1238 +3635,6 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 			<aux name="GMST exog switch">
 				<eqn>0</eqn>
 				<units>dmnl</units>
-			</aux>
-			<aux name="Initial Land &amp; Ocean\nSurface Temperature">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.715552957241</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.453407799688</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.677065701722</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.534788843311</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.45266781418</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.410661413313</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.308726368804</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.597907840322</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.544101502296</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.547968848759</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.465252024775</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.411648149816</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.570136063336</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.502158872532</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.650778876091</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.592227798814</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.481104604195</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.732827937274</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.49259158445</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.743565307729</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.402025065883</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.516195254721</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.512698256228</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.651927178613</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.46814790127</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.468382114704</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.392777092842</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.438020894071</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.538602383775</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.591245093554</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.653807489685</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.451445283666</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.375658588377</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.623950271169</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.592433719185</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.622457491301</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.574776429836</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.365013152199</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.448705850557</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.60695597816</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.575260022537</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.526147761429</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.549426921313</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.381242697518</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.566455759313</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.496670812862</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.560123064557</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.634178078361</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.734503894158</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.594269552626</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.713761234185</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.642474548825</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.570064895483</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.377496424061</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.592731210791</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.670759006929</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.658227953502</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.514465722966</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.510532754774</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.408191856968</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.570617830992</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.563728602094</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.406417510013</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.485801632973</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.499589027824</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.389148624043</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.499088761574</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.428543193628</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.494336951605</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.345235416605</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.486741178068</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.409668296085</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.507096895523</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.437547519217</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.512151248565</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.491110635178</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.43406815789</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.334049722085</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.448552090558</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.587222017297</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.579618205371</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.55098943839</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.307872027318</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.630836052485</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.389064722401</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.573407587412</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.554132562523</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.427421112313</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.602925913704</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.732031096825</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.456075248807</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.649068096987</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.530424290479</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.535908493302</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.35066564357</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.524365198242</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.363805654916</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.574894367833</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.355567822907</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.667097171903</eqn>
-				</element>
-				<units>K</units>
-			</aux>
-			<aux name="Initial Thermocline\nOcean Temperature">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.609817676149</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.280858697731</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.144088571855</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.257774046041</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.2978436985</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.276096330983</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.181138706004</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.469634524064</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.385646920955</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.271011756209</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.297451154254</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.250235729222</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.267278275891</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.264590551082</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.378500327979</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.419254513709</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.364066509649</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.604180518439</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.0947980427532</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.388269493926</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.264077370752</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.30212011077</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.331323204189</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.300360455324</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.268914862415</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.22956860239</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.262335993576</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.142749590576</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.24920339111</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.522299232211</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.588886671442</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.295722479973</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.225848229775</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.337900161152</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.113075765948</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.242559293878</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.288193074001</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.209709822895</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.254678965746</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.355029890772</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.27433031551</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.355511100861</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.280598215206</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.230208615271</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.323214503557</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.36779222275</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.322723672942</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.308125574512</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.421683417355</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.340578070088</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.480135537331</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.333572131047</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.305839766881</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.180678473098</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.328146833858</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.241511490075</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.497392102462</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.300529376721</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.389486449264</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.269496935833</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.452887493248</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.459241857265</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.269631484928</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.249712689022</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.33009285233</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.227940957986</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.417813901511</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.188356013618</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.23608539797</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.212173780553</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.193918988576</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.287831750154</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.370565810114</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.274231301784</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.128215812882</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.306785502791</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.106813041659</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.2336209689</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.296443511705</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.312847444393</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.333396344915</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.431417171973</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.192026079033</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.117820618897</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.207159189054</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.446131926421</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.277124798509</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.244881135237</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.185649428721</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.491798189874</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.159428371382</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.482717029629</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.418427597495</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.273858179202</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.198942047908</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.383681957949</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.278600598438</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.426962864689</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.257964275808</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.455809003349</eqn>
-				</element>
-				<units>K</units>
-			</aux>
-			<aux name="Initial Deep Ocean Temperature">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.0389126148964</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.040322231635</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.0058817163654</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.0464566865894</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.186573578219</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.039395882827</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.0156035663387</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.194163960562</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.232472621579</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.182655936185</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.054381420524</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.0697391085469</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.00395896378761</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.0774019203439</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.107621860338</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.0960680781227</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.0609834762055</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.134617201302</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.000727249174587</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.0256881287553</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.13678378502</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.0563707761954</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.0191882015439</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.0934715958278</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.0384134111918</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.00529182410868</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.0329281013986</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.0468689276784</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.0149622417695</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.203378382778</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.221323827877</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.10544478617</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.0407922317384</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.0952050728175</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.00579829949373</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.0199455411338</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.0554048993725</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.0673946705768</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.0571562495781</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.0848940082791</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.122023320002</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.0273457594041</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.00214151346171</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.0495585121379</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.0840936348524</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.0308291827604</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.0457428306155</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.031304548917</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.0423547463984</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.0890900040204</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.103310454981</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.0941426313633</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.0458056128508</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.0596503624704</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.0606006786557</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.0159629883971</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.0800913531731</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.120983299723</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.0603949621757</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.0129353717652</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.135360762414</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.26679477866</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.14345192763</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.155206508894</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.118066299397</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.0189050387264</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.0410230803274</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.0426723610536</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.00416737397559</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.0422737051237</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.0669736928055</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.0926356493545</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.0779373996564</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.0431314250737</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.0023068397158</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.0981444843435</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.00621484092476</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.0704562838212</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.0389296125295</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.0354074424052</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.07790389155</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.0391242032909</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.00915160403585</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.0236610559566</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.0253069005868</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.0309928364766</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.116340652838</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.0769850016984</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.00579656387778</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.0118289437783</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.00834747600559</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.0849309019674</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.0806680855772</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.075868467916</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.034066820167</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.291232593781</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.0920520236646</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.0476763879247</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.117296858398</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.345013718841</eqn>
-				</element>
-				<units>K</units>
-			</aux>
-			<aux name="Initial ocean heat\ncontent change">
-				<doc>${External Parameter,No Sensi}
-</doc>
-				<dimensions>
-					<dim name="ClimateCase"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.374629668293</eqn>
-				</element>
-				<element subscript="2">
-					<eqn>0.197204268812</eqn>
-				</element>
-				<element subscript="3">
-					<eqn>0.199040097181</eqn>
-				</element>
-				<element subscript="4">
-					<eqn>0.396495837032</eqn>
-				</element>
-				<element subscript="5">
-					<eqn>0.261244064726</eqn>
-				</element>
-				<element subscript="6">
-					<eqn>0.158775540901</eqn>
-				</element>
-				<element subscript="7">
-					<eqn>0.112811200311</eqn>
-				</element>
-				<element subscript="8">
-					<eqn>0.350607336744</eqn>
-				</element>
-				<element subscript="9">
-					<eqn>0.267841638312</eqn>
-				</element>
-				<element subscript="10">
-					<eqn>0.30600007414</eqn>
-				</element>
-				<element subscript="11">
-					<eqn>0.275600862694</eqn>
-				</element>
-				<element subscript="12">
-					<eqn>0.151584080293</eqn>
-				</element>
-				<element subscript="13">
-					<eqn>0.346342861003</eqn>
-				</element>
-				<element subscript="14">
-					<eqn>0.29500889057</eqn>
-				</element>
-				<element subscript="15">
-					<eqn>0.226552804349</eqn>
-				</element>
-				<element subscript="16">
-					<eqn>0.333670794982</eqn>
-				</element>
-				<element subscript="17">
-					<eqn>0.190502401545</eqn>
-				</element>
-				<element subscript="18">
-					<eqn>0.266856503143</eqn>
-				</element>
-				<element subscript="19">
-					<eqn>0.158028045434</eqn>
-				</element>
-				<element subscript="20">
-					<eqn>0.402015105878</eqn>
-				</element>
-				<element subscript="21">
-					<eqn>0.200353870161</eqn>
-				</element>
-				<element subscript="22">
-					<eqn>0.265979899186</eqn>
-				</element>
-				<element subscript="23">
-					<eqn>0.28885384827</eqn>
-				</element>
-				<element subscript="24">
-					<eqn>0.340349824435</eqn>
-				</element>
-				<element subscript="25">
-					<eqn>0.232333736</eqn>
-				</element>
-				<element subscript="26">
-					<eqn>0.200073719264</eqn>
-				</element>
-				<element subscript="27">
-					<eqn>0.206680105119</eqn>
-				</element>
-				<element subscript="28">
-					<eqn>0.182356034851</eqn>
-				</element>
-				<element subscript="29">
-					<eqn>0.193594063882</eqn>
-				</element>
-				<element subscript="30">
-					<eqn>0.166725485587</eqn>
-				</element>
-				<element subscript="31">
-					<eqn>0.198024439903</eqn>
-				</element>
-				<element subscript="32">
-					<eqn>0.240642409985</eqn>
-				</element>
-				<element subscript="33">
-					<eqn>0.11085776562</eqn>
-				</element>
-				<element subscript="34">
-					<eqn>0.411367867954</eqn>
-				</element>
-				<element subscript="35">
-					<eqn>0.162405324103</eqn>
-				</element>
-				<element subscript="36">
-					<eqn>0.358710540951</eqn>
-				</element>
-				<element subscript="37">
-					<eqn>0.293400345732</eqn>
-				</element>
-				<element subscript="38">
-					<eqn>0.210253790992</eqn>
-				</element>
-				<element subscript="39">
-					<eqn>0.260331687444</eqn>
-				</element>
-				<element subscript="40">
-					<eqn>0.382769530558</eqn>
-				</element>
-				<element subscript="41">
-					<eqn>0.303481674554</eqn>
-				</element>
-				<element subscript="42">
-					<eqn>0.325943666355</eqn>
-				</element>
-				<element subscript="43">
-					<eqn>0.202038009292</eqn>
-				</element>
-				<element subscript="44">
-					<eqn>0.196366506637</eqn>
-				</element>
-				<element subscript="45">
-					<eqn>0.350626304704</eqn>
-				</element>
-				<element subscript="46">
-					<eqn>0.28248484601</eqn>
-				</element>
-				<element subscript="47">
-					<eqn>0.331153217942</eqn>
-				</element>
-				<element subscript="48">
-					<eqn>0.29417168116</eqn>
-				</element>
-				<element subscript="49">
-					<eqn>0.458544293245</eqn>
-				</element>
-				<element subscript="50">
-					<eqn>0.234750036606</eqn>
-				</element>
-				<element subscript="51">
-					<eqn>0.386467664365</eqn>
-				</element>
-				<element subscript="52">
-					<eqn>0.375124280726</eqn>
-				</element>
-				<element subscript="53">
-					<eqn>0.315214504382</eqn>
-				</element>
-				<element subscript="54">
-					<eqn>0.184017803587</eqn>
-				</element>
-				<element subscript="55">
-					<eqn>0.344329461147</eqn>
-				</element>
-				<element subscript="56">
-					<eqn>0.326548213933</eqn>
-				</element>
-				<element subscript="57">
-					<eqn>0.277503835036</eqn>
-				</element>
-				<element subscript="58">
-					<eqn>0.243629007407</eqn>
-				</element>
-				<element subscript="59">
-					<eqn>0.252076055264</eqn>
-				</element>
-				<element subscript="60">
-					<eqn>0.235487457238</eqn>
-				</element>
-				<element subscript="61">
-					<eqn>0.279479987954</eqn>
-				</element>
-				<element subscript="62">
-					<eqn>0.156554940036</eqn>
-				</element>
-				<element subscript="63">
-					<eqn>0.181481278679</eqn>
-				</element>
-				<element subscript="64">
-					<eqn>0.263958979297</eqn>
-				</element>
-				<element subscript="65">
-					<eqn>0.279919165768</eqn>
-				</element>
-				<element subscript="66">
-					<eqn>0.137680662893</eqn>
-				</element>
-				<element subscript="67">
-					<eqn>0.312009655257</eqn>
-				</element>
-				<element subscript="68">
-					<eqn>0.172461251541</eqn>
-				</element>
-				<element subscript="69">
-					<eqn>0.243569079382</eqn>
-				</element>
-				<element subscript="70">
-					<eqn>0.152495175403</eqn>
-				</element>
-				<element subscript="71">
-					<eqn>0.215942269815</eqn>
-				</element>
-				<element subscript="72">
-					<eqn>0.178388942506</eqn>
-				</element>
-				<element subscript="73">
-					<eqn>0.248181897215</eqn>
-				</element>
-				<element subscript="74">
-					<eqn>0.236714189033</eqn>
-				</element>
-				<element subscript="75">
-					<eqn>0.202427635777</eqn>
-				</element>
-				<element subscript="76">
-					<eqn>0.277764807698</eqn>
-				</element>
-				<element subscript="77">
-					<eqn>0.137312594077</eqn>
-				</element>
-				<element subscript="78">
-					<eqn>0.188251695359</eqn>
-				</element>
-				<element subscript="79">
-					<eqn>0.244198627193</eqn>
-				</element>
-				<element subscript="80">
-					<eqn>0.120183766689</eqn>
-				</element>
-				<element subscript="81">
-					<eqn>0.293892253605</eqn>
-				</element>
-				<element subscript="82">
-					<eqn>0.25654624875</eqn>
-				</element>
-				<element subscript="83">
-					<eqn>0.0446984067331</eqn>
-				</element>
-				<element subscript="84">
-					<eqn>0.190015543681</eqn>
-				</element>
-				<element subscript="85">
-					<eqn>0.148720705462</eqn>
-				</element>
-				<element subscript="86">
-					<eqn>0.356445911878</eqn>
-				</element>
-				<element subscript="87">
-					<eqn>0.326784362295</eqn>
-				</element>
-				<element subscript="88">
-					<eqn>0.197726619676</eqn>
-				</element>
-				<element subscript="89">
-					<eqn>0.262511114265</eqn>
-				</element>
-				<element subscript="90">
-					<eqn>0.276392011143</eqn>
-				</element>
-				<element subscript="91">
-					<eqn>0.17966956527</eqn>
-				</element>
-				<element subscript="92">
-					<eqn>0.423506437773</eqn>
-				</element>
-				<element subscript="93">
-					<eqn>0.264926834281</eqn>
-				</element>
-				<element subscript="94">
-					<eqn>0.322189052089</eqn>
-				</element>
-				<element subscript="95">
-					<eqn>0.150455091857</eqn>
-				</element>
-				<element subscript="96">
-					<eqn>0.125815337098</eqn>
-				</element>
-				<element subscript="97">
-					<eqn>0.190581464294</eqn>
-				</element>
-				<element subscript="98">
-					<eqn>0.28027451468</eqn>
-				</element>
-				<element subscript="99">
-					<eqn>0.144216642217</eqn>
-				</element>
-				<element subscript="100">
-					<eqn>0.27781357965</eqn>
-				</element>
-				<units>YJ</units>
 			</aux>
 		</variables>
 		<views>
@@ -4911,7 +3685,7 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="357" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5180,10 +3954,6 @@ N = -k1T1 + (1-epsilon)*k3*(T2-T3)</doc>
 					<from>GMST_exog_switch</from>
 					<to>Surface_Temperature_Anomaly</to>
 				</connector>
-				<aux x="608.166" y="245.333" name="Initial Land &amp; Ocean\nSurface Temperature"/>
-				<aux x="621.167" y="468.25" name="Initial Thermocline\nOcean Temperature"/>
-				<aux x="595" y="693.333" name="Initial Deep Ocean Temperature"/>
-				<aux x="1052" y="913.333" name="Initial ocean heat\ncontent change"/>
 				<alias color="blue" background="white" font_style="italic" font_weight="bold" uid="23" x="416" y="477.25" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>selected_climate_case</of>
@@ -6493,7 +5263,7 @@ Should only ever be varied with soil carbon adaptation time scales  This paramet
 			</aux>
 			<aux name="Normal mature forest\naboveground biomass per area" access="input">
 				<dimensions>
-					<dim name="ClimateCase"/>
+					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>GtC/Mha</units>
@@ -6554,7 +5324,7 @@ Should only ever be varied with soil carbon adaptation time scales  This paramet
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="3" isee:scroll_y="789" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="3" isee:scroll_x="112" isee:scroll_y="102" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6877,7 +5647,7 @@ Should only ever be varied with soil carbon adaptation time scales  This paramet
 					<from>Estimated_soil_carbon_loss_from_converting_grassland</from>
 					<to>Annual_committed_CO2_emissions_from_land_use_transitions</to>
 				</connector>
-				<stock label_side="top" x="3000.67" y="747.542" name="Commited future soil carbon\nloss due to land-use\ntransitions"/>
+				<stock x="3000.67" y="747.542" name="Commited future soil carbon\nloss due to land-use\ntransitions"/>
 				<aux x="3000.67" y="803.542" name="Initial Commited future soil carbon\nloss due to land-use\ntransitions"/>
 				<aux x="3151" y="629.542" name="Soil carbon adaptation time scale"/>
 				<flow x="3101.09" y="745" name="Annual realized CO2 emissions from land use transitions">
@@ -6890,7 +5660,7 @@ Should only ever be varied with soil carbon adaptation time scales  This paramet
 					<from>Soil_carbon_adaptation_time_scale</from>
 					<to>Annual_realized_CO2_emissions_from_land_use_transitions</to>
 				</connector>
-				<connector uid="62" angle="26.9221">
+				<connector uid="62" angle="26.922">
 					<from>&quot;Commited_future_soil_carbon_loss_due_to_land-use_transitions&quot;</from>
 					<to>Annual_realized_CO2_emissions_from_land_use_transitions</to>
 				</connector>
@@ -7245,7 +6015,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="84" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7584,7 +6354,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="149" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="131" isee:scroll_y="134" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7631,7 +6401,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 						<pt x="648.25" y="609.08"/>
 					</pts>
 				</flow>
-				<stock label_side="top" x="670.75" y="612.5" name="Cumulative Forest\ncarbon balance"/>
+				<stock x="670.75" y="612.5" name="Cumulative Forest\ncarbon balance"/>
 				<connector uid="1" angle="344.476">
 					<from>forest_input</from>
 					<to>Forest_carbon_balance</to>
@@ -7907,7 +6677,7 @@ FUTURE: peatland carbon sink should maybe depend on global mean temperature and 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="10" isee:scroll_y="99" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
